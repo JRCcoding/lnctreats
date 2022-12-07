@@ -1,19 +1,14 @@
 import './App.css'
 import Navi from './Components/Navi'
-import Body from './Components/Body'
+import Intro from './Components/Intro'
+import About from './Components/About'
 
 function App() {
   return (
     <>
       <Navi className='mb-20' />
-      <Body />
-      <Body />
-      <Body />
-      <Body />
-      <Body />
-      <Body />
-      <Body />
-      <Body />
+      <Intro />
+      <About />
     </>
   )
 }

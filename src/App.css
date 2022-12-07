@@ -1,11 +1,24 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url(./Fonts/Roboto-Black.ttf) format('truetype');
+}
+
+
+
+
 .intro {
   margin-top: 15%;
 }
 .navi {
   background-color: #310859;
 }
-
-
+.about-text {
+  font-family: Roboto, sans-serif;
+  font-size: 1.5rem;
+}
+.about {
+  margin-top: 500px;
+}
 
 /* COLORS
 #310859
