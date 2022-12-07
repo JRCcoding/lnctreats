@@ -14,7 +14,7 @@
 }
 .navi {
   /* background-color: rgb(49, 8, 89, .9); */
-  background-color: rgb(255, 255, 255, .2);
+  background-color: rgb(255, 255, 255, .5);
 }
 .navlinks {
   /* font-size: 25px; */
@@ -25,12 +25,13 @@
 }
 
 .about {
-  color: white;
-  font-size: 1.75rem;
-  background-image: linear-gradient(to right, #310859, #5833A6);
+  color: black;
+  font-size: 1.728rem;
+  /* background-image: linear-gradient(to right, #310859, #5833A6); */
   margin: 4px;
+  /* background-color: rgb(165, 71, 194, .6); */
   text-align: center;
-  border-radius: 15%;
+  /* border-radius: 15%; */
 }
 @media only screen and (max-width: 600px) {
   .about {

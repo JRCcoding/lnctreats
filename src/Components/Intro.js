@@ -111,12 +111,16 @@ const Intro = () => {
             </MDBCard>
           </Col>
           <Col>
-            <p className='about' id='about'>
-              Lauryn is a local baker who bakes out of her love filled home in
-              Midland, TX. She is a mother of 3 and a wife. Not only does she
-              manage her business here, but she has an amazing family learning
-              from her.
-            </p>
+            <MDBCard className='card'>
+              <MDBCardBody>
+                <p className='about' id='about'>
+                  Lauryn is a local baker who bakes out of her love filled home
+                  in Midland, TX. She is a mother, a wife, and a boss. Not only
+                  does she manage her business here, but she has an amazing
+                  family learning from her.
+                </p>
+              </MDBCardBody>
+            </MDBCard>
           </Col>
         </Row>
       </Container>
