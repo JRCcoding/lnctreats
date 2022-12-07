@@ -6,7 +6,7 @@ const Body = () => {
   return (
     <div className='intro'>
       <Container>
-        <MDBCarousel showControls fade>
+        <MDBCarousel fade>
           <MDBCarouselItem
             className='w-100 d-block'
             itemId={1}
