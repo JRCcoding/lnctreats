@@ -4,10 +4,10 @@ import Intro from './Components/Intro'
 
 function App() {
   return (
-    <>
+    <div className='everything'>
       <Navi className='mb-20' />
       <Intro />
-    </>
+    </div>
   )
 }
 

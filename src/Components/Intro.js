@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import {
   MDBCarousel,
   MDBCarouselItem,
@@ -70,24 +70,55 @@ const Intro = () => {
           all here because of Lauryn. Such an amazing woman, her husband is
           soooooo lucky.
         </p> */}
-        <MDBCard>
-          <MDBCardImage position='top' alt='...' src={Profile} />
-          <MDBCardBody>
-            <MDBCardTitle>Lauryn</MDBCardTitle>
-            <MDBCardText>
-              Beautiful woman with beautiful skills, she's da bomb fa sho.
-            </MDBCardText>
-          </MDBCardBody>
-          <MDBListGroup flush>
-            <MDBListGroupItem>Amazing cakes</MDBListGroupItem>
-            <MDBListGroupItem>Delicious snacks and goodies</MDBListGroupItem>
-            <MDBListGroupItem>Personalized everything!</MDBListGroupItem>
-          </MDBListGroup>
-          <MDBCardBody>
-            <MDBCardLink href='#'>Facebook</MDBCardLink>
-            <MDBCardLink href='#'>Instagram</MDBCardLink>
-          </MDBCardBody>
-        </MDBCard>
+        <Row>
+          <Col>
+            <MDBCard className='card'>
+              <MDBCardImage
+                position='top'
+                alt='Lauryn Claxton LNC Treats'
+                src={Profile}
+              />
+              <MDBCardBody>
+                <MDBCardTitle>Lauryn</MDBCardTitle>
+                <MDBCardText>
+                  Beautiful woman with beautiful skills, she's da bomb fa sho.
+                </MDBCardText>
+              </MDBCardBody>
+              {/* <MDBListGroup flush>
+                <Row>
+                  <Col>
+                    <MDBListGroupItem>Amazing cakes</MDBListGroupItem>
+                    <MDBListGroupItem>
+                      Delicious snacks and goodies
+                    </MDBListGroupItem>
+                    <MDBListGroupItem>
+                      Personalized everything!
+                    </MDBListGroupItem>
+                  </Col>
+                  <Col>
+                    <MDBListGroupItem>Party favors</MDBListGroupItem>
+                    <MDBListGroupItem>Baby Showers</MDBListGroupItem>
+                    <MDBListGroupItem>
+                      Any other kind of treat!
+                    </MDBListGroupItem>
+                  </Col>
+                </Row>
+              </MDBListGroup> */}
+              <MDBCardBody>
+                <MDBCardLink href='#'>Facebook</MDBCardLink>
+                <MDBCardLink href='#'>Instagram</MDBCardLink>
+              </MDBCardBody>
+            </MDBCard>
+          </Col>
+          <Col>
+            <p className='about' id='about'>
+              Lauryn is a local baker who bakes out of her love filled home in
+              Midland, TX. She is a mother of 3 and a wife. Not only does she
+              manage her business here, but she has an amazing family learning
+              from her.
+            </p>
+          </Col>
+        </Row>
       </Container>
     </div>
   )
