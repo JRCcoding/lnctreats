@@ -15,15 +15,15 @@ function Navi() {
               height='60'
               className='d-inline-block align-top'
             />{' '}
-            <h2 className='d-inline justify-content-center'>
+            <h6 className='d-inline justify-content-center'>
               Lauryn's Next-door Cottage
-            </h2>
+            </h6>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto navlinks'>
               <Nav.Link href='#intro'>Home</Nav.Link>
-              <Nav.Link href='#about'>About</Nav.Link>
+              {/* <Nav.Link href='#about'>About</Nav.Link> */}
               {/* <NavDropdown title='Dropdown' id='basic-nav-dropdown'>
                 <NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
                 <NavDropdown.Item href='#action/3.2'>

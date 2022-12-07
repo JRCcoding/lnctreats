@@ -9,19 +9,18 @@
 .intro {
   background-image: url(./Images/foodcropped.png);
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+  background-size: cover, 100vh;
 }
 .navi {
   /* background-color: rgb(49, 8, 89, .9); */
-  background-color: rgb(255, 255, 255, .2)
+  background-color: rgb(255, 255, 255, .2);
 }
 .navlinks {
-  font-size: 25px;
-  font-weight: 800;
+  /* font-size: 25px; */
+  font-weight: 700;
 }
 .carousel {
-  margin-top: 15%;
+  margin: 20% 0;
 }
 .about-text {
   font-family: Roboto, sans-serif;
