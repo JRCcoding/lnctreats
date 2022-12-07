@@ -7,17 +7,30 @@
 
 
 .intro {
-  margin-top: 15%;
+  background-image: url(./Images/foodcropped.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 .navi {
-  background-color: #310859;
+  /* background-color: rgb(49, 8, 89, .9); */
+  background-color: rgb(255, 255, 255, .2)
+}
+.navlinks {
+  font-size: 25px;
+  font-weight: 800;
+}
+.carousel {
+  margin-top: 15%;
 }
 .about-text {
   font-family: Roboto, sans-serif;
   font-size: 1.5rem;
 }
-.about {
-  margin-top: 500px;
+
+#profileimg {
+  border-radius: 50%;
+  box-shadow: 4px 4px 4px rgb(255, 255, 255);
 }
 
 /* COLORS

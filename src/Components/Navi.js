@@ -5,7 +5,7 @@ import { Navbar, Nav } from 'react-bootstrap'
 function Navi() {
   return (
     <>
-      <Navbar className='navi shadow-lg p-2' variant='dark' fixed='top'>
+      <Navbar className='navi' variant='light' fixed='top'>
         <Container>
           <Navbar.Brand href='#intro'>
             <img
@@ -21,7 +21,7 @@ function Navi() {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ms-auto'>
+            <Nav className='ms-auto navlinks'>
               <Nav.Link href='#intro'>Home</Nav.Link>
               <Nav.Link href='#about'>About</Nav.Link>
               {/* <NavDropdown title='Dropdown' id='basic-nav-dropdown'>

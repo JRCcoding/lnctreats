@@ -4,7 +4,7 @@ import Profile from '../Images/maybeprofile.jpg'
 const About = () => {
   return (
     <div className='d-flex about' id='about'>
-      <img src={Profile} alt='...' className='w-50 d-block-inline ms-5' />
+      <img src={Profile} alt='...' className='w-50 d-block-inline ms-5' id='profileimg' />
       <p className='align-top ms-5 about-text'>
         Lauryn Claxton{' '}
         <b>

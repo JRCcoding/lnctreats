@@ -9,7 +9,7 @@ const Intro = () => {
   return (
     <div className='intro mb-5 pt-5' id='intro'>
       <Container>
-        <MDBCarousel carousel-fade>
+        <MDBCarousel carousel-fade className='carousel shadow-lg'>
           <MDBCarouselItem
             className='w-100 d-block rounded'
             itemId={1}
