@@ -26,7 +26,7 @@ const Intro = () => {
           className='carousel shadow-lg animate__animated animate__fadeInUpBig'
         >
           <MDBCarouselItem
-            className='w-100 d-block rounded'
+            className='w-100 d-block'
             itemId={1}
             src={Prod1}
             alt='Lauryns Next door Cottage Lady Bug Cake'
@@ -37,7 +37,7 @@ const Intro = () => {
             </div>
           </MDBCarouselItem>
           <MDBCarouselItem
-            className='w-100 d-block rounded'
+            className='w-100 d-block'
             itemId={2}
             src={Prod2}
             alt='Lauryns Next door Cottage Celeste XOXO Cake'
@@ -48,7 +48,7 @@ const Intro = () => {
             </div>
           </MDBCarouselItem>
           <MDBCarouselItem
-            className='w-100 d-block rounded'
+            className='w-100 d-block'
             itemId={3}
             src={Prod3}
             alt='Lauryns Next door Cottage Halloween Treat Box'
@@ -58,7 +58,6 @@ const Intro = () => {
             </div>
           </MDBCarouselItem>
         </MDBCarousel>
-
         <Row className='cards'>
           <Col>
             <AnimationOnScroll
@@ -66,7 +65,7 @@ const Intro = () => {
               duration='.8'
               animateOnce='true'
             >
-              <MDBCard className='card'>
+              <MDBCard className='card' id='about'>
                 <MDBCardImage
                   position='top'
                   alt='Lauryn Claxton LNC Treats'
@@ -86,6 +85,7 @@ const Intro = () => {
               </MDBCard>
             </AnimationOnScroll>
           </Col>
+
           <Col>
             <AnimationOnScroll
               animateIn='animate__bounceInRight'
@@ -95,7 +95,7 @@ const Intro = () => {
             >
               <MDBCard className='card2'>
                 <MDBCardBody>
-                  <p className='about' id='about'>
+                  <p className='about'>
                     Lauryn is a local baker who bakes out of her love filled
                     home in Midland, TX. She is a mother, a wife, and a boss.
                     Not only does she manage her business here, but she has an
@@ -104,15 +104,27 @@ const Intro = () => {
                 </MDBCardBody>
               </MDBCard>
             </AnimationOnScroll>
+          </Col>
+          <Col>
             <AnimationOnScroll
               animateIn='animate__bounceInRight'
               delay='750'
               duration='.8'
               animateOnce='true'
             >
-              <MDBCard className='card2'>
+              <MDBCard className='card2 card3'>
                 <MDBCardBody>
-                  <p className='about' id='about'>
+                  <p className='about'>
+                    Lauryn is a local baker who bakes out of her love filled
+                    home in Midland, TX. She is a mother, a wife, and a boss.
+                    Not only does she manage her business here, but she has an
+                    amazing family learning from her.
+                  </p>
+                </MDBCardBody>
+              </MDBCard>
+              <MDBCard className='card2 card3'>
+                <MDBCardBody>
+                  <p className='about'>
                     Lauryn is a local baker who bakes out of her love filled
                     home in Midland, TX. She is a mother, a wife, and a boss.
                     Not only does she manage her business here, but she has an

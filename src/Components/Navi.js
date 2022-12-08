@@ -22,7 +22,7 @@ export default function App() {
   const [showBasic, setShowBasic] = useState(false)
 
   return (
-    <MDBNavbar expand='md' fixed='top' className='navi'>
+    <MDBNavbar expand='md' fixed='top' className='navi rounded-bottom'>
       <MDBContainer fluid>
         <MDBNavbarBrand href='#'>
           <img
@@ -60,10 +60,12 @@ export default function App() {
             <MDBNavbarItem>
               <MDBDropdown>
                 <MDBDropdownToggle tag='a' className='nav-link' role='button'>
-                  Dropdown
+                  Products and More
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem link>Action</MDBDropdownItem>
+                  <MDBDropdownItem link href='#products'>
+                    Products
+                  </MDBDropdownItem>
                   <MDBDropdownItem link>Another action</MDBDropdownItem>
                   <MDBDropdownItem link>Something else here</MDBDropdownItem>
                 </MDBDropdownMenu>
