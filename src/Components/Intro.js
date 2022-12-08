@@ -9,8 +9,6 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardLink,
-  // MDBListGroup,
-  // MDBListGroupItem,
 } from 'mdb-react-ui-kit'
 import 'animate.css'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
@@ -23,12 +21,15 @@ const Intro = () => {
   return (
     <div className='intro mb-5 pt-5' id='intro'>
       <Container>
-        <MDBCarousel carousel-fade className='carousel shadow-lg'>
+        <MDBCarousel
+          carousel-fade
+          className='carousel shadow-lg animate__animated animate__fadeInUpBig'
+        >
           <MDBCarouselItem
             className='w-100 d-block rounded'
             itemId={1}
             src={Prod1}
-            alt='...'
+            alt='Lauryns Next door Cottage Lady Bug Cake'
           >
             {' '}
             <div className='text-black'>
@@ -39,7 +40,7 @@ const Intro = () => {
             className='w-100 d-block rounded'
             itemId={2}
             src={Prod2}
-            alt='...'
+            alt='Lauryns Next door Cottage Celeste XOXO Cake'
           >
             {' '}
             <div className='text-black'>
@@ -50,28 +51,13 @@ const Intro = () => {
             className='w-100 d-block rounded'
             itemId={3}
             src={Prod3}
-            alt='...'
+            alt='Lauryns Next door Cottage Halloween Treat Box'
           >
             <div className='text-black'>
               <h1>Halloween Treat Box</h1>
             </div>
           </MDBCarouselItem>
         </MDBCarousel>
-        {/* <img
-          src={Profile}
-          alt='...'
-          className='w-50 d-block-inline ms-5'
-          id='profileimg'
-        />
-        <p className='align-top ms-5 about-text'>
-          Lauryn Claxton{' '}
-          <b>
-            <i>IS</i>
-          </b>{' '}
-          Lauryn's Next-door Cottage. Without her there is no website. We are
-          all here because of Lauryn. Such an amazing woman, her husband is
-          soooooo lucky.
-        </p> */}
 
         <Row className='cards'>
           <Col>
@@ -92,26 +78,7 @@ const Intro = () => {
                     Beautiful woman with beautiful skills, she's da bomb fa sho.
                   </MDBCardText>
                 </MDBCardBody>
-                {/* <MDBListGroup flush>
-                <Row>
-                  <Col>
-                    <MDBListGroupItem>Amazing cakes</MDBListGroupItem>
-                    <MDBListGroupItem>
-                      Delicious snacks and goodies
-                    </MDBListGroupItem>
-                    <MDBListGroupItem>
-                      Personalized everything!
-                    </MDBListGroupItem>
-                  </Col>
-                  <Col>
-                    <MDBListGroupItem>Party favors</MDBListGroupItem>
-                    <MDBListGroupItem>Baby Showers</MDBListGroupItem>
-                    <MDBListGroupItem>
-                      Any other kind of treat!
-                    </MDBListGroupItem>
-                  </Col>
-                </Row>
-              </MDBListGroup> */}
+
                 <MDBCardBody>
                   <MDBCardLink href='#'>Facebook</MDBCardLink>
                   <MDBCardLink href='#'>Instagram</MDBCardLink>
@@ -126,7 +93,24 @@ const Intro = () => {
               duration='.8'
               animateOnce='true'
             >
-              <MDBCard className='card'>
+              <MDBCard className='card2'>
+                <MDBCardBody>
+                  <p className='about' id='about'>
+                    Lauryn is a local baker who bakes out of her love filled
+                    home in Midland, TX. She is a mother, a wife, and a boss.
+                    Not only does she manage her business here, but she has an
+                    amazing family learning from her.
+                  </p>
+                </MDBCardBody>
+              </MDBCard>
+            </AnimationOnScroll>
+            <AnimationOnScroll
+              animateIn='animate__bounceInRight'
+              delay='750'
+              duration='.8'
+              animateOnce='true'
+            >
+              <MDBCard className='card2'>
                 <MDBCardBody>
                   <p className='about' id='about'>
                     Lauryn is a local baker who bakes out of her love filled

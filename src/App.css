@@ -3,13 +3,18 @@
   src: local('Roboto'), url(./Fonts/Roboto-Black.ttf) format('truetype');
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, purple, blue);
+
+}
 
 
 
 .everything {
   /* background-image: url(./Images/foodcropped.png);
    */
-   background-image: linear-gradient(to right, purple, blue);
   background-repeat: no-repeat;
   background-size: cover, 100vh;
   background-attachment: fixed;
@@ -47,6 +52,13 @@
 }
 .card {
   margin-top: 110%;
+  margin-bottom: -100%;
+}
+.card2 {
+  margin-top: 110%;
+  margin-bottom: -100%;
+  background-image: linear-gradient(to right, rgb(122, 122, 253), rgb(126, 57, 126));
+
 }
 
 #profileimg {
