@@ -9,9 +9,11 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardLink,
-  MDBListGroup,
-  MDBListGroupItem,
+  // MDBListGroup,
+  // MDBListGroupItem,
 } from 'mdb-react-ui-kit'
+import 'animate.css'
+import { AnimationOnScroll } from 'react-animation-on-scroll'
 import Prod1 from '../Images/product1.jpg'
 import Prod2 from '../Images/product2.jpg'
 import Prod3 from '../Images/product3.jpg'
@@ -70,21 +72,27 @@ const Intro = () => {
           all here because of Lauryn. Such an amazing woman, her husband is
           soooooo lucky.
         </p> */}
-        <Row>
+
+        <Row className='cards'>
           <Col>
-            <MDBCard className='card'>
-              <MDBCardImage
-                position='top'
-                alt='Lauryn Claxton LNC Treats'
-                src={Profile}
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Lauryn</MDBCardTitle>
-                <MDBCardText>
-                  Beautiful woman with beautiful skills, she's da bomb fa sho.
-                </MDBCardText>
-              </MDBCardBody>
-              {/* <MDBListGroup flush>
+            <AnimationOnScroll
+              animateIn='animate__bounceInLeft'
+              duration='.8'
+              animateOnce='true'
+            >
+              <MDBCard className='card'>
+                <MDBCardImage
+                  position='top'
+                  alt='Lauryn Claxton LNC Treats'
+                  src={Profile}
+                />
+                <MDBCardBody>
+                  <MDBCardTitle>Lauryn</MDBCardTitle>
+                  <MDBCardText>
+                    Beautiful woman with beautiful skills, she's da bomb fa sho.
+                  </MDBCardText>
+                </MDBCardBody>
+                {/* <MDBListGroup flush>
                 <Row>
                   <Col>
                     <MDBListGroupItem>Amazing cakes</MDBListGroupItem>
@@ -104,23 +112,31 @@ const Intro = () => {
                   </Col>
                 </Row>
               </MDBListGroup> */}
-              <MDBCardBody>
-                <MDBCardLink href='#'>Facebook</MDBCardLink>
-                <MDBCardLink href='#'>Instagram</MDBCardLink>
-              </MDBCardBody>
-            </MDBCard>
+                <MDBCardBody>
+                  <MDBCardLink href='#'>Facebook</MDBCardLink>
+                  <MDBCardLink href='#'>Instagram</MDBCardLink>
+                </MDBCardBody>
+              </MDBCard>
+            </AnimationOnScroll>
           </Col>
           <Col>
-            <MDBCard className='card'>
-              <MDBCardBody>
-                <p className='about' id='about'>
-                  Lauryn is a local baker who bakes out of her love filled home
-                  in Midland, TX. She is a mother, a wife, and a boss. Not only
-                  does she manage her business here, but she has an amazing
-                  family learning from her.
-                </p>
-              </MDBCardBody>
-            </MDBCard>
+            <AnimationOnScroll
+              animateIn='animate__bounceInRight'
+              delay='500'
+              duration='.8'
+              animateOnce='true'
+            >
+              <MDBCard className='card'>
+                <MDBCardBody>
+                  <p className='about' id='about'>
+                    Lauryn is a local baker who bakes out of her love filled
+                    home in Midland, TX. She is a mother, a wife, and a boss.
+                    Not only does she manage her business here, but she has an
+                    amazing family learning from her.
+                  </p>
+                </MDBCardBody>
+              </MDBCard>
+            </AnimationOnScroll>
           </Col>
         </Row>
       </Container>
