@@ -1,7 +1,9 @@
+import lbcake from './Images/product1.jpg'
+
 const products = [
   {
     title: 'Cake',
-    img: './Images/cake.png',
+    img: { lbcake },
     description: "Let's get this working properly...",
   },
   {

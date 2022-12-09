@@ -6,7 +6,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(to right, purple, blue);
+  background-image: linear-gradient(to right, #1e0640, #5833A6);
 
 }
 
@@ -38,7 +38,7 @@ html, body {
 }
 @media only screen and (max-width: 600px) {
   .carousel {
-    margin: 10% 0 150% 0;
+    margin: 15% 0 150% 0;
   }
 }
 
@@ -56,20 +56,20 @@ html, body {
     font-size: 1rem;
   }
 }
+.card {
+  height: 600px;
+}
 .card2 {
-  margin-top: 10%;
-  background-image: linear-gradient(to right, rgb(122, 122, 253), rgb(126, 57, 126));
+  background-image: linear-gradient(to right, rgb(126, 57, 126), rgb(122, 122, 253),rgb(122, 122, 253), rgb(126, 57, 126));
 }
 
 .card_link {
   color: #060126;
   text-decoration: none;
   font-size: 1.4rem;
-  transition: all .2s ease-in-out;
 }
 .card_link:hover {
   color: #735ef2;
-  transform: scale(1.5);
 }
 
 .title {
@@ -78,8 +78,12 @@ html, body {
   color: white;
 }
 .product_list {
-  color:white;
+  color:black;
   font-size: 1.5rem;
+}
+.product_card {
+  background-image: linear-gradient(to right, rgb(126, 57, 126), rgb(122, 122, 253),rgb(122, 122, 253), rgb(126, 57, 126));
+  margin: 15% 0;
 }
 @media only sreen and (max-width: 600px) {
   .product_list {
