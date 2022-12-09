@@ -7,13 +7,17 @@ const Products = () => {
   return (
     <div>
       <Container>
-        <h2 className='title'>Products</h2>
-        {products.map((product) => (
-          <Row key='product' className='product_list'>
-            <Col>{product.title}</Col>
-            <Col>{product.description}</Col>
-          </Row>
-        ))}
+        <h2 className='title' id='products'>
+          Products
+        </h2>
+        <Container className='product_list'>
+          {products.map((product) => (
+            <Row key='product'>
+              <Col>{product.title}</Col>
+              <Col>{product.description}</Col>
+            </Row>
+          ))}
+        </Container>
       </Container>
     </div>
   )

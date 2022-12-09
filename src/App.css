@@ -57,6 +57,7 @@ html, body {
   }
 }
 .card2 {
+  margin-top: 10%;
   background-image: linear-gradient(to right, rgb(122, 122, 253), rgb(126, 57, 126));
 }
 .card3 {
@@ -66,9 +67,20 @@ html, body {
   .cards {
     margin-top: 20%;
   }
-  .card2 {
-    margin-top: 100px;
+  .card3 {
+    margin-top: 0;
   }
+
+}
+.card_link {
+  color: #060126;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: all .2s ease-in-out;
+}
+.card_link:hover {
+  color: #735ef2;
+  transform: scale(1.5);
 }
 
 .title {
