@@ -60,18 +60,7 @@ html, body {
   margin-top: 10%;
   background-image: linear-gradient(to right, rgb(122, 122, 253), rgb(126, 57, 126));
 }
-.card3 {
-  margin-top: 5%;
-}
-@media only sreen and (max-width: 600px) {
-  .cards {
-    margin-top: 20%;
-  }
-  .card3 {
-    margin-top: 0;
-  }
 
-}
 .card_link {
   color: #060126;
   text-decoration: none;
