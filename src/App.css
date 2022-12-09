@@ -6,7 +6,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(to right, #1e0640, #5833A6);
+  background-image: linear-gradient(to right, #1e0640, #533497);
 
 }
 
@@ -34,7 +34,7 @@ html, body {
   font-weight: 700;
 }
 .carousel {
-  margin: 5.5% 0 20% 0;
+  margin: 5.5% 0 60% 0;
 }
 @media only screen and (max-width: 600px) {
   .carousel {
@@ -59,9 +59,9 @@ html, body {
 .card {
   height: 600px;
 }
-.card2 {
+/* .card2 {
   background-image: linear-gradient(to right, rgb(126, 57, 126), rgb(122, 122, 253),rgb(122, 122, 253), rgb(126, 57, 126));
-}
+} */
 .col2card {
   margin-top: 5%;
 }
@@ -70,9 +70,20 @@ html, body {
   color: #060126;
   text-decoration: none;
   font-size: 1.4rem;
+  transform: transform 500ms;
+  will-change:  transform;
+  transition: all 2s;
+  font-weight: bold;
+
 }
 .card_link:hover {
   color: #735ef2;
+  transform: scale(1.8);
+  font-size: 2rem;
+}
+.card_link_right {
+  text-align: right;
+  padding-left: 10%;
 }
 
 .title {

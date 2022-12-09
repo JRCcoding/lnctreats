@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+
 import {
   MDBCarousel,
   MDBCarouselItem,
@@ -23,7 +24,7 @@ const Intro = () => {
   return (
     <div className='intro mb-5 pt-5' id='intro'>
       <Container>
-        <MDBCarousel carousel-fade className='carousel shadow-lg '>
+        <MDBCarousel carousel-fade className='carousel shadow-lg'>
           <MDBCarouselItem
             className='w-100 d-block'
             itemId={1}
@@ -79,7 +80,7 @@ const Intro = () => {
                 <MDBCardLink href='#' className='card_link'>
                   Facebook
                 </MDBCardLink>
-                <MDBCardLink href='#' className='card_link'>
+                <MDBCardLink href='#' className='card_link card_link_right'>
                   Instagram
                 </MDBCardLink>
               </MDBCardBody>

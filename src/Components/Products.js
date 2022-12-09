@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import products from '../data'
+
 import {
   MDBCard,
   MDBCardImage,
@@ -18,22 +19,21 @@ const Products = () => {
           Products
         </h2>
         <Container className='product_list'>
-          <Row>
-            <Col>
-              {products.map((product) => (
-                <MDBCard className='product_card'>
-                  <MDBCardImage
-                    position='top'
-                    alt='Lauryn Claxton LNC Treats'
-                    src={product.img}
-                  />
-                  <MDBCardBody>
-                    <MDBCardTitle>{product.title}</MDBCardTitle>
-                    <MDBCardText>{product.description}</MDBCardText>
-                  </MDBCardBody>
-                </MDBCard>
-              ))}
-            </Col>
+          <Row sm={1} md={2}>
+            {products.map((product) => (
+              <MDBCard className='product_card'>
+                <MDBCardImage
+                  cascade
+                  position='top'
+                  alt='Lauryn Claxton LNC Treats'
+                  src={product.img}
+                />
+                <MDBCardBody>
+                  <MDBCardTitle>{product.title}</MDBCardTitle>
+                  <MDBCardText>{product.description}</MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            ))}
           </Row>
         </Container>
       </Container>

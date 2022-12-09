@@ -15,7 +15,10 @@
     "react-animation-on-scroll": "^5.1.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
+    "react-hover-animation": "^2.1.1",
     "react-scripts": "5.0.1",
+    "react-spring": "^9.5.5",
+    "react-transition-group": "^4.4.5",
     "style-it": "^2.1.4",
     "web-vitals": "^2.1.4"
   },
