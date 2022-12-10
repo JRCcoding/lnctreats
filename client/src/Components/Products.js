@@ -9,7 +9,7 @@ import {
   MDBCardTitle,
   MDBCardText,
 } from 'mdb-react-ui-kit'
-import { Row, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 const Products = () => {
   return (
