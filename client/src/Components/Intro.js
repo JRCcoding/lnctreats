@@ -77,10 +77,18 @@ const Intro = () => {
               </MDBCardBody>
 
               <MDBCardBody>
-                <MDBCardLink href='#' className='card_link'>
+                <MDBCardLink
+                  href='https://www.facebook.com/LNCsstreats/'
+                  target='_blank'
+                  className='card_link'
+                >
                   Facebook
                 </MDBCardLink>
-                <MDBCardLink href='#' className='card_link card_link_right'>
+                <MDBCardLink
+                  href='https://www.instagram.com/lnc_sweetandsavorytreats/'
+                  target='_blank'
+                  className='card_link card_link_right'
+                >
                   Instagram
                 </MDBCardLink>
               </MDBCardBody>

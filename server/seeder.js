@@ -1,9 +1,7 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import blogposts from './data/blogposts.js'
-import notes from './data/notes.js'
-import Note from './models/noteModel.js'
-import Blog from './models/blogModel.js'
+import products from './data/data.js'
+import Product from './models/productModel.js'
 import connectDB from './config/db.js'
 
 dotenv.config()
@@ -12,11 +10,9 @@ connectDB()
 
 const importData = async () => {
   try {
-    await Blog.deleteMany()
-    await Note.deleteMany()
+    await Product.deleteMany()
 
-    await Blog.insertMany(blogposts)
-    await Note.insertMany(notes)
+    await Product.insertMany(products)
 
     console.log('Data Imported!')
     process.exit()
@@ -28,8 +24,7 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
-    await Blog.deleteMany()
-    await Note.deleteMany()
+    await Product.deleteMany()
 
     console.log('Data Destroyed!')
     process.exit()
