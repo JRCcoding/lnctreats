@@ -1,9 +1,7 @@
-import lbcake from './Images/product1.jpg'
-
-const products = [
+const product = [
   {
     title: 'Cake',
-    img: { lbcake },
+    img: './Images/product1.jpg',
     description: "Let's get this working properly...",
   },
   {
@@ -17,4 +15,4 @@ const products = [
     description: "Let's get this working properly...3",
   },
 ]
-export default products
+export default product
