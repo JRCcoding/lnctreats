@@ -16,29 +16,30 @@ const Products = () => {
   return (
     <div>
       <Container>
-        <h2 className='title' id='products'>
-          Products
-        </h2>
         <AnimationOnScroll animateIn='animate__pulse' animateOnce='true'>
-          <Container className='product_list'>
-            <Row xs={1} sm={1} md={1}>
-              {products.map((product) => (
-                <MDBCard className='product_card'>
-                  <MDBCardImage
-                    cascade
-                    position='top'
-                    alt='Lauryn Claxton LNC Treats'
-                    src={product.img}
-                  />
-                  <MDBCardBody>
-                    <MDBCardTitle>{product.title}</MDBCardTitle>
-                    <MDBCardText>{product.description}</MDBCardText>
-                  </MDBCardBody>
-                </MDBCard>
-              ))}
-            </Row>
-          </Container>
+          <h2 className='title' id='products'>
+            Products
+          </h2>
         </AnimationOnScroll>
+
+        <Container className='product_list'>
+          <Row xs={1} sm={1} md={1}>
+            {products.map((product) => (
+              <MDBCard className='product_card'>
+                <MDBCardImage
+                  cascade
+                  position='top'
+                  alt='Lauryn Claxton LNC Treats'
+                  src={product.img}
+                />
+                <MDBCardBody>
+                  <MDBCardTitle>{product.title}</MDBCardTitle>
+                  <MDBCardText>{product.description}</MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            ))}
+          </Row>
+        </Container>
       </Container>
     </div>
   )
