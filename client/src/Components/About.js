@@ -18,7 +18,7 @@ const About = () => {
     <>
       <Row xs={1} lg={3} className='testing align-items-end'>
         <Col>
-          -{' '}
+          {' '}
           <MDBCard
             className='card animate__animated animate__fadeInLeft'
             id='about'
