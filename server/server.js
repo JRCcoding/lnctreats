@@ -1,11 +1,11 @@
 import express from 'express'
 import connectDB from './config/db.js'
-import product from './data/data.js'
 import dotenv from 'dotenv'
 import products from './routes/productRoutes.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import colors from 'colors'
 
 dotenv.config()
 
@@ -53,5 +53,8 @@ const PORT = process.env.PORT || 10000
 
 app.listen(
   PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.blue
+  )
 )
