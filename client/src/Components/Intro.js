@@ -1,24 +1,11 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-
-import {
-  MDBCarousel,
-  MDBCarouselItem,
-  MDBCard,
-  MDBCardImage,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardLink,
-  // MDBRow,
-  // MDBCol,
-} from 'mdb-react-ui-kit'
+import { Container } from 'react-bootstrap'
+import About from './About'
+import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit'
 import 'animate.css'
-import { AnimationOnScroll } from 'react-animation-on-scroll'
 import Prod1 from '../Images/product1.jpg'
 import Prod2 from '../Images/product2.jpg'
 import Prod3 from '../Images/product3.jpg'
-import Profile from '../Images/maybeprofile.jpg'
 
 const Intro = () => {
   return (
@@ -58,112 +45,8 @@ const Intro = () => {
             </div>
           </MDBCarouselItem>
         </MDBCarousel>
-        <Row xs={1} md={2} className='g-4'>
-          <Col>
-            <MDBCard
-              className='card animate__animated animate__fadeInLeft'
-              id='about'
-            >
-              <MDBCardImage
-                position='top'
-                alt='Lauryn Claxton LNC Treats'
-                src={Profile}
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Lauryn</MDBCardTitle>
-                <MDBCardText>
-                  Beautiful woman with beautiful skills, she's da bomb fa sho.
-                </MDBCardText>
-              </MDBCardBody>
 
-              <MDBCardBody>
-                <MDBCardLink
-                  href='https://www.facebook.com/LNCsstreats/'
-                  target='_blank'
-                  className='card_link'
-                >
-                  Facebook
-                </MDBCardLink>
-                <MDBCardLink
-                  href='https://www.instagram.com/lnc_sweetandsavorytreats/'
-                  target='_blank'
-                  className='card_link card_link_right'
-                >
-                  Instagram
-                </MDBCardLink>
-              </MDBCardBody>
-            </MDBCard>
-          </Col>
-
-          <Col>
-            <AnimationOnScroll
-              animateIn='animate__bounceInRight'
-              animateOnce='true'
-            >
-              <MDBCard className='card card2'>
-                <MDBCardBody>
-                  <p className='about'>
-                    Lauryn is a local baker who bakes out of her love filled
-                    home in Midland, TX. She is a mother, a wife, and a boss.
-                    Not only does she manage her business here, but she has an
-                    amazing family learning from her.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            </AnimationOnScroll>
-
-            <AnimationOnScroll
-              animateIn='animate__bounceInLeft'
-              animateOnce='true'
-            >
-              <MDBCard className='card card2 col2card'>
-                <MDBCardBody>
-                  <p className='about'>
-                    Lauryn is a local baker who bakes out of her love filled
-                    home in Midland, TX. She is a mother, a wife, and a boss.
-                    Not only does she manage her business here, but she has an
-                    amazing family learning from her.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            </AnimationOnScroll>
-          </Col>
-
-          <AnimationOnScroll
-            animateIn='animate__bounceInRight'
-            animateOnce='true'
-          >
-            <Col>
-              <MDBCard className='card card2'>
-                <MDBCardBody>
-                  <p className='about'>
-                    Lauryn is a local baker who bakes out of her love filled
-                    home in Midland, TX. She is a mother, a wife, and a boss.
-                    Not only does she manage her business here, but she has an
-                    amazing family learning from her.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            </Col>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            animateIn='animate__bounceInLeft'
-            animateOnce='true'
-          >
-            <Col>
-              <MDBCard className='card card2 card3'>
-                <MDBCardBody>
-                  <p className='about'>
-                    Lauryn is a local baker who bakes out of her love filled
-                    home in Midland, TX. She is a mother, a wife, and a boss.
-                    Not only does she manage her business here, but she has an
-                    amazing family learning from her.
-                  </p>
-                </MDBCardBody>
-              </MDBCard>
-            </Col>
-          </AnimationOnScroll>
-        </Row>
+        <About />
       </Container>
     </div>
   )
