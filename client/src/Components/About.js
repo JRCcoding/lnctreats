@@ -16,7 +16,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 const About = () => {
   return (
     <>
-      <Row xs={1} lg={3} className='testing align-items-top'>
+      <Row xs={1} lg={3} className='testing align-items-end'>
         <Col>
           -{' '}
           <MDBCard
@@ -31,7 +31,7 @@ const About = () => {
             <Accordion defaultActiveKey='0'>
               <Accordion.Item eventKey='1'>
                 <Accordion.Header>
-                  <MDBCardTitle>Lauryn</MDBCardTitle>
+                  <MDBCardTitle className='card_link'>Lauryn</MDBCardTitle>
                 </Accordion.Header>
                 <Accordion.Body>
                   <MDBCardBody>
