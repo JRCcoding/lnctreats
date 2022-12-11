@@ -21,7 +21,7 @@ const Products = () => {
         </h2>
         <AnimationOnScroll animateIn='animate__pulse' animateOnce='true'>
           <Container className='product_list'>
-            <Row sm={1} md={2}>
+            <Row xs={1} sm={1} md={1}>
               {products.map((product) => (
                 <MDBCard className='product_card'>
                   <MDBCardImage
