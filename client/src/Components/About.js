@@ -100,7 +100,7 @@ const About = () => {
           </AnimationOnScroll>
         </Col>
         <Col>
-          <MDBCard className='card mt-5'>
+          <MDBCard className='card' id='lastcard'>
             <MDBCardBody>
               <p className='about'>
                 I do custom cakes as well as simple cakes, cake pops, multiple

@@ -109,10 +109,12 @@ font-weight: bold;
 .lauryncard {
   margin-top: 7.5%;
 }
-
-#lastcard {
-  margin-top: 5%;
+@media only screen and (max-width: 600px) {
+  #lastcard {
+    margin-top: 5%;
+  }
 }
+
 .testing{
   justify-content: center;
   
