@@ -34,7 +34,7 @@ html, body {
   font-weight: 700;
 }
 .carousel {
-  margin: 10% 0 30% 0;
+  margin: 10% 5% 40% 5%;
 }
 @media only screen and (max-width: 600px) {
   .carousel {
