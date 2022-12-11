@@ -64,7 +64,7 @@ const About = () => {
         </Col>
         <Col>
           <AnimationOnScroll
-            animateIn='animate__bounceInRight'
+            animateIn='animate__fadeInRight'
             animateOnce='true'
           >
             <MDBCard className='lauryncard'>
@@ -85,10 +85,7 @@ const About = () => {
       </Row>
       <Row xs={1} lg={3} className='testing mt-4'>
         <Col>
-          <AnimationOnScroll
-            animateIn='animate__bounceInLeft'
-            animateOnce='true'
-          >
+          <AnimationOnScroll animateIn='animate__fadeInLeft' animateOnce='true'>
             <MDBCard className='card card2 col2card'>
               <MDBCardBody>
                 <p className='about'>
@@ -100,18 +97,23 @@ const About = () => {
           </AnimationOnScroll>
         </Col>
         <Col>
-          <MDBCard className='card' id='lastcard'>
-            <MDBCardBody>
-              <p className='about'>
-                I do custom cakes as well as simple cakes, cake pops, multiple
-                tiers and anything else you might want on a cake! Personalized
-                toppers can easily be added as well. Check out my{' '}
-                <a href='#cakesheet' className='intextlink'>
-                  Cake Price Sheet
-                </a>
-              </p>
-            </MDBCardBody>
-          </MDBCard>
+          <AnimationOnScroll
+            animateIn='animate__fadeInRight'
+            animateOnce='true'
+          >
+            <MDBCard className='card' id='lastcard'>
+              <MDBCardBody>
+                <p className='about'>
+                  I do custom cakes as well as simple cakes, cake pops, multiple
+                  tiers and anything else you might want on a cake! Personalized
+                  toppers can easily be added as well. Check out my{' '}
+                  <a href='#cakesheet' className='intextlink'>
+                    Cake Price Sheet
+                  </a>
+                </p>
+              </MDBCardBody>
+            </MDBCard>
+          </AnimationOnScroll>
         </Col>
       </Row>
     </>
