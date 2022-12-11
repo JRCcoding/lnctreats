@@ -11,7 +11,7 @@ const Intro = () => {
   return (
     <div className='intro mb-5 pt-5' id='intro'>
       <Container>
-        <MDBCarousel carousel-fade className='carousel shadow-lg'>
+        <MDBCarousel className='carousel shadow-lg'>
           <MDBCarouselItem
             className='w-100 d-block'
             itemId={1}
@@ -20,7 +20,7 @@ const Intro = () => {
           >
             {' '}
             <div className='text-black'>
-              <h1>Lady Bug Cake</h1>{' '}
+              <h1>Lady Bug Cake</h1>
             </div>
           </MDBCarouselItem>
           <MDBCarouselItem
