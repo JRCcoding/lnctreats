@@ -99,7 +99,7 @@ font-weight: bold;
   font-size: 1.5rem;
 }
 .product_card {
-  margin: 5% 0;
+  margin: 2% 0;
 }
 @media only sreen and (max-width: 600px) {
   .product_list {
@@ -110,11 +110,17 @@ font-weight: bold;
 .lauryncard {
   margin-top: 7.5%;
 }
-  #lastcard {
-    margin-top: 6%;
-  }
-
-
+@media only screen and (max-width: 1000px) {
+#lastcard {
+  margin-top: 6%;
+}
+}
+.products_box {
+  background-color: rgba(128, 0, 128, 0.2);
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+  padding-top: 3%;
+}
 .testing{
   justify-content: center;
   

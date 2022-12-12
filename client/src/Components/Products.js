@@ -26,33 +26,35 @@ const Products = ({ product }) => {
   return (
     <div>
       <Container>
-        <AnimationOnScroll animateIn='animate__pulse' animateOnce='true'>
-          <h2 className='title' id='products'>
-            Products
-          </h2>
-        </AnimationOnScroll>
+        <div className='products_box'>
+          <AnimationOnScroll animateIn='animate__pulse' animateOnce='true'>
+            <h2 className='title' id='products'>
+              Products
+            </h2>
+          </AnimationOnScroll>
 
-        <Container className='product_list'>
-          <Row xs={1} sm={1} md={1}>
-            {products &&
-              products.map((product) => (
-                <div key={product}>
-                  <MDBCard className='product_card'>
-                    <MDBCardImage
-                      cascade
-                      position='top'
-                      alt='Lauryn Claxton LNC Treats'
-                      src={product.img}
-                    />
-                    <MDBCardBody>
-                      <MDBCardTitle>{product.title}</MDBCardTitle>
-                      <MDBCardText>{product.description}</MDBCardText>
-                    </MDBCardBody>
-                  </MDBCard>
-                </div>
-              ))}
-          </Row>
-        </Container>
+          <Container className='product_list'>
+            <Row xs={1} sm={1} md={1}>
+              {products &&
+                products.map((product) => (
+                  <div key={product}>
+                    <MDBCard className='product_card'>
+                      <MDBCardImage
+                        cascade
+                        position='top'
+                        alt='Lauryn Claxton LNC Treats'
+                        src={product.img}
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>{product.title}</MDBCardTitle>
+                        <MDBCardText>{product.description}</MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </div>
+                ))}
+            </Row>
+          </Container>
+        </div>
       </Container>
     </div>
   )
