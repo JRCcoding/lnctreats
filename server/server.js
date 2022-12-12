@@ -3,8 +3,8 @@ import connectDB from './config/db.js'
 import dotenv from 'dotenv'
 import products from './routes/productRoutes.js'
 import path from 'path'
-import { fileURLToPath } from 'url'
-import { dirname } from 'path'
+// import { fileURLToPath } from 'url'
+// import { dirname } from 'path'
 import colors from 'colors'
 
 dotenv.config()
@@ -27,8 +27,10 @@ app.use((err, req, res, next) => {
 })
 
 app.use('/api/products', products)
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = dirname(__filename)
+
 // const __filename = fileURLToPath(import.meta.url)
 // const __dirname = path.dirname(__filename)
 // if (process.env.NODE_ENV === 'production') {
