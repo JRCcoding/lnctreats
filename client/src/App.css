@@ -38,7 +38,9 @@ html, body {
 }
 
 .carousel {
-  margin: 10% 5% 40% 5%;
+  margin: 10% 5% 10% 5%;
+  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+
 }
 @media only screen and (max-width: 600px) {
   .carousel {
@@ -86,7 +88,7 @@ html, body {
 .title {
   text-align: center;
   font-size: 3rem;
-  color: white;
+  color: black;
   text-shadow: 7px 7px 9px rgba(0,0,0,0.7);
 }
 .intextlink {
@@ -107,6 +109,7 @@ font-weight: bold;
 }
 .product_card {
   margin: 2% 0;
+  box-shadow: none;
   
 }
 @media only sreen and (max-width: 600px) {
@@ -128,6 +131,8 @@ font-weight: bold;
   border-radius: 25px;
   box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
   padding-top: 3%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .testing{
   justify-content: center;
