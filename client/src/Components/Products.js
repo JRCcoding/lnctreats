@@ -8,7 +8,7 @@ import {
   MDBCardTitle,
   MDBCardText,
 } from 'mdb-react-ui-kit'
-import { Row, Container, Col } from 'react-bootstrap'
+import { Row, Container } from 'react-bootstrap'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import asyncHandler from 'express-async-handler'
 
@@ -26,20 +26,18 @@ const Products = ({ product }) => {
     <div>
       <Container>
         <div className='products_box'>
-          <AnimationOnScroll animateIn='animate__pulse' animateOnce='true'>
-            <h2 className='title text-blackCoffee' id='products'>
-              Products
-            </h2>
-          </AnimationOnScroll>
+          <h2 className='title text-blackCoffee' id='products'>
+            Products
+          </h2>
 
           <Container className='product_list'>
-            <AnimationOnScroll
-              animateIn='animate__fadeInLeft'
-              animateOnce='true'
-            >
-              <Row xs={1} sm={2} md={3} lg={3}>
-                {products &&
-                  products.map((product) => (
+            <Row xs={1} sm={2} md={3} lg={3}>
+              {products &&
+                products.map((product) => (
+                  <AnimationOnScroll
+                    animateIn='animate__fadeInUp'
+                    animateOnce='true'
+                  >
                     <div key={product}>
                       <MDBCard className='product_card'>
                         <MDBCardImage
@@ -48,15 +46,15 @@ const Products = ({ product }) => {
                           alt='Lauryn Claxton LNC Treats'
                           src={product.img}
                         />
-                        <MDBCardBody>
+                        <MDBCardBody className='bg-lightMint'>
                           <MDBCardTitle>{product.title}</MDBCardTitle>
                           <MDBCardText>{product.description}</MDBCardText>
                         </MDBCardBody>
                       </MDBCard>
                     </div>
-                  ))}
-              </Row>
-            </AnimationOnScroll>
+                  </AnimationOnScroll>
+                ))}
+            </Row>
           </Container>
         </div>
       </Container>

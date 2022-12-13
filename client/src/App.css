@@ -1,7 +1,3 @@
-@font-face {
-  font-family: 'Roboto';
-  src: local('Roboto'), url(./Fonts/Roboto-Black.ttf) format('truetype');
-}
 
 html, body {
   height: 100%; 
@@ -25,26 +21,44 @@ html, body {
   /* background-color: rgb(115, 94, 242, .7); */
   /* background-color: rgb(500,500,500, 0.6); */
   margin: 0 5%;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(23px);
 }
 @media only screen and (max-width: 600px) {
   .navi {
     margin: 0;
   }
 }
-
+.logo {
+  scale: 1.3;
+  /* margin-top: 5%;
+  box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+  border-radius: 50%; */
+}
+@media only screen and (max-width: 600px) {
+  .logo {
+    display: none;
+  }
+}
 @media only screen and (min-width: 900px) {
   .navtitle {
-    font-size: 1.8rem;
+    margin-left: 5%;
+    margin-top: 2%;
+    font-size: 2.3rem;
     font-weight: 700;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-
   }
+  
 .navlinks {
   font-weight: 500;
   font-size: 1.3rem;
 }
 }
+.navtitle{ 
+  font-size: 1.8rem;
+  margin: 3%;
+  font-weight: bold;
+}
+
 
 .carousel {
   margin: 10% 5% 10% 5%;
@@ -59,7 +73,7 @@ html, body {
 
 .about {
   color: black;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   /* background-image: linear-gradient(to right, #310859, #5833A6); */
   margin: 4px;
   /* background-color: rgb(165, 71, 194, .6); */
@@ -68,7 +82,7 @@ html, body {
 }
 @media only screen and (max-width: 600px) {
   .about {
-    font-size: 1rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -85,6 +99,7 @@ html, body {
   font-weight: bold;
 
 }
+
 .card_link:hover {
   color: #735ef2;
   text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
@@ -116,10 +131,13 @@ font-weight: bold;
 .product_list {
   color:black;
   font-size: 1.5rem;
+  margin-bottom: 15%;
+  height: 150%;
 }
 .product_card {
   margin: 2% 0;
-  box-shadow: none;
+  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+
   
 }
 @media only sreen and (max-width: 600px) {

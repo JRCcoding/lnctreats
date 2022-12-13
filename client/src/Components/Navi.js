@@ -30,9 +30,11 @@ export default function App() {
             src={Logo}
             width='60'
             height='60'
-            className='d-inline-block align-top'
+            className='logo align-top'
           />{' '}
-          <h6 className='d-inline navtitle'>Lauryn's Next-door Cottage</h6>
+          <h6 className='d-inline navtitle font-LaBelle'>
+            Lauryn's Next-door Cottage
+          </h6>
         </MDBNavbarBrand>
 
         <MDBNavbarToggler
@@ -41,18 +43,25 @@ export default function App() {
           aria-label='Toggle navigation'
           onClick={() => setShowBasic(!showBasic)}
         >
-          <MDBIcon fas icon='birthday-cake' />{' '}
+          <MDBIcon className='hamburger' fas icon='birthday-cake' />{' '}
         </MDBNavbarToggler>
         <div className='ms-auto'>
           <MDBCollapse navbar show={showBasic} className='navlinks'>
             <MDBNavbarNav className='mb-2 mb-lg-0 '>
               <MDBNavbarItem>
-                <MDBNavbarLink active aria-current='page' href='#'>
+                <MDBNavbarLink
+                  className='navlink'
+                  active
+                  aria-current='page'
+                  href='#'
+                >
                   Home
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#about'>About</MDBNavbarLink>
+                <MDBNavbarLink className='navlink' href='#about'>
+                  About
+                </MDBNavbarLink>
               </MDBNavbarItem>
 
               <MDBNavbarItem>

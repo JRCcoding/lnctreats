@@ -3,10 +3,15 @@ module.exports = {
   purge: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
   theme: {
+    extend: {
+      fontFamily: {
+        LaBelle: ['La Belle Aurore', 'cursive'],
+      },
+    },
     colors: {
-      lightMint: '#daffef',
-      mint: '#d0ffd6',
-      lightPurple: '#F0C9F7',
+      lightMint: '#ebffed',
+      mint: '#daffef',
+      lightPurple: '#f5dcfa',
       blackCoffee: '#32292f',
     },
   },

@@ -20,7 +20,7 @@ const About = () => {
         <Col>
           {' '}
           <MDBCard
-            className='card animate__animated animate__fadeInLeft'
+            className='card animate__animated animate__fadeInLeft bg-lightMint'
             id='about'
           >
             <MDBCardImage
@@ -28,20 +28,20 @@ const About = () => {
               alt='Lauryn Claxton LNC Treats'
               src={Profile}
             />
-            <Accordion defaultActiveKey='0'>
+            <Accordion defaultActiveKey='0' className='bg-lightMint'>
               <Accordion.Item eventKey='1'>
-                <Accordion.Header>
+                <Accordion.Header className='bg-lightMint'>
                   <MDBCardTitle className='card_link'>Lauryn</MDBCardTitle>
                 </Accordion.Header>
-                <Accordion.Body>
-                  <MDBCardBody>
+                <Accordion.Body className='bg-lightMint'>
+                  <MDBCardBody className='bg-lightMint'>
                     <MDBCardText>
                       Beautiful woman with beautiful skills, she's da bomb fa
                       sho.
                     </MDBCardText>
                   </MDBCardBody>
 
-                  <MDBCardBody>
+                  <MDBCardBody className='bg-lightMint'>
                     <MDBCardLink
                       href='https://www.facebook.com/LNCsstreats/'
                       target='_blank'
@@ -68,7 +68,7 @@ const About = () => {
             animateOnce='true'
           >
             <MDBCard className='card lauryncard'>
-              <MDBCardBody>
+              <MDBCardBody className='bg-lightMint'>
                 <p className='about'>
                   <MDBIcon fas icon='quote-left' />
                   &nbsp;&nbsp;&nbsp; Lauryn is a local baker who bakes out of
@@ -87,8 +87,8 @@ const About = () => {
         <Col>
           <AnimationOnScroll animateIn='animate__fadeInLeft' animateOnce='true'>
             <MDBCard className='card card2 col2card'>
-              <MDBCardBody>
-                <p className='about'>
+              <MDBCardBody className='bg-lightMint'>
+                <p className='about '>
                   From small personal treat boxes to meeting and large group
                   catering, I can help you with any snacking needs!
                 </p>
@@ -102,7 +102,7 @@ const About = () => {
             animateOnce='true'
           >
             <MDBCard className='card' id='lastcard'>
-              <MDBCardBody>
+              <MDBCardBody className='bg-lightMint'>
                 <p className='about'>
                   I do custom cakes as well as simple cakes, cake pops, multiple
                   tiers and anything else you might want on a cake! Personalized
