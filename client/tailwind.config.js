@@ -16,7 +16,7 @@ module.exports = {
     colors: {
       lightMint: '#8AD8C6',
       mint: '#5fb0b7',
-      lightPurple: '#af2bbf',
+      lightPurple: '#DEC0E8',
       darkPurple: '#CA9ADB',
       blackCoffee: '#6c91bf',
     },
