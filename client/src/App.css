@@ -110,6 +110,7 @@ html, body {
 }
 
 .title {
+  padding-top: 15%;
   text-align: center;
   font-size: 3rem;
   color: black;

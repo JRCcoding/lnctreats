@@ -26,7 +26,9 @@ const Products = ({ product }) => {
     <div>
       <Container>
         <div className='products_box'>
-          <h2 className='title font-LaBelle'>Products</h2>
+          <h2 className='title font-LaBelle underline' id='products'>
+            Products
+          </h2>
 
           <Container className='product_list'>
             <Row xs={1} sm={2} md={2} lg={3}>
