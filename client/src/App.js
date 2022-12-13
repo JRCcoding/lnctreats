@@ -5,7 +5,7 @@ import Products from './Components/Products'
 
 function App() {
   return (
-    <div className='everything bg-lightPurple'>
+    <div className='everything bg-darkPurple'>
       <Navi className='mb-20' />
       <Intro />
       <Products />

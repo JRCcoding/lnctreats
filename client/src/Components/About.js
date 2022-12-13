@@ -16,6 +16,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 const About = () => {
   return (
     <>
+      <h2 className='title font-LaBelle'>About Lauryn</h2>
       <Row xs={1} lg={3} className='testing align-items-end'>
         <Col>
           {' '}

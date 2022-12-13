@@ -42,8 +42,9 @@ export default function App() {
           aria-expanded='false'
           aria-label='Toggle navigation'
           onClick={() => setShowBasic(!showBasic)}
+          className='toggler'
         >
-          <MDBIcon className='hamburger' fas icon='birthday-cake' />{' '}
+          <MDBIcon fas icon='birthday-cake' />{' '}
         </MDBNavbarToggler>
         <div className='ms-auto'>
           <MDBCollapse navbar show={showBasic} className='navlinks'>
