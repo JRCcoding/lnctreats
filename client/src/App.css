@@ -89,8 +89,9 @@ html, body {
 .title {
   text-align: center;
   font-size: 3rem;
-  color: black;
+  color: #32292F;
   text-shadow: 7px 7px 9px rgba(0,0,0,0.7);
+  
 }
 .intextlink {
   text-decoration: none;
@@ -128,12 +129,14 @@ font-weight: bold;
 }
 }
 .products_box {
-  background-color: rgba(128, 0, 128, 0.2);
+  background-color: #c177d0;
+  border: solid 2px black;
   border-radius: 25px;
   box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
   padding-top: 3%;
   max-width: 900px;
   margin: 0 auto;
+
 }
 .testing{
   justify-content: center;
