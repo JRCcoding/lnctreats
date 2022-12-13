@@ -1,7 +1,7 @@
 import express from 'express'
 import connectDB from './config/db.js'
 import dotenv from 'dotenv'
-import products from './routes/productRoutes.js'
+import productRoutes from './routes/productRoutes.js'
 import path from 'path'
 // import { fileURLToPath } from 'url'
 // import { dirname } from 'path'
@@ -26,7 +26,7 @@ app.use((err, req, res, next) => {
   })
 })
 
-app.use('/api/products', products)
+app.use('/api/products', productRoutes)
 
 // const __filename = fileURLToPath(import.meta.url)
 // const __dirname = dirname(__filename)
