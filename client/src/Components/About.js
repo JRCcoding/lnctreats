@@ -67,7 +67,7 @@ const About = () => {
             animateIn='animate__fadeInRight'
             animateOnce='true'
           >
-            <MDBCard className='lauryncard'>
+            <MDBCard className='card lauryncard'>
               <MDBCardBody>
                 <p className='about'>
                   <MDBIcon fas icon='quote-left' />

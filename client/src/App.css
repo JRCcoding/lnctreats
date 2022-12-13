@@ -6,22 +6,25 @@
 html, body {
   height: 100%; 
   width: 100%;
-  background-image: linear-gradient(to right, #1e0640, #533497);
+  /* background-image: linear-gradient(to right, #E194F0, #B07CD9);
+   */
 
 }
-
 
 
 .everything {
   /* background-image: url(./Images/foodcropped.png);
    */
+   background-color: #E194F0;
+
   background-repeat: no-repeat;
   background-size: cover, 100vh;
   background-attachment: fixed;
 }
 .navi {
   /* background-color: rgb(49, 8, 89, .9); */
-  background-color: rgb(115, 94, 242, .7);
+  /* background-color: rgb(115, 94, 242, .7); */
+  background-color: rgb(500,500,500, 0.6);
   margin: 0 5%;
 }
 @media only screen and (max-width: 600px) {
@@ -58,7 +61,10 @@ html, body {
   }
 }
 
-
+.card {
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+}
 
 .card_link {
   color: #060126;
@@ -101,6 +107,7 @@ font-weight: bold;
 }
 .product_card {
   margin: 2% 0;
+  
 }
 @media only sreen and (max-width: 600px) {
   .product_list {
@@ -124,6 +131,7 @@ font-weight: bold;
 }
 .testing{
   justify-content: center;
+  
   
 }
 
