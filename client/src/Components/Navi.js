@@ -1,5 +1,6 @@
 import Logo from '../Images/logo_transparent.png'
-
+import '../index.css'
+import '../App.css'
 import React, { useState } from 'react'
 import {
   MDBContainer,
@@ -10,7 +11,6 @@ import {
   MDBNavbarNav,
   MDBNavbarItem,
   MDBNavbarLink,
-  // MDBBtn,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -22,7 +22,7 @@ export default function App() {
   const [showBasic, setShowBasic] = useState(false)
 
   return (
-    <MDBNavbar expand='md' fixed='top' className='navi'>
+    <MDBNavbar expand='md' fixed='top' className='navi rounded-bottom'>
       <MDBContainer fluid>
         <MDBNavbarBrand href='#'>
           <img
@@ -32,9 +32,7 @@ export default function App() {
             height='60'
             className='d-inline-block align-top'
           />{' '}
-          <h6 className='d-inline justify-content-center'>
-            Lauryn's Next-door Cottage
-          </h6>
+          <h6 className='d-inline navtitle'>Lauryn's Next-door Cottage</h6>
         </MDBNavbarBrand>
 
         <MDBNavbarToggler
@@ -45,34 +43,38 @@ export default function App() {
         >
           <MDBIcon fas icon='birthday-cake' />{' '}
         </MDBNavbarToggler>
+        <div className='ms-auto'>
+          <MDBCollapse navbar show={showBasic} className='navlinks'>
+            <MDBNavbarNav className='mb-2 mb-lg-0 '>
+              <MDBNavbarItem>
+                <MDBNavbarLink active aria-current='page' href='#'>
+                  Home
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href='#about'>About</MDBNavbarLink>
+              </MDBNavbarItem>
 
-        <MDBCollapse navbar show={showBasic}>
-          <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-            <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='#'>
-                Home
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='#about'>About</MDBNavbarLink>
-            </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBDropdown>
+                  <MDBDropdownToggle
+                    tag='a'
+                    className='nav-link navlinks'
+                    role='button'
+                  >
+                    Products and More
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu>
+                    <MDBDropdownItem link href='#products'>
+                      Products
+                    </MDBDropdownItem>
+                    <MDBDropdownItem link>Another action</MDBDropdownItem>
+                    <MDBDropdownItem link>Something else here</MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavbarItem>
 
-            <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link' role='button'>
-                  Products and More
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link href='#products'>
-                    Products
-                  </MDBDropdownItem>
-                  <MDBDropdownItem link>Another action</MDBDropdownItem>
-                  <MDBDropdownItem link>Something else here</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavbarItem>
-
-            {/* <MDBNavbarItem>
+              {/* <MDBNavbarItem>
               <MDBNavbarLink
                 disabled
                 href='#'
@@ -82,9 +84,9 @@ export default function App() {
                 Disabled
               </MDBNavbarLink>
             </MDBNavbarItem> */}
-          </MDBNavbarNav>
+            </MDBNavbarNav>
 
-          {/* <form className='d-flex input-group w-auto'>
+            {/* <form className='d-flex input-group w-auto'>
             <input
               type='search'
               className='form-control'
@@ -93,7 +95,8 @@ export default function App() {
             />
             <MDBBtn color='primary'>Search</MDBBtn>
           </form> */}
-        </MDBCollapse>
+          </MDBCollapse>
+        </div>
       </MDBContainer>
     </MDBNavbar>
   )

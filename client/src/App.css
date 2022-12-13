@@ -13,9 +13,8 @@ html, body {
 
 
 .everything {
-  /* background-image: url(./Images/foodcropped.png);
-   */
-   background-color: #E194F0;
+
+   /* background-color: #E194F0; */
 
   background-repeat: no-repeat;
   background-size: cover, 100vh;
@@ -24,7 +23,7 @@ html, body {
 .navi {
   /* background-color: rgb(49, 8, 89, .9); */
   /* background-color: rgb(115, 94, 242, .7); */
-  background-color: rgb(500,500,500, 0.6);
+  /* background-color: rgb(500,500,500, 0.6); */
   margin: 0 5%;
   backdrop-filter: blur(10px);
 }
@@ -33,9 +32,18 @@ html, body {
     margin: 0;
   }
 }
+
+@media only screen and (min-width: 900px) {
+  .navtitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+
+  }
 .navlinks {
-  /* font-size: 25px; */
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
 }
 
 .carousel {
@@ -128,7 +136,7 @@ font-weight: bold;
   margin-top: 6%;
 }
 }
-.products_box {
+/* .products_box {
   background-color: #c177d0;
   border: solid 2px black;
   border-radius: 25px;
@@ -137,7 +145,7 @@ font-weight: bold;
   max-width: 900px;
   margin: 0 auto;
 
-}
+} */
 .testing{
   justify-content: center;
   
