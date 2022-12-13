@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/Container'
 import axios from 'axios'
 
 import {
@@ -9,7 +8,7 @@ import {
   MDBCardTitle,
   MDBCardText,
 } from 'mdb-react-ui-kit'
-import { Row } from 'react-bootstrap'
+import { Row, Container, Col } from 'react-bootstrap'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import asyncHandler from 'express-async-handler'
 
@@ -34,7 +33,7 @@ const Products = ({ product }) => {
           </AnimationOnScroll>
 
           <Container className='product_list'>
-            <Row xs={1} sm={1} md={1}>
+            <Row xs={1} sm={2} md={3} lg={3}>
               {products &&
                 products.map((product) => (
                   <div key={product}>
