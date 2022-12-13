@@ -26,6 +26,7 @@ html, body {
   /* background-color: rgb(115, 94, 242, .7); */
   background-color: rgb(500,500,500, 0.6);
   margin: 0 5%;
+  backdrop-filter: blur(10px);
 }
 @media only screen and (max-width: 600px) {
   .navi {
