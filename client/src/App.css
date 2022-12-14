@@ -56,7 +56,10 @@ html, body {
   /* border-radius: 15%; */
 }
 
-
+.burger {
+  margin-left: auto;
+  margin-right: -10%;
+}
 .card {
   border-radius: 25px;
   box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
