@@ -16,14 +16,13 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 const About = () => {
   return (
     <>
-      <h2 className='title font-LaBelle underline'>About Lauryn</h2>
+      <h2 className='title font-LaBelle underline' id='about'>
+        About Lauryn
+      </h2>
       <Row xs={1} lg={3} className='testing align-items-end'>
         <Col>
           {' '}
-          <MDBCard
-            className='card animate__animated animate__fadeInLeft bg-lightMint'
-            id='about'
-          >
+          <MDBCard className='card animate__animated animate__fadeInLeft bg-lightMint'>
             <MDBCardImage
               position='top'
               alt='Lauryn Claxton LNC Treats'
