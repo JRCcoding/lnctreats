@@ -18,7 +18,7 @@ module.exports = {
       mint: '#5fb0b7',
       lightPurple: '#DEC0E8',
       darkPurple: '#CA9ADB',
-      blackCoffee: '#6c91bf',
+      paleBlue: '#6c91bf',
     },
   },
   plugins: [],

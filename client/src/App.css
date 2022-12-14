@@ -33,7 +33,7 @@ html, body {
 
 
 .navtitle{ 
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 3%;
   font-weight: bold;
 }
@@ -87,8 +87,7 @@ html, body {
 .title {
   padding-top: 15%;
   text-align: center;
-  font-size: 3rem;
-  color: black;
+  font-size: 2.0rem;
   text-shadow: 7px 7px 9px rgba(0,0,0,0.7);
   
 }
@@ -122,6 +121,9 @@ font-weight: bold;
   margin-top: 7.5%;
 }
 
+.lastcard {
+  margin-top: 5%;
+}
 .testing{
   justify-content: center;
   
@@ -135,6 +137,9 @@ font-weight: bold;
   .navi {
     margin-left: 0;
     margin-right: 0;
+  }
+  .logo {
+    display: none;
   }
 }
 

@@ -36,7 +36,7 @@ const About = () => {
                 </Accordion.Header>
                 <Accordion.Body className='bg-lightMint'>
                   <MDBCardBody className='bg-lightMint'>
-                    <MDBCardText>
+                    <MDBCardText className='about'>
                       Beautiful woman with beautiful skills, she's da bomb fa
                       sho.
                     </MDBCardText>
@@ -87,7 +87,7 @@ const About = () => {
       <Row xs={1} lg={3} className='testing mt-4'>
         <Col>
           <AnimationOnScroll animateIn='animate__fadeInLeft' animateOnce='true'>
-            <MDBCard className='card card2 col2card'>
+            <MDBCard className='card card2 col2card mb-4'>
               <MDBCardBody className='bg-lightMint'>
                 <p className='about '>
                   From small personal treat boxes to meeting and large group
