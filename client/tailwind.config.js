@@ -14,7 +14,7 @@ module.exports = {
     //   blackCoffee: '#32292f',
     // },
     colors: {
-      lightMint: '#8AD8C6',
+      lightMint: '#ADE4D7',
       mint: '#5fb0b7',
       lightPurple: '#DEC0E8',
       darkPurple: '#CA9ADB',
