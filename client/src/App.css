@@ -23,36 +23,15 @@ html, body {
   margin: 0 5%;
   backdrop-filter: blur(23px);
 }
-@media only screen and (max-width: 600px) {
-  .navi {
-    margin: 0;
-  }
-}
+
 .logo {
   scale: 1.3;
   /* margin-top: 5%;
   box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
   border-radius: 50%; */
 }
-@media only screen and (max-width: 600px) {
-  .logo {
-    display: none;
-  }
-}
-@media only screen and (min-width: 900px) {
-  .navtitle {
-    margin-left: 5%;
-    margin-top: 2%;
-    font-size: 2.3rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  }
-  
-.navlinks {
-  font-weight: 500;
-  font-size: 1.3rem;
-}
-}
+
+
 .navtitle{ 
   font-size: 1.8rem;
   margin: 3%;
@@ -65,11 +44,7 @@ html, body {
   box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 
 }
-@media only screen and (max-width: 600px) {
-  .carousel {
-    margin: 10% 0 20% 0;
-  }
-}
+
 
 .about {
   color: black;
@@ -80,11 +55,7 @@ html, body {
   text-align: center;
   /* border-radius: 15%; */
 }
-@media only screen and (max-width: 600px) {
-  .about {
-    font-size: 1.35rem;
-  }
-}
+
 
 .card {
   border-radius: 25px;
@@ -103,12 +74,7 @@ html, body {
   margin-left: auto;
   margin-right: auto;
 }
-@media only screen and (min-width: 600px) {
-  .carousel {
-    height: 75%;
-    width: 75%;
-  }
-}
+
 .card_link:hover {
   color: #735ef2;
   text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
@@ -126,11 +92,7 @@ html, body {
   text-shadow: 7px 7px 9px rgba(0,0,0,0.7);
   
 }
-@media only screen and (max-width: 600px) {
-  .title {
-    font-size: 2.1rem;
-  }
-}
+
 .intextlink {
   text-decoration: none;
   color:black;
@@ -155,30 +117,11 @@ font-weight: bold;
 
   
 }
-@media only sreen and (max-width: 600px) {
-  .product_list {
-    font-size: .8rem;
-    margin: 15% 0;
-  }
-}
+
 .lauryncard {
   margin-top: 7.5%;
 }
-@media only screen and (max-width: 1000px) {
-#lastcard {
-  margin-top: 6%;
-}
-}
-/* .products_box {
-  background-color: #c177d0;
-  border: solid 2px black;
-  border-radius: 25px;
-  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
-  padding-top: 3%;
-  max-width: 900px;
-  margin: 0 auto;
 
-} */
 .testing{
   justify-content: center;
   
@@ -188,16 +131,59 @@ font-weight: bold;
 
 
 
+@media only screen and (max-width: 780px) {
+  .navi {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* @media only screen and (min-width: 600px) {
+  .carousel {
+    height: 75%;
+    width: 75%;
+  }
+  .navtitle {
+    margin-left: 5%;
+    margin-top: 2%;
+    font-size: 2.3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  }
+  
+.navlinks {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel {
+    margin: 10% 0 20% 0;
+  }
+  .logo {
+    display: none;
+  }
+  .about {
+    font-size: 1.35rem;
+  }
+  .navi {
+    margin: 0;
+  }
+  .title {
+    font-size: 2.1rem;
+  }
+.product_list {
+    font-size: .8rem;
+    margin: 15% 0;
+  }
+#lastcard {
+  margin-top: 6%;
+}
+} */
 
 
 
 
 
 
-/* COLORS
-#310859
-#1e0640
-#5833A6
-#735ef2
-#060126
-*/
