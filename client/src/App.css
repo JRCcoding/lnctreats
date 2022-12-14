@@ -99,7 +99,16 @@ html, body {
   font-weight: bold;
 
 }
-
+.carousel {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 600px) {
+  .carousel {
+    height: 75%;
+    width: 75%;
+  }
+}
 .card_link:hover {
   color: #735ef2;
   text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
