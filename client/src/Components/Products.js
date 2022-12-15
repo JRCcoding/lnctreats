@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-// import axios from 'axios'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   MDBCard,
@@ -9,12 +8,10 @@ import {
   MDBCardText,
 } from 'mdb-react-ui-kit'
 import { Row, Container } from 'react-bootstrap'
-import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { listProducts } from '../Actions/productActions'
 import Loader from './Loader'
 
 const Products = () => {
-  // const [products, setProducts] = useState()
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => state.productList)
@@ -22,19 +19,15 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(listProducts())
-    // const fetchProducts = asyncHandler(async () => {
-    //   const { data } = await axios.get('/api/products')
-    //   setProducts(data)
-    // })
-    // fetchProducts()
   }, [dispatch])
+
   return (
     <div>
       <Container>
         <div className='products_box'>
-          <h2 className='title font-LaBelle underline' id='products'>
+          {/* <h2 className='title font-LaBelle underline' id='products'>
             Products
-          </h2>
+          </h2> */}
           {loading ? (
             <Loader />
           ) : error ? (
@@ -44,25 +37,20 @@ const Products = () => {
               <Row xs={1} sm={2} md={2} lg={3}>
                 {products &&
                   products.map((product) => (
-                    <AnimationOnScroll
-                      animateIn='animate__fadeInUp'
-                      animateOnce='true'
-                    >
-                      <div key={product}>
-                        <MDBCard className='product_card'>
-                          <MDBCardImage
-                            cascade
-                            position='top'
-                            alt='Lauryn Claxton LNC Treats'
-                            src={product.img}
-                          />
-                          <MDBCardBody className='bg-lightMint'>
-                            <MDBCardTitle>{product.title}</MDBCardTitle>
-                            <MDBCardText>{product.description}</MDBCardText>
-                          </MDBCardBody>
-                        </MDBCard>
-                      </div>
-                    </AnimationOnScroll>
+                    <div key={product}>
+                      <MDBCard className='product_card'>
+                        <MDBCardImage
+                          cascade
+                          position='top'
+                          alt='Lauryn Claxton LNC Treats'
+                          src={product.img}
+                        />
+                        <MDBCardBody className='bg-lightMint'>
+                          <MDBCardTitle>{product.title}</MDBCardTitle>
+                          <MDBCardText>{product.description}</MDBCardText>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </div>
                   ))}
               </Row>
             </Container>

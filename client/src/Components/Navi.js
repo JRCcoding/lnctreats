@@ -1,7 +1,9 @@
 import Logo from '../Images/logo_transparent.png'
 import '../index.css'
 import '../App.css'
+import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
+import { LinkContainer } from 'react-router-bootstrap'
 import {
   MDBContainer,
   MDBNavbar,
@@ -22,21 +24,26 @@ export default function App() {
   const [showBasic, setShowBasic] = useState(false)
 
   return (
-    <MDBNavbar expand='md' fixed='top' className='navi rounded-bottom'>
+    <MDBNavbar
+      expand='md'
+      fixed='top'
+      className='navi rounded-bottom font-Lato'
+    >
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#'>
-          <img
-            alt=''
-            src={Logo}
-            width='60'
-            height='60'
-            className='logo align-top'
-          />{' '}
-          <h6 className='d-inline navtitle font-LaBelle'>
-            Lauryn's Next-door Cottage
-          </h6>
-        </MDBNavbarBrand>
-
+        <LinkContainer to='/'>
+          <MDBNavbarBrand>
+            <img
+              alt=''
+              src={Logo}
+              width='60'
+              height='60'
+              className='logo align-top'
+            />{' '}
+            <h6 className='d-inline navtitle font-Pacifico'>
+              Lauryn's Next-door Cottage
+            </h6>
+          </MDBNavbarBrand>
+        </LinkContainer>
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
           aria-expanded='false'
@@ -49,40 +56,22 @@ export default function App() {
         <div className='ms-auto'>
           <MDBCollapse navbar show={showBasic} className='navlinks'>
             <MDBNavbarNav className='mb-2 mb-lg-0 '>
-              <MDBNavbarItem>
-                <MDBNavbarLink
-                  className='navlink'
-                  active
-                  aria-current='page'
-                  href='#'
-                >
+              {/* <LinkContainer to='/'>
+                <MDBNavbarLink>Home</MDBNavbarLink>
+              </LinkContainer>
+              <LinkContainer to='#about'>
+                <MDBNavbarLink>About</MDBNavbarLink>
+              </LinkContainer> */}
+              <LinkContainer to='/'>
+                <MDBNavbarItem link className='navlink'>
                   Home
-                </MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink className='navlink' href='#about'>
-                  About
-                </MDBNavbarLink>
-              </MDBNavbarItem>
-
-              <MDBNavbarItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle
-                    tag='a'
-                    className='nav-link navlinks'
-                    role='button'
-                  >
-                    Products and More
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu>
-                    <MDBDropdownItem link href='#products'>
-                      Products
-                    </MDBDropdownItem>
-                    <MDBDropdownItem link>Another action</MDBDropdownItem>
-                    <MDBDropdownItem link>Something else here</MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
-              </MDBNavbarItem>
+                </MDBNavbarItem>
+              </LinkContainer>
+              <LinkContainer to='/products'>
+                <MDBNavbarItem link className='navlink'>
+                  Products
+                </MDBNavbarItem>
+              </LinkContainer>
 
               {/* <MDBNavbarItem>
               <MDBNavbarLink

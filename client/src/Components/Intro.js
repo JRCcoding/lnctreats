@@ -2,7 +2,6 @@ import React from 'react'
 // import axios from 'axios'
 // import asyncHandler from 'async-handler'
 import { Container } from 'react-bootstrap'
-import About from './About'
 import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit'
 import 'animate.css'
 import Prod1 from '../Images/product1.jpg'
@@ -72,7 +71,6 @@ const Intro = () => {
             ))}
         </MDBCarousel>
             */}
-        <About />
       </Container>
     </div>
   )

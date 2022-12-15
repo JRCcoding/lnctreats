@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        LaBelle: ['La Belle Aurore', 'cursive'],
+        Pacifico: ['Pacifico', 'cursive'],
+        Lato: ['Lato', 'sans-serif'],
       },
     },
     // colors: {

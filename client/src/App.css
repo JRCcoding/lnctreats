@@ -2,6 +2,7 @@
 html, body {
   height: 100%; 
   width: 100%;
+  overflow-x: hidden; 
   /* background-image: linear-gradient(to right, #E194F0, #B07CD9);
    */
 
@@ -11,16 +12,19 @@ html, body {
 .everything {
 
    /* background-color: #E194F0; */
-
-  background-repeat: no-repeat;
-  background-size: cover, 100vh;
-  background-attachment: fixed;
+   background-image: url('./Images/lncbgpattern2.png');
+ 
+  height: 100%;
+  /* background-size: cover, 100vh; */
+  /* background-attachment: fixed; */
+  /* background-size: 300px 300px; */
 }
 .navi {
   /* background-color: rgb(49, 8, 89, .9); */
   /* background-color: rgb(115, 94, 242, .7); */
   /* background-color: rgb(500,500,500, 0.6); */
   margin: 0 5%;
+  background-color: rgba(300,300,300, 0.25);
   backdrop-filter: blur(23px);
 }
 
@@ -37,7 +41,25 @@ html, body {
   margin: 3%;
   font-weight: bold;
 }
+@media only screen and (min-width: 600px) {
+.navlinks {
+  margin-right: 25px;
+}
+}
+.navlink {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-right: 25px;
+  transition: all 1s;
+}
 
+.navlink:hover {
+  color: purple;
+  cursor: pointer;
+  text-shadow: 3px 3px 5px 10px rgba(300,300,300, 0.25);
+}
 
 .carousel {
   margin: 10% 5% 10% 5%;
@@ -75,8 +97,11 @@ html, body {
 }
 #intro {
   padding: 10% auto;
+  
 }
-
+.aboutsection {
+  margin: 5% 10%;
+}
 
 .card_link:hover {
   color: #735ef2;
@@ -106,6 +131,10 @@ font-weight: bold;
   text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
 
   
+}
+.products_box {
+  height: 200vh;
+  padding-top: 25%;
 }
 .product_list {
   color:black;
@@ -142,7 +171,7 @@ font-weight: bold;
     margin-right: 0;
   }
   .navtitle {
-    font-size: 1.58rem;
+    font-size: 1.45rem;
     margin: 7% auto;
   }
   .logo {
