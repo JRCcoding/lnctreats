@@ -1,7 +1,7 @@
 .navi {
     /* margin: 0 5%; */
     background-color: rgba(300,300,300, 0.8);
-    background-color: rgb(95, 176, 183);
+    background-color: #5fb0b7;
     /* backdrop-filter: blur(15px); */
   }
   .logo {
@@ -14,12 +14,13 @@
     font-size: 2rem;
     margin: 3%;
     color: #fad4ff;
+    text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
+
     transition: all 1s;
   }
   .navtitle:hover {
     color: white;
     cursor: pointer;
-    text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
   }
   @media only screen and (min-width: 600px) {
     .logo {
@@ -28,6 +29,7 @@
   .navlinks {
     position:absolute;
     right: 10%;
+    text-align: right;
   }
   }
   .navlink {
@@ -36,6 +38,7 @@
     font-size: 1.5rem;
     font-weight: 800;
     margin-right: 25px;
+text-align: right;
     transition: all 1s;
   }
   
@@ -43,6 +46,7 @@
     color: white;
     cursor: pointer;
     text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
+
   }
   .burger {
     margin-left: auto;

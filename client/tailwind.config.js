@@ -11,7 +11,7 @@ module.exports = {
     colors: {
       lightMint: '#ADE4D7',
       mint: '#5fb0b7',
-      minty: '#6dceae',
+      minty: '#85d9e0',
       lightPurple: '#DEC0E8',
       darkPurple: '#CA9ADB',
       paleBlue: '#6c91bf',
