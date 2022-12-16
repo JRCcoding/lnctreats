@@ -25,5 +25,12 @@
 }
 .footer_col_2 {
     text-align: right;
-    /* margin-right: 5%; */
+    margin-right: 1.5%;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer_col_2 {
+    margin-right: 5%;
+
+    }
 }
