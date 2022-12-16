@@ -1,12 +1,13 @@
+
 .about {
     color: black;
     font-size: 1.5rem;
-    /* background-image: linear-gradient(to right, #310859, #5833A6); */
-    margin: 4px;
-    /* background-color: rgb(165, 71, 194, .6); */
-    text-align: center;
-    /* border-radius: 15%; */
   }
+
+.top_card {
+  background-color: #85d9e0;
+}
+
   .card {
     border-radius: 25px;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
@@ -20,18 +21,32 @@
     font-weight: bold;
   
   }
-  .aboutsection {
-    margin-top: 5%;  }
-  @media only screen and (min-width: 1000px) {
-    .aboutsection {
-      margin-left: 25%;
-    }
-  }
-  
+  /* .cardtitle {
+    font-size: 1.9rem;
+    text-align: center;
+    width: 100%;
+    background-color: #5fb0b7;
+  } */
   .card_link:hover {
     color: #735ef2;
     text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
   }
+
+  .lauryncard {
+    width: 350px;
+    margin-right: 0;
+  }
+  @media only screen and (min-width: 600px) {
+    .firsttext {
+      margin-left: -8%;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .firsttext {
+      margin-top: 5%;
+    }
+  }
+  
   .card_link_right {
     text-align: right;
     padding-left: 10%;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Accordion } from 'react-bootstrap'
+import { Row, Col, Accordion, Container } from 'react-bootstrap'
 import {
   MDBCard,
   MDBCardImage,
@@ -15,127 +15,85 @@ import Profile from '../Images/maybeprofile.jpg'
 
 const About = () => {
   return (
-    <div className='aboutsection'>
-      {/* <h2 className='title font-LaBelle underline' id='about'>
-        About Lauryn
-      </h2> */}
-      <Row xs={1} sm={2} lg={3} className='testing align-items-end' id='about'>
-        <Col>
-          {' '}
-          <MDBCard className='card '>
-            <MDBCardImage
-              position='top'
-              alt='Lauryn Claxton LNC Treats'
-              src={Profile}
-            />
-            <Accordion defaultActiveKey='0' className='bg-minty'>
-              <Accordion.Item eventKey='1'>
-                <Accordion.Header className='bg-minty'>
-                  <MDBCardTitle className='card_link'>Lauryn</MDBCardTitle>
-                </Accordion.Header>
-                <Accordion.Body className='bg-minty'>
-                  <MDBCardBody className='bg-minty'>
-                    <MDBCardText className='about'>
-                      Beautiful woman with beautiful skills, she's da bomb fa
-                      sho.
-                    </MDBCardText>
-                  </MDBCardBody>
+    <Container>
+      <div className='aboutsection'>
+        <MDBCard className='mt-4'>
+          <MDBCardBody className='top_card'>
+            <Row lg={2}>
+              <Col>
+                <MDBCard className='card lauryncard'>
+                  <MDBCardImage
+                    position='top'
+                    alt='Lauryn Claxton LNC Treats'
+                    src={Profile}
+                  />
+                  <Accordion defaultActiveKey='0'>
+                    <Accordion.Item eventKey='1'>
+                      <Accordion.Header>
+                        <MDBCardTitle className='card_link'>
+                          Lauryn
+                        </MDBCardTitle>
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <MDBCardBody>
+                          <MDBCardText className='about'>
+                            Beautiful woman with beautiful skills, she's da bomb
+                            fa sho.
+                          </MDBCardText>
+                        </MDBCardBody>
 
-                  <MDBCardBody className='bg-minty'>
-                    <MDBCardLink
-                      href='https://www.facebook.com/LNCsstreats/'
-                      target='_blank'
-                      className='card_link'
-                    >
-                      Facebook
-                    </MDBCardLink>
-                    <MDBCardLink
-                      href='https://www.instagram.com/lnc_sweetandsavorytreats/'
-                      target='_blank'
-                      className='card_link card_link_right'
-                    >
-                      Instagram
-                    </MDBCardLink>
-                  </MDBCardBody>
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          </MDBCard>
-        </Col>
-        <Col>
-          <MDBCard className='card lauryncard mt-5'>
-            <MDBCardBody className='bg-minty'>
-              <p className='about'>
-                <MDBIcon fas icon='quote-left' />
-                &nbsp;&nbsp;&nbsp; Lauryn is a local baker who bakes out of her
-                love filled home in Midland, TX. She is a mother, a wife, and a
-                boss. Not only does she manage her business here, but she has an
-                amazing family learning from her. &nbsp;&nbsp;&nbsp;
-                <MDBIcon fas icon='quote-right' /> - Josh
-              </p>
-            </MDBCardBody>
-          </MDBCard>
-        </Col>
-      </Row>
-      <Row xs={1} sm={2} lg={3} className='testing mt-4'>
-        <Col>
-          <MDBCard className='card card2 col2card mb-4'>
-            <MDBCardBody className='bg-minty'>
-              <p className='about '>
-                From small personal treat boxes to meeting and large group
-                catering, I can help you with any snacking needs!
-              </p>
-            </MDBCardBody>
-          </MDBCard>
-        </Col>
-        <Col>
-          <MDBCard className='card' id='lastcard'>
-            <MDBCardBody className='bg-minty'>
-              <p className='about'>
-                I do custom cakes as well as simple cakes, cake pops, multiple
-                tiers and anything else you might want on a cake! Personalized
-                toppers can easily be added as well. Check out my{' '}
-                <a href='#cakesheet' className='intextlink'>
-                  Cake Price Sheet
-                </a>
-              </p>
-            </MDBCardBody>
-          </MDBCard>
-        </Col>
-      </Row>
-    </div>
+                        <MDBCardBody>
+                          <MDBCardLink
+                            href='https://www.facebook.com/LNCsstreats/'
+                            target='_blank'
+                            className='card_link'
+                          >
+                            Facebook
+                          </MDBCardLink>
+                          <MDBCardLink
+                            href='https://www.instagram.com/lnc_sweetandsavorytreats/'
+                            target='_blank'
+                            className='card_link card_link_right'
+                          >
+                            Instagram
+                          </MDBCardLink>
+                        </MDBCardBody>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </MDBCard>
+              </Col>
+
+              <Col className='firsttext'>
+                {' '}
+                <p className='about'>
+                  <MDBIcon fas icon='quote-left' />
+                  &nbsp; Lauryn is a local baker who bakes out of her love
+                  filled home in Midland, TX. She is a mother, a wife, and a
+                  boss. Not only does she manage her business here, but she has
+                  an amazing family learning from her. &nbsp;
+                  <MDBIcon fas icon='quote-right' /> - Josh
+                </p>
+                <p className='about '>
+                  From small personal treat boxes to meeting and large group
+                  catering, I can help you with any snacking needs!
+                </p>
+              </Col>
+            </Row>
+
+            <p className='about'>
+              I do custom cakes as well as simple cakes, cake pops, multiple
+              tiers and anything else you might want on a cake! Personalized
+              toppers can easily be added as well. Check out my{' '}
+              <a href='#cakesheet' className='intextlink'>
+                Cake Price Sheet
+              </a>
+            </p>
+          </MDBCardBody>
+        </MDBCard>
+      </div>
+    </Container>
   )
 }
 
 export default About
-
-/* 
-        <Col>
-          
-
-          
-        </Col>
-
-        <AnimationOnScroll
-          animateIn='animate__bounceInRight'
-          animateOnce='true'
-        >
-          <Col>
-            
-          </Col>
-        </AnimationOnScroll>
-        <AnimationOnScroll animateIn='animate__bounceInLeft' animateOnce='true'>
-          <Col>
-            <MDBCard className='card card2 card3'>
-              <MDBCardBody>
-                <p className='about'>
-                  Lauryn is a local baker who bakes out of her love filled home
-                  in Midland, TX. She is a mother, a wife, and a boss. Not only
-                  does she manage her business here, but she has an amazing
-                  family learning from her.
-                </p>
-              </MDBCardBody>
-            </MDBCard>
-          </Col>
-        </AnimationOnScroll>
-      </Row> */

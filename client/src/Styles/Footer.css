@@ -1,21 +1,29 @@
 .footer_container {
-    margin-top: 10%;
+    margin-top: 20%;
+    background-color: #5fb0b7;
+
 }
-@media only screen and (min-width: 600) {
+@media only screen and (min-width: 600px) {
     .footer_container {
     margin-top: 10%;
-}}
+    }
+    /* .footer_col_1 {
+        margin-left: 10%;
+    }
+    .footer_col_2 {
+        margin-right: 20%;
+    } */
+}
 
 .footer_row {
     color: white;
-    background-color: #5fb0b7;
     text-decoration: none;
     font-size: 1.8rem;
     display: flex;
     flex-direction: row;  
-    padding-top: 5%;
+    padding-top: 2%;
 }
 .footer_col_2 {
     text-align: right;
-    margin-right: 5%;
+    /* margin-right: 5%; */
 }

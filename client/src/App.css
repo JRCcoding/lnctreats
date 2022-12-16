@@ -9,6 +9,7 @@ html, body {
    background: rgb(103, 22, 105);
 
    background-image: url('./Images/lncbgpattern.png');
+
   height: 100%;
   overflow-x: hidden;
 }
