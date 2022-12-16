@@ -1,7 +1,7 @@
 .navi {
     margin: 0 5%;
-    /* background-color: rgba(300,300,300, 0.25); */
-    background-color: rgb(95, 176, 183, 0.4);
+    background-color: rgba(300,300,300, 0.25);
+    /* background-color: rgb(95, 176, 183, 0.4); */
     backdrop-filter: blur(23px);
   }
   .logo {
