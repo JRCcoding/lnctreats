@@ -37,8 +37,7 @@ const About = () => {
                       <Accordion.Body>
                         <MDBCardBody>
                           <MDBCardText className='about'>
-                            Beautiful woman with beautiful skills, she's da bomb
-                            fa sho.
+                            Local baker and chef based in Midland, TX.
                           </MDBCardText>
                         </MDBCardBody>
 
@@ -78,10 +77,11 @@ const About = () => {
                   From small personal treat boxes to meeting and large group
                   catering, I can help you with any snacking needs!
                 </p>
+                <p className='about '>Local delivery for $3</p>
               </Col>
             </Row>
 
-            <p className='about'>
+            <p className='about lasttext'>
               I do custom cakes as well as simple cakes, cake pops, multiple
               tiers and anything else you might want on a cake! Personalized
               toppers can easily be added as well. Check out my{' '}
