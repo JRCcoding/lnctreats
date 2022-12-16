@@ -7,6 +7,8 @@ import 'animate.css'
 import Prod1 from '../Images/product1.jpg'
 import Prod2 from '../Images/product2.jpg'
 import Prod3 from '../Images/product3.jpg'
+
+import '../Styles/Intro.css'
 // import ProductCarousel from './ProductCarousel'
 
 const Intro = () => {

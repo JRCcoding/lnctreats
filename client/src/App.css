@@ -14,117 +14,25 @@ html, body {
    /* background-color: #E194F0; */
    background-image: url('./Images/lncbgpattern2.png');
  
-  height: 100%;
   /* background-size: cover, 100vh; */
   /* background-attachment: fixed; */
   /* background-size: 300px 300px; */
 }
-.navi {
-  /* background-color: rgb(49, 8, 89, .9); */
-  /* background-color: rgb(115, 94, 242, .7); */
-  /* background-color: rgb(500,500,500, 0.6); */
-  margin: 0 5%;
-  background-color: rgba(300,300,300, 0.25);
-  backdrop-filter: blur(23px);
-}
-
-.logo {
-  scale: 1.3;
-  /* margin-top: 5%;
-  box-shadow: 3px 3px 15px rgba(0,0,0,0.5);
-  border-radius: 50%; */
-}
 
 
-.navtitle{ 
-  font-size: 2rem;
-  margin: 3%;
-  font-weight: bold;
-}
-@media only screen and (min-width: 600px) {
-.navlinks {
-  margin-right: 25px;
-}
-}
-.navlink {
-  text-decoration: none;
-  color: black;
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-right: 25px;
-  transition: all 1s;
-}
-
-.navlink:hover {
-  color: purple;
-  cursor: pointer;
-  text-shadow: 3px 3px 5px 10px rgba(300,300,300, 0.25);
-}
-
-.carousel {
-  margin: 10% 5% 10% 5%;
-  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
-
-}
 
 
-.about {
-  color: black;
-  font-size: 1.5rem;
-  /* background-image: linear-gradient(to right, #310859, #5833A6); */
-  margin: 4px;
-  /* background-color: rgb(165, 71, 194, .6); */
-  text-align: center;
-  /* border-radius: 15%; */
-}
 
-.burger {
-  margin-left: auto;
-  margin-right: -10%;
-}
-.card {
-  border-radius: 25px;
-  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
-}
 
-.card_link {
-  color: #060126;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: all 1s;
-  font-weight: bold;
 
-}
-#intro {
-  padding: 10% auto;
-  
-}
-.aboutsection {
-  margin: 5% 10%;
-}
 
-.card_link:hover {
-  color: #735ef2;
-  text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
-}
-.card_link_right {
-  text-align: right;
-  padding-left: 10%;
-}
 
-.title {
-  padding-top: 15%;
-  text-align: center;
-  font-size: 2.0rem;
-  text-shadow: 7px 7px 9px rgba(0,0,0,0.7);
-  
-}
 
 .intextlink {
   text-decoration: none;
   color:black;
   transition: all 1s;
-font-weight: bold;
+  font-weight: bold;
 }
 .intextlink:hover {
   color: #735ef2;
@@ -132,97 +40,12 @@ font-weight: bold;
 
   
 }
-.products_box {
-  height: 200vh;
-  padding-top: 25%;
-}
-.product_list {
-  color:black;
-  font-size: 1.5rem;
-  margin-bottom: 15%;
-  height: 150%;
-}
-.product_card {
-  margin: 2% 0;
-  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
-
-  
-}
-
-.lauryncard {
-  margin-top: 7.5%;
-}
-
-.lastcard {
-  margin-top: 5%;
-}
-.testing{
-  justify-content: center;
-  
-  
-}
 
 
 
 
-@media only screen and (max-width: 780px) {
-  .navi {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .navtitle {
-    font-size: 1.45rem;
-    margin: 7% auto;
-  }
-  .logo {
-    display: none;
-  }
- 
-}
 
-/* @media only screen and (min-width: 600px) {
-  .carousel {
-    height: 75%;
-    width: 75%;
-  }
-  .navtitle {
-    margin-left: 5%;
-    margin-top: 2%;
-    font-size: 2.3rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  }
-  
-.navlinks {
-  font-weight: 500;
-  font-size: 1.3rem;
-}
-}
 
-@media only screen and (max-width: 600px) {
-  .carousel {
-    margin: 10% 0 20% 0;
-  }
-  .logo {
-    display: none;
-  }
-  .about {
-    font-size: 1.35rem;
-  }
-  .navi {
-    margin: 0;
-  }
-  .title {
-    font-size: 2.1rem;
-  }
-.product_list {
-    font-size: .8rem;
-    margin: 15% 0;
-  }
-#lastcard {
-  margin-top: 6%;
-}
-} */
 
 
 

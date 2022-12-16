@@ -9,16 +9,17 @@ import {
   MDBCardTitle,
   MDBIcon,
 } from 'mdb-react-ui-kit'
+import '../Styles/About.css'
 
 import Profile from '../Images/maybeprofile.jpg'
 
 const About = () => {
   return (
     <div className='aboutsection'>
-      <h2 className='title font-LaBelle underline' id='about'>
+      {/* <h2 className='title font-LaBelle underline' id='about'>
         About Lauryn
-      </h2>
-      <Row xs={1} lg={3} className='testing align-items-end'>
+      </h2> */}
+      <Row xs={1} sm={2} lg={3} className='testing align-items-end' id='about'>
         <Col>
           {' '}
           <MDBCard className='card bg-lightMint'>
@@ -76,7 +77,7 @@ const About = () => {
           </MDBCard>
         </Col>
       </Row>
-      <Row xs={1} lg={3} className='testing mt-4'>
+      <Row xs={1} sm={2} lg={3} className='testing mt-4'>
         <Col>
           <MDBCard className='card card2 col2card mb-4'>
             <MDBCardBody className='bg-lightMint'>

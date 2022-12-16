@@ -1,0 +1,34 @@
+.about {
+    color: black;
+    font-size: 1.5rem;
+    /* background-image: linear-gradient(to right, #310859, #5833A6); */
+    margin: 4px;
+    /* background-color: rgb(165, 71, 194, .6); */
+    text-align: center;
+    /* border-radius: 15%; */
+  }
+  .card {
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+  }
+  
+  .card_link {
+    color: #060126;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 1s;
+    font-weight: bold;
+  
+  }
+  .aboutsection {
+    margin: 5% 10% 0 10%;
+  }
+  
+  .card_link:hover {
+    color: #735ef2;
+    text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
+  }
+  .card_link_right {
+    text-align: right;
+    padding-left: 10%;
+  }
