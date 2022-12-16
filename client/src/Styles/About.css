@@ -2,6 +2,7 @@
 .about {
     color: black;
     font-size: 1.5rem;
+    padding-top: 5%;
   }
 
 .top_card {
@@ -40,12 +41,17 @@
     .firsttext {
       margin-left: -8%;
     }
+    .lasttext {
+      text-align: center;
+
+    }
   }
   @media only screen and (max-width: 600px) {
     .firsttext {
-      margin-top: 5%;
+      padding-top: 10%;
     }
   }
+  
   
   .card_link_right {
     text-align: right;
