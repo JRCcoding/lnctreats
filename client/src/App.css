@@ -12,7 +12,11 @@ html, body {
   height: 100%;
   overflow-x: hidden;
 }
-
+@media only screen and (max-width: 600px) {
+  .everything {
+    background-size: 150px 150px;
+  }
+}
 
 
 

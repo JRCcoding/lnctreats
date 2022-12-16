@@ -1,5 +1,5 @@
 .footer_container {
-    margin-top: 10%;
+    margin-top: 40%;
 }
 
 .footer_row {
@@ -7,7 +7,11 @@
     background-color: #5fb0b7;
     text-decoration: none;
     font-size: 1.8rem;
-    padding-left: auto;
-    padding-right: auto;
-
+    display: flex;
+    flex-direction: row;  
+    padding-top: 5%;
+}
+.footer_col_2 {
+    text-align: right;
+    margin-right: 5%;
 }

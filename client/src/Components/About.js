@@ -22,26 +22,26 @@ const About = () => {
       <Row xs={1} sm={2} lg={3} className='testing align-items-end' id='about'>
         <Col>
           {' '}
-          <MDBCard className='card bg-lightMint'>
+          <MDBCard className='card '>
             <MDBCardImage
               position='top'
               alt='Lauryn Claxton LNC Treats'
               src={Profile}
             />
-            <Accordion defaultActiveKey='0' className='bg-lightMint'>
+            <Accordion defaultActiveKey='0' className='bg-minty'>
               <Accordion.Item eventKey='1'>
-                <Accordion.Header className='bg-lightMint'>
+                <Accordion.Header className='bg-minty'>
                   <MDBCardTitle className='card_link'>Lauryn</MDBCardTitle>
                 </Accordion.Header>
-                <Accordion.Body className='bg-lightMint'>
-                  <MDBCardBody className='bg-lightMint'>
+                <Accordion.Body className='bg-minty'>
+                  <MDBCardBody className='bg-minty'>
                     <MDBCardText className='about'>
                       Beautiful woman with beautiful skills, she's da bomb fa
                       sho.
                     </MDBCardText>
                   </MDBCardBody>
 
-                  <MDBCardBody className='bg-lightMint'>
+                  <MDBCardBody className='bg-minty'>
                     <MDBCardLink
                       href='https://www.facebook.com/LNCsstreats/'
                       target='_blank'
@@ -64,7 +64,7 @@ const About = () => {
         </Col>
         <Col>
           <MDBCard className='card lauryncard mt-5'>
-            <MDBCardBody className='bg-lightMint'>
+            <MDBCardBody className='bg-minty'>
               <p className='about'>
                 <MDBIcon fas icon='quote-left' />
                 &nbsp;&nbsp;&nbsp; Lauryn is a local baker who bakes out of her
@@ -80,7 +80,7 @@ const About = () => {
       <Row xs={1} sm={2} lg={3} className='testing mt-4'>
         <Col>
           <MDBCard className='card card2 col2card mb-4'>
-            <MDBCardBody className='bg-lightMint'>
+            <MDBCardBody className='bg-minty'>
               <p className='about '>
                 From small personal treat boxes to meeting and large group
                 catering, I can help you with any snacking needs!
@@ -90,7 +90,7 @@ const About = () => {
         </Col>
         <Col>
           <MDBCard className='card' id='lastcard'>
-            <MDBCardBody className='bg-lightMint'>
+            <MDBCardBody className='bg-minty'>
               <p className='about'>
                 I do custom cakes as well as simple cakes, cake pops, multiple
                 tiers and anything else you might want on a cake! Personalized

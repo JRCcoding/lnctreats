@@ -21,7 +21,11 @@
   
   }
   .aboutsection {
-    margin: 5% 10% 0 10%;
+    margin-top: 5%;  }
+  @media only screen and (min-width: 1000px) {
+    .aboutsection {
+      margin-left: 25%;
+    }
   }
   
   .card_link:hover {

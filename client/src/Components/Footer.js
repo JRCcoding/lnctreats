@@ -6,19 +6,19 @@ const Footer = () => {
   return (
     <div className='footer_container'>
       <Row className='footer_row'>
-        <Col>
+        <Col className='footer_col_1'>
           <ul>
-            <li>Instagram</li>
-            <li>Facebook</li>
-            <li>About Me</li>
+            <li>Products</li>
+            <li>Ordering</li>
+            <li>Catering</li>
           </ul>
         </Col>
 
-        <Col>
+        <Col className='footer_col_2'>
           <ul>
             <li>Contact</li>
-            <li>Facebook</li>
-            <li>About Me</li>
+            <li>About</li>
+            <li>Web Dev</li>
           </ul>
         </Col>
       </Row>

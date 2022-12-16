@@ -14,15 +14,25 @@
     font-size: 2rem;
     margin: 3%;
     color: #fad4ff;
+    transition: all 1s;
+  }
+  .navtitle:hover {
+    color: white;
+    cursor: pointer;
+    text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
   }
   @media only screen and (min-width: 600px) {
+    .logo {
+      margin-left: 30%;
+    }
   .navlinks {
-    margin-right: 25px;
+    position:absolute;
+    right: 10%;
   }
   }
   .navlink {
     text-decoration: none;
-    color: #a38ba7;
+    color: #f8ceff;
     font-size: 1.5rem;
     font-weight: 800;
     margin-right: 25px;
@@ -44,7 +54,7 @@
     margin-right: 0;
 }
 .navtitle {
-    font-size: 1.45rem;
+    font-size: 1.46rem;
     margin: 7% auto;
 }
 .logo {
