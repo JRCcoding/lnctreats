@@ -20,6 +20,7 @@ module.exports = {
       lightPurple: '#DEC0E8',
       darkPurple: '#CA9ADB',
       paleBlue: '#6c91bf',
+      footer: '#bb7fd1',
     },
   },
   plugins: [],

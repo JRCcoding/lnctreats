@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   MDBCard,
-  MDBCardImage,
+  // MDBCardImage,
   MDBCardBody,
   MDBCardTitle,
   MDBCardText,
@@ -13,6 +13,7 @@ import Loader from './Loader'
 import '../Styles/Products.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import loadingimg from '../Images/loading_transparent.png'
+import { Fade } from 'react-reveal'
 
 const Products = () => {
   const dispatch = useDispatch()
@@ -37,25 +38,27 @@ const Products = () => {
               {products &&
                 products.map((product) => (
                   <div key={product}>
-                    <MDBCard className='product_card'>
-                      {loading ? (
-                        <Loader />
-                      ) : error ? (
-                        <h3>{error}</h3>
-                      ) : (
-                        <LazyLoadImage
-                          position='top'
-                          alt='Lauryn Claxton LNC Treats'
-                          src={product.img}
-                          PlaceholderSrc={loadingimg}
-                        />
-                      )}
+                    <Fade bottom cascade>
+                      <MDBCard className='product_card'>
+                        {loading ? (
+                          <Loader />
+                        ) : error ? (
+                          <h3>{error}</h3>
+                        ) : (
+                          <LazyLoadImage
+                            position='top'
+                            alt='Lauryn Claxton LNC Treats'
+                            src={product.img}
+                            PlaceholderSrc={loadingimg}
+                          />
+                        )}
 
-                      <MDBCardBody className='bg-lightMint'>
-                        <MDBCardTitle>{product.title}</MDBCardTitle>
-                        <MDBCardText>{product.description}</MDBCardText>
-                      </MDBCardBody>
-                    </MDBCard>
+                        <MDBCardBody className='bg-lightMint'>
+                          <MDBCardTitle>{product.title}</MDBCardTitle>
+                          <MDBCardText>{product.description}</MDBCardText>
+                        </MDBCardBody>
+                      </MDBCard>{' '}
+                    </Fade>
                   </div>
                 ))}
             </Row>

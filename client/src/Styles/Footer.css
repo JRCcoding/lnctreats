@@ -1,0 +1,10 @@
+.footer_container {
+    background-color: #c993dd;
+    margin-top: 10%;
+    text-decoration: none;
+}
+
+.footer_row {
+    font-size: 1.8rem;
+    padding-left: 8%;
+}
