@@ -49,27 +49,26 @@ export default function App() {
         >
           <MDBIcon className='burger' fas icon='birthday-cake' />{' '}
         </MDBNavbarToggler>
-        <div className='ms-auto'>
-          <MDBCollapse navbar show={showBasic} className='navlinks'>
-            <MDBNavbarNav className='mb-2 mb-lg-0 '>
-              {/* <LinkContainer to='/'>
+        <MDBCollapse navbar show={showBasic} className='navlinks'>
+          <MDBNavbarNav className='mb-2 mb-lg-0 '>
+            {/* <LinkContainer to='/'>
                 <MDBNavbarLink>Home</MDBNavbarLink>
               </LinkContainer>
               <LinkContainer to='#about'>
                 <MDBNavbarLink>About</MDBNavbarLink>
               </LinkContainer> */}
-              <LinkContainer to='/'>
-                <MDBNavbarItem link className='navlink'>
-                  Home
-                </MDBNavbarItem>
-              </LinkContainer>
-              <LinkContainer to='/products'>
-                <MDBNavbarItem link className='navlink'>
-                  Products
-                </MDBNavbarItem>
-              </LinkContainer>
+            <LinkContainer to='/'>
+              <MDBNavbarItem link className='navlink'>
+                Home
+              </MDBNavbarItem>
+            </LinkContainer>
+            <LinkContainer to='/products'>
+              <MDBNavbarItem link className='navlink'>
+                Products
+              </MDBNavbarItem>
+            </LinkContainer>
 
-              {/* <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBNavbarLink
                 disabled
                 href='#'
@@ -79,9 +78,9 @@ export default function App() {
                 Disabled
               </MDBNavbarLink>
             </MDBNavbarItem> */}
-            </MDBNavbarNav>
+          </MDBNavbarNav>
 
-            {/* <form className='d-flex input-group w-auto'>
+          {/* <form className='d-flex input-group w-auto'>
             <input
               type='search'
               className='form-control'
@@ -90,8 +89,7 @@ export default function App() {
             />
             <MDBBtn color='primary'>Search</MDBBtn>
           </form> */}
-          </MDBCollapse>
-        </div>
+        </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
 

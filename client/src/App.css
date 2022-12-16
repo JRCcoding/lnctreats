@@ -1,25 +1,17 @@
 
 html, body {
-  /* height: 100%; 
-  width: 100%; */
   overflow-x: hidden; 
-  /* background-image: linear-gradient(to right, #E194F0, #B07CD9);
-   */
-
 }
 
 
 .everything {
 
-   /* background-color: #E194F0; */
-   background-image: url('./Images/lncbgpattern2.png');
+   background: rgb(103, 22, 105);
+
+   background-image: url('./Images/lncbgpattern.png');
   height: 100%;
   overflow-x: hidden;
-  /* background-size: cover, 100vh; */
-  /* background-attachment: fixed; */
-  /* background-size: 300px 300px; */
 }
-
 
 
 

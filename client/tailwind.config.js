@@ -8,12 +8,6 @@ module.exports = {
         Lato: ['Lato', 'sans-serif'],
       },
     },
-    // colors: {
-    //   lightMint: '#ebffed',
-    //   mint: '#daffef',
-    //   lightPurple: '#f5dcfa',
-    //   blackCoffee: '#32292f',
-    // },
     colors: {
       lightMint: '#ADE4D7',
       mint: '#5fb0b7',

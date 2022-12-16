@@ -13,7 +13,6 @@ const Footer = () => {
             <li>About Me</li>
           </ul>
         </Col>
-        <Col></Col>
 
         <Col>
           <ul>

@@ -63,7 +63,7 @@ const About = () => {
           </MDBCard>
         </Col>
         <Col>
-          <MDBCard className='card lauryncard'>
+          <MDBCard className='card lauryncard mt-5'>
             <MDBCardBody className='bg-lightMint'>
               <p className='about'>
                 <MDBIcon fas icon='quote-left' />
