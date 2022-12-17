@@ -34,3 +34,12 @@
 
     }
 }
+
+.footer_links {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+.footer_links:hover {
+    color: white;
+}

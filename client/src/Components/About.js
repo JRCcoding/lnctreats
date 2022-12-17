@@ -15,8 +15,8 @@ import Profile from '../Images/maybeprofile.jpg'
 
 const About = () => {
   return (
-    <Container>
-      <div className='aboutsection' id='about'>
+    <Container id='about'>
+      <div className='aboutsection font-Lato'>
         <MDBCard className='mt-4'>
           <MDBCardBody className='top_card'>
             <Row lg={2}>
