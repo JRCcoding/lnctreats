@@ -88,6 +88,7 @@ const About = () => {
               <a href='#cakesheet' className='intextlink'>
                 Cake Price Sheet
               </a>
+              .
             </p>
           </MDBCardBody>
         </MDBCard>

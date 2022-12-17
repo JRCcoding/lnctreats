@@ -22,9 +22,9 @@ const Footer = () => {
           <Col className='footer_col_2'>
             <ul>
               <li>Contact</li>
-              <a href='#about' className='footer_links'>
+              {/* <a href='#about' className='footer_links'>
                 <li>About</li>
-              </a>
+              </a> */}
               <li>Web Dev</li>
             </ul>
           </Col>

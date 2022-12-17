@@ -54,9 +54,9 @@ export default function App() {
                 Home
               </MDBNavbarItem>
             </LinkContainer>
-            <a href='#about' className='navlink'>
+            {/* <a href='#about' className='navlink'>
               About
-            </a>
+            </a> */}
             <LinkContainer to='/products'>
               <MDBNavbarItem link className='navlink'>
                 Products
