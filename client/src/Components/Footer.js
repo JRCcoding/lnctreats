@@ -22,10 +22,17 @@ const Footer = () => {
           <Col className='footer_col_2'>
             <ul>
               <li>Contact</li>
-              {/* <a href='#about' className='footer_links'>
+              {/* <LinkContainer to='/#about' className='footer_links'>
                 <li>About</li>
-              </a> */}
-              <li>Web Dev</li>
+              </LinkContainer> */}
+              <a
+                href='https://www.josh-claxton.com'
+                target='_blank'
+                className='footer_links'
+                rel='noreferrer'
+              >
+                <li>Web Dev</li>
+              </a>
             </ul>
           </Col>
         </Row>

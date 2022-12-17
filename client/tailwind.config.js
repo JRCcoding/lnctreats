@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         Pacifico: ['Pacifico', 'cursive'],
         Lato: ['Lato', 'sans-serif'],
+        Darkmode: ['darkmode-mono-off', 'sans-serif'],
       },
     },
     colors: {
