@@ -16,7 +16,7 @@ import Profile from '../Images/maybeprofile.jpg'
 const About = () => {
   return (
     <Container id='about'>
-      <div className='aboutsection font-Ginger'>
+      <div className='aboutsection font-Museo'>
         <MDBCard className='mt-4'>
           <MDBCardBody className='top_card'>
             <Row lg={2}>
@@ -62,7 +62,6 @@ const About = () => {
                   </Accordion>
                 </MDBCard>
               </Col>
-
               <Col className='firsttext'>
                 {' '}
                 <p className='about'>
