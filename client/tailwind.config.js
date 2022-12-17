@@ -7,6 +7,8 @@ module.exports = {
         Pacifico: ['Pacifico', 'cursive'],
         Lato: ['Lato', 'sans-serif'],
         Darkmode: ['darkmode-mono-off', 'sans-serif'],
+        Ginger: ['ff-ginger-pro', 'sans-serif'],
+        Reklame: ['reklame-script', 'sans-serif'],
       },
     },
     colors: {

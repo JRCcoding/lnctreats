@@ -33,7 +33,7 @@ const Intro = () => {
           >
             {' '}
             <div className='text-black'>
-              <h1>Lady Bug Cake</h1>
+              <h1 className='ctext'>Lady Bug Cake</h1>
             </div>
           </MDBCarouselItem>
           <MDBCarouselItem
@@ -44,7 +44,7 @@ const Intro = () => {
           >
             {' '}
             <div className='text-black'>
-              <h1>Celeste's XOXO Cake</h1>{' '}
+              <h1 className='ctext'>Celeste's XOXO Cake</h1>{' '}
             </div>
           </MDBCarouselItem>
           <MDBCarouselItem
@@ -54,7 +54,7 @@ const Intro = () => {
             alt='Lauryns Next door Cottage Halloween Treat Box'
           >
             <div className='text-black'>
-              <h1>Halloween Treat Box</h1>
+              <h1 className='ctext'>Halloween Treat Box</h1>
             </div>
           </MDBCarouselItem>
         </MDBCarousel>
