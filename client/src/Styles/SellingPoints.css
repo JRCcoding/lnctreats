@@ -1,10 +1,10 @@
 .about_card {
-    margin: 30% auto;
+    margin: 50% auto;
     padding: -10% 0;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
 #top_card {
-    margin-top: 20%;
+    margin-top: 70%;
 }
 .card_img {
     scale: 0.4;
@@ -25,7 +25,7 @@
     top: 50%;
     width: 55%;
     margin-top: -10%;
-    font-size: .8rem;
+    font-size: 1rem;
 
 
 }
@@ -58,7 +58,6 @@
     width: 55%;
     text-align: right;
     font-size: 1rem;
-    font-style:normal;
 }
 
 @media only screen and (min-width: 600px) {
