@@ -1,6 +1,8 @@
 .about_card {
     margin: 50% auto;
     padding: -10% 0;
+    height: 75%;
+    width: 75%;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
 #top_card {
@@ -31,7 +33,8 @@
 }
 .about_card_reverse {
     margin: 5% auto;
-    height: 100px;
+    height: 75%;
+    width: 75%;
     font-size: 1.4rem;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
@@ -63,8 +66,8 @@
 @media only screen and (min-width: 600px) {
     .about_card {
         scale: 75%;
-        margin-top: 25%;
-        margin-bottom: 25%;
+        margin-top: 10%;
+        margin-bottom: 10%;
     }
     .about_card_reverse {
         scale: 75%;
@@ -75,7 +78,7 @@
     .card_title {
         font-size: 4rem;
         scale: 150%;
-        padding-bottom: 24%;
+        padding-bottom: 30%;
     }
     .card_text {
         font-size: 2.5rem;
@@ -87,7 +90,7 @@
     .card_title_reverse {
         font-size: 4rem;
         scale: 150%;
-        padding-bottom: 24%;
+        padding-bottom: 30%;
 
     }
     .card_text_reverse {

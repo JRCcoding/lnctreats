@@ -12,7 +12,6 @@ import { listProducts } from '../Actions/productActions'
 import Loader from './Loader'
 import '../Styles/Products.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import loadingimg from '../Images/loading_transparent.png'
 import { Fade } from 'react-reveal'
 
 const Products = () => {
@@ -49,7 +48,6 @@ const Products = () => {
                             position='top'
                             alt='Lauryn Claxton LNC Treats'
                             src={product.img}
-                            PlaceholderSrc={loadingimg}
                           />
                         )}
 

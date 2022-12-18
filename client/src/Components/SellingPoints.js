@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card, Container } from 'react-bootstrap'
 import '../Styles/SellingPoints.css'
-import cakeicon from '../Images/cakeicon.png'
-import snackicon from '../Images/snackicon.png'
-import catericon from '../Images/catericon.png'
+import cakeicon from '../Images/webp/cakeicon.webp'
+import snackicon from '../Images/webp/snackicon.webp'
+import catericon from '../Images/webp/catericon.webp'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const SellingPoints = () => {

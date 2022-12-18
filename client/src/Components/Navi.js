@@ -1,4 +1,4 @@
-import Logo from '../Images/logo_transparent.png'
+import Logo from '../Images/webp/logo_transparent.webp'
 import '../index.css'
 import '../App.css'
 import React, { useState } from 'react'
