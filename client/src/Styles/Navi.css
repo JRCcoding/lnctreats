@@ -1,6 +1,6 @@
 .navi {
     /* background-color: rgb(111, 107, 150, 0.8); */
-    backdrop-filter: blur(15px);
+    /* backdrop-filter: blur(15px); */
 
   }
   .logo {
@@ -9,7 +9,8 @@
   .navtitle{ 
     font-size: 2rem;
     margin: 3%;
-    color: #fad4ff;
+    color: #984062;
+    /* color: #fad4ff; while no color*/
     text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
     transition: all 1s;
   }
@@ -29,8 +30,8 @@
   }
   .navlink {
     text-decoration: none;
-    color: #f8ceff;
     font-size: 1.5rem;
+    color: #984062;
     font-weight: 800;
     margin-right: 25px;
 text-align: right;

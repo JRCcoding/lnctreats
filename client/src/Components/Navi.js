@@ -20,7 +20,11 @@ export default function App() {
   const [showBasic, setShowBasic] = useState(false)
 
   return (
-    <MDBNavbar expand='md' fixed='top' className='navi font-Lato'>
+    <MDBNavbar
+      expand='md'
+      // fixed='top'
+      className='navi font-Lato'
+    >
       <MDBContainer fluid>
         <LinkContainer to='/'>
           <MDBNavbarBrand>
