@@ -6,9 +6,12 @@ html, body {
 
 .everything {
 
-   background: rgb(103, 22, 105);
+   /* background: rgb(103, 22, 105);
+    */
+    /* background: rgb(120, 115, 173); */
+    /* background-color: #94B0B3; */
 
-   background-image: url('./Images/lncbgpattern.png');
+   /* background-image: url('./Images/lncbgpattern.png'); */
 
   height: 100%;
   overflow-x: hidden;
@@ -28,7 +31,7 @@ html, body {
 
 .intextlink {
   text-decoration: none;
-  color:black;
+  color:rgb(133, 217, 224);
   transition: all 1s;
   font-weight: bold;
 }
@@ -38,15 +41,4 @@ html, body {
 
   
 }
-
-
-
-
-
-
-
-
-
-
-
 

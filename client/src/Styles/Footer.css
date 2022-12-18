@@ -1,6 +1,9 @@
 .footer_container {
     margin-top: 20%;
-    background-color: #5fb0b7;
+    /* background-color: rgb(111, 107, 150, 0.8); */
+    
+    backdrop-filter: blur(15px);
+
 
 }
 @media only screen and (min-width: 600px) {
@@ -16,7 +19,8 @@
 }
 
 .footer_row {
-    color: white;
+    /*color: white;TEMPORARILY BLACK FONT FOR  COLOR REMOVAL TO FOCUS ON SITE ITSELF*/
+    color : black;
     text-decoration: none;
     font-size: 1.8rem;
     display: flex;
@@ -38,7 +42,8 @@
 .footer_links {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    /*color: white;TEMPORARILY BLACK FONT FOR  COLOR REMOVAL TO FOCUS ON SITE ITSELF*/
+    color : black;
 }
 .footer_links:hover {
     color: white;

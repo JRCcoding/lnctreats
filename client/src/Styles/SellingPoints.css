@@ -1,7 +1,6 @@
 .about_card {
     margin: 5% auto;
-    height: 100px;
-    
+    height: 20%;
     font-size: 1.4rem;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
@@ -11,14 +10,14 @@
 }
 .card_title {
     position: absolute;
-    right: 53%;
+    left: 30%;
 
 }
 .card_text {
     position: absolute;
-    right:5%;
+    left: 40%;
     top: 50%;
-    width: 60%;
+    width: 55%;
     margin-top: -10%;
     font-size: 1rem;
 
@@ -40,7 +39,7 @@
 }
 .card_title_reverse {
     position: absolute;
-    right: 38%;
+    right: 34%;
 }
 .card_text_reverse {
     position: absolute;

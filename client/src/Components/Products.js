@@ -53,7 +53,7 @@ const Products = () => {
                           />
                         )}
 
-                        <MDBCardBody className='bg-lightMint'>
+                        <MDBCardBody>
                           <MDBCardTitle>{product.title}</MDBCardTitle>
                           <MDBCardText>{product.description}</MDBCardText>
                         </MDBCardBody>
