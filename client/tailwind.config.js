@@ -6,6 +6,8 @@ module.exports = {
       fontFamily: {
         Pacifico: ['Pacifico', 'cursive'],
         Museo: ['museo-sans-rounded', 'sans-serif'],
+        Pedestria: ['pedestria-mvb', 'sans-serif'],
+        Multi: ['multi-display', 'sans-serif'],
       },
     },
     colors: {

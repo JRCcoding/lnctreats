@@ -1,82 +1,22 @@
-
 #about {
-  padding-top: 50px;
-  margin-top: -50px;
-}
-.about {
-    color: black;
-    font-size: 1.6rem;
-    padding-top: 5%;
-  }
-
-.top_card {
-  background-color: #85d9e0;
+  margin-top: 8%;
 }
 
-  .card {
-    border-radius: 25px;
-    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+  #about {
+    margin-top: 25%;
   }
   
-  .card_link {
-    color: #060126;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 1s;
-    font-weight: bold;
-  
+}
+@media only screen and (max-width: 415px) {
+  .lauryn_card {
+    width: 355px;
   }
-  /* .cardtitle {
-    font-size: 1.9rem;
-    text-align: center;
-    width: 100%;
-    background-color: #5fb0b7;
-  } */
-  .card_link:hover {
-    color: #735ef2;
-    text-shadow: 3px 5px 5px rgba(0,0,0,0.5);
-  }
-
-  .lauryncard {
-    margin-left: auto;
-    margin-right: auto;
-    width: 350px;
-    margin-top: 7%;
-  }
-  @media only screen and (min-width: 600px) {
-    .firsttext {
-      margin-left: -8%;
-    }
-    .lasttext {
-      text-align: center;
-
-    }
-  }
-  @media only screen and (max-width: 600px) {
-    .firsttext {
-      padding-top: 10%;
-    }
-  }
-  
-  
-  .card_link_right {
-    text-align: right;
-    padding-left: 10%;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+}

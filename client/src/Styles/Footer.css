@@ -27,6 +27,11 @@
     flex-direction: row;  
     padding-top: 2%;
 }
+@media only screen and (min-width: 600px) {
+    .footer_row {
+        font-size: 2.2rem;
+    }
+}
 .footer_col_2 {
     text-align: right;
     margin-right: 1.5%;
@@ -42,9 +47,9 @@
 .footer_links {
     cursor: pointer;
     text-decoration: none;
-    /*color: white;TEMPORARILY BLACK FONT FOR  COLOR REMOVAL TO FOCUS ON SITE ITSELF*/
     color : black;
 }
 .footer_links:hover {
-    color: white;
+    /*color: white;TEMPORARILY BLACK FONT FOR  COLOR REMOVAL TO FOCUS ON SITE ITSELF*/
+    color: black;
 }

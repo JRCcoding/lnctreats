@@ -1,8 +1,10 @@
 .about_card {
-    margin: 5% auto;
-    height: 20%;
-    font-size: 1.4rem;
+    margin: 30% auto;
+    padding: -10% 0;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+}
+#top_card {
+    margin-top: 20%;
 }
 .card_img {
     scale: 0.4;
@@ -10,7 +12,11 @@
 }
 .card_title {
     position: absolute;
-    left: 30%;
+    right: 50%;
+    font-style:normal;
+    font-weight: 700;
+    scale: 130%;
+    padding-bottom: 50%;
 
 }
 .card_text {
@@ -19,14 +25,13 @@
     top: 50%;
     width: 55%;
     margin-top: -10%;
-    font-size: 1rem;
+    font-size: .8rem;
 
 
 }
 .about_card_reverse {
     margin: 5% auto;
     height: 100px;
-    
     font-size: 1.4rem;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
@@ -40,6 +45,11 @@
 .card_title_reverse {
     position: absolute;
     right: 34%;
+    font-style:normal;
+    font-weight: 700;
+    scale: 130%;
+    padding-bottom: 50%;
+
 }
 .card_text_reverse {
     position: absolute;
@@ -48,15 +58,25 @@
     width: 55%;
     text-align: right;
     font-size: 1rem;
-
+    font-style:normal;
 }
 
 @media only screen and (min-width: 600px) {
+    .about_card {
+        scale: 75%;
+        margin-top: 12.5%;
+        margin-bottom: 12.5%;
+    }
+    .about_card_reverse {
+        scale: 75%;
+    }
     .card_img {
         margin: -35%;
     }
     .card_title {
-font-size: 4rem;
+        font-size: 4rem;
+        scale: 150%;
+        padding-bottom: 24%;
     }
     .card_text {
         font-size: 2.5rem;
@@ -66,7 +86,10 @@ font-size: 4rem;
         right: -64%;
     }
     .card_title_reverse {
-font-size: 4rem;
+        font-size: 4rem;
+        scale: 150%;
+        padding-bottom: 24%;
+
     }
     .card_text_reverse {
         font-size: 2.5rem;

@@ -1,15 +1,10 @@
-#intro {
-    padding: 10% auto;
-    
-  }
+
   .carousel {
-    margin: 10% auto 30% auto;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
   }
   @media only screen and (min-width: 600px) {
     .carousel {
-    width: 60%;
-    margin-bottom: 10%;
+    scale: 75%;
 
     }
   }

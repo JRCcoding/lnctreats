@@ -2,7 +2,6 @@ import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 import '../Styles/Footer.css'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -22,9 +21,9 @@ const Footer = () => {
           <Col className='footer_col_2'>
             <ul>
               <li>Contact</li>
-              {/* <LinkContainer to='/#about' className='footer_links'>
+              <LinkContainer to='/about' className='footer_links'>
                 <li>About</li>
-              </LinkContainer> */}
+              </LinkContainer>
               <a
                 href='https://www.josh-claxton.com'
                 target='_blank'
