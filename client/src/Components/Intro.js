@@ -10,10 +10,10 @@ import Prod3 from '../Images/product3.jpg'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { Fade } from 'react-reveal'
 
-import '../Styles/Intro.css'
+import '../Styles/Carousel.css'
 // import ProductCarousel from './ProductCarousel'
 
-const Intro = () => {
+const Carousel = () => {
   // const [products, setProducts] = useState([])
 
   // useEffect(() => {
@@ -82,4 +82,4 @@ const Intro = () => {
   )
 }
 
-export default Intro
+export default Carousel

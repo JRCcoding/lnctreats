@@ -11,7 +11,7 @@ import {
 } from 'mdb-react-ui-kit'
 import '../Styles/About.css'
 
-import Profile from '../Images/maybeprofile.jpg'
+import Profile from '../Images/webp/maybeprofile.webp'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const About = () => {
