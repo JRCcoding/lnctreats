@@ -7,7 +7,6 @@ import 'animate.css'
 import Prod1 from '../Images/webp/product1.webp'
 import Prod2 from '../Images/webp/product2.webp'
 import Prod3 from '../Images/webp/product3.webp'
-import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { Fade } from 'react-reveal'
 
 import '../Styles/Carousel.css'
