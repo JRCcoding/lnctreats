@@ -4,7 +4,7 @@
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
 #top_card {
-    margin-top: 70%;
+    margin-top: 30%;
 }
 .card_img {
     scale: 0.4;
@@ -63,8 +63,8 @@
 @media only screen and (min-width: 600px) {
     .about_card {
         scale: 75%;
-        margin-top: 12.5%;
-        margin-bottom: 12.5%;
+        margin-top: 25%;
+        margin-bottom: 25%;
     }
     .about_card_reverse {
         scale: 75%;
