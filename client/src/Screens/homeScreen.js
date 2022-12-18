@@ -1,6 +1,6 @@
 import React from 'react'
 import Intro from '../Components/Intro'
-import About from '../Components/About'
+import SellingPoints from '../Components/SellingPoints'
 // import { Reveal } from 'react-reveal'
 
 const HomeScreen = () => {
@@ -8,7 +8,7 @@ const HomeScreen = () => {
     <>
       {/* <Reveal effect='animate__animated animate__fadeInUp' cascade> */}
       <Intro />
-      <About />
+      <SellingPoints />
       {/* </Reveal> */}
     </>
   )

@@ -11,6 +11,7 @@
 
 .top_card {
   background-color: #85d9e0;
+        backdrop-filter: blur(15px);
 }
 
   .card {
@@ -41,6 +42,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 350px;
+    margin-top: 7%;
   }
   @media only screen and (min-width: 600px) {
     .firsttext {
