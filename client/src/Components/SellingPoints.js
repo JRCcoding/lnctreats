@@ -31,7 +31,7 @@ const SellingPoints = () => {
             ></img>
             <h1 className='card_title_reverse'>Snacks</h1>
             <p className='card_text_reverse font-Multi'>
-              Huge variety of snacks from gummies to Kickin' Munchy Mix
+              Huge variety of snacks from Gummies to Kickin' Munchy Mix
             </p>
           </Card.Body>
         </Card>
@@ -43,7 +43,7 @@ const SellingPoints = () => {
             <img src={catericon} className='card_img' alt='cake icon'></img>
             <h1 className='card_title'>Catering</h1>
             <p className='card_text  font-Multi'>
-              From small meetings to all out BASHes, I can help you make your
+              From small meetings to all out bashes, I can help you make your
               occassion that much more special
             </p>
           </Card.Body>

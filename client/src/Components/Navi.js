@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <MDBNavbar
-      expand='lg'
+      expand='sm'
       // fixed='top'
       className='navi font-Lato bg-Navbar'
     >
@@ -52,15 +52,13 @@ export default function App() {
         </MDBNavbarToggler>
 
         <MDBCollapse navbar show={showBasic} className='navlinks'>
-          <MDBNavbarNav className='mb-2 mb-lg-0 '>
+          <MDBNavbarNav className='mb-2 mb-lg-0 navlinks'>
             <LinkContainer to='/contact'>
               <MDBNavbarItem link className='navlink'>
                 Contact
               </MDBNavbarItem>
             </LinkContainer>
-            {/* <a href='#about' className='navlink'>
-              About
-            </a> */}
+
             <LinkContainer to='/about'>
               <MDBNavbarItem link className='navlink'>
                 About
