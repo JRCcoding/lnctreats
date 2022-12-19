@@ -8,6 +8,7 @@
 .about_card_body {
 display: flex; 
 flex-direction: row;
+box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 
 }
 
@@ -39,7 +40,8 @@ flex-direction: row;
     display: flex; 
     flex-direction: row-reverse;
     
-    }
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+}
 #top_card_reverse {
 
 }

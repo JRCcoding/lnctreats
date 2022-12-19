@@ -3,6 +3,7 @@
 }
 .contact_card {
     margin: 20% auto 0 auto;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
     width: 50%;
 }
 @media only screen and (max-width: 500px) {
