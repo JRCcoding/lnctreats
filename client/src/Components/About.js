@@ -85,11 +85,7 @@ const About = () => {
               <p className='about lasttext'>
                 I do custom cakes as well as simple cakes, cake pops, multiple
                 tiers and anything else you might want on a cake! Personalized
-                toppers can easily be added as well. Check out my{' '}
-                <a href='#cakesheet' className='intextlink'>
-                  Cake Price Sheet
-                </a>
-                .
+                toppers can easily be added as well.
               </p>
             </MDBCardBody>
           </MDBCard>

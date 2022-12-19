@@ -5,11 +5,12 @@ import Contact from '../Components/Contact'
 
 const HomeScreen = () => {
   return (
-    <>
+    // <div className='bg-Background'>
+    <div className='bg-LightBG'>
       <Carousel />
       <SellingPoints />
       <Contact />
-    </>
+    </div>
   )
 }
 

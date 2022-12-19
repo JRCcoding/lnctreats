@@ -23,7 +23,7 @@ export default function App() {
     <MDBNavbar
       expand='lg'
       // fixed='top'
-      className='navi font-Lato'
+      className='navi font-Lato bg-Navbar'
     >
       <MDBContainer fluid>
         <LinkContainer to='/'>
@@ -35,7 +35,7 @@ export default function App() {
               height='60'
               className='logo align-top'
             />{' '}
-            <h6 className='d-inline navtitle font-Pacifico'>
+            <h6 className='d-inline navtitle font-Pacifico text-Navtitle2'>
               Lauryn's Next-door Cottage
             </h6>
           </MDBNavbarBrand>

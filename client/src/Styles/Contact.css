@@ -1,7 +1,14 @@
+.contact_container {
+    padding-bottom: 15%;
+}
 .contact_card {
-    margin: 2% auto;
+    margin: 20% auto 0 auto;
     width: 50%;
-    display: flex;
+}
+@media only screen and (max-width: 500px) {
+    .contact_card {
+        width: 80%;
+    }
 }
 .contact_title {
     margin-left: auto;
@@ -9,8 +16,8 @@
 }
 .contact_submit {
     margin-left: 60%;
-    border-radius: 25px;
     padding: 2%;
+    margin-top: 2%;
     font-size: 1.5rem;
     box-shadow: 3px 3px 5px rgba(0,0,0, 0.5)
 }

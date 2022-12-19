@@ -16,56 +16,67 @@ const Contact = () => {
     )
   }
   return (
-    <Card className='contact_card'>
-      <Card.Title className='contact_title'>
-        <h1 className='contact_title_h1'>Contact me now!</h1>
-      </Card.Title>
+    <div className='contact_container'>
+      <Card className='contact_card'>
+        <Card.Title className='contact_title mb-5 mt-2'>
+          <h1 className='contact_title_h1'>Contact me now!</h1>
+        </Card.Title>
 
-      <Card.Body>
-        <form onSubmit={handleSubmit}>
-          <label className='form-label' htmlFor='name'>
-            Name:
-          </label>
-          <input className='form-control' id='name' type='text' name='name' />
-          <label className='form-label' htmlFor='number'>
-            Number:
-          </label>
-          <input
-            className='form-control'
-            id='number'
-            type='text'
-            name='number'
-          />
+        <Card.Body>
+          <form onSubmit={handleSubmit}>
+            <label className='form-label' htmlFor='name'>
+              Name:
+            </label>
+            <input
+              className='form-control mb-3'
+              id='name'
+              type='text'
+              name='name'
+              required
+            />
+            <label className='form-label' htmlFor='number'>
+              Number:
+            </label>
+            <input
+              className='form-control mb-3'
+              id='number'
+              type='text'
+              name='number'
+              required
+            />
 
-          <label className='form-label' htmlFor='email'>
-            Email:
-          </label>
-          <input
-            className='form-control'
-            id='email'
-            type='email'
-            name='email'
-          />
+            <label className='form-label' htmlFor='email'>
+              Email:
+            </label>
+            <input
+              className='form-control mb-3'
+              id='email'
+              type='email'
+              name='email'
+              required
+            />
 
-          <label className='form-label' htmlFor='message'>
-            Message:
-          </label>
-          <input
-            className='form-control '
-            id='message'
-            type='text'
-            name='message'
-          ></input>
-          <button
-            type='submit'
-            className='contact_submit'
-            disabled={state.submitting}
-          >
-            Send to Lauryn
-          </button>
-        </form>
-      </Card.Body>
-    </Card>
+            <label className='form-label' htmlFor='message'>
+              Message:
+            </label>
+            <input
+              className='form-control '
+              id='message'
+              type='text'
+              name='message'
+              required
+            ></input>
+            <button
+              type='submit'
+              className='contact_submit btn'
+              disabled={state.submitting}
+            >
+              Send to Lauryn
+            </button>
+          </form>
+        </Card.Body>
+      </Card>
+    </div>
   )
 }
 
