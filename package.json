@@ -4,7 +4,7 @@
   "description": "",
   "main": "./server/server.js",
   "type": "module",
-  "homepage": "https://lnctreatslive.onrender.com/",
+  "homepage": "https://www.lnctreats.com/",
   "scripts": {
     "start": "node server/server.js",
     "server": "nodemon server/server",
