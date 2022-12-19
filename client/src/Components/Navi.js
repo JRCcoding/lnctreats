@@ -35,7 +35,7 @@ export default function App() {
               height='60'
               className='logo align-top'
             />{' '}
-            <h6 className='d-inline navtitle font-Pacifico text-Navtitle2'>
+            <h6 className='d-inline navtitle font-Pacifico text-Navtitle'>
               Lauryn's Next-door Cottage
             </h6>
           </MDBNavbarBrand>
