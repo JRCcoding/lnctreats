@@ -1,4 +1,7 @@
+.navi {
+  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 
+}
   .logo {
     scale: 1.3;
   }
