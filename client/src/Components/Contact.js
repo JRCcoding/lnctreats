@@ -24,11 +24,11 @@ const Contact = () => {
       <Card.Body>
         <form onSubmit={handleSubmit}>
           <label className='form-label' htmlFor='name'>
-            Name
+            Name:
           </label>
           <input className='form-control' id='name' type='text' name='name' />
           <label className='form-label' htmlFor='number'>
-            Number
+            Number:
           </label>
           <input
             className='form-control'
@@ -38,7 +38,7 @@ const Contact = () => {
           />
 
           <label className='form-label' htmlFor='email'>
-            Email
+            Email:
           </label>
           <input
             className='form-control'
@@ -48,7 +48,7 @@ const Contact = () => {
           />
 
           <label className='form-label' htmlFor='message'>
-            Message
+            Message:
           </label>
           <input
             className='form-control '
@@ -56,7 +56,11 @@ const Contact = () => {
             type='text'
             name='message'
           ></input>
-          <button type='submit' disabled={state.submitting}>
+          <button
+            type='submit'
+            className='contact_submit'
+            disabled={state.submitting}
+          >
             Send to Lauryn
           </button>
         </form>

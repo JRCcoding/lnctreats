@@ -1,8 +1,16 @@
 .contact_card {
     margin: 2% auto;
     width: 50%;
+    display: flex;
 }
 .contact_title {
     margin-left: auto;
     margin-right: auto;
+}
+.contact_submit {
+    margin-left: 60%;
+    border-radius: 25px;
+    padding: 2%;
+    font-size: 1.5rem;
+    box-shadow: 3px 3px 5px rgba(0,0,0, 0.5)
 }
