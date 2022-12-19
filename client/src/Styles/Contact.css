@@ -6,14 +6,18 @@
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
     width: 50%;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
     .contact_card {
         width: 80%;
     }
 }
 .contact_title {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;    
+    font-family: 'Dancing Script', cursive; 
+    scale: 1.8;
+    position: relative;
+    top: -22px;
 }
 .contact_submit {
     margin-left: 60%;

@@ -44,7 +44,7 @@ text-align: right;
 
   }
   .toggler {
-    margin: 2% 3% 0 0;
+    margin-right: 8%;
     filter: invert(1);
   }
 @media only screen and (max-width: 780px) {

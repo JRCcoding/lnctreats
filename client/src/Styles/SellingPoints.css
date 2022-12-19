@@ -27,9 +27,9 @@ box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
 
 .card_title {
- font-size: 3rem;
- text-decoration: underline;
- 
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive; 
+    margin-top: -10%;
 }
 
 .card_text {
@@ -63,8 +63,9 @@ box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
 }
 
 .card_title_reverse {
-    font-size: 3rem;
-    text-decoration: underline;
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive; 
+    margin-top: -10%;
 }
 
 .card_text_reverse {
@@ -74,11 +75,31 @@ box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
     font-weight: bold;
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 600px) {
     .card_img, .card_img_reverse {
-        display: block;
         width: 30%;
         margin-left: auto;
         margin-right: auto;
+        top: 480px;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .card_container {
+        gap: 300px;
+    }
+    .card_img, .card_img_reverse {
+        width: 40%;
+        top: 375px;
+    }
+    .card_title, .card_title_reverse {
+        font-size: 6rem;
+        margin-top: -8%;
+
+    }
+    .card_text {
+        margin-left: -20%;
+    }
+    .card_text_reverse {
+        margin-right: -20%;
     }
 }
