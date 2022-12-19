@@ -31,36 +31,35 @@ const Products = () => {
           {/* <h2 className='title font-LaBelle underline' id='products'>
             Products
           </h2> */}
-
-          <Container className='product_list'>
-            <Row xs={1} sm={2} md={2} lg={3}>
-              {products &&
-                products.map((product) => (
-                  <div key={product}>
-                    <Fade bottom cascade>
-                      <MDBCard className='product_card'>
-                        {loading ? (
-                          <Loader />
-                        ) : error ? (
-                          <h3>{error}</h3>
-                        ) : (
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <h3>{error}</h3>
+          ) : (
+            <Container className='product_list'>
+              <Row xs={1} sm={2} md={2} lg={3}>
+                {products &&
+                  products.map((product) => (
+                    <div key={product}>
+                      <Fade bottom cascade>
+                        <MDBCard className='product_card'>
                           <LazyLoadImage
                             position='top'
                             alt='Lauryn Claxton LNC Treats'
                             src={product.img}
                           />
-                        )}
 
-                        <MDBCardBody>
-                          <MDBCardTitle>{product.title}</MDBCardTitle>
-                          <MDBCardText>{product.description}</MDBCardText>
-                        </MDBCardBody>
-                      </MDBCard>{' '}
-                    </Fade>
-                  </div>
-                ))}
-            </Row>
-          </Container>
+                          <MDBCardBody>
+                            <MDBCardTitle>{product.title}</MDBCardTitle>
+                            <MDBCardText>{product.description}</MDBCardText>
+                          </MDBCardBody>
+                        </MDBCard>{' '}
+                      </Fade>
+                    </div>
+                  ))}
+              </Row>
+            </Container>
+          )}
         </div>
       </Container>
     </div>

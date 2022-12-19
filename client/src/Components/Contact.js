@@ -22,7 +22,7 @@ const Contact = () => {
           <h1 className='contact_title_h1'>Contact me now!</h1>
         </Card.Title>
 
-        <Card.Body>
+        <Card.Body className='contact_form'>
           <form onSubmit={handleSubmit}>
             <label className='form-label' htmlFor='name'>
               Name:
