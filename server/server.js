@@ -2,20 +2,55 @@ import express from 'express'
 import connectDB from './config/db.js'
 import dotenv from 'dotenv'
 import productRoutes from './routes/productRoutes.js'
+import contactRoutes from './routes/contactRoutes.js'
 import path from 'path'
-// import { fileURLToPath } from 'url'
-// import { dirname } from 'path'
 import colors from 'colors'
+import cors from 'cors'
+import nodemailer from 'nodemailer'
 
 dotenv.config()
 
 const app = express()
 connectDB()
-// app.use((req, res, next) => {
-//   const error = new Error(`Not Found - ${req.originalUrl}`)
-//   res.status(404)
-//   next(error)
-// })
+
+app.use(cors())
+app.use(express.json())
+const contactEmail = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'jrciop@gmail.com',
+    pass: 'yzzq zhuy orna plup',
+  },
+})
+const router = express.Router()
+
+contactEmail.verify((error) => {
+  if (error) {
+    console.log(error)
+  } else {
+    console.log('Ready to Send')
+  }
+})
+router.post('/contact', (req, res) => {
+  const name = req.body.name
+  const email = req.body.email
+  const message = req.body.message
+  const mail = {
+    from: name,
+    to: 'jrciop@gmail.com',
+    subject: 'Contact Form Submission',
+    html: `<p>Name: ${name}</p>
+             <p>Email: ${email}</p>
+             <p>Message: ${message}</p>`,
+  }
+  contactEmail.sendMail(mail, (error) => {
+    if (error) {
+      res.json({ status: 'ERROR' })
+    } else {
+      res.json({ status: 'Message Sent' })
+    }
+  })
+})
 
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode
@@ -27,23 +62,7 @@ app.use((err, req, res, next) => {
 })
 
 app.use('/api/products', productRoutes)
-
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = dirname(__filename)
-
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = path.dirname(__filename)
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '/frontend/build')))
-
-//   app.get('*', (req, res) =>
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
-//   )
-// } else {
-//   app.get('/', (req, res) => {
-//     res.send('API is running...')
-//   })
-// }
+app.use('/contacts', contactRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'))

@@ -20,7 +20,9 @@ const Footer = () => {
 
           <Col className='footer_col_2'>
             <ul>
-              <li>Contact</li>
+              <LinkContainer to='/contact' className='footer_links'>
+                <li>Contact</li>
+              </LinkContainer>
               <LinkContainer to='/about' className='footer_links'>
                 <li>About</li>
               </LinkContainer>

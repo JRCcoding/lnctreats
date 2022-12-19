@@ -1,4 +1,4 @@
-.products_box {
+/* .products_box {
     padding-top: 25%;
   }
   .product_list {
@@ -9,4 +9,7 @@
   .product_card {
     margin: 2% 0;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);   
+  } */
+  .products_box {
+    padding-top: 10%;
   }

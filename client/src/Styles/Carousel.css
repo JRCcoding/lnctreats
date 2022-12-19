@@ -10,10 +10,13 @@
     color: white;
     text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
     font-size: 4rem;
-    font-family: reklame-script, sans-serif;
   }
   @media only screen and (max-width: 600px) {
     .ctext {
       font-size:.5rem;
+    }
+    .carousel {
+      height: 100%;
+      width: 100%;
     }
   }
