@@ -15,8 +15,8 @@ const SellingPoints = () => {
             <img src={cakeicon} className='card_img' alt='cake icon'></img>
             <h1 className='card_title bg-Background  font-Pedestria'>Cakes</h1>
             <p className='card_text font-Multi'>
-              Simple and custom cakes! I have a Cake Price Sheet but also open
-              for consultation!
+              Simple cakes to fully customized, contact me below to talk about
+              pricing and work with your budget!
             </p>
           </Card.Body>
         </Card>
@@ -31,7 +31,7 @@ const SellingPoints = () => {
           ></img>
           <h1 className='card_title_reverse font-Pedestria'>Snacks</h1>
           <p className='card_text_reverse font-Multi'>
-            Huge variety of snacks from gummies to buffalo ranch trail mix!
+            Huge variety of snacks from gummies to Kickin' Munchy Mix
           </p>
         </Card.Body>
       </Card>
@@ -41,8 +41,8 @@ const SellingPoints = () => {
           <img src={catericon} className='card_img' alt='cake icon'></img>
           <h1 className='card_title  font-Pedestria'>Catering</h1>
           <p className='card_text  font-Multi'>
-            From small meetings to all out <strong>BASH</strong>es, I can help
-            you make your occassion that much more special!
+            From small meetings to all out BASHes, I can help you make your
+            occassion that much more special
           </p>
         </Card.Body>
       </Card>
