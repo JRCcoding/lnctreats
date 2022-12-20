@@ -23,10 +23,10 @@ const Carousel = () => {
   //   fetchProducts()
   // }, [])
   return (
-    <div className='intro mb-5 pt-5' id='intro'>
+    <div className='intro pt-5' id='intro'>
       <Container>
         {/* <Fade bottom> */}
-        <MDBCarousel className='carousel mt-5' interval='3000'>
+        <MDBCarousel className='carousel' interval='3000'>
           <MDBCarouselItem
             className='w-100 d-block'
             itemId={1}

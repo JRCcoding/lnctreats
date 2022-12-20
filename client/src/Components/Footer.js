@@ -8,12 +8,9 @@ const Footer = () => {
     <div className='footer_container bg-Navbar'>
       <Container>
         <Row className='footer_row'>
-          <Col className='footer_col_1 text-Navtitle2'>
+          <Col className='footer_col_1'>
             <ul>
-              <LinkContainer
-                to='/products'
-                className='footer_links text-Navtitle2'
-              >
+              <LinkContainer to='/products' className='footer_links'>
                 <li>Products</li>
               </LinkContainer>
               {/* <LinkContainer to='/products'>
@@ -22,31 +19,24 @@ const Footer = () => {
               <LinkContainer to='/products'>
                 <li>Catering</li>
               </LinkContainer> */}
-              <LinkContainer
-                to='/contact'
-                className='footer_links text-Navtitle2'
-              >
+              <LinkContainer to='/contact' className='footer_links '>
                 <li>Contact</li>
               </LinkContainer>
             </ul>
           </Col>
 
-          <Col className='footer_col_2  text-Navtitle2'>
+          <Col className='footer_col_2  '>
             <ul>
-              <LinkContainer
-                to='/about'
-                className='footer_links text-Navtitle2'
-              >
+              <LinkContainer to='/about' className='footer_links '>
                 <li>About</li>
               </LinkContainer>
-              <a
-                href='https://www.josh-claxton.com'
-                target='_blank'
-                className='footer_links text-Navtitle2'
-                rel='noreferrer'
+
+              <LinkContainer
+                to='https://www.josh-claxton.com'
+                className='footer_links '
               >
                 <li>Web Dev</li>
-              </a>
+              </LinkContainer>
             </ul>
           </Col>
         </Row>

@@ -27,7 +27,7 @@ const About = () => {
   }, [dispatch])
   return (
     <AnimationOnScroll animateIn='animate__fadeInUp'>
-      <Container id='about' className='font-'>
+      <Container id='about' className=''>
         <div className='about_section'>
           {loading ? (
             <Loader />
@@ -35,10 +35,10 @@ const About = () => {
             <h3>{error}</h3>
           ) : (
             <MDBCard className='mt-4'>
-              <MDBCardBody className='top_card'>
-                <Row lg={2}>
+              <MDBCardBody className='top_card bg-Accent'>
+                <Row lg={2} className='text-LightBG about_text'>
                   <Col>
-                    <MDBCard className='card lauryn_card'>
+                    <MDBCard className='card lauryn_card text-LightBG'>
                       <MDBCardImage
                         position='top'
                         alt='Lauryn Claxton LNC Treats'
@@ -94,14 +94,13 @@ const About = () => {
                       catering, I can help you with any snacking needs!
                     </p>
                     <p className='about '>Local delivery for $3</p>
+                    <p className='about lasttext'>
+                      I do custom cakes as well as simple cakes, cake pops,
+                      multiple tiers and anything else you might want on a cake!
+                      Personalized toppers can easily be added as well.
+                    </p>
                   </Col>
                 </Row>
-
-                <p className='about lasttext'>
-                  I do custom cakes as well as simple cakes, cake pops, multiple
-                  tiers and anything else you might want on a cake! Personalized
-                  toppers can easily be added as well.
-                </p>
               </MDBCardBody>
             </MDBCard>
           )}
