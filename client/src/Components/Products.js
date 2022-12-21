@@ -13,6 +13,7 @@ import Loader from './Loader'
 import '../Styles/Products.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Fade } from 'react-reveal'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Products = () => {
   const dispatch = useDispatch()
@@ -28,9 +29,6 @@ const Products = () => {
     <div>
       <Container>
         <div className='products_box'>
-          {/* <h2 className='title font-LaBelle underline' id='products'>
-            Products
-          </h2> */}
           {loading ? (
             <Loader />
           ) : error ? (
@@ -43,11 +41,13 @@ const Products = () => {
                     <div key={product}>
                       <Fade bottom cascade>
                         <MDBCard className='product_card border border-primary'>
+                          {/* <LinkContainer to={`/product/${product._id}`}> */}
                           <LazyLoadImage
                             position='top'
                             alt='Lauryn Claxton LNC Treats'
                             src={product.img}
                           />
+                          {/* </LinkContainer> */}
 
                           <MDBCardBody>
                             <MDBCardTitle>{product.title}</MDBCardTitle>
