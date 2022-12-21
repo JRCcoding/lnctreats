@@ -51,7 +51,7 @@ export default function App() {
           <MDBIcon className='burger' fas icon='birthday-cake' />{' '}
         </MDBNavbarToggler>
 
-        <MDBCollapse navbar show={showBasic} className='navlinks'>
+        <MDBCollapse navbar show={showBasic} className='navlinks text-white'>
           <MDBNavbarNav className='mb-2 mb-lg-0 navlinks'>
             <LinkContainer to='/contact'>
               <MDBNavbarItem link className='navlink'>

@@ -49,9 +49,11 @@ const Products = () => {
                           />
                           {/* </LinkContainer> */}
 
-                          <MDBCardBody>
+                          <MDBCardBody className='bg-Accent'>
                             <MDBCardTitle>{product.title}</MDBCardTitle>
-                            <MDBCardText>{product.description}</MDBCardText>
+                            <MDBCardText className='text-AccentText'>
+                              {product.description}
+                            </MDBCardText>
                           </MDBCardBody>
                         </MDBCard>{' '}
                       </Fade>

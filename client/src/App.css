@@ -1,8 +1,6 @@
-
-html, body {
-  overflow-x: hidden; 
+.everything {
+  background-image: url(./Images/webp/lncbgpattern.webp);
+  background-repeat:repeat;
+  background-size: 200px;
+  background-color: #ebeeef;
 }
-
-
-
-
