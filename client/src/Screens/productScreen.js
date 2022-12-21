@@ -19,7 +19,7 @@ const ProductScreen = ({ match }) => {
   //     dispatch(listProductDetails())
   //   }, [dispatch])
   return (
-    <div key={product}>
+    <div key={product} className='background_pattern'>
       <LinkContainer className='btn btn-light my-3' to='/products'>
         <h2>Go Back</h2>Go Back
       </LinkContainer>

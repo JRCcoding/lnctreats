@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navi className='z1' />
+        <Navi />
         <Route path='/' exact component={HomeScreen} />
         <Route path='/products' component={ProductsScreen} />
         <Route path='/product/:id' component={ProductScreen} />

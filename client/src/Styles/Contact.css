@@ -1,8 +1,9 @@
 .contact_container {
     padding-bottom: 15%;
+    padding-top: 15%;
 }
 .contact_card {
-    margin: 10% auto 0 auto;
+    margin: 0 auto 0 auto;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
     width: 50%;
 }
