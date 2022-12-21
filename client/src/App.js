@@ -10,9 +10,9 @@ import Footer from './Components/Footer'
 
 function App() {
   return (
-    <div className='everything'>
+    <>
       <Router>
-        <Navi />
+        <Navi className='z1' />
         <Route path='/' exact component={HomeScreen} />
         <Route path='/products' component={ProductsScreen} />
         <Route path='/product/:id' component={ProductScreen} />
@@ -20,7 +20,7 @@ function App() {
         <Route path='/contact' component={ContactScreen} />
         <Footer />
       </Router>
-    </div>
+    </>
   )
 }
 

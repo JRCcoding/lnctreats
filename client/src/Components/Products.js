@@ -40,7 +40,7 @@ const Products = () => {
                   products.map((product) => (
                     <div key={product}>
                       <Fade bottom cascade>
-                        <MDBCard className='product_card border border-primary'>
+                        <MDBCard className='product_card'>
                           {/* <LinkContainer to={`/product/${product._id}`}> */}
                           <LazyLoadImage
                             position='top'

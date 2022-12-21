@@ -8,7 +8,7 @@ import { Fade } from 'react-reveal'
 const HomeScreen = () => {
   return (
     // <div className='bg-LightBG'>
-    <div>
+    <div className='background_pattern'>
       <Carousel />
       <SellingPoints />
       <Fade up>
