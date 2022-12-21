@@ -35,10 +35,10 @@ const About = () => {
             <h3>{error}</h3>
           ) : (
             <MDBCard className='mt-4'>
-              <MDBCardBody className='top_card bg-Accent'>
-                <Row lg={2} className='text-LightBG about_text'>
+              <MDBCardBody className='top_card border-primary'>
+                <Row lg={2} className='text-Accent about_text'>
                   <Col>
-                    <MDBCard className='card lauryn_card text-LightBG'>
+                    <MDBCard className='card lauryn_card text-Accent'>
                       <MDBCardImage
                         position='top'
                         alt='Lauryn Claxton LNC Treats'
@@ -53,7 +53,7 @@ const About = () => {
                           </Accordion.Header>
                           <Accordion.Body>
                             <MDBCardBody>
-                              <MDBCardText className='about'>
+                              <MDBCardText className='about text-Accent'>
                                 Local baker and chef based in Midland, TX.
                               </MDBCardText>
                             </MDBCardBody>

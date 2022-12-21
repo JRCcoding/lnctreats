@@ -42,7 +42,7 @@ const Products = () => {
                   products.map((product) => (
                     <div key={product}>
                       <Fade bottom cascade>
-                        <MDBCard className='product_card border border-danger'>
+                        <MDBCard className='product_card border border-primary'>
                           <LazyLoadImage
                             position='top'
                             alt='Lauryn Claxton LNC Treats'
