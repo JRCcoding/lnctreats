@@ -36,7 +36,12 @@ const About = () => {
           ) : (
             <MDBCard className='mt-4'>
               <MDBCardBody className='top_card bg-Accent border-primary'>
-                <Row lg={2} className='text-AccentText about_text'>
+                <Row
+                  xs={1}
+                  md={1}
+                  lg={2}
+                  className='text-AccentText about_text'
+                >
                   <Col>
                     <MDBCard className='card lauryn_card text-AccentText'>
                       <MDBCardImage
