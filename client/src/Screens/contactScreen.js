@@ -45,6 +45,7 @@ const contactScreen = () => {
             </ul>
           </MDBCardText>
         </MDBCard>
+        {/* BRING MAP IN HERE */}
       </Fade>
     </div>
   )
