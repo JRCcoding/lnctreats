@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <MDBNavbar
-      expand='sm'
+      expand='xl'
       // fixed='top'
       className='navi font-Lato bg-Navbar'
     >
