@@ -11,7 +11,7 @@ router.get(
   })
 )
 router.get(
-  '/_id',
+  '/:id',
   asyncHandler(async (request, res) => {
     const product = await Product.findById(request.params.id).then().catch()
 

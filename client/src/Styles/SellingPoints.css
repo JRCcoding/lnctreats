@@ -112,4 +112,7 @@
         margin-top: -8%;
 
     }
+    .card_img, .card_img_reverse {
+        top: 350px;
+    }
 }

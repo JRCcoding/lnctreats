@@ -41,13 +41,13 @@ const Products = () => {
                     <div key={product}>
                       <Fade bottom cascade>
                         <MDBCard className='product_card'>
-                          {/* <LinkContainer to={`/product/${product._id}`}> */}
-                          <LazyLoadImage
-                            position='top'
-                            alt='Lauryn Claxton LNC Treats'
-                            src={product.img}
-                          />
-                          {/* </LinkContainer> */}
+                          <LinkContainer to={`/product/${product._id}`}>
+                            <LazyLoadImage
+                              position='top'
+                              alt='Lauryn Claxton LNC Treats'
+                              src={product.img}
+                            />
+                          </LinkContainer>
 
                           <MDBCardBody className='bg-Accent'>
                             <MDBCardTitle>{product.title}</MDBCardTitle>
