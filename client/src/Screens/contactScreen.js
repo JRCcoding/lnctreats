@@ -27,7 +27,7 @@ const contactScreen = () => {
               >
                 <li>
                   <MDBIcon fab icon='facebook-square' />
-                  Facebook
+                  &nbsp; Facebook
                 </li>
               </MDBCardLink>
               <MDBCardLink
@@ -37,7 +37,7 @@ const contactScreen = () => {
               >
                 <li>
                   <MDBIcon fab icon='instagram' />
-                  Instagram
+                  &nbsp; Instagram
                 </li>
               </MDBCardLink>
               <MDBCardLink
@@ -47,7 +47,7 @@ const contactScreen = () => {
               >
                 <li>
                   <MDBIcon fas icon='envelope' />
-                  Email
+                  &nbsp; Email
                 </li>
               </MDBCardLink>
             </ul>

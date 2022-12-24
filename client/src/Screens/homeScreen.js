@@ -11,7 +11,7 @@ const HomeScreen = () => {
       <Fade up>
         <ProductCarousel />
       </Fade>
-      <SellingPoints />
+      <SellingPoints className='selling_points' />
       <Fade up>
         <Contact />
       </Fade>

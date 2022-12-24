@@ -16,33 +16,35 @@ const ProductCarousel = () => {
     dispatch(listProducts())
   }, [dispatch])
 
-  return loading ? (
-    <Loader />
-  ) : error ? (
-    <p>error</p>
-  ) : (
+  return (
     <Container>
-      <Carousel fade controls={false} className='product_carousel'>
-        {products &&
-          products.map((product) => (
-            <Carousel.Item key={product}>
-              <LinkContainer to={`/product/${product._id}`}>
-                <Image
-                  src={product.img}
-                  alt={product.title}
-                  fluid
-                  className='product_carousel_image'
-                />
-              </LinkContainer>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        <Carousel fade controls={false} className='product_carousel'>
+          {products &&
+            products.map((product) => (
+              <Carousel.Item key={product}>
+                <LinkContainer to={`/product/${product._id}`}>
+                  <Image
+                    src={product.img}
+                    alt={product.title}
+                    fluid
+                    className='product_carousel_image'
+                  />
+                </LinkContainer>
 
-              <Carousel.Caption>
-                <h2 className='product_carousel_caption font-Pacifico'>
-                  {product.title}
-                </h2>
-              </Carousel.Caption>
-            </Carousel.Item>
-          ))}
-      </Carousel>
+                <Carousel.Caption>
+                  <h2 className='product_carousel_caption font-Pacifico'>
+                    {product.title}
+                  </h2>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+        </Carousel>
+      )}
     </Container>
   )
 }
