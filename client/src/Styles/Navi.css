@@ -55,8 +55,11 @@
     margin-right: 0;
 }
 .navtitle {
-    font-size: 1.27rem;
-    margin: 7% 0 7% 15%;
+    font-size: 1.46rem;
+    margin: 7% -10% 7% 0%;
+}
+.toggler {
+  margin: 0;
 }
 .logo {
   display: none;
