@@ -43,22 +43,28 @@
     margin-right: auto;
     text-align: center;
 }
-.contact_options {
-    margin-left: 5%;
-    gap: 15%;
+.contact_options_link_flex {
+    gap: 60px;
 }
 .contact_options_links {
-    font-size: 1.2rem;
     text-decoration: none;
     color: black;
+    font-size: 20px;
+    transition: all 1s;
+    font-weight: 800;
+}
+.contact_options_links:hover {
+    text-decoration: double;
+    color: purple;
+
 }
 
 @media only screen and (max-width: 600px) {
+    .contact_options_link_flex{
+        gap: 5px;
+    }
     .contact_info_box {
      width: 75%;
-    }
-    .contact_options {
-        margin-left: -8%;
     }
     .contact_options_links {
         font-size: .8rem;
