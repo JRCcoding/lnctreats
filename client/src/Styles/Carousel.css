@@ -1,24 +1,23 @@
+.product_carousel {
+  margin-bottom: 15%;
+}
 
-  .carousel {
-    height: 60%;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15%;
-    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+.product_carousel_image {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product_carousel_caption {
+  scale: 150%;
+  text-shadow: 5px 10px 5px rgba(0,0,0, 0.5);
+}
+
+@media only screen and (max-width: 650px) {
+  .product_carousel {
+    margin-bottom: 25%;
   }
-  .ctext {
-    color: white;
-    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-    font-family: 'Unbounded', cursive;
-    font-size: 2rem;
+  .product_carousel_image {
+    width: 90%;
   }
-  @media only screen and (max-width: 600px) {
-    .ctext {
-      font-size:.5rem;
-    }
-    .carousel {
-      height: 100%;
-      width: 100%;
-    }
-  }
+}

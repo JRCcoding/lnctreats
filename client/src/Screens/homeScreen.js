@@ -1,6 +1,5 @@
 import React from 'react'
-import Carousel from '../Components/Carousel'
-import Carousel2 from '../Components/Carousel2'
+import ProductCarousel from '../Components/ProductCarousel'
 import SellingPoints from '../Components/SellingPoints'
 import Contact from '../Components/Contact'
 import { Fade } from 'react-reveal'
@@ -9,7 +8,9 @@ const HomeScreen = () => {
   return (
     // <div className='bg-LightBG'>
     <div className='background_pattern'>
-      <Carousel />
+      <Fade up>
+        <ProductCarousel />
+      </Fade>
       <SellingPoints />
       <Fade up>
         <Contact />
