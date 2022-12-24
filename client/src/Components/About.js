@@ -29,7 +29,7 @@ const About = () => {
                 <MDBIcon fas icon='quote-right' /> - Josh
               </p>
               <p className='about_p'>
-                From small personal treat boxes to meeting and large group
+                From small personal treat boxes to meetings and large group
                 catering, I can help you with any snacking needs!
               </p>
               <p className='about_p'>

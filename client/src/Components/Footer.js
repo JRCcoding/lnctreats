@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 import '../Styles/Footer.css'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -31,12 +32,14 @@ const Footer = () => {
                 <li>About</li>
               </LinkContainer>
 
-              <LinkContainer
-                to='https://www.josh-claxton.com'
-                className='footer_links '
+              <a
+                href='https://www.josh-claxton.com'
+                className='footer_links'
+                target='_blank'
+                rel='noreferrer'
               >
                 <li>Web Dev</li>
-              </LinkContainer>
+              </a>
             </ul>
           </Col>
         </Row>
