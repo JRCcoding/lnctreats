@@ -9,8 +9,8 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 const SellingPoints = () => {
   return (
     <Container className='card_container'>
-      <AnimationOnScroll animateIn='animate__fadeInUp' animateOnce='true'>
-        <Card className='about_card' id='top_card'>
+      <AnimationOnScroll animateIn='animate__fadeInLeft' animateOnce='true'>
+        <Card className='about_card'>
           <Card.Body className='bg-Accent about_card_body'>
             {/* <img src={cakeicon} className='card_img' alt='cake icon'></img> */}
             <h1 className='card_title'>Cakes</h1>
@@ -21,7 +21,7 @@ const SellingPoints = () => {
           </Card.Body>
         </Card>
       </AnimationOnScroll>
-      <AnimationOnScroll animateIn='animate__fadeInUp' animateOnce='true'>
+      <AnimationOnScroll animateIn='animate__fadeInRight' animateOnce='true'>
         <Card className='about_card_reverse'>
           <Card.Body className='bg-Accent about_card_body_reverse'>
             {/* <img
@@ -37,7 +37,7 @@ const SellingPoints = () => {
         </Card>
       </AnimationOnScroll>
 
-      <AnimationOnScroll animateIn='animate__fadeInUp' animateOnce='true'>
+      <AnimationOnScroll animateIn='animate__fadeInLeft' animateOnce='true'>
         <Card className='about_card'>
           <Card.Body className='bg-Accent about_card_body'>
             {/* <img src={catericon} className='card_img' alt='cake icon'></img> */}

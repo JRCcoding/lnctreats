@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
-import { MDBCard, MDBCardLink, MDBIcon } from 'mdb-react-ui-kit'
-import { Image } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { listProducts } from '../Actions/productActions'
-import Loader from './Loader'
+import { MDBIcon } from 'mdb-react-ui-kit'
+import { Card, Image } from 'react-bootstrap'
+import '../Styles/About.css'
 import Profile from '../Images/webp/maybeprofile.webp'
 
 const About = () => {
   return (
     <div>
       <Container>
-        <MDBCard>
-          <Row xs={1} md={1} lg={2} className='text-AccentText about_text'>
+        <Card>
+          <Row xs={1} md={1} lg={2} className='text-AccentText'>
             <Col>
               <Image
                 position='top'
@@ -20,9 +18,9 @@ const About = () => {
                 src={Profile}
               />
             </Col>
-            <Col className='firsttext'>
+            <Col className='about_text'>
               {' '}
-              <p className='about'>
+              <p className='about_p'>
                 <MDBIcon fas icon='quote-left' />
                 &nbsp; Lauryn is a local baker who bakes out of her love filled
                 home in Midland, TX. She is a mother, a wife, and a boss. Not
@@ -30,19 +28,19 @@ const About = () => {
                 family learning from her. &nbsp;
                 <MDBIcon fas icon='quote-right' /> - Josh
               </p>
-              <p className='about '>
+              <p className='about_p'>
                 From small personal treat boxes to meeting and large group
                 catering, I can help you with any snacking needs!
               </p>
-              <p className='about '>Local delivery for $3</p>
-              <p className='about lasttext'>
+              <p className='about_p'>
                 I do custom cakes as well as simple cakes, cake pops, multiple
                 tiers and anything else you might want on a cake! Personalized
                 toppers can easily be added as well.
               </p>
+              <p className='about_p'>Local delivery for $3</p>
             </Col>
           </Row>
-        </MDBCard>
+        </Card>
       </Container>
     </div>
   )

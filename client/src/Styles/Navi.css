@@ -1,47 +1,54 @@
-/* .navi {
-  box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+.logo {
+  scale: 1.8;
+  margin-left: 15%;
+}
+.navtitle{ 
+  font-size: 2.2rem;
+  margin: 3%;
+  text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
+  transition: all 1s;
+}
+.navtitle:hover {
+  cursor: pointer;
+}
+.navlinks {
+  justify-content: end;
+  margin-right: 3%;
+}
 
-} */
-  .logo {
-    scale: 1.8;
-  }
-  .navtitle{ 
-    font-size: 2.2rem;
-    margin: 3%;
-    text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
-    transition: all 1s;
-  }
-  .navtitle:hover {
-    cursor: pointer;
-  }
-  .navlinks {
-    justify-content: end;
-    margin-right: 10%;
-  }
-  @media only screen and (min-width: 600px) {
-    .logo {
-      margin-left: 30%;
-    }
-
-  }
-  .navlink {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-right: 25px;
-text-align: right;
-    transition: all 1s;
-  }
+.navlink {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-left: 25px;
+  text-align: right;
+  transition: all 1s;
+}
   
-  .navlink:hover {
-    cursor: pointer;
-    text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
+.navlink:hover {
+  cursor: pointer;
+  text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
+  color: #a1a1a1;
 
+}
+.toggler {
+  margin-right: 8%;
+  filter: invert(1);
+}
+
+
+
+
+
+@media only screen and (min-width: 600px) {
+  .navlink {
+    font-size: 1.8rem;
   }
-  .toggler {
-    margin-right: 8%;
-    filter: invert(1);
+  .navtitle{
+    font-size: 2.5rem;
   }
+}
+
 @media only screen and (max-width: 780px) {
 .navi {
     margin-left: 0;
