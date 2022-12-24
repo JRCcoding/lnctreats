@@ -23,7 +23,7 @@ const ProductCarousel = () => {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-        <Carousel fade controls={false} className='product_carousel'>
+        <Carousel controls={false} className='product_carousel'>
           {products &&
             products.map((product) => (
               <Carousel.Item key={product}>
