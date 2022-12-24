@@ -7,6 +7,8 @@ import { listProducts } from '../Actions/productActions'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import '../Styles/Product.css'
+import Meta from '../Components/Meta'
+
 const Product = () => {
   const [product, setProduct] = useState({})
   const { id } = useParams()
@@ -27,6 +29,8 @@ const Product = () => {
   // })
   return (
     <div>
+      <Meta title={product.title} />
+
       <Container>
         {loading ? (
           <Loader />
