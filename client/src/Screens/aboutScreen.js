@@ -1,10 +1,13 @@
 import React from 'react'
+import { Fade } from 'react-reveal'
 import About from '../Components/About'
 
 const AboutScreen = () => {
   return (
     <div className='background_pattern'>
-      <About />
+      <Fade up>
+        <About />
+      </Fade>
     </div>
   )
 }

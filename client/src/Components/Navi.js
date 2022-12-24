@@ -53,20 +53,19 @@ export default function App() {
 
         <MDBCollapse navbar show={showBasic} className='navlinks text-white'>
           <MDBNavbarNav className='mb-2 mb-lg-0 navlinks'>
-            <LinkContainer to='/contact'>
+            <LinkContainer to='/products'>
               <MDBNavbarItem link className='navlink'>
-                Contact
+                Products
               </MDBNavbarItem>
             </LinkContainer>
-
             <LinkContainer to='/about'>
               <MDBNavbarItem link className='navlink'>
                 About
               </MDBNavbarItem>
             </LinkContainer>
-            <LinkContainer to='/products'>
+            <LinkContainer to='/contact'>
               <MDBNavbarItem link className='navlink'>
-                Products
+                Contact
               </MDBNavbarItem>
             </LinkContainer>
           </MDBNavbarNav>

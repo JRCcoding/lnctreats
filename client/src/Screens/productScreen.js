@@ -3,8 +3,8 @@ import Product from '../Components/Product'
 
 const ProductScreen = () => {
   return (
-    // <div className='background_pattern'>
-    <div>
+    <div className='background_pattern'>
+      {/* <div> */}
       <Product />
     </div>
   )
