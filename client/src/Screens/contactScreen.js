@@ -9,10 +9,12 @@ import {
   MDBIcon,
 } from 'mdb-react-ui-kit'
 import '../Styles/Contact.css'
+import Meta from '../Components/Meta'
 
 const contactScreen = () => {
   return (
     <div className='background_pattern'>
+      <Meta title='Contact LNC Treats' />
       <Fade up>
         <Contact />
         <MDBCard className='contact_info_box'>

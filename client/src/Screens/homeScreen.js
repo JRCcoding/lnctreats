@@ -3,11 +3,13 @@ import ProductCarousel from '../Components/ProductCarousel'
 import SellingPoints from '../Components/SellingPoints'
 import Contact from '../Components/Contact'
 import { Fade } from 'react-reveal'
+import Meta from '../Components/Meta'
 
 const HomeScreen = () => {
   return (
     // <div className='bg-LightBG'>
     <div className='background_pattern'>
+      <Meta title="Lauryn's Next-door Cottage" />
       <Fade up>
         <ProductCarousel />
       </Fade>
