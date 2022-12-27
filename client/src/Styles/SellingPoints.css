@@ -100,9 +100,11 @@
     }
     .card_title {
         right: 0;
+        top: -14px;
     }
     .card_title_reverse {
         left: 0;
+        top: -14px;
     }
     .about_card {
         width: 75%;

@@ -1,32 +1,20 @@
 .contact_container {
     padding-bottom: 15%;
-    padding-top: 5%;
+    padding-top: 15%;
 }
 .contact_card {
     margin: 0 auto 0 auto;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
     width: 50%;
 }
-@media only screen and (max-width: 800px) {
-    .contact_card {
-        width: 80%;
-    }
-}
-@media only screen and (min-width: 300px) {
-    .contact_form {
-        margin-top: 15%;
-    }
-}
-.contact_form {
-    margin-top: -10%;
-}
+
 .contact_title {
     margin-left: auto;
     margin-right: auto;    
     font-family: 'Dancing Script', cursive; 
     scale: 1.8;
     position: relative;
-    top: -22px;
+    top: -49px;
 }
 .contact_submit {
     padding: 2%;
@@ -70,7 +58,11 @@
     color: purple;
 
 }
-
+@media only screen and (min-width: 300px) {
+    .contact_form {
+        margin-top: -18%;
+    }
+}
 @media only screen and (max-width: 600px) {
     .contact_options_link_flex{
         gap: 5px;
@@ -80,5 +72,13 @@
     }
     .contact_options_links {
         font-size: .8rem;
+    }
+    .contact_title {
+        top: -40px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .contact_card {
+        width: 80%;
     }
 }
