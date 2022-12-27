@@ -1,7 +1,7 @@
 import React from 'react'
 import 'animate.css'
 import { useForm } from '@formspree/react'
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 
 import '../Styles/Contact.css'
 
@@ -68,7 +68,7 @@ const Contact = () => {
             ></input>
             <button
               type='submit'
-              className='contact_submit btn'
+              className='contact_submit'
               disabled={state.submitting}
             >
               Send to Lauryn

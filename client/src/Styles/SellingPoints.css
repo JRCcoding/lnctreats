@@ -80,6 +80,8 @@
     
     .card_text, .card_text_reverse {
      font-size: 1.8rem;
+     margin-left: 5%;
+     margin-right: 5%;
     }
 }
 @media only screen and (min-width: 900px) {
