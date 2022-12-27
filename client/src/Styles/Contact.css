@@ -42,6 +42,11 @@
     background-color: #39273d;
 
 }
+.submit_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
 
 
 .contact_info_box {

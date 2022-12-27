@@ -66,13 +66,15 @@ const Contact = () => {
               name='message'
               required
             ></input>
-            <button
-              type='submit'
-              className='contact_submit'
-              disabled={state.submitting}
-            >
-              Send to Lauryn
-            </button>
+            <div className='submit_div'>
+              <button
+                type='submit'
+                className='contact_submit'
+                disabled={state.submitting}
+              >
+                Send to Lauryn
+              </button>
+            </div>
           </form>
         </Card.Body>
       </Card>
