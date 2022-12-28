@@ -14,15 +14,7 @@ dotenv.config()
 const app = express()
 connectDB()
 
-// app.use(cors())
 app.use(express.json())
-// const contactEmail = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: 'jrciop@gmail.com',
-//     pass: 'yzzq zhuy orna plup',
-//   },
-// })
 const router = express.Router()
 
 app.use((err, req, res, next) => {
