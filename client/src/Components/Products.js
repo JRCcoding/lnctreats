@@ -19,41 +19,46 @@ const Products = () => {
   return (
     <div>
       <Container>
-        <Card>
-          <div className='products_box'>
-            {loading ? (
-              <Loader />
-            ) : error ? (
-              <h3>{error}</h3>
-            ) : (
-              <Container className='product_list'>
-                <Row xs={1} sm={2} md={2} lg={3}>
-                  {products &&
-                    products.map((product) => (
-                      <div key={product}>
-                        <Card className='product_card'>
-                          <LinkContainer to={`/product/${product._id}`}>
-                            <Image
-                              position='top'
-                              alt='Lauryn Claxton LNC Treats'
-                              src={product.img}
-                            />
-                          </LinkContainer>
+        <Fade up>
+          <Card>
+            <div className='products_box'>
+              {loading ? (
+                <Loader />
+              ) : error ? (
+                <h3>{error}</h3>
+              ) : (
+                <Container className='product_list'>
+                  <Row xs={1} sm={1} md={2} lg={3}>
+                    {products &&
+                      products.map((product) => (
+                        <div key={product}>
+                          <Card className='product_card mb-5'>
+                            <LinkContainer to={`/product/${product._id}`}>
+                              <Image
+                                position='top'
+                                alt='Lauryn Claxton LNC Treats'
+                                src={product.img}
+                              />
+                            </LinkContainer>
 
-                          <Card.Body>
-                            <Card.Title>{product.title}</Card.Title>
-                            <Card.Text className='text-AccentText'>
-                              {product.description}
-                            </Card.Text>
-                          </Card.Body>
-                        </Card>{' '}
-                      </div>
-                    ))}
-                </Row>
-              </Container>
-            )}
-          </div>
-        </Card>
+                            <Card.Body>
+                              <Card.Title>{product.title}</Card.Title>
+                              <Card.Text className='text-AccentText'>
+                                {product.description}
+                              </Card.Text>
+                              <Card.Text className='text-AccentText'>
+                                <strong>Price: ${product.price}</strong>
+                              </Card.Text>
+                            </Card.Body>
+                          </Card>{' '}
+                        </div>
+                      ))}
+                  </Row>
+                </Container>
+              )}
+            </div>
+          </Card>
+        </Fade>
       </Container>
     </div>
   )

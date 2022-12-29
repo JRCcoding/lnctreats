@@ -58,6 +58,10 @@ const Product = () => {
                   <ListGroup.Item>
                     <strong>More Info: </strong> {product.additional}
                   </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong>Price: $</strong>
+                    {product.price}
+                  </ListGroup.Item>
                 </ListGroup>
               </Col>
             </Row>
