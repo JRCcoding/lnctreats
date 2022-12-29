@@ -1,5 +1,6 @@
 import './App.css'
 import HomeScreen from './Screens/homeScreen'
+import CartScreen from './Screens/cartScreen'
 import LoginScreen from './Screens/loginScreen'
 import RegisterScreen from './Screens/registerScreen'
 import ProductsScreen from './Screens/productsScreen'
@@ -16,6 +17,7 @@ function App() {
       <Router>
         <Navi />
         <Route path='/' exact component={HomeScreen} />
+        <Route path='/card' component={CartScreen} />
         <Route path='/login' component={LoginScreen} />
         <Route path='/register' component={RegisterScreen} />
         <Route path='/products' component={ProductsScreen} />

@@ -6,8 +6,8 @@ const containerStyle = {
 }
 
 const center = {
-  lat: 31.94977,
-  lng: -102.168928,
+  lat: 31.94119030157523,
+  lng: -102.25160531049097,
 }
 const GoogleMaps = () => {
   const { isLoaded } = useJsApiLoader({

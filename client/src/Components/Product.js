@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Container } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Container, Form } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { MDBCard } from 'mdb-react-ui-kit'
 import Loader from '../Components/Loader'
@@ -10,8 +10,10 @@ import { useParams } from 'react-router-dom'
 import '../Styles/Product.css'
 import Meta from '../Components/Meta'
 
-const Product = () => {
+const Product = ({ history, match }) => {
   const [product, setProduct] = useState({})
+  const [qty, setQty] = useState(1)
+
   const { id } = useParams()
   const dispatch = useDispatch()
 
@@ -27,7 +29,11 @@ const Product = () => {
 
     dispatch(listProducts())
   }, [dispatch, id])
-  // })
+
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?qty=${qty}`)
+  }
+
   return (
     <div>
       <Meta title={product.title} />
@@ -70,6 +76,39 @@ const Product = () => {
                       </button>
                     </LinkContainer>
                   </ListGroup.Item>
+                  {/* {product.countInStock > 0 && (
+                    <ListGroup>
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Qty</Col>
+                          <Col>
+                            <Form.Control
+                              as='select'
+                              value={qty}
+                              onChange={(e) => setQty(e.target.value)}
+                            >
+                              {[...Array(product.countInStock).keys()].map(
+                                (x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                )
+                              )}
+                            </Form.Control>
+                          </Col>
+                        </Row>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <button
+                          onClick={addToCartHandler}
+                          className='addcart_button'
+                          type='button'
+                        >
+                          ADD TO CART
+                        </button>
+                      </ListGroup.Item>
+                    </ListGroup>
+                  )} */}
                 </ListGroup>
               </Col>
             </Row>
