@@ -48,7 +48,9 @@ const Product = ({ history, match }) => {
             <Row>
               <Col md={6}>
                 <LinkContainer to='/products'>
-                  <button className='backprod_button'>GO BACK</button>
+                  <button className='backprod_button absolute top-0'>
+                    GO BACK
+                  </button>
                 </LinkContainer>
                 <Image
                   src={product.img}
@@ -57,8 +59,8 @@ const Product = ({ history, match }) => {
                   className='prod_img'
                 />
               </Col>
-              <Col md={3}>
-                <ListGroup variant='flush'>
+              <Col md={6}>
+                <ListGroup variant='flush' className='mr-2'>
                   <ListGroup.Item>
                     <h3>{product.title}</h3>
                   </ListGroup.Item>
