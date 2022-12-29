@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Container } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import { MDBCard } from 'mdb-react-ui-kit'
 import Loader from '../Components/Loader'
 import { listProducts } from '../Actions/productActions'
@@ -61,6 +62,13 @@ const Product = () => {
                   <ListGroup.Item>
                     <strong>Price: $</strong>
                     {product.price}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <LinkContainer to='/contact'>
+                      <button className='contact_button'>
+                        CONTACT TO ORDER
+                      </button>
+                    </LinkContainer>
                   </ListGroup.Item>
                 </ListGroup>
               </Col>

@@ -1,6 +1,6 @@
 .contact_container {
     padding-bottom: 15%;
-    padding-top: 15%;
+    padding-top: 10%;
 }
 .contact_card {
     margin: 0 auto 0 auto;
@@ -18,7 +18,7 @@
 }
 .contact_submit {
     padding: 2%;
-    margin-top: 10%;
+    margin-top: 5%;
     font-size: 1.5rem;
     box-shadow: 3px 3px 5px rgba(0,0,0, 0.5);
     background-color: #593c60;
@@ -69,7 +69,10 @@
 
 
 
-
+.thank_you_card {
+    padding-bottom: 10%;
+    margin-bottom: 15%;
+}
 
 
 
@@ -77,10 +80,13 @@
 
 @media only screen and (min-width: 300px) {
     .contact_form {
-        margin-top: -18%;
+        margin-top: -15%;
     }
 }
 @media only screen and (max-width: 600px) {
+    .contact_form {
+        margin-top: -20%;
+    }
     .contact_options_link_flex{
         gap: 5px;
     }

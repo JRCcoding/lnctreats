@@ -1,19 +1,15 @@
 import React from 'react'
 import 'animate.css'
 import { useForm } from '@formspree/react'
-import { Button, Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import ThankYou from '../Components/ThankYou.js'
 
 import '../Styles/Contact.css'
 
 const Contact = () => {
   const [state, handleSubmit] = useForm('maykyddr')
   if (state.succeeded) {
-    return (
-      <div>
-        Thank you so much for your interest! I will get back to you within as
-        soon as possible!
-      </div>
-    )
+    return <ThankYou className='thank_you_card' />
   }
   return (
     <div className='contact_container'>
