@@ -68,11 +68,11 @@ export default function App() {
                 Contact
               </MDBNavbarItem>
             </LinkContainer>
-            <LinkContainer to='/login'>
+            {/* <LinkContainer to='/login'>
               <MDBNavbarItem link className='navlink'>
                 LOGIN
               </MDBNavbarItem>
-            </LinkContainer>
+            </LinkContainer> */}
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
