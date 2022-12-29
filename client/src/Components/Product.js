@@ -47,6 +47,9 @@ const Product = ({ history, match }) => {
           <MDBCard className='prod_info_box'>
             <Row>
               <Col md={6}>
+                <LinkContainer to='/products'>
+                  <button className='backprod_button'>GO BACK</button>
+                </LinkContainer>
                 <Image
                   src={product.img}
                   alt={product.title}

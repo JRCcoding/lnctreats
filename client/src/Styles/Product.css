@@ -1,14 +1,22 @@
 .contact_button {
-    background-color: #593c60;
+    background-color: #765280;
     border-radius: 10px;
     padding: 2% 5%;
     color: white;
     letter-spacing: 2px;
 }
 .addcart_button {
-    background-color: #593c60;
+    background-color: #765280;
     border-radius: 10px;
     padding: 2% 5%;
     color: white;
     letter-spacing: 2px;
+}
+.backprod_button {
+    background-color: #765280;
+    border-radius: 10px;
+    padding: 2% 5%;
+    color: white;
+    letter-spacing: 2px;
+    margin: 2%;
 }

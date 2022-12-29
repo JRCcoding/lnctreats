@@ -10,7 +10,7 @@ import {
 } from 'mdb-react-ui-kit'
 import '../Styles/Contact.css'
 import Meta from '../Components/Meta'
-import GoogleMaps from '../Components/GoogleMaps'
+// import GoogleMaps from '../Components/GoogleMaps'
 
 const contactScreen = () => {
   return (
@@ -18,9 +18,7 @@ const contactScreen = () => {
       <Meta title='Contact LNC Treats' />
       <Fade up>
         <Contact />
-        <div className='map_box'>
-          <GoogleMaps />
-        </div>
+        <div className='map_box'>{/* <GoogleMaps /> */}</div>
         <MDBCard className='contact_info_box'>
           <MDBCardTitle>Other forms of contact</MDBCardTitle>
           <MDBCardText className='mx-auto'>
