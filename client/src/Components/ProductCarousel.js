@@ -25,7 +25,7 @@ const ProductCarousel = () => {
       ) : (
         <Carousel controls={false} className='product_carousel'>
           {products &&
-            products.map((product) => (
+            products.reverse().map((product) => (
               <Carousel.Item key={product}>
                 <LinkContainer to={`/product/${product._id}`}>
                   <Image
