@@ -81,6 +81,7 @@ const Product = ({ history, match }) => {
                       </button>
                     </LinkContainer>
                   </ListGroup.Item>
+
                   {/* {product.countInStock > 0 && (
                     <ListGroup>
                       <ListGroup.Item>
