@@ -19,7 +19,7 @@ const Contact = () => {
         </Card.Title>
 
         <Card.Body className='contact_form'>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='col-10 mx-auto'>
             <label className='form-label' htmlFor='name'>
               Name:
             </label>
@@ -51,7 +51,8 @@ const Contact = () => {
               name='email'
               required
             />
-            <label className='form-label' htmlFor='product'>
+
+            {/* <label className='form-label' htmlFor='product'>
               Product of interest:
             </label>
             <input
@@ -59,8 +60,7 @@ const Contact = () => {
               id='product'
               type='text'
               name='product'
-              required
-            ></input>
+            ></input> */}
 
             <label className='form-label' htmlFor='message'>
               Message:

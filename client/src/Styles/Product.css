@@ -13,10 +13,22 @@
     letter-spacing: 2px;
 }
 .backprod_button {
-    background-color: #765280;
+    /* background-color: #765280; */
+    backdrop-filter: blur(3px);
     border-radius: 10px;
     padding: 1%;
-    color: white;
     letter-spacing: 2px;
     margin: 2%;
+    border: 1px solid white;
+    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.425); */
+}
+@media only screen and (max-width: 450px) {
+    .backprod_button {
+        display: none;
+    }
+}
+
+
+.clickable:hover {
+     cursor: pointer;
 }

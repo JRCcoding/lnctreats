@@ -5,6 +5,7 @@ import { listProducts } from '../Actions/productActions'
 import Loader from './Loader'
 import { Fade } from 'react-reveal'
 import { LinkContainer } from 'react-router-bootstrap'
+import '../Styles/Product.css'
 
 const Products = () => {
   const dispatch = useDispatch()
@@ -28,25 +29,30 @@ const Products = () => {
                 <h3>{error}</h3>
               ) : (
                 <Container className='product_list'>
-                  <Row xs={1} sm={1} md={2} lg={3}>
+                  <Row xs={1} sm={1} md={2} lg={4}>
                     {products &&
                       products.map((product) => (
                         <div key={product}>
-                          <Card className='product_card mb-5'>
+                          <Card className='product_card md:mb-5'>
                             <LinkContainer to={`/product/${product._id}`}>
                               <Image
                                 position='top'
                                 alt='Lauryn Claxton LNC Treats'
                                 src={product.img}
+                                className='clickable'
                               />
                             </LinkContainer>
 
                             <Card.Body>
-                              <Card.Title>{product.title}</Card.Title>
+                              <LinkContainer to={`/product/${product._id}`}>
+                                <Card.Title className='clickable'>
+                                  {product.title}
+                                </Card.Title>
+                              </LinkContainer>
                               <Card.Text className='text-AccentText'>
-                                {product.description}
+                                {product.description.substring(0, 50)}...
                               </Card.Text>
-                              <Card.Text className='text-AccentText'>
+                              <Card.Text className='text-AccentText card_price'>
                                 <strong>Price: ${product.price}</strong>
                               </Card.Text>
                             </Card.Body>
