@@ -125,7 +125,7 @@ export default function App() {
               </MDBNavbarItem>
             </LinkContainer> */}
             <LinkContainer to='/products'>
-              <MDBNavbarItem link className='navlink'>
+              <MDBNavbarItem link className='navlink clickable'>
                 Products
               </MDBNavbarItem>
             </LinkContainer>

@@ -2,6 +2,12 @@
   scale: 1.8;
   margin-left: 15%;
 }
+
+.clickable:hover {
+  cursor: pointer;
+}
+
+
 .navtitle{ 
   font-size: 2.2rem;
   margin: 3%;
