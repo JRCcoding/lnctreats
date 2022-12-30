@@ -2,7 +2,6 @@ import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
 import '../Styles/Footer.css'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -14,19 +13,12 @@ const Footer = () => {
               <LinkContainer to='/products' className='footer_links'>
                 <li>Products</li>
               </LinkContainer>
-              {/* <LinkContainer to='/products'>
-                <li>Ordering</li>
-              </LinkContainer>
-              <LinkContainer to='/products'>
-                <li>Catering</li>
-              </LinkContainer> */}
               <LinkContainer to='/contact' className='footer_links '>
                 <li>Contact</li>
               </LinkContainer>
             </ul>
           </Col>
-
-          <Col className='footer_col_2  '>
+          <Col className='footer_col_2 '>
             <ul>
               <LinkContainer to='/about' className='footer_links '>
                 <li>About</li>
