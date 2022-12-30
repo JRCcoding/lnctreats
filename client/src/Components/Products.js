@@ -33,7 +33,7 @@ const Products = () => {
                     {products &&
                       products.map((product) => (
                         <div key={product}>
-                          <Card className='product_card md:mb-5'>
+                          <Card className='product_card md:mb-5 mt-2'>
                             <LinkContainer to={`/product/${product._id}`}>
                               <Image
                                 position='top'
