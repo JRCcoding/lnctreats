@@ -6,6 +6,7 @@ import Loader from './Loader'
 import { Fade } from 'react-reveal'
 import { LinkContainer } from 'react-router-bootstrap'
 import '../Styles/Product.css'
+import Message from './Message'
 
 const Products = () => {
   const dispatch = useDispatch()
@@ -26,7 +27,7 @@ const Products = () => {
               {loading ? (
                 <Loader />
               ) : error ? (
-                <h3>{error}</h3>
+                <Message variant='danger'>{error}</Message>
               ) : (
                 <Container className='product_list'>
                   <Row xs={1} sm={1} md={2} lg={4}>

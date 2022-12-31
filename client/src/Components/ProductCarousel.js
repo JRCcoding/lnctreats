@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Container, Carousel, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from './Loader'
+import Message from '../Components/Message'
 import { listProducts } from '../Actions/productActions'
 import '../Styles/Carousel.css'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -21,7 +22,7 @@ const ProductCarousel = () => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <h3>{error}</h3>
+        <Message variant='danger'>{error}</Message>
       ) : (
         <Carousel controls={false} className='product_carousel'>
           {products &&

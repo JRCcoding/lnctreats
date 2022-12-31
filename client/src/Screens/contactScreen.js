@@ -20,9 +20,10 @@ const contactScreen = () => {
         <Contact />
         <div className='map_box'>{/* <GoogleMaps /> */}</div>
         <MDBCard className='contact_info_box'>
-          <MDBCardTitle>Other forms of contact</MDBCardTitle>
-          <MDBCardText className='mx-auto'>
+          <MDBCardTitle>
             There are plenty of other ways to contact me:
+          </MDBCardTitle>
+          <MDBCardText className='mx-auto'>
             <ul className='flex flex-row contact_options_link_flex'>
               <MDBCardLink
                 href='https://www.facebook.com/LNCsstreats/'

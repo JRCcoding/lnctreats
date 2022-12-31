@@ -4,6 +4,7 @@ import { Row, Col, Image, ListGroup, Container, Form } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { MDBCard } from 'mdb-react-ui-kit'
 import Loader from '../Components/Loader'
+import Message from '../Components/Message'
 import { listProducts } from '../Actions/productActions'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -13,6 +14,7 @@ import Meta from '../Components/Meta'
 const Product = ({ history, match }) => {
   const [product, setProduct] = useState({})
   const [qty, setQty] = useState(1)
+  const [size, setSize] = useState(2)
 
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -32,6 +34,7 @@ const Product = ({ history, match }) => {
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`)
+    history.push(`/cart/${match.params.id}?size=${size}`)
   }
 
   return (
@@ -42,7 +45,7 @@ const Product = ({ history, match }) => {
         {loading ? (
           <Loader />
         ) : error ? (
-          <h3>{error}</h3>
+          <Message variant='danger'>{error}</Message>
         ) : (
           <MDBCard className='prod_info_box'>
             <Row>
@@ -74,6 +77,8 @@ const Product = ({ history, match }) => {
                     <strong>Price: $</strong>
                     {product.price}
                   </ListGroup.Item>
+
+                  {/* {product.countInStock < 1 && ( */}
                   <ListGroup.Item>
                     <LinkContainer to='/contact'>
                       <button className='contact_button'>
@@ -81,26 +86,47 @@ const Product = ({ history, match }) => {
                       </button>
                     </LinkContainer>
                   </ListGroup.Item>
+                  {/* )} */}
 
                   {/* {product.countInStock > 0 && (
                     <ListGroup>
                       <ListGroup.Item>
+                        Any orders over limit on website please
+                        <LinkContainer to='/contact'>
+                          <h6 className='inline clickable'> CONTACT ME</h6>
+                        </LinkContainer>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
                         <Row>
-                          <Col>Qty</Col>
                           <Col>
+                            <h5>
+                              Quantity
+                              <br />
+                              <br />
+                              Size
+                            </h5>
+                          </Col>
+                          <Col>
+                          
                             <Form.Control
                               as='select'
                               value={qty}
                               onChange={(e) => setQty(e.target.value)}
                             >
-                              {[...Array(product.countInStock).keys()].map(
-                                (x) => (
-                                  <option key={x + 1} value={x + 1}>
-                                    {x + 1}
-                                  </option>
-                                )
-                              )}
+                              {[
+                                ...Array(parseInt(product.countInStock)).keys(),
+                              ].map((x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              ))}
                             </Form.Control>
+
+                            <Form.Select aria-label='Size' onChange={setSize}>
+                              <option value='Small'>Small $10</option>
+                              <option value='Medium'>Medium $15</option>
+                              <option value='Large'>Large $25</option>
+                            </Form.Select>
                           </Col>
                         </Row>
                       </ListGroup.Item>
