@@ -24,3 +24,6 @@ html, body {
 .spinner {
   padding-bottom: 100vh;
 }
+.clickable:hover {
+  cursor: pointer;
+}

@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Navi />
         <Route path='/' exact component={HomeScreen} />
-        <Route path='/card' component={CartScreen} />
+        <Route path='/cart/:id?' component={CartScreen} />
         <Route path='/login' component={LoginScreen} />
         <Route path='/register' component={RegisterScreen} />
         <Route path='/products' component={ProductsScreen} />

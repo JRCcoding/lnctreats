@@ -8,13 +8,15 @@ import Message from '../Components/Message'
 import { listProducts } from '../Actions/productActions'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import '../Styles/Product.css'
 import Meta from '../Components/Meta'
+import { withRouter } from 'react-router-dom'
 
-const Product = ({ history, match }) => {
+const Product = ({ history }) => {
   const [product, setProduct] = useState({})
   const [qty, setQty] = useState(1)
-  const [size, setSize] = useState(2)
+  // const [size, setSize] = useState(0)
 
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -32,9 +34,11 @@ const Product = ({ history, match }) => {
     dispatch(listProducts())
   }, [dispatch, id])
 
+  // let navigate = useNavigate()
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`)
-    history.push(`/cart/${match.params.id}?size=${size}`)
+    history.push(`/cart/${id}?qty=${qty}`)
+    // was .../cart/${match.params.id}?qty...
+    // history.push(`/cart/${id}?size=${size}`)
   }
 
   return (
@@ -62,7 +66,7 @@ const Product = ({ history, match }) => {
                   className='prod_img'
                 />
               </Col>
-              <Col md={6}>
+              <Col md={3}>
                 <ListGroup variant='flush' className='mr-2'>
                   <ListGroup.Item>
                     <h3>{product.title}</h3>
@@ -86,12 +90,11 @@ const Product = ({ history, match }) => {
                       </button>
                     </LinkContainer>
                   </ListGroup.Item>
-                  {/* )} */}
-
+                  {/*  })}  */}
                   {/* {product.countInStock > 0 && (
                     <ListGroup>
                       <ListGroup.Item>
-                        Any orders over limit on website please
+                        Any custom orders over limit on website please
                         <LinkContainer to='/contact'>
                           <h6 className='inline clickable'> CONTACT ME</h6>
                         </LinkContainer>
@@ -101,13 +104,9 @@ const Product = ({ history, match }) => {
                           <Col>
                             <h5>
                               Quantity
-                              <br />
-                              <br />
-                              Size
                             </h5>
                           </Col>
                           <Col>
-                          
                             <Form.Control
                               as='select'
                               value={qty}
@@ -121,12 +120,6 @@ const Product = ({ history, match }) => {
                                 </option>
                               ))}
                             </Form.Control>
-
-                            <Form.Select aria-label='Size' onChange={setSize}>
-                              <option value='Small'>Small $10</option>
-                              <option value='Medium'>Medium $15</option>
-                              <option value='Large'>Large $25</option>
-                            </Form.Select>
                           </Col>
                         </Row>
                       </ListGroup.Item>
@@ -151,4 +144,4 @@ const Product = ({ history, match }) => {
   )
 }
 
-export default Product
+export default withRouter(Product)
