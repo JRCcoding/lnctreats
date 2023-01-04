@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../Components/FormContainer'
 import { register } from '../Actions/userActions'
 import { LinkContainer } from 'react-router-bootstrap'
+import { withRouter } from 'react-router-dom'
 
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -86,11 +87,14 @@ const RegisterScreen = ({ location, history }) => {
 
       <Row className='py-3'>
         <Col>
-          Have an Account? <LinkContainer to='/login'>Login</LinkContainer>
+          Have an Account?{' '}
+          <LinkContainer to='/login'>
+            <span>Login</span>
+          </LinkContainer>
         </Col>
       </Row>
     </FormContainer>
   )
 }
 
-export default RegisterScreen
+export default withRouter(RegisterScreen)

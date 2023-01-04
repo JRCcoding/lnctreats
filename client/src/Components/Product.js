@@ -82,19 +82,19 @@ const Product = ({ history }) => {
                     {product.price}
                   </ListGroup.Item>
 
-                  {/* {product.countInStock < 1 && ( */}
-                  <ListGroup.Item>
-                    <LinkContainer to='/contact'>
-                      <button className='contact_button'>
-                        CONTACT TO ORDER
-                      </button>
-                    </LinkContainer>
-                  </ListGroup.Item>
-                  {/*  })}  */}
-                  {/* {product.countInStock > 0 && (
+                  {product.countInStock < 1 && (
+                    <ListGroup.Item>
+                      <LinkContainer to='/contact'>
+                        <button className='contact_button'>
+                          CONTACT TO ORDER
+                        </button>
+                      </LinkContainer>
+                    </ListGroup.Item>
+                  )}
+                  {product.countInStock > 0 && (
                     <ListGroup>
                       <ListGroup.Item>
-                        Any custom orders over limit on website please
+                        Any custom orders or over limit orders on website please
                         <LinkContainer to='/contact'>
                           <h6 className='inline clickable'> CONTACT ME</h6>
                         </LinkContainer>
@@ -102,9 +102,7 @@ const Product = ({ history }) => {
                       <ListGroup.Item>
                         <Row>
                           <Col>
-                            <h5>
-                              Quantity
-                            </h5>
+                            <h5>Quantity</h5>
                           </Col>
                           <Col>
                             <Form.Control
@@ -113,7 +111,7 @@ const Product = ({ history }) => {
                               onChange={(e) => setQty(e.target.value)}
                             >
                               {[
-                                ...Array(parseInt(product.countInStock)).keys(),
+                                ...Array(Number(product.countInStock)).keys(),
                               ].map((x) => (
                                 <option key={x + 1} value={x + 1}>
                                   {x + 1}
@@ -133,7 +131,7 @@ const Product = ({ history }) => {
                         </button>
                       </ListGroup.Item>
                     </ListGroup>
-                  )} */}
+                  )}
                 </ListGroup>
               </Col>
             </Row>

@@ -4,18 +4,23 @@ import dotenv from 'dotenv'
 import productRoutes from './routes/productRoutes.js'
 import contactRoutes from './routes/contactRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
+import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import path from 'path'
 import colors from 'colors'
 import cors from 'cors'
-import nodemailer from 'nodemailer'
+import morgan from 'morgan'
 
 dotenv.config()
 
 const app = express()
 connectDB()
 
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'))
+}
+
 app.use(express.json())
-const router = express.Router()
 
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode
@@ -29,6 +34,11 @@ app.use((err, req, res, next) => {
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/contacts', contactRoutes)
+app.use('/api/orders', orderRoutes)
+
+app.get('/api/config/paypal', (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'))
@@ -38,6 +48,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 const PORT = process.env.PORT || 10000
 
+app.use(notFound)
+app.use(errorHandler)
 app.listen(
   PORT,
 

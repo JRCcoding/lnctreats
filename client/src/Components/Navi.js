@@ -119,11 +119,44 @@ export default function App() {
         </Navbar.Toggle>
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
-            {/* <LinkContainer to='/cart'>
+            {userInfo ? (
+              <NavDropdown
+                title={userInfo.name}
+                id='username'
+                className='navlink'
+              >
+                <LinkContainer to='/profile'>
+                  <NavDropdown.Item>Profile</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Item onClick={logoutHandler}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <LinkContainer to='/login'>
+                <MDBNavbarItem className='navlink '>
+                  <i className='fas fa-user'></i> Sign In
+                </MDBNavbarItem>
+              </LinkContainer>
+            )}
+            {userInfo && userInfo.isAdmin && (
+              // <NavDropdown title='Admin' id='adminmenu' className='navlink'>
+              //   <LinkContainer to='/admin/userlist'>
+              //     <NavDropdown.Item>Users</NavDropdown.Item>
+              //   </LinkContainer>
+              //   <LinkContainer to='/admin/productlist'>
+              //     <NavDropdown.Item>Products</NavDropdown.Item>
+              //   </LinkContainer>
+              <LinkContainer to='/admin/orderlist'>
+                <MDBNavbarItem className='navlink'>Orders</MDBNavbarItem>
+              </LinkContainer>
+              // </NavDropdown>
+            )}
+            <LinkContainer to='/cart'>
               <MDBNavbarItem link className='navlink'>
                 <i className='fas fa-shopping-cart'></i> Cart
               </MDBNavbarItem>
-            </LinkContainer> */}
+            </LinkContainer>
             <LinkContainer to='/products'>
               <MDBNavbarItem link className='navlink clickable'>
                 Products

@@ -1,17 +1,17 @@
 import React from 'react'
 import { Fade } from 'react-reveal'
-import Cart from '../Components/Cart'
+import PlaceOrder from '../Components/PlaceOrder'
 import Meta from '../Components/Meta'
 
-const cartScreen = () => {
+const PlaceOrderScreen = () => {
   return (
     <div className='background_pattern'>
-      <Meta title='LNC Shopping Cart' />
+      <Meta title='LNC Place Order' />
       <Fade up>
-        <Cart />
+        <PlaceOrder />
       </Fade>
     </div>
   )
 }
 
-export default cartScreen
+export default PlaceOrderScreen
