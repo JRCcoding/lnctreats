@@ -74,9 +74,9 @@ const Product = ({ history }) => {
                   <ListGroup.Item>
                     <strong>Description: </strong> {product.description}
                   </ListGroup.Item>
-                  <ListGroup.Item>
+                  {/* <ListGroup.Item>
                     <strong>More Info: </strong> {product.additional}
-                  </ListGroup.Item>
+                  </ListGroup.Item> */}
                   <ListGroup.Item>
                     <strong>Price: $</strong>
                     {product.price}
