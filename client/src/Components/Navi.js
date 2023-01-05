@@ -67,13 +67,13 @@ export default function App() {
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
                   <LinkContainer to='/profile'>
-                    <MDBDropdownItem className='font-thin ml-3'>
+                    <MDBDropdownItem className='font-thin mx-3'>
                       Profile
                     </MDBDropdownItem>
                   </LinkContainer>
                   <MDBDropdownItem
                     onClick={logoutHandler}
-                    className='font-thin ml-3'
+                    className='font-thin mx-3'
                   >
                     Logout
                   </MDBDropdownItem>
