@@ -7,16 +7,14 @@ import { LinkContainer } from 'react-router-bootstrap'
 import '../Styles/Navi.css'
 
 import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
+  MDBDropdown,
   MDBIcon,
-  MDBNavbarNav,
   MDBNavbarItem,
-  MDBCollapse,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
 } from 'mdb-react-ui-kit'
-import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
+import { Nav, Navbar, Container } from 'react-bootstrap'
 import { logout } from '../Actions/userActions'
 
 export default function App() {
@@ -31,63 +29,6 @@ export default function App() {
   }
 
   return (
-    // <MDBNavbar
-    //   expand='xl'
-    //   // fixed='top'
-    //   className='navi font-Lato bg-Navbar'
-    // >
-    //   <MDBContainer fluid>
-    //     <LinkContainer to='/'>
-    //       <MDBNavbarBrand>
-    //         <img
-    //           alt=''
-    //           src={Logo}
-    //           width='60'
-    //           height='60'
-    //           className='logo align-top'
-    //         />{' '}
-    //         <h6 className='d-inline navtitle font-Pacifico text-Navtitle'>
-    //           Lauryn's Next-door Cottage
-    //         </h6>
-    //       </MDBNavbarBrand>
-    //     </LinkContainer>
-
-    //     <MDBNavbarToggler
-    //       aria-controls='navbarSupportedContent'
-    //       aria-expanded='false'
-    //       aria-label='Toggle navigation'
-    //       onClick={() => setShowBasic(!showBasic)}
-    //       className='toggler ms-5'
-    //     >
-    //       <MDBIcon className='burger' fas icon='birthday-cake' />{' '}
-    //     </MDBNavbarToggler>
-
-    //     <MDBCollapse navbar show={showBasic} className='navlinks text-white'>
-    //       <MDBNavbarNav className='mb-2 mb-lg-0 navlinks'>
-    //         <LinkContainer to='/login'>
-    //           <MDBNavbarItem link className='navlink'>
-    //             Login
-    //           </MDBNavbarItem>
-    //         </LinkContainer>
-    //         <LinkContainer to='/products'>
-    //           <MDBNavbarItem link className='navlink'>
-    //             Products
-    //           </MDBNavbarItem>
-    //         </LinkContainer>
-    //         <LinkContainer to='/about'>
-    //           <MDBNavbarItem link className='navlink'>
-    //             About
-    //           </MDBNavbarItem>
-    //         </LinkContainer>
-    //         <LinkContainer to='/contact'>
-    //           <MDBNavbarItem link className='navlink'>
-    //             Contact
-    //           </MDBNavbarItem>
-    //         </LinkContainer>
-    //       </MDBNavbarNav>
-    //     </MDBCollapse>
-    //   </MDBContainer>
-    // </MDBNavbar>
     <Navbar
       className='bg-Navbar text-white font-Lato'
       expand='xl'
@@ -120,18 +61,24 @@ export default function App() {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
             {userInfo ? (
-              <NavDropdown
-                title={userInfo.name}
-                id='username'
-                className='navlink'
-              >
-                <LinkContainer to='/profile'>
-                  <NavDropdown.Item>Profile</NavDropdown.Item>
-                </LinkContainer>
-                <NavDropdown.Item onClick={logoutHandler}>
-                  Logout
-                </NavDropdown.Item>
-              </NavDropdown>
+              <MDBDropdown id='username' className='navlink user_nav'>
+                <MDBDropdownToggle className='btn-light'>
+                  {userInfo.name}
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                  <LinkContainer to='/profile'>
+                    <MDBDropdownItem className='font-thin ml-3'>
+                      Profile
+                    </MDBDropdownItem>
+                  </LinkContainer>
+                  <MDBDropdownItem
+                    onClick={logoutHandler}
+                    className='font-thin ml-3'
+                  >
+                    Logout
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
             ) : (
               <LinkContainer to='/login'>
                 <MDBNavbarItem className='navlink '>
@@ -142,10 +89,10 @@ export default function App() {
             {userInfo && userInfo.isAdmin && (
               // <NavDropdown title='Admin' id='adminmenu' className='navlink'>
               //   <LinkContainer to='/admin/userlist'>
-              //     <NavDropdown.Item>Users</NavDropdown.Item>
+              //     <MDBDropdownItem>Users</MDBDropdownItem>
               //   </LinkContainer>
               //   <LinkContainer to='/admin/productlist'>
-              //     <NavDropdown.Item>Products</NavDropdown.Item>
+              //     <MDBDropdownItem>Products</MDBDropdownItem>
               //   </LinkContainer>
               <LinkContainer to='/admin/orderlist'>
                 <MDBNavbarItem className='navlink'>Orders</MDBNavbarItem>
