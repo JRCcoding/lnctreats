@@ -3,9 +3,9 @@ import Profile from '../Components/Profile'
 
 const ProfileScreen = () => {
   return (
-    <>
+    <div className='background_pattern'>
       <Profile />
-    </>
+    </div>
   )
 }
 
