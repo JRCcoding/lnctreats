@@ -65,7 +65,7 @@ const Products = () => {
                                   <MDBBadge
                                     color='info'
                                     pill
-                                    className='clickable inline ml-20'
+                                    className='clickable inline badge'
                                   >
                                     Order Now!
                                   </MDBBadge>
@@ -105,7 +105,7 @@ const Products = () => {
                                   <MDBBadge
                                     color='info'
                                     pill
-                                    className='clickable inline ml-20'
+                                    className='clickable inline badge'
                                   >
                                     Contact Me!
                                   </MDBBadge>
