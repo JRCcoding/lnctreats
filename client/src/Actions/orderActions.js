@@ -144,6 +144,32 @@ export const payOrder =
       })
     }
   }
+export const payOrderAdmin = (orderId) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ORDER_PAY_REQUEST,
+    })
+
+    const { data } = await axios.put(`/api/orders/${orderId}/pay`)
+
+    dispatch({
+      type: ORDER_PAY_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout())
+    }
+    dispatch({
+      type: ORDER_PAY_FAIL,
+      payload: message,
+    })
+  }
+}
 
 export const deliverOrder = (order) => async (dispatch, getState) => {
   try {
