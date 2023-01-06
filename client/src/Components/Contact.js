@@ -52,16 +52,6 @@ const Contact = () => {
               required
             />
 
-            {/* <label className='form-label' htmlFor='product'>
-              Product of interest:
-            </label>
-            <input
-              className='form-control '
-              id='product'
-              type='text'
-              name='product'
-            ></input> */}
-
             <label className='form-label' htmlFor='message'>
               Message:
             </label>
@@ -72,6 +62,16 @@ const Contact = () => {
               name='message'
               required
             ></input>
+            <br />
+            <br />
+            <label for='product'>Product of interest: </label>
+            <select name='product' id='product' required=''>
+              <option value='NA' selected=''>
+                N/A
+              </option>
+              <option value='cake'>Custom Cakes</option>
+              <option value='snackbox'>Snack Boxes</option>
+            </select>
 
             <div className='submit_div'>
               <button

@@ -50,7 +50,7 @@ const Products = () => {
                               <Card.Header>
                                 <LinkContainer to={`/product/${product._id}`}>
                                   <Card.Title className='clickable inline'>
-                                    <h3 className='product_title'>
+                                    <h3 className='product_title font-Pacifico scale-125 my-auto'>
                                       {product.title}
                                     </h3>
                                   </Card.Title>
@@ -89,7 +89,7 @@ const Products = () => {
                               <Card.Header>
                                 <LinkContainer to={`/product/${product._id}`}>
                                   <Card.Title className='clickable inline'>
-                                    <h3 className='product_title'>
+                                    <h3 className='product_title font-Pacifico scale-125 my-auto'>
                                       {product.title}
                                     </h3>
                                   </Card.Title>
