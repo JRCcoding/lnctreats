@@ -5,6 +5,11 @@
     margin-bottom: 25%;
 }
 
+.about_card, .about_card_reverse {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .about_card_body {
     display: flex; 
     flex-direction: row;
@@ -24,7 +29,8 @@
 .card_title {
     font-size: 4rem;
     font-family: 'Dancing Script', cursive; 
-    margin-top: -16%;
+    position: static;
+    margin-top: -22%
 
 }
 
@@ -58,7 +64,7 @@
 .card_title_reverse {
     font-size: 4rem;
     font-family: 'Dancing Script', cursive; 
-    margin-top: -16%;
+    margin-top: -19%;
 }
 
 .card_text_reverse {
@@ -70,7 +76,7 @@
 
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 765px) {
     .card_img, .card_img_reverse {
         width: 30%;
         margin-left: auto;
@@ -78,12 +84,17 @@
         top: 480px;
     }
     .card_title, .card_title_reverse {
-        margin-top: -12%;
+        margin-top: -16%;
     }
     .card_text, .card_text_reverse {
      font-size: 1.8rem;
      margin-left: 5%;
      margin-right: 5%;
+    }
+    .about_card, .about_card_reverse {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 @media only screen and (min-width: 900px) {
@@ -95,18 +106,8 @@
         top: 250px;
     }
     .card_title, .card_title_reverse {
-        font-size: 6rem;
-        margin-top: -11%;
-        position: absolute;
-
-    }
-    .card_title {
-        right: 0;
-        top: -14px;
-    }
-    .card_title_reverse {
-        left: 0;
-        top: -14px;
+        scale: 200%;
+        margin-top: -5.2%!important;
     }
     .about_card {
         width: 75%;
@@ -132,5 +133,11 @@
     }
     .card_text_reverse {
         margin-right: 0%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .card_title, .card_title_reverse {
+        margin-top: -20%;
     }
 }

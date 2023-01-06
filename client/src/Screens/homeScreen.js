@@ -7,7 +7,6 @@ import Meta from '../Components/Meta'
 
 const HomeScreen = () => {
   return (
-    // <div className='bg-LightBG'>
     <div className='background_pattern'>
       <Meta title="Lauryn's Next-door Cottage" />
       <Fade up>
