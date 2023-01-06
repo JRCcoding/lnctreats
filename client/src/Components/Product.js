@@ -8,7 +8,6 @@ import Message from '../Components/Message'
 import { listProducts } from '../Actions/productActions'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router'
 import '../Styles/Product.css'
 import Meta from '../Components/Meta'
 import { withRouter } from 'react-router-dom'
@@ -20,6 +19,9 @@ const Product = ({ history }) => {
 
   const { id } = useParams()
   const dispatch = useDispatch()
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const productList = useSelector((state) => state.productList)
   const { loading, error } = productList
