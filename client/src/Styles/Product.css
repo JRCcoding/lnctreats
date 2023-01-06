@@ -27,8 +27,9 @@
         display: none;
     }
 }
-
-
+.product_title {
+    text-align: center;
+}
 .clickable:hover {
      cursor: pointer;
 }

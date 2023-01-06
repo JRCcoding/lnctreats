@@ -103,7 +103,7 @@ const RegisterScreen = ({ location, history }) => {
               <Col>
                 Have an Account?{' '}
                 <LinkContainer to='/login'>
-                  <span>Login</span>
+                  <strong>Login</strong>
                 </LinkContainer>
               </Col>
             </Row>

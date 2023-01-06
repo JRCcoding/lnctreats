@@ -1,6 +1,5 @@
 .logo {
   scale: 1.8;
-  margin-left: 15%;
 }
 
 .clickable:hover {
@@ -10,7 +9,7 @@
 
 .navtitle{ 
   font-size: 2.2rem;
-  margin: 3%;
+  margin: 4%;
   text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
   transition: all 1s;
 }
