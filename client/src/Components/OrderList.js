@@ -48,7 +48,7 @@ const OrderListScreen = ({ history }) => {
               <tbody>
                 {orders.map((order) => (
                   <tr key={order._id}>
-                    <td>{order._id}</td>
+                    <td>{order._id.substring(19, 24)}</td>
                     <td>{order.user && order.user.name}</td>
                     <td>{order.createdAt.substring(0, 10)}</td>
                     <td>${order.totalPrice}</td>

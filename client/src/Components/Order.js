@@ -106,7 +106,7 @@ const Order = ({ match, history }) => {
     <>
       <Container>
         <Card>
-          <h1>Order {order._id}</h1>
+          <h1>Order {order._id.substring(19, 24)}</h1>
           <Row>
             <Col md={8}>
               <ListGroup variant='flush'>

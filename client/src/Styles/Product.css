@@ -22,11 +22,7 @@
     border: 1px solid white;
     /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.425); */
 }
-@media only screen and (max-width: 450px) {
-    .backprod_button {
-        display: none;
-    }
-}
+
 .product_title {
     text-align: center;
 }
@@ -37,9 +33,16 @@
 .badge {
     margin-left: 32%;
 }
-
 @media only screen and (max-width: 600px) {
     .badge {
         margin-left: 45%;
     }
 }
+
+
+@media only screen and (max-width: 450px) {
+    .backprod_button {
+        display: none;
+    }
+}
+
