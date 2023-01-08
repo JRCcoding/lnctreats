@@ -18,7 +18,7 @@ const Contact = () => {
           <h1 className='contact_title_h1'>Contact me now!</h1>
         </Card.Title>
 
-        <Card.Body className='contact_form'>
+        <Card.Body className='contact_form '>
           <form onSubmit={handleSubmit} className='col-10 mx-auto'>
             <label className='form-label' htmlFor='name'>
               Name:

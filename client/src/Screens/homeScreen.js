@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductCarousel from '../Components/ProductCarousel'
+import ValentineCarousel from '../Components/ValentineCarousel'
 import SellingPoints from '../Components/SellingPoints'
 import Contact from '../Components/Contact'
 import { Fade } from 'react-reveal'
@@ -10,7 +11,8 @@ const HomeScreen = () => {
     <div className='background_pattern'>
       <Meta title="Lauryn's Next-door Cottage" />
       <Fade up>
-        <ProductCarousel />
+        {/* <ProductCarousel /> */}
+        <ValentineCarousel />
       </Fade>
       <SellingPoints className='selling_points' />
       <Fade up>
