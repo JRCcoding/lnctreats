@@ -29,8 +29,8 @@
 .card_title {
     font-size: 4rem;
     font-family: 'Dancing Script', cursive; 
-    position: static;
-    margin-top: -22%
+    margin-top: -19%;
+
 
 }
 
@@ -64,6 +64,7 @@
 .card_title_reverse {
     font-size: 4rem;
     font-family: 'Dancing Script', cursive; 
+    position: static;
     margin-top: -19%;
 }
 
