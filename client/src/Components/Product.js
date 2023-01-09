@@ -68,7 +68,7 @@ const Product = ({ history }) => {
                   className='prod_img'
                 />
               </Col>
-              <Col md={3}>
+              <Col md={6}>
                 <ListGroup variant='flush' className='mr-2'>
                   <ListGroup.Item>
                     <h3>{product.title}</h3>
