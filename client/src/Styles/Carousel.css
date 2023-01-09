@@ -5,7 +5,8 @@
 }
 
 .product_carousel_image {
-  width: 50%;
+  height: 500px!important;
+  width: 500px!important;
   margin-left: auto;
   margin-right: auto;
   height: auto;
