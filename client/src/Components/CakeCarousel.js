@@ -7,7 +7,7 @@ import { listProducts } from '../Actions/productActions'
 import '../Styles/Carousel.css'
 import { LinkContainer } from 'react-router-bootstrap'
 
-const ValentineCarousel = () => {
+const CakeCarousel = () => {
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => state.productList)
@@ -54,4 +54,4 @@ const ValentineCarousel = () => {
   )
 }
 
-export default ValentineCarousel
+export default CakeCarousel
