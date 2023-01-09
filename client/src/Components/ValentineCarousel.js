@@ -25,10 +25,12 @@ const ValentineCarousel = () => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <Carousel controls={false} className='product_carousel'>
-          {products &&
-            products.map((product) => (
-              <Carousel.Item key={product}>
-                {product && product.category !== 'valentine' && (
+          {products.map((product) => (
+            <Carousel.Item key={product}>
+              {product &&
+                product.category !== 'contact' &&
+                product.category !== 'valentine' &&
+                product.category !== 'additions' && (
                   <>
                     <LinkContainer to={`/product/${product._id}`}>
                       <Image
@@ -46,8 +48,8 @@ const ValentineCarousel = () => {
                     </Carousel.Caption>
                   </>
                 )}
-              </Carousel.Item>
-            ))}
+            </Carousel.Item>
+          ))}
         </Carousel>
       )}
     </Container>

@@ -30,12 +30,18 @@
      cursor: pointer;
 }
 
+.val-badge {
+    margin-left: 0%;
+}
 .badge {
     margin-left: 32%;
 }
 @media only screen and (max-width: 600px) {
     .badge {
         margin-left: 45%;
+    }
+    .val-badge {
+        margin-left: 0;
     }
 }
 

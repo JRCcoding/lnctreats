@@ -66,7 +66,7 @@ const Products = () => {
                                     color='danger'
                                     pill
                                     light
-                                    className='clickable inline badge'
+                                    className='clickable inline val-badge'
                                   >
                                     Valentine's Day!
                                   </MDBBadge>
@@ -75,7 +75,7 @@ const Products = () => {
                             </Card.Body>
                           </Card>
                         )}
-                        {product && product.category !== 'contact' && (
+                        {product && product.category === 'standard' && (
                           <Card className='product_card md:mb-5 mt-2'>
                             <LinkContainer to={`/product/${product._id}`}>
                               <Image
