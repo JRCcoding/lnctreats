@@ -75,6 +75,11 @@ const PlaceOrder = ({ history }) => {
             <Col md={8}>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
+                  <h2>
+                    <strong>
+                      ⭐I will contact you about any and all customizations!⭐
+                    </strong>
+                  </h2>
                   <h2>Shipping</h2>
                   <p>
                     <strong>Address:</strong>
