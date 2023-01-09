@@ -27,28 +27,27 @@ const ValentineCarousel = () => {
         <Carousel controls={false} className='product_carousel'>
           {products
             .reverse()
-            .slice(0, 8)
+            .slice(0, 12)
             .map((product) => (
               <Carousel.Item key={product}>
-                {product.category === 'valentine' &&
-                  product.category !== 'additional' && (
-                    <>
-                      <LinkContainer to={`/product/${product._id}`}>
-                        <Image
-                          src={product.img}
-                          alt={product.title}
-                          fluid
-                          className='product_carousel_image'
-                        />
-                      </LinkContainer>
+                {product.category === 'valentine' && (
+                  <>
+                    <LinkContainer to={`/product/${product._id}`}>
+                      <Image
+                        src={product.img}
+                        alt={product.title}
+                        fluid
+                        className='product_carousel_image'
+                      />
+                    </LinkContainer>
 
-                      <Carousel.Caption>
-                        <h2 className='product_carousel_caption font-Pacifico'>
-                          {product.title}
-                        </h2>
-                      </Carousel.Caption>
-                    </>
-                  )}
+                    <Carousel.Caption>
+                      <h2 className='product_carousel_caption font-Pacifico'>
+                        {product.title}
+                      </h2>
+                    </Carousel.Caption>
+                  </>
+                )}
               </Carousel.Item>
             ))}
         </Carousel>
