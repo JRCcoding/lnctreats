@@ -27,9 +27,15 @@
     box-shadow: 1px 1px 5px rgba(136, 110, 135);
     backdrop-filter: blur(8px);
 }
-
+.product_card {
+    min-height: 525px;
+}
 .product_title {
     text-align: center;
+}
+.card_price {
+    position: absolute;
+    bottom: 0;
 }
 .clickable:hover {
      cursor: pointer;
@@ -39,7 +45,8 @@
     margin-left: 0%;
 }
 .badge {
-    margin-left: 32%;
+    position: relative;
+    left: 40%;
 }
 @media only screen and (max-width: 600px) {
     .badge {
