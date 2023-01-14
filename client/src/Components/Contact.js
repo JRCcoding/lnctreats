@@ -64,8 +64,8 @@ const Contact = () => {
             <textarea
               id='message'
               name='message'
-              rows='5'
-              cols='28'
+              rows='3'
+              cols='25'
               required
               className='text-box'
             ></textarea>{' '}
