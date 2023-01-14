@@ -2,9 +2,11 @@
     padding-bottom: 5%;
     padding-top: 10%;
 }
+
 .contact_form {
     margin-top: -5%;
 }
+
 .contact_card {
     margin: 0 auto 0 auto;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
@@ -19,6 +21,7 @@
     position: relative;
     top: -55px;
 }
+
 .contact_submit {
     padding: 2%;
     margin-top: 5%;
@@ -29,16 +32,17 @@
     width: 200px;
     transition: all 1.2s;
 }
+
 .contact_submit:hover {
     background-color: #39273d;
 
 }
+
 .submit_div {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
-
 
 .contact_info_box {
     width: 50%;
@@ -46,9 +50,11 @@
     margin-right: auto;
     text-align: center;
 }
+
 .contact_options_link_flex {
     gap: 60px;
 }
+
 .contact_options_links {
     text-decoration: none;
     color: black;
@@ -56,6 +62,7 @@
     transition: all 1s;
     font-weight: 800;
 }
+
 .contact_options_links:hover {
     text-decoration: double;
     color: purple;
@@ -70,17 +77,16 @@
     margin-top: -10%;
 }
 
-
-
 .thank_you_card {
     padding-bottom: 10%;
     margin-bottom: 15%;
 }
 
-
-
-
-
+.text-box {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+}
 
 @media only screen and (max-width: 600px) {
     .contact_form {
@@ -99,6 +105,7 @@
         top: -40px;
     }
 }
+
 @media only screen and (max-width: 800px) {
     .contact_card {
         width: 80%;
