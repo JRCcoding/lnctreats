@@ -127,6 +127,9 @@ const Order = ({ match, history }) => {
                     </a>
                   </p>
                   <p>
+                    <strong>Pickup: </strong> {order.shippingAddress.pickup}
+                  </p>
+                  <p>
                     <strong>Address:</strong>
                     {order.shippingAddress.address},{' '}
                     {order.shippingAddress.city}{' '}
