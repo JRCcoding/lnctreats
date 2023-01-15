@@ -65,7 +65,7 @@ const Contact = () => {
               id='message'
               name='message'
               rows='3'
-              cols='25'
+              cols='65'
               required
               className='text-box'
             ></textarea>{' '}
