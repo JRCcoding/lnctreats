@@ -116,10 +116,16 @@ const Order = ({ match, history }) => {
                     <strong>Name: </strong> {order.user.name}
                   </p>
                   <p>
+                    <strong>Phone: </strong> {order.user.number}
+                  </p>
+                  <p>
                     <strong>Email: </strong>{' '}
                     <a href={`mailto:${order.user.email}`}>
                       {order.user.email}
                     </a>
+                  </p>
+                  <p>
+                    <strong>Pickup: </strong> {order.shippingAddress.pickup}
                   </p>
                   <p>
                     <strong>Address:</strong>
