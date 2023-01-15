@@ -18,7 +18,7 @@ const Contact = () => {
           <h1 className='contact_title_h1'>Contact me now!</h1>
         </Card.Title>
 
-        <Card.Body className='contact_form'>
+        <Card.Body className='contact_form '>
           <form onSubmit={handleSubmit} className='col-10 mx-auto'>
             <label className='form-label' htmlFor='name'>
               Name:
@@ -40,7 +40,6 @@ const Contact = () => {
               name='number'
               required
             />
-
             <label className='form-label' htmlFor='email'>
               Email:
             </label>
@@ -51,28 +50,33 @@ const Contact = () => {
               name='email'
               required
             />
-
             <label className='form-label' htmlFor='message'>
               Message:
             </label>
-            <input
-              className='form-control '
+            <br></br>
+            {/* <input
+              className='form-control'
               id='message'
-              type='text'
+              type='textarea'
               name='message'
               required
-            ></input>
+            ></input> */}
+            <textarea
+              id='message'
+              name='message'
+              rows='3'
+              cols='25'
+              required
+              className='text-box'
+            ></textarea>{' '}
             <br />
             <br />
             <label for='product'>Product of interest: </label>
             <select name='product' id='product' required=''>
-              <option value='NA' selected=''>
-                N/A
-              </option>
+              <option value='NA'>N/A</option>
               <option value='cake'>Custom Cakes</option>
               <option value='snackbox'>Snack Boxes</option>
             </select>
-
             <div className='submit_div'>
               <button
                 type='submit'

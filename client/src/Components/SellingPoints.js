@@ -22,7 +22,7 @@ const SellingPoints = () => {
           <Card.Body className='bg-Accent about_card_body_reverse'>
             <h1 className='card_title_reverse'>Snacks</h1>
             <p className='card_text_reverse text-AccentText font-Multi'>
-              Huge variety of snacks from Gummies to Kickin' Munchy Mix
+              Huge variety of snacks from Gummies to Kickin' Munchy Mix.
             </p>
           </Card.Body>
         </Card>
@@ -34,7 +34,7 @@ const SellingPoints = () => {
             <h1 className='card_title'>Catering</h1>
             <p className='card_text text-AccentText font-Multi'>
               From small meetings to all out bashes, I can help you make your
-              occassion that much more special
+              occassion that much more special.
             </p>
           </Card.Body>
         </Card>

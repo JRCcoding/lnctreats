@@ -40,7 +40,7 @@ const Order = ({ match, history }) => {
   const { loading: loadingPay, success: successPay } = orderPay
 
   const orderDeliver = useSelector((state) => state.orderDeliver)
-  // const { loading: loadingDeliver, success: successDeliver } = orderDeliver
+  const { loading: loadingDeliver, success: successDeliver } = orderDeliver
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -93,9 +93,11 @@ const Order = ({ match, history }) => {
 
   const deliverHandler = () => {
     dispatch(deliverOrder(order))
+    window.location.reload(false)
   }
   const paymentHandler = () => {
     dispatch(payOrderAdmin(orderId))
+    window.location.reload(false)
   }
 
   return loading ? (
@@ -116,7 +118,7 @@ const Order = ({ match, history }) => {
                     <strong>Name: </strong> {order.user.name}
                   </p>
                   <p>
-                    <strong>Phone: </strong> {order.user.number}
+                    <strong>Number: </strong> {order.user.number}
                   </p>
                   <p>
                     <strong>Email: </strong>{' '}
@@ -233,7 +235,7 @@ const Order = ({ match, history }) => {
                       )}
                     </ListGroup.Item>
                   )}
-                  {loading && <Loader />}
+
                   {userInfo && userInfo.isAdmin && !order.isDelivered && (
                     <ListGroup.Item>
                       <Button

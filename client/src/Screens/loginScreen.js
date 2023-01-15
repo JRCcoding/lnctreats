@@ -66,7 +66,7 @@ const LoginScreen = ({ location, history }) => {
               <Col>
                 New Customer?{' '}
                 <LinkContainer to='/register'>
-                  <strong>Register</strong>
+                  <strong className='clickable'>Register</strong>
                 </LinkContainer>
               </Col>
             </Row>

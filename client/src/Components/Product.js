@@ -15,7 +15,6 @@ import { withRouter } from 'react-router-dom'
 const Product = ({ history }) => {
   const [product, setProduct] = useState({})
   const [qty, setQty] = useState(1)
-  // const [size, setSize] = useState(0)
 
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -68,7 +67,7 @@ const Product = ({ history }) => {
                   className='prod_img'
                 />
               </Col>
-              <Col md={3}>
+              <Col md={6}>
                 <ListGroup variant='flush' className='mr-2'>
                   <ListGroup.Item>
                     <h3>{product.title}</h3>
@@ -123,6 +122,20 @@ const Product = ({ history }) => {
                           </Col>
                         </Row>
                       </ListGroup.Item>
+                      {/* <ListGroup.Item>
+                        <Row>
+                          <Col>
+                            <h5>Message</h5>
+                          </Col>
+                          <Col>
+                            <Form.Control
+                              as='textarea'
+                              value={message}
+                              onChange={(e) => setMessage(e.target.value)}
+                            ></Form.Control>
+                          </Col>
+                        </Row>
+                      </ListGroup.Item> */}
                       <ListGroup.Item>
                         <button
                           onClick={addToCartHandler}
