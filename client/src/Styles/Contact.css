@@ -88,6 +88,7 @@
     padding: 2%;
     border: 1px solid #ced4ea;
     border-radius: 5px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
