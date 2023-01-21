@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom'
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [number, setNumber] = useState('')
+  // const [number, setNumber] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [setMessage] = useState(null)
@@ -64,7 +64,7 @@ const RegisterScreen = ({ location, history }) => {
                 ></Form.Control>
               </Form.Group>
 
-              <Form.Group controlId='number'>
+              {/* <Form.Group controlId='number'>
                 <Form.Label>Phone Number</Form.Label>
                 <Form.Control
                   type='number'
@@ -72,7 +72,7 @@ const RegisterScreen = ({ location, history }) => {
                   value={number}
                   onChange={(e) => setNumber(e.target.value)}
                 ></Form.Control>
-              </Form.Group>
+              </Form.Group> */}
 
               <Form.Group controlId='password'>
                 <Form.Label>Password</Form.Label>
