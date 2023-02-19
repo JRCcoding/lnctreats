@@ -33,7 +33,7 @@ const Products = () => {
               ) : (
                 <Container className='product_list'>
                   <Row xs={1} sm={1} md={2} lg={4}>
-                    {products.map((product) => (
+                    {products.reverse().map((product) => (
                       <div key={product}>
                         {product && product.category === 'standard' && (
                           <Card className='product_card md:mb-5 mt-2'>
