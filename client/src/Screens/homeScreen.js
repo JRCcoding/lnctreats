@@ -11,8 +11,8 @@ const HomeScreen = () => {
     <div className='background_pattern'>
       <Meta title="Lauryn's Next-door Cottage" />
       <Fade up>
-        {/* <ProductCarousel /> */}
-        <ValentineCarousel />
+        <ProductCarousel />
+        {/* <ValentineCarousel /> */}
       </Fade>
       <SellingPoints className='selling_points' />
       <Fade up>

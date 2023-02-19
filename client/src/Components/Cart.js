@@ -108,7 +108,8 @@ const Cart = ({ location, history }) => {
               </ListGroup>
             )}
             <hr></hr>
-            <h1 className='cart_title'>Add-Ons:</h1>
+            {/* VALENTINE PRODUCT ADDON */}
+            {/* <h1 className='cart_title'>Add-Ons:</h1>
             <ListGroup variant='flush'>
               <ListGroup.Item>
                 <Row>
@@ -133,7 +134,7 @@ const Cart = ({ location, history }) => {
                   <Col md={2}>$10.00</Col>
                 </Row>
               </ListGroup.Item>
-            </ListGroup>
+            </ListGroup> */}
           </Col>
           <Col md={4}>
             <Card>
