@@ -33,48 +33,8 @@ const Products = () => {
               ) : (
                 <Container className='product_list'>
                   <Row xs={1} sm={1} md={2} lg={4}>
-                    {products.reverse().map((product) => (
+                    {products.map((product) => (
                       <div key={product}>
-                        {product && product.category === 'standard' && (
-                          <Card className='product_card md:mb-5 mt-2'>
-                            <LinkContainer to={`/product/${product._id}`}>
-                              <Image
-                                position='top'
-                                alt='Lauryn Claxton LNC Treats'
-                                src={product.img}
-                                className='clickable'
-                              />
-                            </LinkContainer>
-
-                            <Card.Body>
-                              <Card.Header>
-                                <LinkContainer to={`/product/${product._id}`}>
-                                  <Card.Title className='clickable inline'>
-                                    <h3 className='product_title font-Pacifico scale-125 my-auto'>
-                                      {product.title}
-                                    </h3>
-                                  </Card.Title>
-                                </LinkContainer>
-                              </Card.Header>
-                              <Card.Text className='text-AccentText'>
-                                {product.description.substring(0, 50)}...
-                              </Card.Text>
-                              <Card.Text className='text-AccentText card_price'>
-                                <strong>Price: ${product.price}</strong>
-                                <LinkContainer to={`/product/${product._id}`}>
-                                  <MDBBadge
-                                    color='info'
-                                    pill
-                                    className='clickable inline badge'
-                                  >
-                                    Order Now!
-                                  </MDBBadge>
-                                </LinkContainer>
-                              </Card.Text>
-                            </Card.Body>
-                          </Card>
-                        )}
-
                         {product && product.category === 'contact' && (
                           <Card className='product_card md:mb-5 mt-2'>
                             <LinkContainer to={`/product/${product._id}`}>
@@ -108,6 +68,45 @@ const Products = () => {
                                     className='clickable inline badge'
                                   >
                                     Contact Me!
+                                  </MDBBadge>
+                                </LinkContainer>
+                              </Card.Text>
+                            </Card.Body>
+                          </Card>
+                        )}
+                        {product && product.category === 'standard' && (
+                          <Card className='product_card md:mb-5 mt-2'>
+                            <LinkContainer to={`/product/${product._id}`}>
+                              <Image
+                                position='top'
+                                alt='Lauryn Claxton LNC Treats'
+                                src={product.img}
+                                className='clickable'
+                              />
+                            </LinkContainer>
+
+                            <Card.Body>
+                              <Card.Header>
+                                <LinkContainer to={`/product/${product._id}`}>
+                                  <Card.Title className='clickable inline'>
+                                    <h3 className='product_title font-Pacifico scale-125 my-auto'>
+                                      {product.title}
+                                    </h3>
+                                  </Card.Title>
+                                </LinkContainer>
+                              </Card.Header>
+                              <Card.Text className='text-AccentText'>
+                                {product.description.substring(0, 50)}...
+                              </Card.Text>
+                              <Card.Text className='text-AccentText card_price'>
+                                <strong>Price: ${product.price}</strong>
+                                <LinkContainer to={`/product/${product._id}`}>
+                                  <MDBBadge
+                                    color='info'
+                                    pill
+                                    className='clickable inline badge'
+                                  >
+                                    Order Now!
                                   </MDBBadge>
                                 </LinkContainer>
                               </Card.Text>
