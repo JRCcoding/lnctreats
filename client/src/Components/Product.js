@@ -24,7 +24,7 @@ const Product = ({ history }) => {
   const [otherFrostingFlavor, setOtherFrostingFlavor] = useState()
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
-  const [validated, setValidated] = useState(false)
+  // const [validated, setValidated] = useState(false)
 
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -47,14 +47,14 @@ const Product = ({ history }) => {
 
   const addToCartHandler = (event) => {
     history.push(
-      `/cart/${id}?qty=${qty}?date=${date}?shape=${shape}?size=${size}?cakeFlavor=${cakeFlavor}?otherCakeFlavor=${otherCakeFlavor}?frostingFlavor=${frostingFlavor}?otherFrostingFlavor=${otherFrostingFlavor}?filling=${filling}`
+      `/cart/${id}?qty=${qty}?date=${date}?shape=${shape}?size=${size}?cakeFlavor=${cakeFlavor}?otherCakeFlavor=${otherCakeFlavor}?frostingFlavor=${frostingFlavor}?otherFrostingFlavor=${otherFrostingFlavor}?filling=${filling}?additional=${additional}`
     )
-    const form = event.currentTarget
-    if (form.checkValidity() === false) {
-      event.preventDefault()
-      event.stopPropagation()
-    }
-    setValidated(true)
+    // const form = event.currentTarget
+    // if (form.checkValidity() === false) {
+    //   event.preventDefault()
+    //   event.stopPropagation()
+    // }
+    // setValidated(true)
     // was .../cart/${match.params.id}?qty...
     // history.push(`/cart/${id}?size=${size}`)
   }
@@ -142,20 +142,6 @@ const Product = ({ history }) => {
                             </Col>
                           </Row>
                         </ListGroup.Item>
-                        {/* <ListGroup.Item>
-                        <Row>
-                          <Col>
-                            <h5>Message</h5>
-                          </Col>
-                          <Col>
-                            <Form.Control
-                              as='textarea'
-                              value={message}
-                              onChange={(e) => setMessage(e.target.value)}
-                            ></Form.Control>
-                          </Col>
-                        </Row>
-                      </ListGroup.Item> */}
                         <ListGroup.Item>
                           <button
                             onClick={addToCartHandler}
@@ -205,20 +191,13 @@ const Product = ({ history }) => {
                       {product.price}
                     </ListGroup.Item>
                   </ListGroup>
-                  <Form
-                    noValidate
-                    validated={validated}
-                    onSubmit={addToCartHandler}
-                  >
+                  <Form onSubmit={addToCartHandler}>
                     <Form.Group className='mb-3' controlId='lncForm.Date'>
                       <Form.Label>Date Needed:</Form.Label>
                       <Form.Control
                         type='date'
-                        name='duedate'
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
-                        isInvalid={validated && !date}
-                        required
                       />
                       <Form.Control.Feedback type='invalid'>
                         Please choose a date.
@@ -230,7 +209,6 @@ const Product = ({ history }) => {
                         aria-label='Shape'
                         value={shape}
                         onChange={(e) => setShape(e.target.value)}
-                        required
                       >
                         <option value='round'>Round</option>
                         <option value='square'>Square</option>
@@ -243,7 +221,6 @@ const Product = ({ history }) => {
                       controlId='lncForm.Size'
                       value={size}
                       onChange={(e) => setSize(e.target.value)}
-                      required
                     >
                       <Form.Label>Size:</Form.Label>
 
@@ -287,7 +264,6 @@ const Product = ({ history }) => {
                       controlId='lncForm.CakeFlavor'
                       value={cakeFlavor}
                       onChange={(e) => setCakeFlavor(e.target.value)}
-                      required
                     >
                       <Form.Label>Cake Flavor:</Form.Label>
 
@@ -304,6 +280,7 @@ const Product = ({ history }) => {
                         <option value='other'>Other</option>
                       </Form.Select>
                     </Form.Group>
+
                     {cakeFlavor && cakeFlavor === 'other' && (
                       <Form.Group
                         className='mb-3'
@@ -315,6 +292,7 @@ const Product = ({ history }) => {
                         <Form.Control type='text' placeholder='' />
                       </Form.Group>
                     )}
+
                     <Form.Group
                       className='mb-3'
                       controlId='lncForm.FrostingFlavor'
@@ -333,6 +311,7 @@ const Product = ({ history }) => {
                         <option value='other'>Other</option>
                       </Form.Select>
                     </Form.Group>
+
                     {frostingFlavor && frostingFlavor === 'other' && (
                       <Form.Group
                         className='mb-3'
@@ -346,6 +325,7 @@ const Product = ({ history }) => {
                         <Form.Control type='text' placeholder='' />
                       </Form.Group>
                     )}
+
                     <Form.Group
                       className='mb-3'
                       controlId='lncForm.Filling'
@@ -373,6 +353,7 @@ const Product = ({ history }) => {
                         ADD TO CART
                       </button>
                     </ListGroup.Item>
+                    <hr />
                     <ListGroup.Item>
                       OR-- Contact for specific pricing!
                       <br />
