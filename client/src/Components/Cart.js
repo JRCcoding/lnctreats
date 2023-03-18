@@ -113,7 +113,14 @@ const Cart = ({ location, history }) => {
                           <span>{item.name}</span>
                         </LinkContainer>
                       </Col>
-                      <Col md={2}>${item.price}</Col>
+                      <Col md={2}>
+                        $
+                        {item.customPrice ? (
+                          <>{item.customPrice}</>
+                        ) : (
+                          <>{item.price}</>
+                        )}
+                      </Col>
                       <Col md={10}>
                         {item.qty >= 1 ? (
                           <Form.Control
@@ -145,9 +152,16 @@ const Cart = ({ location, history }) => {
                         )}
                         {item.countInStock < 1 ? (
                           <>
-                            <strong>Date: </strong>{' '}
-                            {item.date ? item.date : 'error'}
-                            <br />
+                            {item.date === 'no date' ? (
+                              <></>
+                            ) : (
+                              <>
+                                <strong>Date: </strong>{' '}
+                                {item.date ? item.date : 'error'}
+                                <br />
+                              </>
+                            )}
+
                             <strong>Shape: </strong>
                             {item.shape ? item.shape : 'error'}
                             <br />

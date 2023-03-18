@@ -24,7 +24,12 @@ const Product = ({ history }) => {
   const [otherFrostingFlavor, setOtherFrostingFlavor] = useState()
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
-
+  const [cakePrice, setCakePrice] = useState(0)
+  let customPrice
+  function addToCake(num) {
+    customPrice = num
+    console.log(customPrice)
+  } //onChange={addToCake(15)} down below somehow lol
   const { id } = useParams()
   const dispatch = useDispatch()
 
@@ -102,7 +107,12 @@ const Product = ({ history }) => {
                   </ListGroup.Item> */}
                     <ListGroup.Item>
                       <strong>Price: $</strong>
-                      {product.price}+
+                      {product.customPrice > 0 ? (
+                        <>{product.customPrice}</>
+                      ) : (
+                        <>{product.price}</>
+                      )}
+                      +
                     </ListGroup.Item>
                   </ListGroup>
                   <Form>
@@ -113,9 +123,6 @@ const Product = ({ history }) => {
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
                       />
-                      <Form.Control.Feedback type='invalid'>
-                        Please choose a date.
-                      </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='lncForm.Shape'>
                       <Form.Label>Shape:</Form.Label>

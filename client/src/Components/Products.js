@@ -61,7 +61,12 @@ const Products = () => {
                               </Card.Text>
                               <Card.Text className='text-AccentText card_price'>
                                 <strong>
-                                  Price: ${product.price}
+                                  Price: $
+                                  {product.customPrice > 0 ? (
+                                    <>{product.customPrice}</>
+                                  ) : (
+                                    <>{product.price}</>
+                                  )}
                                   {product.category2 ? '+' : ''}
                                 </strong>
                                 <LinkContainer to='/contact'>
