@@ -25,11 +25,11 @@ const Product = ({ history }) => {
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
   const [cakePrice, setCakePrice] = useState(0)
-  let customPrice
-  function addToCake(num) {
-    customPrice = num
-    console.log(customPrice)
-  } //onChange={addToCake(15)} down below somehow lol
+  // let customPrice = 0
+  // function addToCake(num) {
+  //   customPrice += num
+  //   console.log(customPrice)
+  // } //onChange={addToCake(15)} down below somehow lol
   const { id } = useParams()
   const dispatch = useDispatch()
 
