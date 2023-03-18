@@ -82,7 +82,6 @@ const Cart = ({ location, history }) => {
   const checkoutHandler = () => {
     history.push('/login?redirect=shipping')
   }
-
   return (
     <Container>
       <Card>
@@ -116,7 +115,7 @@ const Cart = ({ location, history }) => {
                       </Col>
                       <Col md={2}>${item.price}</Col>
                       <Col md={10}>
-                        {item.qty === Number ? (
+                        {item.qty >= 1 ? (
                           <Form.Control
                             as='select'
                             value={item.qty}
@@ -137,38 +136,80 @@ const Cart = ({ location, history }) => {
                         ) : (
                           <></>
                         )}
-                        <strong>Date: </strong>{' '}
-                        {item.date ? item.date : 'error'}
-                        <br />
-                        <strong>Shape: </strong>
-                        {item.shape ? item.shape : 'error'}
-                        <br />
-                        <strong>Size: </strong>
-                        {item.size ? item.size : 'error'}
-                        <br />
-                        <strong>Cake Flavor: </strong>
-                        {item.cakeFlavor ? item.cakeFlavor : 'error'}
-                        <br />
-                        <strong>Other Cake Flavor: </strong>
-                        {item.otherCakeFlavor !== 'undefined'
-                          ? item.otherCakeFlavor
-                          : 'none'}
-                        <br />
-                        <strong>Frosting Flavor: </strong>
-                        {item.frostingFlavor ? item.frostingFlavor : 'error'}
-                        <br />
-                        <strong>Other Frosting Flavor: </strong>
-                        {item.otherFrostingFlavor !== 'undefined'
-                          ? item.otherFrostingFlavor
-                          : 'none'}
-                        <br />
-                        {/* {item.filling !== 'undefined' ? : <></>} */}
-                        <strong>Filling: </strong>
-                        {item.filling !== 'undefined' ? item.filling : 'none'}
-                        <br />
-                        <strong>Notes: </strong>
-                        {item.additional ? item.additional : 'none'}
-                        <br />
+                        {item.additional !== 'undefined' && (
+                          <>
+                            <strong>Notes: </strong>
+                            {item.additional}
+                            <br />
+                          </>
+                        )}
+                        {item.countInStock < 1 ? (
+                          <>
+                            <strong>Date: </strong>{' '}
+                            {item.date ? item.date : 'error'}
+                            <br />
+                            <strong>Shape: </strong>
+                            {item.shape ? item.shape : 'error'}
+                            <br />
+                            <strong>Size: </strong>
+                            {item.size ? item.size : 'error'}
+                            <br />
+                            {item.cakeFlavor !== 'Other' && (
+                              <>
+                                <strong>Cake Flavor: </strong>
+                                {item.cakeFlavor ? item.cakeFlavor : 'error'}
+                                <br />
+                              </>
+                            )}
+                            {item.cakeFlavor === 'Other' && (
+                              <>
+                                <strong>Other Cake Flavor: </strong>
+                                {item.otherCakeFlavor !== 'undefined'
+                                  ? item.otherCakeFlavor
+                                  : 'none'}
+                                <br />
+                              </>
+                            )}
+                            {item.frostingFlavor !== 'Other' && (
+                              <>
+                                <strong>Frosting Flavor: </strong>
+                                {item.frostingFlavor
+                                  ? item.frostingFlavor
+                                  : 'error'}
+                                <br />
+                              </>
+                            )}
+                            {item.frostingFlavor === 'Other' && (
+                              <>
+                                <strong>Other Frosting Flavor: </strong>
+                                {item.otherFrostingFlavor}
+                                <br />
+                              </>
+                            )}
+                            {item.filling === 'undefined' ? (
+                              <></>
+                            ) : (
+                              <>
+                                <strong>Filling: </strong>
+                                {item.filling}
+                                <br />
+                              </>
+                            )}
+                            {item.additional === 'undefined' ? (
+                              <></>
+                            ) : (
+                              <>
+                                <strong>Notes: </strong>
+                                {item.additional !== 'undefined'
+                                  ? item.additional
+                                  : 'none'}
+                                <br />
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          <></>
+                        )}
                       </Col>
 
                       <Col md={2}>
@@ -186,6 +227,18 @@ const Cart = ({ location, history }) => {
               </ListGroup>
             )}
             <hr></hr>
+            {cartItems.length !== 0 ? (
+              <LinkContainer to='/products'>
+                <span className='clickable'>
+                  <Button type='button' className='btn-block'>
+                    {' '}
+                    &nbsp;Continue Shopping
+                  </Button>
+                </span>
+              </LinkContainer>
+            ) : (
+              <></>
+            )}
             {/* VALENTINE PRODUCT ADDON */}
             {/* <h1 className='cart_title'>Add-Ons:</h1>
             <ListGroup variant='flush'>

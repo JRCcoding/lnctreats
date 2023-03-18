@@ -16,11 +16,11 @@ const Product = ({ history }) => {
   const [product, setProduct] = useState({})
   const [qty, setQty] = useState(1)
   const [date, setDate] = useState('no date')
-  const [shape, setShape] = useState('round')
-  const [size, setSize] = useState('12')
-  const [cakeFlavor, setCakeFlavor] = useState('vanilla')
+  const [shape, setShape] = useState('Round')
+  const [size, setSize] = useState('12 inch')
+  const [cakeFlavor, setCakeFlavor] = useState('Vanilla')
   const [otherCakeFlavor, setOtherCakeFlavor] = useState()
-  const [frostingFlavor, setFrostingFlavor] = useState('chocolate')
+  const [frostingFlavor, setFrostingFlavor] = useState('Chocolate')
   const [otherFrostingFlavor, setOtherFrostingFlavor] = useState()
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
@@ -144,6 +144,15 @@ const Product = ({ history }) => {
                             </Col>
                           </Row>
                         </ListGroup.Item>
+                        <Form.Group
+                          className='mb-3'
+                          controlId='additional'
+                          value={additional}
+                          onChange={(e) => setAdditional(e.target.value)}
+                        >
+                          <Form.Label>Additions and Customizations:</Form.Label>
+                          <Form.Control type='textbox' placeholder='' />
+                        </Form.Group>
                         <ListGroup.Item>
                           <button
                             onClick={addToCartHandler}
@@ -212,10 +221,10 @@ const Product = ({ history }) => {
                         value={shape}
                         onChange={(e) => setShape(e.target.value)}
                       >
-                        <option value='round'>Round</option>
-                        <option value='square'>Square</option>
-                        <option value='sheet'>Sheet</option>
-                        <option value='custom'>Custom</option>
+                        <option value='Round'>Round</option>
+                        <option value='Square'>Square</option>
+                        <option value='Sheet'>Sheet</option>
+                        <option value='Custom'>Custom</option>
                       </Form.Select>
                     </Form.Group>
                     <Form.Group
@@ -226,39 +235,38 @@ const Product = ({ history }) => {
                     >
                       <Form.Label>Size:</Form.Label>
 
-                      {shape && shape === 'round' && (
+                      {shape && shape === 'Round' && (
                         <Form.Select aria-label='Size'>
-                          <option value='12'>12 inch</option>
-                          <option value='10'>10 inch</option>
-                          <option value='9'>9 inch</option>
-                          <option value='8'>8 inch</option>
-                          <option value='6'>6 inch</option>
-                          <option value='4'>4 inch</option>
-                          <option value='3'>3 inch</option>
+                          <option value='12 inch'>12 inch</option>
+                          <option value='10 inch'>10 inch</option>
+                          <option value='9 inch'>9 inch</option>
+                          <option value='8 inch'>8 inch</option>
+                          <option value='6 inch'>6 inch</option>
+                          <option value='4 inch'>4 inch</option>
+                          <option value='3 inch'>3 inch</option>
                         </Form.Select>
                       )}
 
-                      {shape && shape === 'square' && (
+                      {shape && shape === 'Square' && (
                         <Form.Select aria-label='Size'>
-                          <option value='8'>8 inch</option>
-                          <option value='6'>6 inch</option>
+                          <option value='8 inch'>8 inch</option>
+                          <option value='6 inch'>6 inch</option>
                         </Form.Select>
                       )}
 
-                      {shape && shape === 'sheet' && (
+                      {shape && shape === 'Sheet' && (
                         <Form.Select aria-label='Size'>
-                          <option value='full'>Full Sheet</option>
-                          <option value='half'>Half Sheet</option>
-                          <option value='quarter'>Quarter Sheet</option>
+                          <option value='Full'>Full Sheet</option>
+                          <option value='Half'>Half Sheet</option>
+                          <option value='Quarter'>Quarter Sheet</option>
                         </Form.Select>
                       )}
 
-                      {shape && shape === 'custom' && (
-                        <Form.Select aria-label='Size'>
-                          <option value='full'>Full Sheet</option>
-                          <option value='half'>Half Sheet</option>
-                          <option value='quarter'>Quarter Sheet</option>
-                        </Form.Select>
+                      {shape && shape === 'Custom' && (
+                        <Form.Control
+                          type='text'
+                          placeholder='Custom shape...'
+                        />
                       )}
                     </Form.Group>
                     <Form.Group
@@ -270,20 +278,20 @@ const Product = ({ history }) => {
                       <Form.Label>Cake Flavor:</Form.Label>
 
                       <Form.Select aria-label='Cake Flavor'>
-                        <option value='vanilla'>Vanilla</option>
-                        <option value='chocolate'>Chocolate</option>
-                        <option value='strawberry'>Strawberry</option>
-                        <option value='pineapple'>Pineapple</option>
-                        <option value='ferrerorocher'>
+                        <option value='Vanilla'>Vanilla</option>
+                        <option value='Chocolate'>Chocolate</option>
+                        <option value='Strawberry'>Strawberry</option>
+                        <option value='Pineapple'>Pineapple</option>
+                        <option value='Ferrero Rocher'>
                           Ferrero Rocher&#8482;
                         </option>
-                        <option value='funfetti'>FunFetti</option>
-                        <option value='lemon'>Lemon</option>
-                        <option value='other'>Other</option>
+                        <option value='Funfetti'>Funfetti</option>
+                        <option value='Lemon'>Lemon</option>
+                        <option value='Other'>Other</option>
                       </Form.Select>
                     </Form.Group>
 
-                    {cakeFlavor && cakeFlavor === 'other' && (
+                    {cakeFlavor && cakeFlavor === 'Other' && (
                       <Form.Group
                         className='mb-3'
                         controlId='lncForm.otherCakeFlavor'
@@ -304,17 +312,17 @@ const Product = ({ history }) => {
                       <Form.Label>Buttercream Frosting Flavor:</Form.Label>
 
                       <Form.Select aria-label='Frosting Flavor'>
-                        <option value='chocolate'>Chocolate</option>
-                        <option value='vanilla'>Vanilla</option>
-                        <option value='strawberry'>Strawberry</option>
-                        <option value='lemon'>Lemon</option>
-                        <option value='pineapple'>Pineapple</option>
-                        <option value='banana'>Banana</option>
-                        <option value='other'>Other</option>
+                        <option value='Chocolate'>Chocolate</option>
+                        <option value='Vanilla'>Vanilla</option>
+                        <option value='Strawberry'>Strawberry</option>
+                        <option value='Lemon'>Lemon</option>
+                        <option value='Pineapple'>Pineapple</option>
+                        <option value='Banana'>Banana</option>
+                        <option value='Other'>Other</option>
                       </Form.Select>
                     </Form.Group>
 
-                    {frostingFlavor && frostingFlavor === 'other' && (
+                    {frostingFlavor && frostingFlavor === 'Other' && (
                       <Form.Group
                         className='mb-3'
                         controlId='lncForm.otherFrostingFlavor'

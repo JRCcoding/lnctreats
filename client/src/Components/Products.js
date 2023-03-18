@@ -60,14 +60,19 @@ const Products = () => {
                                 {product.description.substring(0, 50)}...
                               </Card.Text>
                               <Card.Text className='text-AccentText card_price'>
-                                <strong>Price: ${product.price}</strong>
+                                <strong>
+                                  Price: ${product.price}
+                                  {product.category2 ? '+' : ''}
+                                </strong>
                                 <LinkContainer to='/contact'>
                                   <MDBBadge
                                     color='info'
                                     pill
                                     className='clickable inline badge'
                                   >
-                                    Contact Me!
+                                    {product.category2
+                                      ? 'Order/Contact'
+                                      : 'Contact Me!'}
                                   </MDBBadge>
                                 </LinkContainer>
                               </Card.Text>
