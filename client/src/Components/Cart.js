@@ -19,7 +19,22 @@ import '../Styles/Cart.css'
 const Cart = ({ location, history }) => {
   const { id } = useParams()
   const productId = id
-  const qty = location.search ? Number(location.search.split('=')[1]) : 1
+  const qty = new URLSearchParams(location.search).get('qty')
+  const date = new URLSearchParams(location.search).get('date')
+  const shape = new URLSearchParams(location.search).get('shape')
+  const size = new URLSearchParams(location.search).get('size')
+  const cakeFlavor = new URLSearchParams(location.search).get('cakeFlavor')
+  const otherCakeFlavor = new URLSearchParams(location.search).get(
+    'otherCakeFlavor'
+  )
+  const frostingFlavor = new URLSearchParams(location.search).get(
+    'frostingFlavor'
+  )
+  const otherFrostingFlavor = new URLSearchParams(location.search).get(
+    'otherFrostingFlavor'
+  )
+  const filling = new URLSearchParams(location.search).get('filling')
+  const additional = new URLSearchParams(location.search).get('additional')
   // const [flavor, setFlavor] = useState({})
 
   const dispatch = useDispatch()
@@ -29,9 +44,36 @@ const Cart = ({ location, history }) => {
 
   useEffect(() => {
     if (productId) {
-      dispatch(addToCart(productId, qty))
+      dispatch(
+        addToCart(
+          productId,
+          qty,
+          date,
+          shape,
+          size,
+          cakeFlavor,
+          otherCakeFlavor,
+          frostingFlavor,
+          otherFrostingFlavor,
+          filling,
+          additional
+        )
+      )
     }
-  }, [dispatch, productId, qty])
+  }, [
+    dispatch,
+    productId,
+    qty,
+    date,
+    shape,
+    size,
+    cakeFlavor,
+    otherCakeFlavor,
+    frostingFlavor,
+    otherFrostingFlavor,
+    filling,
+    additional,
+  ])
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id))
@@ -73,24 +115,60 @@ const Cart = ({ location, history }) => {
                         </LinkContainer>
                       </Col>
                       <Col md={2}>${item.price}</Col>
-                      <Col md={2}>
-                        <Form.Control
-                          as='select'
-                          value={item.qty}
-                          onChange={(e) =>
-                            dispatch(
-                              addToCart(item.product, Number(e.target.value))
-                            )
-                          }
-                        >
-                          {[...Array(Number(item.countInStock)).keys()].map(
-                            (x) => (
-                              <option key={x + 1} value={x + 1}>
-                                {x + 1}
-                              </option>
-                            )
-                          )}
-                        </Form.Control>
+                      <Col md={10}>
+                        {item.qty === Number ? (
+                          <Form.Control
+                            as='select'
+                            value={item.qty}
+                            onChange={(e) =>
+                              dispatch(
+                                addToCart(item.product, Number(e.target.value))
+                              )
+                            }
+                          >
+                            {[...Array(Number(item.countInStock)).keys()].map(
+                              (x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              )
+                            )}
+                          </Form.Control>
+                        ) : (
+                          <></>
+                        )}
+                        <strong>Date: </strong>{' '}
+                        {item.date ? item.date : 'error'}
+                        <br />
+                        <strong>Shape: </strong>
+                        {item.shape ? item.shape : 'error'}
+                        <br />
+                        <strong>Size: </strong>
+                        {item.size ? item.size : 'error'}
+                        <br />
+                        <strong>Cake Flavor: </strong>
+                        {item.cakeFlavor ? item.cakeFlavor : 'error'}
+                        <br />
+                        <strong>Other Cake Flavor: </strong>
+                        {item.otherCakeFlavor !== 'undefined'
+                          ? item.otherCakeFlavor
+                          : 'none'}
+                        <br />
+                        <strong>Frosting Flavor: </strong>
+                        {item.frostingFlavor ? item.frostingFlavor : 'error'}
+                        <br />
+                        <strong>Other Frosting Flavor: </strong>
+                        {item.otherFrostingFlavor !== 'undefined'
+                          ? item.otherFrostingFlavor
+                          : 'none'}
+                        <br />
+                        {/* {item.filling !== 'undefined' ? : <></>} */}
+                        <strong>Filling: </strong>
+                        {item.filling !== 'undefined' ? item.filling : 'none'}
+                        <br />
+                        <strong>Notes: </strong>
+                        {item.additional ? item.additional : 'none'}
+                        <br />
                       </Col>
 
                       <Col md={2}>

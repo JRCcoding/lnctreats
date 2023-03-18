@@ -15,16 +15,15 @@ import { withRouter } from 'react-router-dom'
 const Product = ({ history }) => {
   const [product, setProduct] = useState({})
   const [qty, setQty] = useState(1)
-  const [date, setDate] = useState()
+  const [date, setDate] = useState('no date')
   const [shape, setShape] = useState('round')
-  const [size, setSize] = useState()
-  const [cakeFlavor, setCakeFlavor] = useState()
+  const [size, setSize] = useState('12')
+  const [cakeFlavor, setCakeFlavor] = useState('vanilla')
   const [otherCakeFlavor, setOtherCakeFlavor] = useState()
-  const [frostingFlavor, setFrostingFlavor] = useState()
+  const [frostingFlavor, setFrostingFlavor] = useState('chocolate')
   const [otherFrostingFlavor, setOtherFrostingFlavor] = useState()
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
-  // const [validated, setValidated] = useState(false)
 
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -45,16 +44,19 @@ const Product = ({ history }) => {
     dispatch(listProducts())
   }, [dispatch, id])
 
-  const addToCartHandler = (event) => {
+  const addToCartHandler = () => {
     history.push(
-      `/cart/${id}?qty=${qty}?date=${date}?shape=${shape}?size=${size}?cakeFlavor=${cakeFlavor}?otherCakeFlavor=${otherCakeFlavor}?frostingFlavor=${frostingFlavor}?otherFrostingFlavor=${otherFrostingFlavor}?filling=${filling}?additional=${additional}`
+      `/cart/${id}?qty=${qty}&date=${date}&shape=${shape}&size=${size}&cakeFlavor=${cakeFlavor}&otherCakeFlavor=${otherCakeFlavor}&frostingFlavor=${frostingFlavor}&otherFrostingFlavor=${otherFrostingFlavor}&filling=${filling}&additional=${additional}`
+      //
     )
+
     // const form = event.currentTarget
     // if (form.checkValidity() === false) {
     //   event.preventDefault()
     //   event.stopPropagation()
     // }
     // setValidated(true)
+
     // was .../cart/${match.params.id}?qty...
     // history.push(`/cart/${id}?size=${size}`)
   }
@@ -188,10 +190,10 @@ const Product = ({ history }) => {
                   </ListGroup.Item> */}
                     <ListGroup.Item>
                       <strong>Price: $</strong>
-                      {product.price}
+                      {product.price}+
                     </ListGroup.Item>
                   </ListGroup>
-                  <Form onSubmit={addToCartHandler}>
+                  <Form>
                     <Form.Group className='mb-3' controlId='lncForm.Date'>
                       <Form.Label>Date Needed:</Form.Label>
                       <Form.Control
@@ -261,7 +263,7 @@ const Product = ({ history }) => {
                     </Form.Group>
                     <Form.Group
                       className='mb-3'
-                      controlId='lncForm.CakeFlavor'
+                      controlId='lncForm.cakeFlavor'
                       value={cakeFlavor}
                       onChange={(e) => setCakeFlavor(e.target.value)}
                     >
@@ -304,7 +306,7 @@ const Product = ({ history }) => {
                       <Form.Select aria-label='Frosting Flavor'>
                         <option value='chocolate'>Chocolate</option>
                         <option value='vanilla'>Vanilla</option>
-                        <option value='strawverry'>Strawberry</option>
+                        <option value='strawberry'>Strawberry</option>
                         <option value='lemon'>Lemon</option>
                         <option value='pineapple'>Pineapple</option>
                         <option value='banana'>Banana</option>
@@ -348,7 +350,6 @@ const Product = ({ history }) => {
                       <button
                         onClick={addToCartHandler}
                         className='addcart_button'
-                        type='submit'
                       >
                         ADD TO CART
                       </button>
