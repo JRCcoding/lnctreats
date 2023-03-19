@@ -16,8 +16,8 @@ const Product = ({ history }) => {
   const [product, setProduct] = useState({})
   const [qty, setQty] = useState(1)
   const [date, setDate] = useState('no date')
-  const [shape, setShape] = useState('Round')
-  const [size, setSize] = useState('12 inch')
+  const [shape, setShape] = useState('Choose one...')
+  const [size, setSize] = useState('Choose one...')
   const [cakeFlavor, setCakeFlavor] = useState('Vanilla')
   const [otherCakeFlavor, setOtherCakeFlavor] = useState()
   const [frostingFlavor, setFrostingFlavor] = useState('Chocolate')
@@ -25,11 +25,6 @@ const Product = ({ history }) => {
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
   const [cakePrice, setCakePrice] = useState(0)
-  // let customPrice = 0
-  // function addToCake(num) {
-  //   customPrice += num
-  //   console.log(customPrice)
-  // } //onChange={addToCake(15)} down below somehow lol
   const { id } = useParams()
   const dispatch = useDispatch()
 
@@ -49,21 +44,49 @@ const Product = ({ history }) => {
     dispatch(listProducts())
   }, [dispatch, id])
 
+  const checkCakeCost = () => {
+    return shape === 'Round'
+      ? size === '3 inch'
+        ? cakePrice + 1
+        : size === '4 inch'
+        ? cakePrice + 2
+        : size === '6 inch'
+        ? cakePrice + 4
+        : size === '8 inch'
+        ? cakePrice + 6
+        : size === '9 inch'
+        ? cakePrice + 7
+        : size === '10 inch'
+        ? cakePrice + 8
+        : size === '12 inch'
+        ? cakePrice + 10
+        : cakePrice + 0
+      : shape === 'Square'
+      ? size === '8 inch'
+        ? cakePrice + 6
+        : size === '6 inch'
+        ? cakePrice + 4
+        : cakePrice + 0
+      : // : shape === 'Heart'
+      // ? size === '8 inch'
+      //   ? cakePrice + 6
+      //   : size === '6 inch'
+      //   ? cakePrice + 4
+      //   : cakePrice + 50
+      shape === 'Sheet'
+      ? size === 'Full'
+        ? cakePrice + 25
+        : size === 'Half'
+        ? cakePrice + 18
+        : size === 'Quarter'
+        ? cakePrice + 15
+        : cakePrice + 0
+      : cakePrice + 0
+  }
   const addToCartHandler = () => {
     history.push(
-      `/cart/${id}?qty=${qty}&date=${date}&shape=${shape}&size=${size}&cakeFlavor=${cakeFlavor}&otherCakeFlavor=${otherCakeFlavor}&frostingFlavor=${frostingFlavor}&otherFrostingFlavor=${otherFrostingFlavor}&filling=${filling}&additional=${additional}`
-      //
+      `/cart/${id}?qty=${qty}&date=${date}&shape=${shape}&size=${size}&cakeFlavor=${cakeFlavor}&otherCakeFlavor=${otherCakeFlavor}&frostingFlavor=${frostingFlavor}&otherFrostingFlavor=${otherFrostingFlavor}&filling=${filling}&additional=${additional}&cakePrice=${checkCakeCost()}`
     )
-
-    // const form = event.currentTarget
-    // if (form.checkValidity() === false) {
-    //   event.preventDefault()
-    //   event.stopPropagation()
-    // }
-    // setValidated(true)
-
-    // was .../cart/${match.params.id}?qty...
-    // history.push(`/cart/${id}?size=${size}`)
   }
 
   return (
@@ -107,7 +130,7 @@ const Product = ({ history }) => {
                   </ListGroup.Item> */}
                     <ListGroup.Item>
                       <strong>Price: $</strong>
-                      {product.customPrice > 0 ? (
+                      {product.customPrice ? (
                         <>{product.customPrice}</>
                       ) : (
                         <>{product.price}</>
@@ -131,12 +154,15 @@ const Product = ({ history }) => {
                         value={shape}
                         onChange={(e) => setShape(e.target.value)}
                       >
+                        <option value='chooseone'>Choose one...</option>
                         <option value='Round'>Round</option>
                         <option value='Square'>Square</option>
                         <option value='Sheet'>Sheet</option>
+                        <option value='Heart'>Heart</option>
                         <option value='Custom'>Custom</option>
                       </Form.Select>
                     </Form.Group>
+
                     <Form.Group
                       className='mb-3'
                       controlId='lncForm.Size'
@@ -144,9 +170,9 @@ const Product = ({ history }) => {
                       onChange={(e) => setSize(e.target.value)}
                     >
                       <Form.Label>Size:</Form.Label>
-
-                      {shape && shape === 'Round' && (
+                      {shape === 'Round' ? (
                         <Form.Select aria-label='Size'>
+                          <option value='chooseone'>Choose one...</option>
                           <option value='12 inch'>12 inch</option>
                           <option value='10 inch'>10 inch</option>
                           <option value='9 inch'>9 inch</option>
@@ -155,28 +181,36 @@ const Product = ({ history }) => {
                           <option value='4 inch'>4 inch</option>
                           <option value='3 inch'>3 inch</option>
                         </Form.Select>
-                      )}
-
-                      {shape && shape === 'Square' && (
+                      ) : shape === 'Square' ? (
                         <Form.Select aria-label='Size'>
+                          <option value='chooseone'>Choose one...</option>
                           <option value='8 inch'>8 inch</option>
                           <option value='6 inch'>6 inch</option>
                         </Form.Select>
-                      )}
-
-                      {shape && shape === 'Sheet' && (
+                      ) : shape === 'Heart' ? (
                         <Form.Select aria-label='Size'>
+                          <option value='chooseone'>Choose one...</option>
+                          <option value='12 inch'>12 inch</option>
+                          <option value='10 inch'>10 inch</option>
+                          <option value='9 inch'>9 inch</option>
+                          <option value='8 inch'>8 inch</option>
+                          <option value='6 inch'>6 inch</option>
+                          <option value='4 inch'>4 inch</option>
+                        </Form.Select>
+                      ) : shape === 'Sheet' ? (
+                        <Form.Select aria-label='Size'>
+                          <option value='chooseone'>Choose one...</option>
                           <option value='Full'>Full Sheet</option>
                           <option value='Half'>Half Sheet</option>
                           <option value='Quarter'>Quarter Sheet</option>
                         </Form.Select>
-                      )}
-
-                      {shape && shape === 'Custom' && (
+                      ) : shape === 'Custom' ? (
                         <Form.Control
                           type='text'
-                          placeholder='Custom shape...'
+                          placeholder='Custom shape/size (characters,animals,etc.)'
                         />
+                      ) : (
+                        <></>
                       )}
                     </Form.Group>
                     <Form.Group

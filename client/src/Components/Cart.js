@@ -35,7 +35,7 @@ const Cart = ({ location, history }) => {
   )
   const filling = new URLSearchParams(location.search).get('filling')
   const additional = new URLSearchParams(location.search).get('additional')
-  // const [flavor, setFlavor] = useState({})
+  const cakePrice = new URLSearchParams(location.search).get('cakePrice')
 
   const dispatch = useDispatch()
 
@@ -56,7 +56,8 @@ const Cart = ({ location, history }) => {
           frostingFlavor,
           otherFrostingFlavor,
           filling,
-          additional
+          additional,
+          cakePrice
         )
       )
     }
@@ -73,6 +74,7 @@ const Cart = ({ location, history }) => {
     otherFrostingFlavor,
     filling,
     additional,
+    cakePrice,
   ])
 
   const removeFromCartHandler = (id) => {
@@ -115,14 +117,14 @@ const Cart = ({ location, history }) => {
                       </Col>
                       <Col md={2}>
                         $
-                        {item.customPrice ? (
-                          <>{item.customPrice}</>
+                        {item.price === '0' ? (
+                          <>{item.cakePrice}</>
                         ) : (
                           <>{item.price}</>
                         )}
                       </Col>
                       <Col md={10}>
-                        {item.qty >= 1 ? (
+                        {item.price ? (
                           <Form.Control
                             as='select'
                             value={item.qty}
@@ -293,15 +295,22 @@ const Cart = ({ location, history }) => {
                     )}
                     ) items
                   </h2>
+                  {/* Still trying to figure out how to add cakePrice and price efficiently for a subtotal */}
                   $
                   {cartItems
                     .reduce(
                       (acc, item) =>
-                        acc + parseInt(item.qty) * parseInt(item.price),
+                        acc +
+                        (parseInt(item.qty) * parseInt(item.price) +
+                          parseInt(item.cakePrice)),
                       0
                     )
                     .toFixed(2)}
                 </ListGroup.Item>
+                {/* <ListGroup.Item>
+                  <h2>Custom items</h2>$
+                  {cartItems.map((item) => item.cakePrice)}
+                </ListGroup.Item> */}
                 <ListGroup.Item>
                   <Button
                     type='button'

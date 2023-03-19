@@ -33,7 +33,10 @@ const PlaceOrder = ({ history }) => {
   }
 
   cart.itemsPrice = addDecimals(
-    cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+    cart.cartItems.reduce(
+      (acc, item) => acc + item.cakePrice + item.price * item.qty,
+      0
+    )
   )
   cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 3.5)
   cart.taxPrice = addDecimals(Number((0.0825 * cart.itemsPrice).toFixed(2)))

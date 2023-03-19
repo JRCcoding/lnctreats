@@ -16,10 +16,10 @@ export const addToCart =
     cakeFlavor,
     otherCakeFlavor,
     frostingFlavor,
-
     otherFrostingFlavor,
     filling,
-    additional
+    additional,
+    cakePrice
   ) =>
   async (dispatch, getState) => {
     const { data } = await axios.get(`/api/products/${id}`)
@@ -42,6 +42,7 @@ export const addToCart =
         otherFrostingFlavor,
         filling,
         additional,
+        cakePrice,
       },
     })
 
