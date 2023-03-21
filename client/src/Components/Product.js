@@ -20,7 +20,7 @@ const Product = ({ history }) => {
   const [size, setSize] = useState('Choose one...')
   const [cakeFlavor, setCakeFlavor] = useState('Vanilla')
   const [otherCakeFlavor, setOtherCakeFlavor] = useState()
-  const [frostingFlavor, setFrostingFlavor] = useState('Chocolate')
+  const [frostingFlavor, setFrostingFlavor] = useState('Vanilla')
   const [otherFrostingFlavor, setOtherFrostingFlavor] = useState()
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
@@ -72,7 +72,7 @@ const Product = ({ history }) => {
       //   ? cakePrice + 6
       //   : size === '6 inch'
       //   ? cakePrice + 4
-      //   : cakePrice + 50
+      //   : cakePrice + 20
       shape === 'Sheet'
       ? size === 'Full'
         ? cakePrice + 25
@@ -256,8 +256,8 @@ const Product = ({ history }) => {
                       <Form.Label>Buttercream Frosting Flavor:</Form.Label>
 
                       <Form.Select aria-label='Frosting Flavor'>
-                        <option value='Chocolate'>Chocolate</option>
                         <option value='Vanilla'>Vanilla</option>
+                        <option value='Chocolate'>Chocolate</option>
                         <option value='Strawberry'>Strawberry</option>
                         <option value='Lemon'>Lemon</option>
                         <option value='Pineapple'>Pineapple</option>

@@ -26,7 +26,7 @@ const ProductCarousel = () => {
       ) : (
         <Carousel controls={false} className='product_carousel'>
           {products &&
-            products.reverse().map((product) => (
+            products.map((product) => (
               <Carousel.Item key={product}>
                 {product.category !== 'valentine' && (
                   <>

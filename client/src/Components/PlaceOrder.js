@@ -33,14 +33,29 @@ const PlaceOrder = ({ history }) => {
   }
 
   cart.itemsPrice = addDecimals(
-    cart.cartItems.reduce(
-      (acc, item) => acc + item.cakePrice + item.price * item.qty,
-      0
-    )
+    cart.cartItems
+      .reduce((acc, item) => acc + parseInt(item.qty) * parseInt(item.price), 0)
+      .toFixed(2)
   )
-  cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 3.5)
+  cart.customPrice = addDecimals(
+    cart.cartItems
+      .reduce(
+        (acc, item) => acc + parseInt(item.qty) * parseInt(item.cakePrice),
+        0
+      )
+      .toFixed(2)
+  )
+
+  cart.shippingAddress.pickup === 'true'
+    ? (cart.shippingPrice = addDecimals(0))
+    : (cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 3.5))
+
   cart.taxPrice = addDecimals(Number((0.0825 * cart.itemsPrice).toFixed(2)))
-  cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice))
+  cart.totalPrice = (
+    Number(cart.itemsPrice) +
+    Number(cart.customPrice) +
+    Number(cart.shippingPrice)
+  )
     // Number(cart.taxPrice)
     .toFixed(2)
 
@@ -62,6 +77,7 @@ const PlaceOrder = ({ history }) => {
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
+        customPrice: cart.customPrice,
         shippingPrice: cart.shippingPrice,
         // taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
@@ -80,16 +96,17 @@ const PlaceOrder = ({ history }) => {
                 <ListGroup.Item>
                   <h2>
                     <strong>
-                      ⭐I will contact you about any and all customizations!⭐
+                      ⭐I will contact you about any and all customizations!
                     </strong>
                   </h2>
-                  <h2>Shipping</h2>
+                  <h2>Address</h2>
                   <p>
-                    <strong>Address:</strong>
                     {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
                     {cart.shippingAddress.postalCode},{' '}
                     {cart.shippingAddress.country}
                   </p>
+                  <h2>Pickup</h2>
+                  {cart.shippingAddress.pickup === 'true' ? <>Yes</> : <>No</>}
                 </ListGroup.Item>
 
                 <ListGroup.Item>
@@ -121,8 +138,14 @@ const PlaceOrder = ({ history }) => {
                               </Link>
                             </Col>
                             <Col md={4}>
-                              {item.qty} x ${item.price} = $
-                              {item.qty * item.price}
+                              {item.qty} x $
+                              {item.cakePrice > 0 ? item.cakePrice : item.price}{' '}
+                              = $
+                              {item.cakePrice > 0 ? (
+                                <>{item.qty * item.cakePrice}</>
+                              ) : (
+                                <>{item.qty * item.price}</>
+                              )}
                             </Col>
                           </Row>
                         </ListGroup.Item>
@@ -142,6 +165,12 @@ const PlaceOrder = ({ history }) => {
                     <Row>
                       <Col>Items</Col>
                       <Col>${cart.itemsPrice}</Col>
+                    </Row>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Row>
+                      <Col>Custom</Col>
+                      <Col>${cart.customPrice}</Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item>

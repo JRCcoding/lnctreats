@@ -115,16 +115,23 @@ const Cart = ({ location, history }) => {
                           <span>{item.name}</span>
                         </LinkContainer>
                       </Col>
-                      <Col md={2}>
-                        $
-                        {item.price === '0' ? (
+                      <Col md={3}>
+                        {item.qty} <strong>X</strong> $
+                        {item.cakePrice !== '0' ? (
                           <>{item.cakePrice}</>
                         ) : (
                           <>{item.price}</>
                         )}
                       </Col>
                       <Col md={10}>
-                        {item.price ? (
+                        {item.additional !== 'undefined' && (
+                          <>
+                            <strong>Notes: </strong>
+                            {item.additional}
+                            <br />
+                          </>
+                        )}
+                        {item.price > 1337 ? (
                           <Form.Control
                             as='select'
                             value={item.qty}
@@ -145,13 +152,7 @@ const Cart = ({ location, history }) => {
                         ) : (
                           <></>
                         )}
-                        {item.additional !== 'undefined' && (
-                          <>
-                            <strong>Notes: </strong>
-                            {item.additional}
-                            <br />
-                          </>
-                        )}
+
                         {item.countInStock < 1 ? (
                           <>
                             {item.date === 'no date' ? (
@@ -208,17 +209,6 @@ const Cart = ({ location, history }) => {
                               <>
                                 <strong>Filling: </strong>
                                 {item.filling}
-                                <br />
-                              </>
-                            )}
-                            {item.additional === 'undefined' ? (
-                              <></>
-                            ) : (
-                              <>
-                                <strong>Notes: </strong>
-                                {item.additional !== 'undefined'
-                                  ? item.additional
-                                  : 'none'}
                                 <br />
                               </>
                             )}

@@ -31,6 +31,7 @@ export const addToCart =
         name: data.title,
         image: data.img,
         price: data.price,
+        cakePrice: data.cakePrice,
         countInStock: data.countInStock,
         qty,
         date,

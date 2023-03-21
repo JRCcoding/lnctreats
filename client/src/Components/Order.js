@@ -52,7 +52,16 @@ const Order = ({ match, history }) => {
     }
 
     order.itemsPrice = addDecimals(
-      order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+      order.orderItems.reduce(
+        (acc, item) => acc + parseInt(item.qty) * parseInt(item.price),
+        0
+      )
+    )
+    order.customPrice = addDecimals(
+      order.orderItems.reduce(
+        (acc, item) => acc + parseInt(item.qty) * parseInt(item.cakePrice),
+        0
+      )
     )
   }
 
@@ -180,9 +189,15 @@ const Order = ({ match, history }) => {
                                 {item.name}
                               </Link>
                             </Col>
+
                             <Col md={4}>
-                              {item.qty} x ${item.price} = $
-                              {item.qty * item.price}
+                              {item.qty} x $
+                              {item.price === 0 ? item.cakePrice : item.price}=
+                              $
+                              {item.qty *
+                                (item.cakePrice > 0
+                                  ? item.cakePrice
+                                  : item.price)}
                             </Col>
                           </Row>
                         </ListGroup.Item>
@@ -202,6 +217,10 @@ const Order = ({ match, history }) => {
                     <Row>
                       <Col>Items</Col>
                       <Col>${order.itemsPrice}</Col>
+                    </Row>
+                    <Row>
+                      <Col>Custom</Col>
+                      <Col>${order.customPrice}</Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item>
