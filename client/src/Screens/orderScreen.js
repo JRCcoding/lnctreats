@@ -388,19 +388,21 @@ const OrderScreen = ({ match, history }) => {
                         <Col>${order.totalPriceDecimals}</Col>
                       </Row>
                     </ListGroup.Item>
-                    {!order.isPaid && !userInfo.isAdmin && (
-                      <ListGroup.Item>
-                        {loadingPay && <Loader />}
-                        {!sdkReady ? (
-                          <Loader />
-                        ) : (
-                          <PayPalButton
-                            amount={order.totalPrice}
-                            onSuccess={successPaymentHandler}
-                          />
-                        )}
-                      </ListGroup.Item>
-                    )}
+                    {!order.isPaid &&
+                      !userInfo.isAdmin &&
+                      order.paymentMethod === 'PayPal' && (
+                        <ListGroup.Item>
+                          {loadingPay && <Loader />}
+                          {!sdkReady ? (
+                            <Loader />
+                          ) : (
+                            <PayPalButton
+                              amount={order.totalPrice}
+                              onSuccess={successPaymentHandler}
+                            />
+                          )}
+                        </ListGroup.Item>
+                      )}
 
                     {userInfo && userInfo.isAdmin && !order.isDelivered && (
                       <ListGroup.Item>

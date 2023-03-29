@@ -38,7 +38,7 @@ const ProductsScreen = () => {
                     <Row xs={1} sm={1} md={2} lg={4}>
                       {products.map((product) => (
                         <div key={product}>
-                          {product && product.category === 'custom' && (
+                          {product.category === 'contact' && (
                             <Card className='product_card md:mb-5 mt-2'>
                               <LinkContainer to={`/product/${product._id}`}>
                                 <Image
@@ -87,7 +87,7 @@ const ProductsScreen = () => {
                               </Card.Body>
                             </Card>
                           )}
-                          {product && product.category === 'contact' && (
+                          {product.category === 'custom' && (
                             <Card className='product_card md:mb-5 mt-2'>
                               <LinkContainer to={`/product/${product._id}`}>
                                 <Image
@@ -136,7 +136,8 @@ const ProductsScreen = () => {
                               </Card.Body>
                             </Card>
                           )}
-                          {product && product.category === 'standard' && (
+
+                          {product.category === 'standard' && (
                             <Card className='product_card md:mb-5 mt-2'>
                               <LinkContainer to={`/product/${product._id}`}>
                                 <Image

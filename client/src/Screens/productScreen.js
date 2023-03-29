@@ -303,7 +303,7 @@ const ProductScreen = ({ history }) => {
                         value={additional}
                         onChange={(e) => setAdditional(e.target.value)}
                       >
-                        <Form.Label>Additions and Customizations:</Form.Label>
+                        <Form.Label>Additions/Customizations/Theme:</Form.Label>
                         <Form.Control type='textbox' placeholder='' />
                       </Form.Group>
                       <ListGroup.Item>
