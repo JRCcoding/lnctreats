@@ -428,6 +428,7 @@ const OrderScreen = ({ match, history }) => {
                       <ListGroup.Item>
                         <Button
                           type='button'
+                          variant='danger'
                           className='btn btn-block'
                           onClick={handleDelete}
                         >
