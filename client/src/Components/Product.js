@@ -101,7 +101,7 @@ const Product = ({ history }) => {
         ) : (
           <MDBCard className='prod_info_box pr-2'>
             {/* SPLIT FOR CAT2 */}
-            {product.category2 === 'cakes' ? (
+            {product.category === 'custom' ? (
               <Row>
                 <Col md={6}>
                   <LinkContainer to='/products'>
@@ -129,13 +129,17 @@ const Product = ({ history }) => {
                     <strong>More Info: </strong> {product.additional}
                   </ListGroup.Item> */}
                     <ListGroup.Item>
-                      <strong>Price: $</strong>
-                      {product.customPrice ? (
-                        <>{product.customPrice}</>
+                      {product.category === 'custom' ? (
+                        <>
+                          <strong>Current Price: $</strong>
+                          {checkCakeCost()}
+                        </>
                       ) : (
-                        <>{product.price}</>
+                        <>
+                          <strong>Price: $</strong>
+                          {product.price}+
+                        </>
                       )}
-                      +
                     </ListGroup.Item>
                   </ListGroup>
                   <Form>

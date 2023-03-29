@@ -37,7 +37,7 @@ const About = () => {
                 tiers and anything else you might want on a cake! Personalized
                 toppers can easily be added as well.
               </p>
-              <p className='about_p'>Local delivery for $3</p>
+              <p className='about_p'>Local delivery for $3.50</p>
             </Col>
           </Row>
         </Card>

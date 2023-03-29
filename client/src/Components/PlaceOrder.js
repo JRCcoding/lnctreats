@@ -65,8 +65,8 @@ const PlaceOrder = ({ history }) => {
   useEffect(() => {
     if (success) {
       history.push(`/order/${order._id}`)
-      // dispatch({ type: USER_DETAILS_RESET })
-      // dispatch({ type: ORDER_CREATE_RESET })
+      dispatch({ type: USER_DETAILS_RESET })
+      dispatch({ type: ORDER_CREATE_RESET })
     }
   })
 
@@ -77,7 +77,6 @@ const PlaceOrder = ({ history }) => {
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
-        customPrice: cart.customPrice,
         shippingPrice: cart.shippingPrice,
         // taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,

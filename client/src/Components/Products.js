@@ -35,6 +35,55 @@ const Products = () => {
                   <Row xs={1} sm={1} md={2} lg={4}>
                     {products.map((product) => (
                       <div key={product}>
+                        {product && product.category === 'custom' && (
+                          <Card className='product_card md:mb-5 mt-2'>
+                            <LinkContainer to={`/product/${product._id}`}>
+                              <Image
+                                position='top'
+                                alt='Lauryn Claxton LNC Treats'
+                                src={product.img}
+                                className='clickable'
+                              />
+                            </LinkContainer>
+                            <Card.Body>
+                              <Card.Header>
+                                <LinkContainer to={`/product/${product._id}`}>
+                                  <Card.Title className='clickable inline'>
+                                    <h3 className='product_title font-Pacifico scale-125 my-auto'>
+                                      {product.title}
+                                    </h3>
+                                  </Card.Title>
+                                </LinkContainer>
+                              </Card.Header>
+
+                              <Card.Text className='text-AccentText'>
+                                {product.description.substring(0, 50)}...
+                              </Card.Text>
+                              <Card.Text className='text-AccentText card_price'>
+                                <strong>
+                                  Price: $
+                                  {product.customPrice > 0 ? (
+                                    <>{product.customPrice}</>
+                                  ) : (
+                                    <>{product.price}</>
+                                  )}
+                                  {product.category === 'custom' ? '+' : ''}
+                                </strong>
+                                <LinkContainer to='/contact'>
+                                  <MDBBadge
+                                    color='info'
+                                    pill
+                                    className='clickable inline badge'
+                                  >
+                                    {product.category === 'custom'
+                                      ? 'Order/Contact'
+                                      : 'Contact Me!'}
+                                  </MDBBadge>
+                                </LinkContainer>
+                              </Card.Text>
+                            </Card.Body>
+                          </Card>
+                        )}
                         {product && product.category === 'contact' && (
                           <Card className='product_card md:mb-5 mt-2'>
                             <LinkContainer to={`/product/${product._id}`}>
@@ -67,7 +116,7 @@ const Products = () => {
                                   ) : (
                                     <>{product.price}</>
                                   )}
-                                  {product.category2 ? '+' : ''}
+                                  {product.category === 'custom' ? '+' : ''}
                                 </strong>
                                 <LinkContainer to='/contact'>
                                   <MDBBadge
@@ -75,7 +124,7 @@ const Products = () => {
                                     pill
                                     className='clickable inline badge'
                                   >
-                                    {product.category2
+                                    {product.category === 'custom'
                                       ? 'Order/Contact'
                                       : 'Contact Me!'}
                                   </MDBBadge>

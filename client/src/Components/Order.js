@@ -57,12 +57,9 @@ const Order = ({ match, history }) => {
         0
       )
     )
-    order.customPrice = addDecimals(
-      order.orderItems.reduce(
-        (acc, item) => acc + parseInt(item.qty) * parseInt(item.cakePrice),
-        0
-      )
-    )
+    order.customPrice = addDecimals(order.totalPrice - order.itemsPrice)
+    order.totalPriceDecimals = addDecimals(order.totalPrice)
+    order.shippingPriceDecimals = addDecimals(order.shippingPrice)
   }
 
   useEffect(() => {
@@ -140,10 +137,11 @@ const Order = ({ match, history }) => {
                   </p>
                   <p>
                     <strong>Address:</strong>
-                    {order.shippingAddress.address},{' '}
-                    {order.shippingAddress.city}{' '}
-                    {order.shippingAddress.postalCode},{' '}
-                    {order.shippingAddress.country}
+                    <br />
+                    {order.shippingAddress.address}
+                    <br /> {order.shippingAddress.city}{' '}
+                    {order.shippingAddress.postalCode}{' '}
+                    {/* {order.shippingAddress.country} */}
                   </p>
                   {order.isDelivered ? (
                     <Message variant='success'>
@@ -189,16 +187,17 @@ const Order = ({ match, history }) => {
                                 {item.name}
                               </Link>
                             </Col>
-
-                            <Col md={4}>
-                              {item.qty} x $
-                              {item.price === 0 ? item.cakePrice : item.price}=
-                              $
-                              {item.qty *
-                                (item.cakePrice > 0
-                                  ? item.cakePrice
-                                  : item.price)}
-                            </Col>
+                            <Col>{item.date}</Col>
+                            {item.name === 'Custom Cakes' ? (
+                              <Col md={4} style={{ textAlign: 'right' }}>
+                                ${order.customPrice}
+                              </Col>
+                            ) : (
+                              <Col md={4} style={{ textAlign: 'right' }}>
+                                {item.qty} x ${item.price}= $
+                                {item.qty * item.price}
+                              </Col>
+                            )}
                           </Row>
                         </ListGroup.Item>
                       ))}
@@ -226,19 +225,19 @@ const Order = ({ match, history }) => {
                   <ListGroup.Item>
                     <Row>
                       <Col>Shipping</Col>
-                      <Col>${order.shippingPrice}</Col>
+                      <Col>${order.shippingPriceDecimals}</Col>
                     </Row>
                   </ListGroup.Item>
-                  <ListGroup.Item>
+                  {/* <ListGroup.Item>
                     <Row>
                       <Col>Tax</Col>
                       <Col>${order.taxPrice}</Col>
                     </Row>
-                  </ListGroup.Item>
+                  </ListGroup.Item> */}
                   <ListGroup.Item>
                     <Row>
                       <Col>Total</Col>
-                      <Col>${order.totalPrice}</Col>
+                      <Col>${order.totalPriceDecimals}</Col>
                     </Row>
                   </ListGroup.Item>
                   {!order.isPaid && !userInfo.isAdmin && (
