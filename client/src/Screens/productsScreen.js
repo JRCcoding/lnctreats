@@ -114,11 +114,9 @@ const ProductsScreen = () => {
                                 <Card.Text className='text-AccentText card_price'>
                                   <strong>
                                     Price: $
-                                    {product.customPrice > 0 ? (
-                                      <>{product.customPrice}</>
-                                    ) : (
-                                      <>{product.price}</>
-                                    )}
+                                    {product.title === 'Custom Cakes'
+                                      ? '25'
+                                      : product.price}
                                     {product.category === 'custom' ? '+' : ''}
                                   </strong>
                                   <LinkContainer to='/contact'>
