@@ -6,6 +6,7 @@ const orderSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User',
+      number: { type: String, required: false },
     },
     orderItems: [
       {
@@ -13,7 +14,16 @@ const orderSchema = mongoose.Schema(
         qty: { type: Number, required: true },
         image: { type: String, required: true },
         price: { type: Number, required: true },
-        flavor: { type: String, required: false },
+        date: { type: String, required: false },
+        shape: { type: String, required: false },
+        size: { type: String, required: false },
+        cakeFlavor: { type: String, required: false },
+        otherCakeFlavor: { type: String, required: false },
+        frostingFlavor: { type: String, required: false },
+        otherFrostingFlavor: { type: String, required: false },
+        filling: { type: String, required: false },
+        additional: { type: String, required: false },
+        cakePrice: { type: String, required: false },
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
@@ -26,6 +36,7 @@ const orderSchema = mongoose.Schema(
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
+      pickup: { type: String, required: false },
     },
     paymentMethod: {
       type: String,

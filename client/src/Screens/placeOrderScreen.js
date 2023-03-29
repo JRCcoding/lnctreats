@@ -1,17 +1,230 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Fade } from 'react-reveal'
-import PlaceOrder from '../Components/PlaceOrder'
+import { Link } from 'react-router-dom'
+import {
+  Button,
+  Row,
+  Col,
+  ListGroup,
+  Image,
+  Card,
+  Container,
+} from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import Message from '../Components/Message'
+import CheckoutSteps from '../Components/CheckoutSteps'
+import { createOrder } from '../Actions/orderActions'
+import { ORDER_CREATE_RESET } from '../Constants/orderConstants'
+import { USER_DETAILS_RESET } from '../Constants/userConstants'
+import { withRouter } from 'react-router-dom'
 import Meta from '../Components/Meta'
 
-const PlaceOrderScreen = () => {
+const PlaceOrderScreen = ({ history }) => {
+  const dispatch = useDispatch()
+
+  const cart = useSelector((state) => state.cart)
+
+  if (!cart.shippingAddress.address) {
+    history.push('/shipping')
+  } else if (!cart.paymentMethod) {
+    history.push('/payment')
+  }
+  //   Calculate prices
+  const addDecimals = (num) => {
+    return (Math.round(num * 100) / 100).toFixed(2)
+  }
+
+  cart.itemsPrice = addDecimals(
+    cart.cartItems
+      .reduce((acc, item) => acc + parseInt(item.qty) * parseInt(item.price), 0)
+      .toFixed(2)
+  )
+  cart.customPrice = addDecimals(
+    cart.cartItems
+      .reduce(
+        (acc, item) => acc + parseInt(item.qty) * parseInt(item.cakePrice),
+        0
+      )
+      .toFixed(2)
+  )
+
+  cart.shippingAddress.pickup === 'true'
+    ? (cart.shippingPrice = addDecimals(0))
+    : (cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 3.5))
+
+  cart.taxPrice = addDecimals(Number((0.0825 * cart.itemsPrice).toFixed(2)))
+  cart.totalPrice = (
+    Number(cart.itemsPrice) +
+    Number(cart.customPrice) +
+    Number(cart.shippingPrice)
+  )
+    // Number(cart.taxPrice)
+    .toFixed(2)
+
+  const orderCreate = useSelector((state) => state.orderCreate)
+  const { order, success, error } = orderCreate
+
+  useEffect(() => {
+    if (success) {
+      history.push(`/order/${order._id}`)
+      dispatch({ type: USER_DETAILS_RESET })
+      dispatch({ type: ORDER_CREATE_RESET })
+    }
+  })
+
+  const placeOrderHandler = () => {
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        // taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    )
+  }
+
   return (
     <div className='background_pattern'>
       <Meta title='LNC Place Order' />
       <Fade up>
-        <PlaceOrder />
+        <Container>
+          <Card>
+            <Container>
+              <CheckoutSteps step1 step2 step3 step4 />
+              <Row>
+                <Col md={8}>
+                  <ListGroup variant='flush'>
+                    <ListGroup.Item>
+                      <h2>
+                        <strong>
+                          ⭐I will contact you about any and all customizations!
+                        </strong>
+                      </h2>
+                      <h2>Address</h2>
+                      <p>
+                        {cart.shippingAddress.address},{' '}
+                        {cart.shippingAddress.city}{' '}
+                        {cart.shippingAddress.postalCode},{' '}
+                        {cart.shippingAddress.country}
+                      </p>
+                      <h2>Pickup</h2>
+                      {cart.shippingAddress.pickup === 'true' ? (
+                        <>Yes</>
+                      ) : (
+                        <>No</>
+                      )}
+                    </ListGroup.Item>
+
+                    <ListGroup.Item>
+                      <h2>Payment Method</h2>
+                      <strong>Method: </strong>
+                      {cart.paymentMethod}
+                    </ListGroup.Item>
+
+                    <ListGroup.Item>
+                      <h2>Order Items</h2>
+                      {cart.cartItems.length === 0 ? (
+                        <Message>Your cart is empty</Message>
+                      ) : (
+                        <ListGroup variant='flush'>
+                          {cart.cartItems.map((item, index) => (
+                            <ListGroup.Item key={index}>
+                              <Row>
+                                <Col md={1}>
+                                  <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    fluid
+                                    rounded
+                                  />
+                                </Col>
+                                <Col>
+                                  <Link to={`/product/${item.product}`}>
+                                    {item.name}
+                                  </Link>
+                                </Col>
+                                <Col md={4}>
+                                  {item.qty} x $
+                                  {item.cakePrice > 0
+                                    ? item.cakePrice
+                                    : item.price}{' '}
+                                  = $
+                                  {item.cakePrice > 0 ? (
+                                    <>{item.qty * item.cakePrice}</>
+                                  ) : (
+                                    <>{item.qty * item.price}</>
+                                  )}
+                                </Col>
+                              </Row>
+                            </ListGroup.Item>
+                          ))}
+                        </ListGroup>
+                      )}
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Col>
+                <Col md={4}>
+                  <Card>
+                    <ListGroup variant='flush'>
+                      <ListGroup.Item>
+                        <h2>Order Summary</h2>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Items</Col>
+                          <Col>${cart.itemsPrice}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Custom</Col>
+                          <Col>${cart.customPrice}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Shipping</Col>
+                          <Col>${cart.shippingPrice}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      {/* <ListGroup.Item>
+                    <Row>
+                      <Col>Tax</Col>
+                      <Col>${cart.taxPrice}</Col>
+                    </Row>
+                  </ListGroup.Item> */}
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Total</Col>
+                          <Col>${cart.totalPrice}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        {error && <Message variant='danger'>{error}</Message>}
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Button
+                          type='button'
+                          className='btn-block'
+                          disabled={cart.cartItems === 0}
+                          onClick={placeOrderHandler}
+                        >
+                          Place Order
+                        </Button>
+                      </ListGroup.Item>
+                    </ListGroup>
+                  </Card>
+                </Col>
+              </Row>
+            </Container>
+          </Card>
+        </Container>
       </Fade>
     </div>
   )
 }
 
-export default PlaceOrderScreen
+export default withRouter(PlaceOrderScreen)
