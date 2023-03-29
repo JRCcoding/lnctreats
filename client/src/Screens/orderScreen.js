@@ -37,6 +37,7 @@ import {
   payOrder,
   payOrderAdmin,
   deliverOrder,
+  deleteOrder,
 } from '../Actions/orderActions'
 import {
   ORDER_PAY_RESET,
@@ -125,7 +126,10 @@ const OrderScreen = ({ match, history }) => {
     dispatch(payOrderAdmin(orderId))
     window.location.reload(false)
   }
-
+  const handleDelete = () => {
+    dispatch(deleteOrder(order))
+    history.push('/')
+  }
   return loading ? (
     <Loader />
   ) : error ? (
@@ -417,6 +421,17 @@ const OrderScreen = ({ match, history }) => {
                           onClick={paymentHandler}
                         >
                           Mark As Paid
+                        </Button>
+                      </ListGroup.Item>
+                    )}
+                    {userInfo && userInfo.isAdmin && (
+                      <ListGroup.Item>
+                        <Button
+                          type='button'
+                          className='btn btn-block'
+                          onClick={handleDelete}
+                        >
+                          Delete
                         </Button>
                       </ListGroup.Item>
                     )}
