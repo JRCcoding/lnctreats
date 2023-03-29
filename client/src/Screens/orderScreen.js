@@ -128,7 +128,7 @@ const OrderScreen = ({ match, history }) => {
   }
   const handleDelete = () => {
     dispatch(deleteOrder(order))
-    history.push('/')
+    history.push('/admin/orderlist')
   }
   return loading ? (
     <Loader />
