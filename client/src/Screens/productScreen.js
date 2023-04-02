@@ -18,13 +18,13 @@ const ProductScreen = ({ history }) => {
   const [date, setDate] = useState('no date')
   const [shape, setShape] = useState('Choose one...')
   const [size, setSize] = useState('Choose one...')
-  const [cakeFlavor, setCakeFlavor] = useState('Vanilla')
+  const [cakeFlavor, setCakeFlavor] = useState('Choose one...')
   const [otherCakeFlavor, setOtherCakeFlavor] = useState()
-  const [frostingFlavor, setFrostingFlavor] = useState('Vanilla')
+  const [frostingFlavor, setFrostingFlavor] = useState('Choose one...')
   const [otherFrostingFlavor, setOtherFrostingFlavor] = useState()
   const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
-  const [cakePrice, setCakePrice] = useState(0)
+  const [cakePrice] = useState(0)
   const { id } = useParams()
   const dispatch = useDispatch()
 
@@ -44,10 +44,10 @@ const ProductScreen = ({ history }) => {
     dispatch(listProducts())
   }, [dispatch, id])
 
-  const checkCakeCost = () => {
+  const checkShapeCost = () => {
     return shape === 'Round'
       ? size === '3 inch'
-        ? cakePrice + 1
+        ? cakePrice - 14
         : size === '4 inch'
         ? cakePrice + 2
         : size === '6 inch'
@@ -67,13 +67,7 @@ const ProductScreen = ({ history }) => {
         : size === '6 inch'
         ? cakePrice + 4
         : cakePrice + 0
-      : // : shape === 'Heart'
-      // ? size === '8 inch'
-      //   ? cakePrice + 6
-      //   : size === '6 inch'
-      //   ? cakePrice + 4
-      //   : cakePrice + 20
-      shape === 'Sheet'
+      : shape === 'Sheet'
       ? size === 'Full'
         ? cakePrice + 25
         : size === 'Half'
@@ -81,8 +75,45 @@ const ProductScreen = ({ history }) => {
         : size === 'Quarter'
         ? cakePrice + 15
         : cakePrice + 0
+      : shape === 'Heart'
+      ? size === '12 inch'
+        ? cakePrice + 10
+        : size === '10 inch'
+        ? cakePrice + 8
+        : size === '9 inch'
+        ? cakePrice + 7
+        : size === '8 inch'
+        ? cakePrice + 5
+        : size === '6 inch'
+        ? cakePrice + 4
+        : size === '4 inch'
+        ? cakePrice + 2
+        : cakePrice
+      : shape === 'Custom'
+      ? cakePrice + 15
       : cakePrice + 0
   }
+  const checkFlavorCost = () => {
+    return cakeFlavor === 'Vanilla'
+      ? cakePrice + 12
+      : cakeFlavor === 'Ferrero Rocher'
+      ? cakePrice + 20
+      : cakePrice + 12
+  }
+  const checkFrostingCost = () => {
+    return frostingFlavor === 'Vanilla' ? cakePrice + 12 : cakePrice + 12
+  }
+  const checkFillingCost = () => {
+    return filling ? cakePrice + 10 : cakePrice + 0
+  }
+  const checkCakeCost = () => {
+    const shapeCost = checkShapeCost()
+    const flavorCost = checkFlavorCost()
+    const frostingCost = checkFrostingCost()
+    const fillingCost = checkFillingCost()
+    return shapeCost + flavorCost + frostingCost + fillingCost
+  }
+
   const addToCartHandler = () => {
     history.push(
       `/cart/${id}?qty=${qty}&date=${date}&shape=${shape}&size=${size}&cakeFlavor=${cakeFlavor}&otherCakeFlavor=${otherCakeFlavor}&frostingFlavor=${frostingFlavor}&otherFrostingFlavor=${otherFrostingFlavor}&filling=${filling}&additional=${additional}&cakePrice=${checkCakeCost()}`
@@ -144,7 +175,7 @@ const ProductScreen = ({ history }) => {
                         )}
                       </ListGroup.Item>
                     </ListGroup>
-                    <Form>
+                    <Form onSubmit={addToCartHandler}>
                       <Form.Group className='mb-3' controlId='lncForm.Date'>
                         <Form.Label>Date Needed:</Form.Label>
                         <Form.Control
@@ -228,6 +259,8 @@ const ProductScreen = ({ history }) => {
                         <Form.Label>Cake Flavor:</Form.Label>
 
                         <Form.Select aria-label='Cake Flavor'>
+                          <option value='chooseone'>Choose one...</option>
+
                           <option value='Vanilla'>Vanilla</option>
                           <option value='Chocolate'>Chocolate</option>
                           <option value='Strawberry'>Strawberry</option>
@@ -262,6 +295,8 @@ const ProductScreen = ({ history }) => {
                         <Form.Label>Buttercream Frosting Flavor:</Form.Label>
 
                         <Form.Select aria-label='Frosting Flavor'>
+                          <option value='chooseone'>Choose one...</option>
+
                           <option value='Vanilla'>Vanilla</option>
                           <option value='Chocolate'>Chocolate</option>
                           <option value='Strawberry'>Strawberry</option>
@@ -295,7 +330,7 @@ const ProductScreen = ({ history }) => {
                         onChange={(e) => setFilling(e.target.value)}
                       >
                         <Form.Label>Filling:</Form.Label>
-                        <Form.Control type='text' placeholder='' />
+                        <Form.Control type='text' placeholder='+ $10' />
                       </Form.Group>
                       <Form.Group
                         className='mb-3'
@@ -415,11 +450,7 @@ const ProductScreen = ({ history }) => {
                             <Form.Control type='textbox' placeholder='' />
                           </Form.Group>
                           <ListGroup.Item>
-                            <button
-                              onClick={addToCartHandler}
-                              className='addcart_button'
-                              type='button'
-                            >
+                            <button className='addcart_button' type='submit'>
                               ADD TO CART
                             </button>
                           </ListGroup.Item>
