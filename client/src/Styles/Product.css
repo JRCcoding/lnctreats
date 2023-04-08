@@ -21,12 +21,11 @@
     letter-spacing: 2px;
     margin: 2%;
     border: 1px solid white;
-    transition: all .75s;
+    transition: all 1s;
     /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.425); */
 }
 .backprod_button:hover {
-    box-shadow: 1px 1px 5px rgba(136, 110, 135);
-    backdrop-filter: blur(8px);
+    box-shadow: 1px 1px 5px rgb(83, 83, 83);
 }
 .product_card {
     min-height: 525px;

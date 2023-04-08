@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Image, ListGroup, Container, Form } from 'react-bootstrap'
+import {
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Container,
+  Form,
+  FloatingLabel,
+} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { MDBCard } from 'mdb-react-ui-kit'
 import Loader from '../Components/Loader'
@@ -16,15 +24,7 @@ const ProductScreen = ({ history }) => {
   const [product, setProduct] = useState({})
   const [qty, setQty] = useState(1)
   const [date, setDate] = useState('no date')
-  const [shape, setShape] = useState('Choose one...')
-  const [size, setSize] = useState('Choose one...')
-  const [cakeFlavor, setCakeFlavor] = useState('Choose one...')
-  const [otherCakeFlavor, setOtherCakeFlavor] = useState()
-  const [frostingFlavor, setFrostingFlavor] = useState('Choose one...')
-  const [otherFrostingFlavor, setOtherFrostingFlavor] = useState()
-  const [filling, setFilling] = useState()
   const [additional, setAdditional] = useState()
-  const [cakePrice] = useState(0)
   const { id } = useParams()
   const dispatch = useDispatch()
 
@@ -44,80 +44,8 @@ const ProductScreen = ({ history }) => {
     dispatch(listProducts())
   }, [dispatch, id])
 
-  const checkShapeCost = () => {
-    return shape === 'Round'
-      ? size === '3 inch'
-        ? cakePrice - 14
-        : size === '4 inch'
-        ? cakePrice + 2
-        : size === '6 inch'
-        ? cakePrice + 4
-        : size === '8 inch'
-        ? cakePrice + 6
-        : size === '9 inch'
-        ? cakePrice + 7
-        : size === '10 inch'
-        ? cakePrice + 8
-        : size === '12 inch'
-        ? cakePrice + 10
-        : cakePrice + 0
-      : shape === 'Square'
-      ? size === '8 inch'
-        ? cakePrice + 6
-        : size === '6 inch'
-        ? cakePrice + 4
-        : cakePrice + 0
-      : shape === 'Sheet'
-      ? size === 'Full'
-        ? cakePrice + 25
-        : size === 'Half'
-        ? cakePrice + 18
-        : size === 'Quarter'
-        ? cakePrice + 15
-        : cakePrice + 0
-      : shape === 'Heart'
-      ? size === '12 inch'
-        ? cakePrice + 10
-        : size === '10 inch'
-        ? cakePrice + 8
-        : size === '9 inch'
-        ? cakePrice + 7
-        : size === '8 inch'
-        ? cakePrice + 5
-        : size === '6 inch'
-        ? cakePrice + 4
-        : size === '4 inch'
-        ? cakePrice + 2
-        : cakePrice
-      : shape === 'Custom'
-      ? cakePrice + 15
-      : cakePrice + 0
-  }
-  const checkFlavorCost = () => {
-    return cakeFlavor === 'Vanilla'
-      ? cakePrice + 12
-      : cakeFlavor === 'Ferrero Rocher'
-      ? cakePrice + 20
-      : cakePrice + 12
-  }
-  const checkFrostingCost = () => {
-    return frostingFlavor === 'Vanilla' ? cakePrice + 12 : cakePrice + 12
-  }
-  const checkFillingCost = () => {
-    return filling ? cakePrice + 10 : cakePrice + 0
-  }
-  const checkCakeCost = () => {
-    const shapeCost = checkShapeCost()
-    const flavorCost = checkFlavorCost()
-    const frostingCost = checkFrostingCost()
-    const fillingCost = checkFillingCost()
-    return shapeCost + flavorCost + frostingCost + fillingCost
-  }
-
   const addToCartHandler = () => {
-    history.push(
-      `/cart/${id}?qty=${qty}&date=${date}&shape=${shape}&size=${size}&cakeFlavor=${cakeFlavor}&otherCakeFlavor=${otherCakeFlavor}&frostingFlavor=${frostingFlavor}&otherFrostingFlavor=${otherFrostingFlavor}&filling=${filling}&additional=${additional}&cakePrice=${checkCakeCost()}`
-    )
+    history.push(`/cart/${id}?qty=${qty}&date=${date}&additional=${additional}`)
   }
 
   return (
@@ -153,19 +81,20 @@ const ProductScreen = ({ history }) => {
                   <Col md={6}>
                     <ListGroup variant='flush' className='mr-2'>
                       <ListGroup.Item>
-                        <h3>{product.title}</h3>
+                        <h3 style={{ textAlign: 'center' }}>{product.title}</h3>
                       </ListGroup.Item>
                       <ListGroup.Item>
-                        <strong>Description: </strong> {product.description}
-                      </ListGroup.Item>
-                      {/* <ListGroup.Item>
-                    <strong>More Info: </strong> {product.additional}
-                  </ListGroup.Item> */}
-                      <ListGroup.Item>
-                        {product.category === 'custom' ? (
+                        {product.title === 'Custom Cakes' ? (
                           <>
-                            <strong>Current Price: $</strong>
-                            {checkCakeCost()}
+                            <strong>Thank you</strong> for taking the time to
+                            check out my work! I do all kinds of cakes, from
+                            basic, 3" one color cakes to 3-tiered event cakes!
+                            Flourettes, number cakes, edible images, you want
+                            it, you got it!
+                            <hr />
+                            Check out the order request form below to request a
+                            cake from me! I will get back to you as soon as
+                            possible for your order details!
                           </>
                         ) : (
                           <>
@@ -174,194 +103,20 @@ const ProductScreen = ({ history }) => {
                           </>
                         )}
                       </ListGroup.Item>
+                      <ListGroup.Item>
+                        <LinkContainer
+                          to='/cakeorder'
+                          style={{ width: '100%' }}
+                        >
+                          <button className='addcart_button'>
+                            Request Custom Cake Order
+                          </button>
+                        </LinkContainer>
+                      </ListGroup.Item>
                     </ListGroup>
-                    <Form onSubmit={addToCartHandler}>
-                      <Form.Group className='mb-3' controlId='lncForm.Date'>
-                        <Form.Label>Date Needed:</Form.Label>
-                        <Form.Control
-                          type='date'
-                          value={date}
-                          onChange={(e) => setDate(e.target.value)}
-                        />
-                      </Form.Group>
-                      <Form.Group className='mb-3' controlId='lncForm.Shape'>
-                        <Form.Label>Shape:</Form.Label>
-                        <Form.Select
-                          aria-label='Shape'
-                          value={shape}
-                          onChange={(e) => setShape(e.target.value)}
-                        >
-                          <option value='chooseone'>Choose one...</option>
-                          <option value='Round'>Round</option>
-                          <option value='Square'>Square</option>
-                          <option value='Sheet'>Sheet</option>
-                          <option value='Heart'>Heart</option>
-                          <option value='Custom'>Custom</option>
-                        </Form.Select>
-                      </Form.Group>
+                    {/* <Form onSubmit={addToCartHandler}> */}
 
-                      <Form.Group
-                        className='mb-3'
-                        controlId='lncForm.Size'
-                        value={size}
-                        onChange={(e) => setSize(e.target.value)}
-                      >
-                        <Form.Label>Size:</Form.Label>
-                        {shape === 'Round' ? (
-                          <Form.Select aria-label='Size'>
-                            <option value='chooseone'>Choose one...</option>
-                            <option value='12 inch'>12 inch</option>
-                            <option value='10 inch'>10 inch</option>
-                            <option value='9 inch'>9 inch</option>
-                            <option value='8 inch'>8 inch</option>
-                            <option value='6 inch'>6 inch</option>
-                            <option value='4 inch'>4 inch</option>
-                            <option value='3 inch'>3 inch</option>
-                          </Form.Select>
-                        ) : shape === 'Square' ? (
-                          <Form.Select aria-label='Size'>
-                            <option value='chooseone'>Choose one...</option>
-                            <option value='8 inch'>8 inch</option>
-                            <option value='6 inch'>6 inch</option>
-                          </Form.Select>
-                        ) : shape === 'Heart' ? (
-                          <Form.Select aria-label='Size'>
-                            <option value='chooseone'>Choose one...</option>
-                            <option value='12 inch'>12 inch</option>
-                            <option value='10 inch'>10 inch</option>
-                            <option value='9 inch'>9 inch</option>
-                            <option value='8 inch'>8 inch</option>
-                            <option value='6 inch'>6 inch</option>
-                            <option value='4 inch'>4 inch</option>
-                          </Form.Select>
-                        ) : shape === 'Sheet' ? (
-                          <Form.Select aria-label='Size'>
-                            <option value='chooseone'>Choose one...</option>
-                            <option value='Full'>Full Sheet</option>
-                            <option value='Half'>Half Sheet</option>
-                            <option value='Quarter'>Quarter Sheet</option>
-                          </Form.Select>
-                        ) : shape === 'Custom' ? (
-                          <Form.Control
-                            type='text'
-                            placeholder='Custom shape/size (characters,animals,etc.)'
-                          />
-                        ) : (
-                          <></>
-                        )}
-                      </Form.Group>
-                      <Form.Group
-                        className='mb-3'
-                        controlId='lncForm.cakeFlavor'
-                        value={cakeFlavor}
-                        onChange={(e) => setCakeFlavor(e.target.value)}
-                      >
-                        <Form.Label>Cake Flavor:</Form.Label>
-
-                        <Form.Select aria-label='Cake Flavor'>
-                          <option value='chooseone'>Choose one...</option>
-
-                          <option value='Vanilla'>Vanilla</option>
-                          <option value='Chocolate'>Chocolate</option>
-                          <option value='Strawberry'>Strawberry</option>
-                          <option value='Pineapple'>Pineapple</option>
-                          <option value='Ferrero Rocher'>
-                            Ferrero Rocher&#8482;
-                          </option>
-                          <option value='Funfetti'>Funfetti</option>
-                          <option value='Lemon'>Lemon</option>
-                          <option value='Other'>Other</option>
-                        </Form.Select>
-                      </Form.Group>
-
-                      {cakeFlavor && cakeFlavor === 'Other' && (
-                        <Form.Group
-                          className='mb-3'
-                          controlId='lncForm.otherCakeFlavor'
-                          value={otherCakeFlavor}
-                          onChange={(e) => setOtherCakeFlavor(e.target.value)}
-                        >
-                          <Form.Label>Other Cake Flavor:</Form.Label>
-                          <Form.Control type='text' placeholder='' />
-                        </Form.Group>
-                      )}
-
-                      <Form.Group
-                        className='mb-3'
-                        controlId='lncForm.FrostingFlavor'
-                        value={frostingFlavor}
-                        onChange={(e) => setFrostingFlavor(e.target.value)}
-                      >
-                        <Form.Label>Buttercream Frosting Flavor:</Form.Label>
-
-                        <Form.Select aria-label='Frosting Flavor'>
-                          <option value='chooseone'>Choose one...</option>
-
-                          <option value='Vanilla'>Vanilla</option>
-                          <option value='Chocolate'>Chocolate</option>
-                          <option value='Strawberry'>Strawberry</option>
-                          <option value='Lemon'>Lemon</option>
-                          <option value='Pineapple'>Pineapple</option>
-                          <option value='Banana'>Banana</option>
-                          <option value='Other'>Other</option>
-                        </Form.Select>
-                      </Form.Group>
-
-                      {frostingFlavor && frostingFlavor === 'Other' && (
-                        <Form.Group
-                          className='mb-3'
-                          controlId='lncForm.otherFrostingFlavor'
-                          value={otherFrostingFlavor}
-                          onChange={(e) =>
-                            setOtherFrostingFlavor(e.target.value)
-                          }
-                        >
-                          <Form.Label>
-                            Other Buttercream Frosting Flavor:
-                          </Form.Label>
-                          <Form.Control type='text' placeholder='' />
-                        </Form.Group>
-                      )}
-
-                      <Form.Group
-                        className='mb-3'
-                        controlId='lncForm.Filling'
-                        value={filling}
-                        onChange={(e) => setFilling(e.target.value)}
-                      >
-                        <Form.Label>Filling:</Form.Label>
-                        <Form.Control type='text' placeholder='+ $10' />
-                      </Form.Group>
-                      <Form.Group
-                        className='mb-3'
-                        controlId='additional'
-                        value={additional}
-                        onChange={(e) => setAdditional(e.target.value)}
-                      >
-                        <Form.Label>Additions/Customizations/Theme:</Form.Label>
-                        <Form.Control type='textbox' placeholder='' />
-                      </Form.Group>
-                      <ListGroup.Item>
-                        <button
-                          onClick={addToCartHandler}
-                          className='addcart_button'
-                        >
-                          ADD TO CART
-                        </button>
-                      </ListGroup.Item>
-                      <hr />
-                      <ListGroup.Item>
-                        OR-- Contact for specific pricing!
-                        <br />
-                        <ListGroup.Item>
-                          <LinkContainer to='/contact'>
-                            <button className='contact_button'>
-                              CONTACT TO ORDER
-                            </button>
-                          </LinkContainer>
-                        </ListGroup.Item>
-                      </ListGroup.Item>
-                    </Form>
+                    {/* </Form> */}
                   </Col>
                 </Row>
               ) : (
@@ -417,42 +172,57 @@ const ProductScreen = ({ history }) => {
                           <ListGroup.Item>
                             <Row>
                               <Col>
-                                <h5>Quantity</h5>
-                              </Col>
-                              <Col>
-                                <Form.Control
-                                  as='select'
-                                  value={qty}
-                                  onChange={(e) => setQty(e.target.value)}
-                                >
-                                  {[
-                                    ...Array(
-                                      Number(product.countInStock)
-                                    ).keys(),
-                                  ].map((x) => (
-                                    <option key={x + 1} value={x + 1}>
-                                      {x + 1}
-                                    </option>
-                                  ))}
-                                </Form.Control>
+                                <Form onSubmit={addToCartHandler}>
+                                  <Form.Group>
+                                    <FloatingLabel label='Quantity:'>
+                                      <Form.Control
+                                        as='select'
+                                        value={qty}
+                                        onChange={(e) => setQty(e.target.value)}
+                                      >
+                                        {[
+                                          ...Array(
+                                            Number(product.countInStock)
+                                          ).keys(),
+                                        ].map((x) => (
+                                          <option key={x + 1} value={x + 1}>
+                                            {x + 1}
+                                          </option>
+                                        ))}
+                                      </Form.Control>
+                                    </FloatingLabel>
+                                  </Form.Group>
+                                  <br />
+                                  <Form.Group
+                                    className='mb-3'
+                                    controlId='additional'
+                                    value={additional}
+                                    onChange={(e) =>
+                                      setAdditional(e.target.value)
+                                    }
+                                  >
+                                    <FloatingLabel label='Additions and Customizations:'>
+                                      <Form.Control type='textbox' />
+                                    </FloatingLabel>
+                                  </Form.Group>
+                                  <Form.Group
+                                    className='mb-3'
+                                    controlId='additional'
+                                    value={date}
+                                    onChange={(e) => setDate(e.target.value)}
+                                  >
+                                    <Form.Label>Date:</Form.Label>
+                                    <Form.Control type='date' />
+                                  </Form.Group>
+                                  <button
+                                    className='addcart_button'
+                                    type='submit'
+                                  >
+                                    ADD TO CART
+                                  </button>
+                                </Form>
                               </Col>
                             </Row>
-                          </ListGroup.Item>
-                          <Form.Group
-                            className='mb-3'
-                            controlId='additional'
-                            value={additional}
-                            onChange={(e) => setAdditional(e.target.value)}
-                          >
-                            <Form.Label>
-                              Additions and Customizations:
-                            </Form.Label>
-                            <Form.Control type='textbox' placeholder='' />
-                          </Form.Group>
-                          <ListGroup.Item>
-                            <button className='addcart_button' type='submit'>
-                              ADD TO CART
-                            </button>
                           </ListGroup.Item>
                         </ListGroup>
                       )}

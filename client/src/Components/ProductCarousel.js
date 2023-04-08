@@ -27,7 +27,7 @@ const ProductCarousel = () => {
         <Carousel controls={false} className='product_carousel'>
           {products &&
             products.map((product) => (
-              <Carousel.Item key={product}>
+              <Carousel.Item key={products}>
                 {product.category !== 'valentine' && (
                   <>
                     <LinkContainer to={`/product/${product._id}`}>

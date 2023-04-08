@@ -1,5 +1,5 @@
 import React from 'react'
-import Contact from '../Components/Contact'
+import { Contact } from '../Components/Contact'
 import { Fade } from 'react-reveal'
 import {
   MDBCard,

@@ -3,9 +3,9 @@
     padding-top: 10%;
 }
 
-.contact_form {
+/* .contact_form {
     margin-top: -5%;
-}
+} */
 
 .contact_card {
     margin: 0 auto 0 auto;
@@ -13,15 +13,7 @@
     width: 50%;
 }
 
-.contact_title {
-    margin-left: auto;
-    margin-right: auto;    
-    font-family: 'Dancing Script', cursive; 
-    scale: 1.8;
-    position: relative;
-    top: -55px;
-}
-
+/* 
 .contact_submit {
     padding: 2%;
     margin-top: 5%;
@@ -36,13 +28,13 @@
 .contact_submit:hover {
     background-color: #39273d;
 
-}
+} */
 
-.submit_div {
+/* .submit_div {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-}
+} */
 
 .contact_info_box {
     width: 50%;
@@ -92,9 +84,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .contact_form {
+    /* .contact_form {
         margin-top: -15%;
-    }
+    } */
     .contact_options_link_flex{
         gap: 5px;
     }

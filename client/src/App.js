@@ -1,5 +1,7 @@
 import './App.css'
 import HomeScreen from './Screens/homeScreen'
+import CakeOrderScreen from './Screens/cakeOrderScreen'
+import CakeSubmitScreen from './Screens/cakeSubmitScreen'
 import CartScreen from './Screens/cartScreen'
 import ShippingScreen from './Screens/shippingScreen'
 import PaymentScreen from './Screens/paymentScreen'
@@ -23,6 +25,8 @@ function App() {
       <Router>
         <Navi />
         <Route path='/' exact component={HomeScreen} />
+        <Route path='/cakeorder' component={CakeOrderScreen} />
+        <Route path='/cakesubmitted' component={CakeSubmitScreen} />
         <Route path='/cart/:id?' component={CartScreen} />
         <Route path='/shipping' component={ShippingScreen} />
         <Route path='/payment' component={PaymentScreen} />

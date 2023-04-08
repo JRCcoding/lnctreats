@@ -18,27 +18,13 @@ import '../Styles/Cart.css'
 import Meta from '../Components/Meta'
 import { Fade } from 'react-reveal'
 
-const cartScreen = ({ location, history }) => {
+const CartScreen = ({ location, history }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { id } = useParams()
   const productId = id
   const qty = new URLSearchParams(location.search).get('qty')
   const date = new URLSearchParams(location.search).get('date')
-  const shape = new URLSearchParams(location.search).get('shape')
-  const size = new URLSearchParams(location.search).get('size')
-  const cakeFlavor = new URLSearchParams(location.search).get('cakeFlavor')
-  const otherCakeFlavor = new URLSearchParams(location.search).get(
-    'otherCakeFlavor'
-  )
-  const frostingFlavor = new URLSearchParams(location.search).get(
-    'frostingFlavor'
-  )
-  const otherFrostingFlavor = new URLSearchParams(location.search).get(
-    'otherFrostingFlavor'
-  )
-  const filling = new URLSearchParams(location.search).get('filling')
   const additional = new URLSearchParams(location.search).get('additional')
-  const cakePrice = new URLSearchParams(location.search).get('cakePrice')
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useDispatch()
@@ -50,38 +36,9 @@ const cartScreen = ({ location, history }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (productId) {
-      dispatch(
-        addToCart(
-          productId,
-          qty,
-          date,
-          shape,
-          size,
-          cakeFlavor,
-          otherCakeFlavor,
-          frostingFlavor,
-          otherFrostingFlavor,
-          filling,
-          additional,
-          cakePrice
-        )
-      )
+      dispatch(addToCart(productId, qty, date, additional))
     }
-  }, [
-    dispatch,
-    productId,
-    qty,
-    date,
-    shape,
-    size,
-    cakeFlavor,
-    otherCakeFlavor,
-    frostingFlavor,
-    otherFrostingFlavor,
-    filling,
-    additional,
-    cakePrice,
-  ])
+  }, [dispatch, productId, qty, date, additional])
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id))
@@ -90,6 +47,7 @@ const cartScreen = ({ location, history }) => {
   const checkoutHandler = () => {
     history.push('/login?redirect=shipping')
   }
+
   return (
     <div className='background_pattern'>
       <Meta title='LNC Shopping Cart' />
@@ -117,123 +75,73 @@ const cartScreen = ({ location, history }) => {
                       <ListGroup.Item key={item.product}>
                         <Row>
                           <Col md={2}>
-                            <Image
-                              src={item.image}
-                              alt={item.name}
-                              fluid
-                              rounded
-                            />
+                            <LinkContainer
+                              to={`/product/${item.product}`}
+                              className='clickable'
+                            >
+                              <Image
+                                src={item.image}
+                                alt={item.name}
+                                fluid
+                                rounded
+                              />
+                            </LinkContainer>
                           </Col>
                           <Col md={4}>
-                            <LinkContainer to={`/product/${item.product}`}>
+                            <LinkContainer
+                              to={`/product/${item.product}`}
+                              className='clickable'
+                            >
                               <span>{item.name}</span>
                             </LinkContainer>
                           </Col>
                           <Col md={3}>
                             {item.qty} <strong>X</strong> $
-                            {item.cakePrice !== '0' ? (
+                            {item.category === 'custom' ? (
                               <>{item.cakePrice}</>
                             ) : (
-                              <>{item.price}</>
+                              <>{item.price * item.qty}</>
                             )}
                           </Col>
                           <Col md={10}>
-                            {item.additional !== 'undefined' && (
-                              <>
-                                <strong>Notes: </strong>
-                                {item.additional}
-                                <br />
-                              </>
-                            )}
-                            {item.price > 1337 ? (
-                              <Form.Control
-                                as='select'
-                                value={item.qty}
-                                onChange={(e) =>
-                                  dispatch(
-                                    addToCart(
-                                      item.product,
-                                      Number(e.target.value)
-                                    )
+                            <Form.Control
+                              as='select'
+                              value={item.qty}
+                              onChange={(e) =>
+                                dispatch(
+                                  addToCart(
+                                    item.product,
+                                    Number(e.target.value)
                                   )
-                                }
-                              >
-                                {[
-                                  ...Array(Number(item.countInStock)).keys(),
-                                ].map((x) => (
-                                  <option key={x + 1} value={x + 1}>
-                                    {x + 1}
-                                  </option>
-                                ))}
-                              </Form.Control>
-                            ) : (
-                              <></>
-                            )}
+                                )
+                              }
+                            >
+                              {[...Array.from(Array(100).keys())].map((x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              ))}
+                            </Form.Control>
 
-                            {item.countInStock < 1 ? (
+                            {item.additional &&
+                              item.additional !== 'undefined' && (
+                                <>
+                                  <strong>Notes: </strong>
+                                  {item.additional}
+                                  <br />
+                                </>
+                              )}
+
+                            {item.date && item.date === 'no date' ? (
+                              <></>
+                            ) : (
                               <>
-                                {item.date === 'no date' ? (
-                                  <></>
-                                ) : (
-                                  <>
-                                    <strong>Date: </strong>{' '}
-                                    {item.date ? item.date : 'error'}
-                                    <br />
-                                  </>
-                                )}
-
-                                <strong>Shape: </strong>
-                                {item.shape ? item.shape : 'error'}
+                                <strong>Date: </strong>{' '}
+                                {item.date[5] === '0'
+                                  ? item.date.substring(6)
+                                  : item.date.substring(5)}
                                 <br />
-                                <strong>Size: </strong>
-                                {item.size ? item.size : 'error'}
-                                <br />
-                                {item.cakeFlavor !== 'Other' && (
-                                  <>
-                                    <strong>Cake Flavor: </strong>
-                                    {item.cakeFlavor
-                                      ? item.cakeFlavor
-                                      : 'error'}
-                                    <br />
-                                  </>
-                                )}
-                                {item.cakeFlavor === 'Other' && (
-                                  <>
-                                    <strong>Other Cake Flavor: </strong>
-                                    {item.otherCakeFlavor !== 'undefined'
-                                      ? item.otherCakeFlavor
-                                      : 'none'}
-                                    <br />
-                                  </>
-                                )}
-                                {item.frostingFlavor !== 'Other' && (
-                                  <>
-                                    <strong>Frosting Flavor: </strong>
-                                    {item.frostingFlavor
-                                      ? item.frostingFlavor
-                                      : 'error'}
-                                    <br />
-                                  </>
-                                )}
-                                {item.frostingFlavor === 'Other' && (
-                                  <>
-                                    <strong>Other Frosting Flavor: </strong>
-                                    {item.otherFrostingFlavor}
-                                    <br />
-                                  </>
-                                )}
-                                {item.filling === 'undefined' ? (
-                                  <></>
-                                ) : (
-                                  <>
-                                    <strong>Filling: </strong>
-                                    {item.filling}
-                                    <br />
-                                  </>
-                                )}
                               </>
-                            ) : (
-                              <></>
                             )}
                           </Col>
 
@@ -306,22 +214,15 @@ const cartScreen = ({ location, history }) => {
                         )}
                         ) items
                       </h2>
-                      {/* Still trying to figure out how to add cakePrice and price efficiently for a subtotal */}
                       $
                       {cartItems
                         .reduce(
                           (acc, item) =>
-                            acc +
-                            (parseInt(item.qty) * parseInt(item.price) +
-                              parseInt(item.cakePrice)),
+                            acc + parseInt(item.qty) * parseInt(item.price),
                           0
                         )
                         .toFixed(2)}
                     </ListGroup.Item>
-                    {/* <ListGroup.Item>
-                  <h2>Custom items</h2>$
-                  {cartItems.map((item) => item.cakePrice)}
-                </ListGroup.Item> */}
                     <ListGroup.Item>
                       <Button
                         type='button'
@@ -343,4 +244,4 @@ const cartScreen = ({ location, history }) => {
   )
 }
 
-export default withRouter(cartScreen)
+export default withRouter(CartScreen)

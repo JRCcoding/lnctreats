@@ -1,0 +1,1 @@
+export const CAKE_SAVE_INFO = 'CAKE_SAVE_INFO'
