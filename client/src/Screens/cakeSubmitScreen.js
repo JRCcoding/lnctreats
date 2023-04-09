@@ -20,6 +20,8 @@ const CakeSubmitScreen = ({ location }) => {
   const dispatch = useDispatch()
   const request = useSelector((state) => state.request)
   const { requestInfo } = request
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
   useEffect(() => {
     if (itemSize) {
       dispatch(createRequest(requestInfo))
@@ -28,13 +30,17 @@ const CakeSubmitScreen = ({ location }) => {
   return (
     <Container>
       <h5>
-        Thank you for your request, <strong>{name}</strong>!{' '}
+        Thank you for your request,{' '}
+        <strong>{userInfo ? userInfo.name : name}</strong>!{' '}
       </h5>
       <p>{itemSize}I will get back to you as soon as possible!</p>
       <p>
         {' '}
-        You placed your request for <strong>{date}</strong> and you should
-        receive an email at <strong>{email}</strong>.
+        You placed your request for{' '}
+        <strong>
+          {date[5] === '0' ? date.substring(6) : date.substring(5)}
+        </strong>{' '}
+        and you should receive an email at <strong>{email}</strong>.
       </p>
       <p>
         {additional !== 'undefined' ? (

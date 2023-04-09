@@ -2,10 +2,15 @@ import mongoose from 'mongoose'
 
 const requestSchema = mongoose.Schema(
   {
-    // request: { type: mongoose.Schema.Types.ObjectId, required: true },
+    // user: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: false,
+    //   ref: 'User',
+    //   number: { type: String, required: false },
+    // },
     size: {
       type: String,
-      required: true,
+      required: false,
     },
     date: {
       type: String,
@@ -13,7 +18,7 @@ const requestSchema = mongoose.Schema(
     },
     qty: {
       type: String,
-      required: true,
+      required: false,
     },
     additional: {
       type: String,
@@ -29,7 +34,7 @@ const requestSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: false,
   }
 )
 

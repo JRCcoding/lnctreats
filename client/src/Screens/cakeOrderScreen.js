@@ -30,6 +30,7 @@ const CakeOrderScreen = ({ history }) => {
   const request = useSelector((state) => state.request)
   const { requestInfo } = request
   const dispatch = useDispatch()
+
   // const form = useRef()
 
   const submitHandler = (e) => {
@@ -47,17 +48,7 @@ const CakeOrderScreen = ({ history }) => {
       })
     )
     dispatch(createRequest(requestInfo))
-    // dispatch(
-    //   createRequest(
-    //     size,
-    //     qty,
-    //     date,
-    //     additional,
-    //     name,
-    //     email
-    //     // inspiration)
-    //   )
-    // )
+
     // emailjs
     //   .sendForm(
     //     'service_mj24iav',
@@ -84,26 +75,8 @@ const CakeOrderScreen = ({ history }) => {
     history.push(
       `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}`
     )
-
-    // emailjs.send(
-    //   'service_mj24iav',
-    //   'template_sul9k9h',
-    //   {
-    //     content: inspiration,
-    //   },
-    //   'Ts0xnPtn_iKfBC4r0'
-    // )
-    // const formData = new FormData()
-    // formData.append('inspiration', inspiration)
-    // axios
-    //   .post('/api/orders', formData)
-    //   .then((res) => {
-    //     console.log('File uploaded successfully!')
-    //   })
-    //   .catch((err) => console.log('File failed to upload!'))
-
-    // history.push('/')
   }
+
   return (
     <div className='background_pattern'>
       <Container>
@@ -123,7 +96,7 @@ const CakeOrderScreen = ({ history }) => {
               <Card.Body className='mx-auto'>
                 <Card.Header>
                   <h1 className='text-center'>
-                    Cake Size: {size}
+                    Cake Size:
                     {size && size !== 'Tiered' && '"'}
                   </h1>
                 </Card.Header>
@@ -324,7 +297,7 @@ const CakeOrderScreen = ({ history }) => {
                   {' '}
                   <Card.Body>
                     <Card.Header>
-                      <h1 className='text-center'>Additional:</h1>
+                      <h1 className='text-center'>Information:</h1>
                       <p className='text-center'>
                         Themes, customization, cake toppers, anything that
                         defines the cake you want!
