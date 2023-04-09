@@ -23,16 +23,16 @@ export const createRequest = (request) => async (dispatch, getState) => {
   //     type: REQUEST_CREATE_REQUEST,
   //   })
 
-  const {
-    userLogin: { userInfo },
-  } = getState()
+  // const {
+  //   userLogin: { userInfo },
+  // } = getState()
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${userInfo.token}`,
-    },
-  }
+  // const config = {
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Bearer ${userInfo.token}`,
+  //   },
+  // }
 
   //   const { data } = await axios.post(`/api/orders`, request, config)
 
@@ -44,7 +44,7 @@ export const createRequest = (request) => async (dispatch, getState) => {
   //   //   type: CART_CLEAR_ITEMS,
   //   //   payload: data,
   //   // })
-  await axios.post(`/api/orders`, request, config)
+  await axios.post(`/api/requests`, request)
   dispatch({
     type: REQUEST_CREATE_REQUEST,
     payload: localStorage.getItem('requestInfo'),
