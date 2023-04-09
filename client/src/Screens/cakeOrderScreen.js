@@ -15,16 +15,18 @@ import { withRouter } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import emailjs from '@emailjs/browser'
 import axios from 'axios'
-
 import kamrynDino from '../Images/kamryndinocake.jpg'
+
 const CakeOrderScreen = ({ history }) => {
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
   const [size, setSize] = useState('Choose one...')
   const [qty, setQty] = useState(1)
   const [date, setDate] = useState('')
   const [additional, setAdditional] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [number, setNumber] = useState('')
+  const [name, setName] = useState(userInfo ? userInfo.name : '')
+  const [email, setEmail] = useState(userInfo ? userInfo.email : '')
+  const [number, setNumber] = useState(userInfo ? userInfo.number : '')
   // const [inspiration, setInspiration] = useState()
   const request = useSelector((state) => state.request)
   const { requestInfo } = request
@@ -43,6 +45,7 @@ const CakeOrderScreen = ({ history }) => {
         additional,
         name,
         email,
+        number,
         // inspiration
       })
     )
@@ -72,7 +75,7 @@ const CakeOrderScreen = ({ history }) => {
     //   )
 
     history.push(
-      `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}`
+      `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}&number=${number}`
     )
   }
 
@@ -278,7 +281,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      // required
+                      required
                     />
                   </Card.Body>
                 </Col>
@@ -306,7 +309,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={number}
                       onChange={(e) => setNumber(e.target.value)}
-                      // required
+                      required
                     />
                   </Card.Body>
                 </Col>
@@ -327,6 +330,7 @@ const CakeOrderScreen = ({ history }) => {
                       height='150px'
                       value={additional}
                       onChange={(e) => setAdditional(e.target.value)}
+                      required
                     />
                   </Card.Body>
                 </Col>

@@ -17,11 +17,10 @@ const CakeSubmitScreen = ({ location }) => {
   const additional = new URLSearchParams(location.search).get('additional')
   const name = new URLSearchParams(location.search).get('name')
   const email = new URLSearchParams(location.search).get('email')
+  const number = new URLSearchParams(location.search).get('number')
   const dispatch = useDispatch()
   const request = useSelector((state) => state.request)
   const { requestInfo } = request
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
   useEffect(() => {
     if (itemSize) {
       dispatch(createRequest(requestInfo))
@@ -30,8 +29,7 @@ const CakeSubmitScreen = ({ location }) => {
   return (
     <Container>
       <h5>
-        Thank you for your request,{' '}
-        <strong>{userInfo ? userInfo.name : name}</strong>!{' '}
+        Thank you for your request, <strong>{name}</strong>!{' '}
       </h5>
       <p>{itemSize}I will get back to you as soon as possible!</p>
       {date !== '' && (

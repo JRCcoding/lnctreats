@@ -4,6 +4,9 @@ import {
   REQUEST_SAVE_SHIPPING_ADDRESS,
   REQUEST_SAVE_PAYMENT_METHOD,
   REQUEST_CLEAR_ITEMS,
+  REQUEST_LIST_REQUEST,
+  REQUEST_LIST_SUCCESS,
+  REQUEST_LIST_FAIL,
 } from '../Constants/requestConstants'
 
 export const requestReducer = (
@@ -53,6 +56,27 @@ export const requestReducer = (
     //     ...state,
     //     requestItems: [],
     //   }
+    default:
+      return state
+  }
+}
+
+export const requestListReducer = (state = { requests: [] }, action) => {
+  switch (action.type) {
+    case REQUEST_LIST_REQUEST:
+      return {
+        loading: true,
+      }
+    case REQUEST_LIST_SUCCESS:
+      return {
+        loading: false,
+        requests: action.payload,
+      }
+    case REQUEST_LIST_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      }
     default:
       return state
   }

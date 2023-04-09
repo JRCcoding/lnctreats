@@ -5,12 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../Components/Message'
 import Loader from '../Components/Loader'
 import { listOrders } from '../Actions/orderActions'
+import { listRequests } from '../Actions/requestActions'
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const orderList = useSelector((state) => state.orderList)
   const { loading, error, orders } = orderList
+  const requestList = useSelector((state) => state.requestList)
+  const { requests } = requestList
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -22,6 +25,9 @@ const OrderListScreen = ({ history }) => {
       history.push('/login')
     }
   }, [dispatch, history, userInfo])
+  useEffect(() => {
+    dispatch(listRequests())
+  }, [dispatch])
 
   return (
     <div>
@@ -84,6 +90,36 @@ const OrderListScreen = ({ history }) => {
               </tbody>
             </Table>
           )}
+        </Card>
+        <Card>
+          <h1>Requests</h1>
+
+          <Table striped bordered hover responsive className='table-sm'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Informational</th>
+                <th>PAID</th>
+                <th>DELIVERED</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {requests.map((request) => (
+                <tr key={request._id}>
+                  <td>{request._id.substring(19, 24)}</td>
+                  <td>{request.name}</td>
+                  <td>{request.email}</td>
+                  <td>{request.number}</td>
+                  <td>{request.number}</td>
+                  <td>{request.number}</td>
+                  <td>{request.number}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </Card>
       </Container>
     </div>

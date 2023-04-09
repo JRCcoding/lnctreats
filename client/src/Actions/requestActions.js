@@ -3,6 +3,9 @@ import {
   REQUEST_CREATE_FAIL,
   REQUEST_CREATE_REQUEST,
   REQUEST_CREATE_SUCCESS,
+  REQUEST_LIST_FAIL,
+  REQUEST_LIST_REQUEST,
+  REQUEST_LIST_SUCCESS,
   REQUEST_SAVE_INFO,
 } from '../Constants/requestConstants'
 import axios from 'axios'
@@ -34,7 +37,7 @@ export const createRequest = (request) => async (dispatch, getState) => {
   //   },
   // }
 
-  //   const { data } = await axios.post(`/api/orders`, request, config)
+  //   const { data } = await axios.post(`/api/requests`, request, config)
 
   //   dispatch({
   //     type: REQUEST_CREATE_SUCCESS,
@@ -63,4 +66,27 @@ export const createRequest = (request) => async (dispatch, getState) => {
   //     payload: message,
   //   })
   // }
+}
+
+export const listRequests = () => async (dispatch, getState) => {
+  // dispatch({
+  //   type: REQUEST_LIST_REQUEST,
+  // })
+
+  // const {
+  //   userLogin: { userInfo },
+  // } = getState()
+
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${userInfo.token}`,
+  //   },
+  // }
+
+  const { data } = await axios.get(`/api/requests`)
+
+  dispatch({
+    type: REQUEST_LIST_SUCCESS,
+    payload: data,
+  })
 }

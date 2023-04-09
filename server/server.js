@@ -35,8 +35,8 @@ const __dirname = path.resolve()
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/contacts', contactRoutes)
-app.use('/api/orders', orderRoutes)
-app.use('/api/requests', requestRoutes)
+app.use('/api/orders', orderRoutes, requestRoutes)
+app.use('/api/requests', requestRoutes, orderRoutes)
 
 app.get('/api/config/paypal', (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)

@@ -32,9 +32,13 @@ const requestSchema = mongoose.Schema(
       type: String,
       required: false,
     },
+    number: {
+      type: String,
+      required: false,
+    },
   },
   {
-    timestamps: false,
+    timestamps: true,
   }
 )
 
