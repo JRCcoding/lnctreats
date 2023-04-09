@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams, withRouter } from 'react-router-dom'
 import { createRequest } from '../Actions/requestActions'
 // size,
@@ -18,11 +18,13 @@ const CakeSubmitScreen = ({ location }) => {
   const name = new URLSearchParams(location.search).get('name')
   const email = new URLSearchParams(location.search).get('email')
   const dispatch = useDispatch()
+  const request = useSelector((state) => state.request)
+  const { requestInfo } = request
   useEffect(() => {
     if (itemSize) {
-      dispatch(createRequest(itemSize, qty, date, additional, name, email))
+      dispatch(createRequest(requestInfo))
     }
-  }, [dispatch, itemSize, qty, date, additional, name, email])
+  }, [dispatch, requestInfo, itemSize])
   return (
     <Container>
       <h5>
@@ -31,8 +33,8 @@ const CakeSubmitScreen = ({ location }) => {
       <p>{itemSize}I will get back to you as soon as possible!</p>
       <p>
         {' '}
-        You placed your order for <strong>{date}</strong> and you should receive
-        an email at <strong>{email}</strong>.
+        You placed your request for <strong>{date}</strong> and you should
+        receive an email at <strong>{email}</strong>.
       </p>
       <p>
         {additional !== 'undefined' ? (
@@ -44,7 +46,10 @@ const CakeSubmitScreen = ({ location }) => {
           <></>
         )}
       </p>
-      <p> You can reply to email with any further information or questions!</p>
+      <p>
+        {' '}
+        You can reply to the email with any further information or questions!
+      </p>
       <p></p>
     </Container>
   )

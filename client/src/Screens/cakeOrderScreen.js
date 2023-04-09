@@ -9,8 +9,8 @@ import {
   ListGroup,
   Row,
 } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
-import { addCakeInfo } from '../Actions/cakeActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { addRequestInfo, createRequest } from '../Actions/requestActions'
 import { withRouter } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import emailjs from '@emailjs/browser'
@@ -27,22 +27,36 @@ const CakeOrderScreen = ({ history }) => {
   const [email, setEmail] = useState()
   const [number, setNumber] = useState()
   // const [inspiration, setInspiration] = useState()
-
+  const request = useSelector((state) => state.request)
+  const { requestInfo } = request
   const dispatch = useDispatch()
   // const form = useRef()
 
   const submitHandler = (e) => {
     e.preventDefault()
+    localStorage.removeItem('requestInfo')
+    dispatch(
+      addRequestInfo({
+        size,
+        qty,
+        date,
+        additional,
+        name,
+        email,
+        // inspiration
+      })
+    )
+    dispatch(createRequest(requestInfo))
     // dispatch(
-    //   addCakeInfo({
+    //   createRequest(
     //     size,
     //     qty,
     //     date,
     //     additional,
     //     name,
-    //     email,
-    //     // inspiration
-    //   })
+    //     email
+    //     // inspiration)
+    //   )
     // )
     // emailjs
     //   .sendForm(
@@ -67,7 +81,9 @@ const CakeOrderScreen = ({ history }) => {
     //     }
     //   )
 
-    history.push(`/cakesubmitted/${date}&name=${name}&email=${email}`)
+    history.push(
+      `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}`
+    )
 
     // emailjs.send(
     //   'service_mj24iav',
@@ -253,7 +269,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='date'
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      required
+                      // required
                     />
                   </Card.Body>
                 </Col>
@@ -270,7 +286,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      required
+                      // required
                     />
                   </Card.Body>
                 </Col>
@@ -284,7 +300,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      required
+                      // required
                     />
                   </Card.Body>
                 </Col>
@@ -298,7 +314,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={number}
                       onChange={(e) => setNumber(e.target.value)}
-                      required
+                      // required
                     />
                   </Card.Body>
                 </Col>
