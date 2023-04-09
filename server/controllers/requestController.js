@@ -7,7 +7,7 @@ import Request from '../models/requestModel.js'
 const addRequestInfo = asyncHandler(async (req, res) => {
   const { size, qty, date, additional, name, email } = req.body
 
-  if (requestInfo && requestInfo.length === 0) {
+  if (req.body && req.body.length === 0) {
     res.status(400)
     throw new Error('No request items')
     return
