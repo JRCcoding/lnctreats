@@ -17,15 +17,14 @@ import emailjs from '@emailjs/browser'
 import axios from 'axios'
 
 import kamrynDino from '../Images/kamryndinocake.jpg'
-
 const CakeOrderScreen = ({ history }) => {
-  const [size, setSize] = useState('__')
+  const [size, setSize] = useState('Choose one...')
   const [qty, setQty] = useState(1)
-  const [date, setDate] = useState()
-  const [additional, setAdditional] = useState()
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [number, setNumber] = useState()
+  const [date, setDate] = useState('')
+  const [additional, setAdditional] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [number, setNumber] = useState('')
   // const [inspiration, setInspiration] = useState()
   const request = useSelector((state) => state.request)
   const { requestInfo } = request
@@ -95,15 +94,35 @@ const CakeOrderScreen = ({ history }) => {
             <Card>
               <Card.Body className='mx-auto'>
                 <Card.Header>
-                  <h1 className='text-center'>
-                    Cake Size:
-                    {size && size !== 'Tiered' && '"'}
-                  </h1>
+                  <h1 className='text-center'>Cake Size:</h1>
                 </Card.Header>
                 <ButtonGroup vertical>
                   <ListGroup variant='flush'>
                     <Row lg={3} md={3} sm={2} xs={1}>
-                      <Col>
+                      <Form.Control
+                        as='select'
+                        onChange={(e) => setSize(e.target.value)}
+                        fluid
+                        style={{ width: '250px' }}
+                      >
+                        <option value='choose'>
+                          <>
+                            <img
+                              src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
+                              alt='test'
+                              style={{
+                                height: '200px',
+                                width: '200px',
+                              }}
+                              className='mx-auto'
+                            />
+                            Choose one...
+                          </>
+                        </option>
+                        <option value='12'>12 Inch Cake</option>
+                        <option value='10'>10 Inch Cake</option>
+                      </Form.Control>
+                      {/* <Col>
                         <ListGroup.Item>
                           <img
                             src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
@@ -115,7 +134,7 @@ const CakeOrderScreen = ({ history }) => {
                             className='mx-auto'
                           />
                           <Button
-                            onClick={(e) => setSize('12')}
+                            onClick={(e) => setSize(12)}
                             className='w-100'
                           >
                             12 inch
@@ -207,7 +226,7 @@ const CakeOrderScreen = ({ history }) => {
                             Tiered
                           </Button>
                         </ListGroup.Item>
-                      </Col>
+                      </Col> */}
                     </Row>
                   </ListGroup>
                 </ButtonGroup>

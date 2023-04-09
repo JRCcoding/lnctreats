@@ -34,16 +34,20 @@ const CakeSubmitScreen = ({ location }) => {
         <strong>{userInfo ? userInfo.name : name}</strong>!{' '}
       </h5>
       <p>{itemSize}I will get back to you as soon as possible!</p>
+      {date !== '' && (
+        <p>
+          {' '}
+          You placed your request for{' '}
+          <strong>
+            {date[5] === '0' ? date.substring(6) : date.substring(5)}
+          </strong>{' '}
+        </p>
+      )}
       <p>
-        {' '}
-        You placed your request for{' '}
-        <strong>
-          {date[5] === '0' ? date.substring(6) : date.substring(5)}
-        </strong>{' '}
-        and you should receive an email at <strong>{email}</strong>.
+        You will receive an email at <strong>{email}</strong>.
       </p>
       <p>
-        {additional !== 'undefined' ? (
+        {additional !== '' ? (
           <>
             Here is your provided information: <br />{' '}
             <i>&nbsp;&nbsp;&nbsp;"{additional}"</i>

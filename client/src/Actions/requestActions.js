@@ -49,7 +49,7 @@ export const createRequest = (request) => async (dispatch, getState) => {
     type: REQUEST_CREATE_REQUEST,
     payload: localStorage.getItem('requestInfo'),
   })
-  localStorage.removeItem('requestInfo')
+  // localStorage.removeItem('requestInfo')
   // } catch (error) {
   //   const message =
   //     error.response && error.response.data.message

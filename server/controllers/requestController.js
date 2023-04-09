@@ -8,9 +8,20 @@ const addRequestInfo = asyncHandler(async (req, res) => {
   const { size, qty, date, additional, name, email } = req.body
 
   if (req.body && req.body.length === 0) {
-    res.status(400)
-    throw new Error('No request items')
-    return
+    // res.status(400)
+    // throw new Error('No request items')
+    // return
+    const request = new Request({
+      size,
+      qty,
+      date,
+      additional,
+      name,
+      email,
+    })
+    const createdRequest = await request.save()
+
+    res.status(201).json(createdRequest)
   } else {
     const request = new Request({
       size,
