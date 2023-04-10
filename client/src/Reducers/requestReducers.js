@@ -9,10 +9,7 @@ import {
   REQUEST_LIST_FAIL,
 } from '../Constants/requestConstants'
 
-export const requestReducer = (
-  state = { requestItems: [], shippingAddress: {} },
-  action
-) => {
+export const requestReducer = (state = { requestItems: [] }, action) => {
   switch (action.type) {
     case REQUEST_ADD_ITEM:
       const item = action.payload

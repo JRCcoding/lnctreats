@@ -36,9 +36,9 @@ const CakeOrderScreen = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    localStorage.removeItem('requestInfo')
+    // localStorage.removeItem('requestInfo')
     dispatch(
-      addRequestInfo({
+      createRequest({
         size,
         qty,
         date,
@@ -49,7 +49,7 @@ const CakeOrderScreen = ({ history }) => {
         // inspiration
       })
     )
-    dispatch(createRequest(requestInfo))
+    // dispatch(createRequest(requestInfo))
 
     // emailjs
     //   .sendForm(
@@ -75,7 +75,7 @@ const CakeOrderScreen = ({ history }) => {
     //   )
 
     history.push(
-      `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}&number=${number}`
+      `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}`
     )
   }
 
@@ -281,7 +281,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      required
+                      // required
                     />
                   </Card.Body>
                 </Col>
@@ -309,7 +309,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={number}
                       onChange={(e) => setNumber(e.target.value)}
-                      required
+                      // required
                     />
                   </Card.Body>
                 </Col>

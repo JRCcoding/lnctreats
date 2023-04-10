@@ -12,6 +12,7 @@ import axios from 'axios'
 import { logout } from './userActions'
 
 export const addRequestInfo = (data) => async (dispatch) => {
+  localStorage.removeItem('requestInfo')
   dispatch({
     type: REQUEST_SAVE_INFO,
     payload: data,
@@ -50,7 +51,7 @@ export const createRequest = (request) => async (dispatch, getState) => {
   await axios.post(`/api/requests`, request)
   dispatch({
     type: REQUEST_CREATE_REQUEST,
-    payload: localStorage.getItem('requestInfo'),
+    payload: request,
   })
   // localStorage.removeItem('requestInfo')
   // } catch (error) {
