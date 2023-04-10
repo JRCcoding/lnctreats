@@ -28,15 +28,13 @@ const CakeOrderScreen = ({ history }) => {
   const [email, setEmail] = useState(userInfo ? userInfo.email : '')
   const [number, setNumber] = useState(userInfo ? userInfo.number : '')
   // const [inspiration, setInspiration] = useState()
-  const request = useSelector((state) => state.request)
-  const { requestInfo } = request
+
   const dispatch = useDispatch()
 
   // const form = useRef()
 
   const submitHandler = (e) => {
     e.preventDefault()
-    // localStorage.removeItem('requestInfo')
     dispatch(
       createRequest({
         size,
@@ -49,7 +47,6 @@ const CakeOrderScreen = ({ history }) => {
         // inspiration
       })
     )
-    // dispatch(createRequest(requestInfo))
 
     // emailjs
     //   .sendForm(

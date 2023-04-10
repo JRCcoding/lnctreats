@@ -9,7 +9,6 @@ import {
   REQUEST_SAVE_INFO,
 } from '../Constants/requestConstants'
 import axios from 'axios'
-import { logout } from './userActions'
 
 export const addRequestInfo = (data) => async (dispatch) => {
   localStorage.removeItem('requestInfo')
