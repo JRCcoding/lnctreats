@@ -21,13 +21,14 @@ const OrderListScreen = ({ history }) => {
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       dispatch(listOrders())
+      dispatch(listRequests())
     } else {
       history.push('/login')
     }
   }, [dispatch, history, userInfo])
-  useEffect(() => {
-    dispatch(listRequests())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(listRequests())
+  // }, [dispatch])
 
   return (
     <div>
@@ -101,8 +102,6 @@ const OrderListScreen = ({ history }) => {
                 <th>Email</th>
                 <th>Number</th>
                 <th>Informational</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
                 <th></th>
               </tr>
             </thead>
@@ -112,9 +111,6 @@ const OrderListScreen = ({ history }) => {
                   <td>{request._id.substring(19, 24)}</td>
                   <td>{request.name}</td>
                   <td>{request.email}</td>
-                  <td>{request.number}</td>
-                  <td>{request.number}</td>
-                  <td>{request.number}</td>
                   <td>{request.number}</td>
                 </tr>
               ))}
