@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Fade } from 'react-reveal'
 import { Link } from 'react-router-dom'
 import {
@@ -60,22 +60,24 @@ const PlaceOrderScreen = ({ history }) => {
       dispatch({ type: ORDER_CREATE_RESET })
     }
   })
+  const [emailOrder, setEmailOrder] = useState(JSON.stringify(cart.cartItems))
 
   const emailjsSend = () => {
-    const templateParams = { test: '1' }
+    // const templateParams = { test: cart.cartItems }
     emailjs
-      .send(
+      .sendForm(
         'service_mj24iav',
         'template_rg9j6oe',
-        templateParams,
-        'Ts0xnPtn_iKfBC4r0'
+        '#form',
+        'Ts0xnPtn_iKfBC4r0',
+        emailOrder
       )
       .then(
         (result) => {
-          console.log(result.text)
+          console.log('"New Order" emailjs sent', result.status, result.text)
         },
         (error) => {
-          console.log(error.text)
+          console.log('Failed...', error.text)
         }
       )
   }
@@ -97,6 +99,11 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <div className='background_pattern'>
+      <div style={{ display: 'none' }}>
+        <form id='form'>
+          <input name='emailOrder' value={emailOrder} />
+        </form>
+      </div>
       <Meta title='LNC Place Order' />
       <Fade up>
         <Container>

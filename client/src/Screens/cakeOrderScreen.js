@@ -50,10 +50,10 @@ const CakeOrderScreen = ({ history }) => {
       )
       .then(
         (result) => {
-          console.log(result.text)
+          console.log('"New Request" emailjs sent!', result.text)
         },
         (error) => {
-          console.log(error.text)
+          console.log('Failed to send emailjs...', error.text)
         }
       )
   }
