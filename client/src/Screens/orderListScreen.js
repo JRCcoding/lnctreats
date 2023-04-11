@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table, Button, Container, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,21 +6,33 @@ import Message from '../Components/Message'
 import Loader from '../Components/Loader'
 import { listOrders } from '../Actions/orderActions'
 import { listRequests } from '../Actions/requestActions'
+import axios from 'axios'
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const orderList = useSelector((state) => state.orderList)
   const { loading, error, orders } = orderList
-  const requestList = useSelector((state) => state.requestList)
-  const { requests } = requestList
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const [requests, setRequests] = useState()
+
+  // useEffect(() => {
+
+  // })
+
   useEffect(() => {
+    const fetchRequests = async () => {
+      const { data } = await axios.get('/api/requests')
+
+      setRequests(data)
+    }
+    fetchRequests()
+
     if (userInfo && userInfo.isAdmin) {
-      dispatch(listOrders(), listRequests())
+      dispatch(listOrders())
     } else {
       history.push('/login')
     }
@@ -91,30 +103,41 @@ const OrderListScreen = ({ history }) => {
             </Table>
           )}
         </Card>
+        <br />
+        <br />
         <Card>
           <h1>Requests</h1>
-
-          <Table striped bordered hover responsive className='table-sm'>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Number</th>
-                <th>Informational</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {requests.map((request) => (
-                <tr key={request._id}>
-                  <td>{request._id.substring(19, 24)}</td>
-                  <td>{request.name}</td>
-                  <td>{request.email}</td>
-                  <td>{request.number}</td>
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <Message variant='danger'>{error}</Message>
+          ) : (
+            <Table striped bordered hover responsive className='table-sm'>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>SIZE</th>
+                  <th>NAME</th>
+                  <th>EMAIL</th>
+                  <th>NUMBER</th>
+                  <th>INFORMATION</th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {requests &&
+                  requests.map((request) => (
+                    <tr key={request._id}>
+                      <td>{request._id.substring(19, 24)}</td>
+                      <td>{request.size}</td>
+                      <td>{request.name}</td>
+                      <td>{request.email}</td>
+                      <td>{request.number}</td>
+                      <td>{request.additional}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
+          )}
         </Card>
       </Container>
     </div>

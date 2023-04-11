@@ -78,7 +78,6 @@ const OrderScreen = ({ match, history }) => {
         0
       )
     )
-    order.customPrice = addDecimals(order.totalPrice - order.itemsPrice)
     order.totalPriceDecimals = addDecimals(order.totalPrice)
     order.shippingPriceDecimals = addDecimals(order.shippingPrice)
   }
@@ -203,7 +202,7 @@ const OrderScreen = ({ match, history }) => {
                         {order.orderItems.map((item, index) => (
                           <ListGroup.Item key={index}>
                             <Row>
-                              <Col md={1}>
+                              <Col md={2}>
                                 <Image
                                   src={item.image}
                                   alt={item.name}
@@ -216,136 +215,19 @@ const OrderScreen = ({ match, history }) => {
                                   {item.name}
                                 </Link>
                               </Col>
-                              {item.name === 'Custom Cakes' ? (
-                                <div style={{ marginLeft: '20%' }}>
-                                  {item.date !== 'no date' && (
-                                    <Row>
-                                      Date:
-                                      <Col
-                                        style={{
-                                          textAlign: 'right',
-                                          marginRight: '40%',
-                                        }}
-                                      >
-                                        {item.date}
-                                      </Col>
-                                    </Row>
-                                  )}
 
-                                  <Row>
-                                    Shape:
-                                    <Col
-                                      style={{
-                                        textAlign: 'right',
-                                        marginRight: '40%',
-                                      }}
-                                    >
-                                      {item.shape}
-                                    </Col>
-                                  </Row>
-                                  <Row>
-                                    Size:
-                                    <Col
-                                      style={{
-                                        textAlign: 'right',
-                                        marginRight: '40%',
-                                      }}
-                                    >
-                                      {item.size}
-                                    </Col>
-                                  </Row>
-                                  {item.cakeFlavor !== 'Other' && (
-                                    <Row>
-                                      Flavor:
-                                      <Col
-                                        style={{
-                                          textAlign: 'right',
-                                          marginRight: '40%',
-                                        }}
-                                      >
-                                        {item.cakeFlavor}
-                                      </Col>
-                                    </Row>
-                                  )}
-
-                                  {item.otherCakeFlavor !== 'undefined' && (
-                                    <Row>
-                                      Custom Flavor:
-                                      <Col
-                                        style={{
-                                          textAlign: 'right',
-                                          marginRight: '40%',
-                                        }}
-                                      >
-                                        {item.otherCakeFlavor}
-                                      </Col>
-                                    </Row>
-                                  )}
-                                  {item.frostingFlavor !== 'Other' && (
-                                    <Row>
-                                      Frosting:
-                                      <Col
-                                        style={{
-                                          textAlign: 'right',
-                                          marginRight: '40%',
-                                        }}
-                                      >
-                                        {item.frostingFlavor}
-                                      </Col>
-                                    </Row>
-                                  )}
-
-                                  {item.otherFrostingFlavor !== 'undefined' && (
-                                    <Row>
-                                      Custom Frosting:
-                                      <Col
-                                        style={{
-                                          textAlign: 'right',
-                                          marginRight: '40%',
-                                        }}
-                                      >
-                                        {item.otherFrostingFlavor}
-                                      </Col>
-                                    </Row>
-                                  )}
-                                  {item.filling !== 'undefined' && (
-                                    <Row>
-                                      Filling:
-                                      <Col
-                                        style={{
-                                          textAlign: 'right',
-                                          marginRight: '40%',
-                                        }}
-                                      >
-                                        {item.filling}
-                                      </Col>
-                                    </Row>
-                                  )}
-                                  {item.additional !== 'undefined' && (
-                                    <Row>
-                                      Notes:
-                                      <Col
-                                        style={{
-                                          textAlign: 'right',
-                                          marginRight: '40%',
-                                        }}
-                                      >
-                                        {item.additional}
-                                      </Col>
-                                    </Row>
-                                  )}
-
-                                  <Col md={4}>
-                                    <strong>Cake Total: </strong>$
-                                    {order.customPrice}
-                                  </Col>
-                                </div>
-                              ) : (
-                                <Col md={4} style={{ textAlign: 'right' }}>
-                                  {item.qty} x ${item.price}= $
-                                  {item.qty * item.price}
-                                </Col>
-                              )}
+                              <Col md={4} style={{ textAlign: 'right' }}>
+                                {item.qty} x ${item.price}= $
+                                {item.qty * item.price}
+                              </Col>
+                            </Row>
+                            <Row>
+                              <Col md={4}></Col>
+                              <Col>{item.date}</Col>
+                              <Col>
+                                {item.additional !== 'undefined' &&
+                                  item.additional}
+                              </Col>
                             </Row>
                           </ListGroup.Item>
                         ))}
@@ -364,10 +246,6 @@ const OrderScreen = ({ match, history }) => {
                       <Row>
                         <Col>Items</Col>
                         <Col>${order.itemsPrice}</Col>
-                      </Row>
-                      <Row>
-                        <Col>Custom</Col>
-                        <Col>${order.customPrice}</Col>
                       </Row>
                     </ListGroup.Item>
                     <ListGroup.Item>

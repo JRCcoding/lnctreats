@@ -33,15 +33,15 @@ const reducer = combineReducers({
   orderPay: orderPayReducer,
   orderListMy: orderListMyReducer,
   orderList: orderListReducer,
-  requestList: requestListReducer,
+  // requestList: requestListReducer,
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
   : []
-const requestInfoFromStorage = localStorage.getItem('requestInfo')
-  ? JSON.parse(localStorage.getItem('requestInfo'))
-  : []
+// const requestInfoFromStorage = localStorage.getItem('requestInfo')
+//   ? JSON.parse(localStorage.getItem('requestInfo'))
+//   : []
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null
@@ -54,7 +54,7 @@ const initialState = {
     cartItems: cartItemsFromStorage,
     shippingAddress: shippingAddressFromStorage,
   },
-  request: { requestInfo: requestInfoFromStorage },
+  // request: { requestInfo: requestInfoFromStorage },
   userLogin: { userInfo: userInfoFromStorage },
 }
 

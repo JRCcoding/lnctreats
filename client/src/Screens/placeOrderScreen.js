@@ -18,6 +18,7 @@ import { ORDER_CREATE_RESET } from '../Constants/orderConstants'
 import { USER_DETAILS_RESET } from '../Constants/userConstants'
 import { withRouter } from 'react-router-dom'
 import Meta from '../Components/Meta'
+import emailjs from '@emailjs/browser'
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -39,25 +40,13 @@ const PlaceOrderScreen = ({ history }) => {
       .reduce((acc, item) => acc + parseInt(item.qty) * parseInt(item.price), 0)
       .toFixed(2)
   )
-  cart.customPrice = addDecimals(
-    cart.cartItems
-      .reduce(
-        (acc, item) => acc + parseInt(item.qty) * parseInt(item.cakePrice),
-        0
-      )
-      .toFixed(2)
-  )
 
   cart.shippingAddress.pickup === 'true'
     ? (cart.shippingPrice = addDecimals(0))
     : (cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 3.5))
 
   cart.taxPrice = addDecimals(Number((0.0825 * cart.itemsPrice).toFixed(2)))
-  cart.totalPrice = (
-    Number(cart.itemsPrice) +
-    Number(cart.customPrice) +
-    Number(cart.shippingPrice)
-  )
+  cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice))
     // Number(cart.taxPrice)
     .toFixed(2)
 
@@ -72,7 +61,27 @@ const PlaceOrderScreen = ({ history }) => {
     }
   })
 
+  const emailjsSend = () => {
+    const templateParams = { test: '1' }
+    emailjs
+      .send(
+        'service_mj24iav',
+        'template_rg9j6oe',
+        templateParams,
+        'Ts0xnPtn_iKfBC4r0'
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+  }
+
   const placeOrderHandler = () => {
+    emailjsSend()
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
@@ -133,7 +142,7 @@ const PlaceOrderScreen = ({ history }) => {
                           {cart.cartItems.map((item, index) => (
                             <ListGroup.Item key={index}>
                               <Row>
-                                <Col md={1}>
+                                <Col md={2}>
                                   <Image
                                     src={item.image}
                                     alt={item.name}
@@ -147,16 +156,16 @@ const PlaceOrderScreen = ({ history }) => {
                                   </Link>
                                 </Col>
                                 <Col md={4}>
-                                  {item.qty} x $
-                                  {item.cakePrice > 0
-                                    ? item.cakePrice
-                                    : item.price}{' '}
-                                  = $
-                                  {item.cakePrice > 0 ? (
-                                    <>{item.qty * item.cakePrice}</>
-                                  ) : (
-                                    <>{item.qty * item.price}</>
-                                  )}
+                                  {item.qty} x ${item.price} = $
+                                  {item.qty * item.price}
+                                </Col>
+                              </Row>
+                              <Row>
+                                <Col md={1}></Col>
+                                <Col>{item.date}</Col>
+                                <Col>
+                                  {item.additional !== 'undefined' &&
+                                    item.additional}
                                 </Col>
                               </Row>
                             </ListGroup.Item>
@@ -176,12 +185,6 @@ const PlaceOrderScreen = ({ history }) => {
                         <Row>
                           <Col>Items</Col>
                           <Col>${cart.itemsPrice}</Col>
-                        </Row>
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        <Row>
-                          <Col>Custom</Col>
-                          <Col>${cart.customPrice}</Col>
                         </Row>
                       </ListGroup.Item>
                       <ListGroup.Item>

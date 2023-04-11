@@ -2,12 +2,11 @@ import mongoose from 'mongoose'
 
 const requestSchema = mongoose.Schema(
   {
-    // user: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: false,
-    //   ref: 'User',
-    //   number: { type: String, required: false },
-    // },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: false,
+      ref: 'User',
+    },
     size: {
       type: String,
       required: false,

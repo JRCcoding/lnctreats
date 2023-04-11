@@ -33,6 +33,30 @@ const CakeOrderScreen = ({ history }) => {
 
   // const form = useRef()
 
+  const emailjsSend = () => {
+    emailjs
+      .sendForm(
+        'service_mj24iav',
+        'template_sul9k9h',
+        '#form',
+        'Ts0xnPtn_iKfBC4r0',
+        size,
+        qty,
+        date,
+        additional,
+        name,
+        email,
+        number
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+  }
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
@@ -48,28 +72,7 @@ const CakeOrderScreen = ({ history }) => {
       })
     )
 
-    // emailjs
-    //   .sendForm(
-    //     'service_mj24iav',
-    //     'template_sul9k9h',
-    //     '#form',
-    //     'Ts0xnPtn_iKfBC4r0',
-    //     size,
-    //     qty,
-    //     date,
-    //     additional,
-    //     name,
-    //     email,
-    //     number
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text)
-    //     },
-    //     (error) => {
-    //       console.log(error.text)
-    //     }
-    //   )
+    emailjsSend()
 
     history.push(
       `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}`
@@ -106,20 +109,20 @@ const CakeOrderScreen = ({ history }) => {
                         style={{ width: '250px' }}
                       >
                         <option value='choose'>
-                          <>
-                            <img
-                              src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
-                              alt='test'
-                              style={{
-                                height: '200px',
-                                width: '200px',
-                              }}
-                              className='mx-auto'
-                            />
-                            Choose one...
-                          </>
+                          <>Choose one...</>
                         </option>
-                        <option value='12'>12 Inch Cake</option>
+                        <option value='12'>
+                          {/* <img
+                            src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
+                            alt='test'
+                            style={{
+                              height: '200px',
+                              width: '200px',
+                            }}
+                            className='mx-auto'
+                          /> */}
+                          12 Inch Cake
+                        </option>
                         <option value='10'>10 Inch Cake</option>
                       </Form.Control>
                       {/* <Col>
@@ -278,7 +281,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      // required
+                      required
                     />
                   </Card.Body>
                 </Col>
@@ -306,7 +309,7 @@ const CakeOrderScreen = ({ history }) => {
                       type='text'
                       value={number}
                       onChange={(e) => setNumber(e.target.value)}
-                      // required
+                      required
                     />
                   </Card.Body>
                 </Col>
