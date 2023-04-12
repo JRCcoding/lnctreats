@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import {
   Button,
@@ -88,7 +88,9 @@ const CakeOrderScreen = ({ history }) => {
   const handleCheckBox = () => {
     setEdibleImage(!edibleImage)
   }
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className='background_pattern'>
       <Container>
