@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import {
   Button,
@@ -88,7 +88,9 @@ const CakeOrderScreen = ({ history }) => {
   const handleCheckBox = () => {
     setEdibleImage(!edibleImage)
   }
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className='background_pattern'>
       <Container>
@@ -106,7 +108,7 @@ const CakeOrderScreen = ({ history }) => {
           </div>
           <Form.Group style={{ width: '100%' }}>
             <Card>
-              <Card.Body className='mx-60'>
+              <Card.Body className='lg:mx-60'>
                 <Card.Header>
                   <h3 className='text-center'>Cake Size: (starting price)</h3>
                 </Card.Header>
@@ -146,7 +148,7 @@ const CakeOrderScreen = ({ history }) => {
                   </Row>
                 </ListGroup>
               </Card.Body>
-              <Card.Body className='mx-60'>
+              <Card.Body className='lg:mx-60'>
                 <Card.Header>
                   <h3 className='text-center'>Flavor:</h3>
                 </Card.Header>
@@ -192,7 +194,7 @@ const CakeOrderScreen = ({ history }) => {
                       value={edibleImage}
                       onChange={handleCheckBox}
                     ></input>
-                    &nbsp;&nbsp;Additional $10
+                    &nbsp;&nbsp;Additional $10, please describe below!
                   </Card.Body>
                 </Col>
                 <Col md={4}>
