@@ -14,7 +14,7 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem,
 } from 'mdb-react-ui-kit'
-import { Nav, Navbar, Container } from 'react-bootstrap'
+import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap'
 import { logout } from '../Actions/userActions'
 
 export default function App() {
@@ -94,9 +94,14 @@ export default function App() {
               //   <LinkContainer to='/admin/productlist'>
               //     <MDBDropdownItem>Products</MDBDropdownItem>
               //   </LinkContainer>
-              <LinkContainer to='/admin/orderlist'>
-                <MDBNavbarItem className='navlink'>Orders</MDBNavbarItem>
-              </LinkContainer>
+              <NavDropdown title='Admin' className='navlink'>
+                <LinkContainer to='/admin/orderlist'>
+                  <MDBNavbarItem className='navlink' style={{ width: '150px' }}>
+                    Orders
+                  </MDBNavbarItem>
+                </LinkContainer>
+              </NavDropdown>
+
               // </NavDropdown>
             )}
             <LinkContainer to='/cart'>

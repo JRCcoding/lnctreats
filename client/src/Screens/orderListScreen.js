@@ -42,9 +42,9 @@ const OrderListScreen = ({ history }) => {
   // }, [dispatch])
 
   return (
-    <div>
-      <Container>
-        <Card>
+    <div className='background_pattern'>
+      <Container className='py-5'>
+        <Card className='mb-5'>
           <h1>Orders</h1>
           {loading ? (
             <Loader />
@@ -103,8 +103,6 @@ const OrderListScreen = ({ history }) => {
             </Table>
           )}
         </Card>
-        <br />
-        <br />
         <Card>
           <h1>Requests</h1>
           {loading ? (
