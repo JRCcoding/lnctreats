@@ -78,7 +78,7 @@ const CakeOrderScreen = ({ history }) => {
       })
     )
 
-    // emailjsSend()
+    emailjsSend()
 
     history.push(
       `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}&flavor=${flavor}&edibleImage=${edibleImage}`

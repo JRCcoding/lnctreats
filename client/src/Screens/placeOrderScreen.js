@@ -62,22 +62,12 @@ const PlaceOrderScreen = ({ history }) => {
     }
   })
 
-  // const emailjsParams = { parsedCartItems: partOfParsedEJS }
-  // const [emailOrder, setEmailOrder] = useState(partOfParsedEJS)
-  // // const form = useRef()
-  // var stringEJS = JSON.stringify(cart.cartItems)
-  // var parsedEJS = JSON.parse(stringEJS)
-  // var partOfParsedEJS = parsedEJS[0].date
   const emailjsSend = () => {
-    // var stringEJS = JSON.stringify(cart.cartItems)
-    // var parsedEJS = JSON.parse(stringEJS)
-    // var partOfParsedEJS = parsedEJS[0].date
     var emailjsParams = { item1: 'test' }
     emailjs
       .send(
         'service_mj24iav',
         'template_rg9j6oe',
-        // form.current,
         emailjsParams,
         'Ts0xnPtn_iKfBC4r0'
       )
@@ -100,7 +90,6 @@ const PlaceOrderScreen = ({ history }) => {
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
         shippingPrice: cart.shippingPrice,
-        // taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       })
     )
