@@ -1,5 +1,7 @@
 import './App.css'
 import HomeScreen from './Screens/homeScreen'
+import CakeOrderScreen from './Screens/cakeOrderScreen'
+import CakeSubmitScreen from './Screens/cakeSubmitScreen'
 import CartScreen from './Screens/cartScreen'
 import ShippingScreen from './Screens/shippingScreen'
 import PaymentScreen from './Screens/paymentScreen'
@@ -16,6 +18,7 @@ import AboutScreen from './Screens/aboutScreen'
 import Navi from './Components/Navi'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Footer from './Components/Footer'
+import RequestScreen from './Screens/requestScreen'
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
       <Router>
         <Navi />
         <Route path='/' exact component={HomeScreen} />
+        <Route path='/cakeorder' component={CakeOrderScreen} />
+        <Route path='/cakesubmitted' component={CakeSubmitScreen} />
+        <Route path='/request/:id' component={RequestScreen} />
         <Route path='/cart/:id?' component={CartScreen} />
         <Route path='/shipping' component={ShippingScreen} />
         <Route path='/payment' component={PaymentScreen} />

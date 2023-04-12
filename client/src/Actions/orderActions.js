@@ -19,8 +19,49 @@ import {
   ORDER_DELIVER_FAIL,
   ORDER_DELIVER_SUCCESS,
   ORDER_DELIVER_REQUEST,
+  ORDER_DELETE_FAIL,
+  ORDER_DELETE_SUCCESS,
+  ORDER_DELETE_REQUEST,
 } from '../Constants/orderConstants'
 import { logout } from './userActions'
+
+export const deleteOrder = (order) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: ORDER_DELETE_REQUEST,
+    })
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+    const { data } = await axios.delete(
+      `/api/orders/${order._id}/delete`,
+      config
+    )
+    dispatch({
+      type: ORDER_DELETE_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    if (message === 'Not authorized, token failed') {
+      dispatch(logout())
+    }
+    dispatch({
+      type: ORDER_DELETE_FAIL,
+      payload: message,
+    })
+  }
+}
 
 export const createOrder = (order) => async (dispatch, getState) => {
   try {

@@ -10,9 +10,10 @@ const addOrderItems = asyncHandler(async (req, res) => {
     shippingAddress,
     paymentMethod,
     itemsPrice,
-    taxPrice,
+    // taxPrice,
     shippingPrice,
     totalPrice,
+    customPrice,
   } = req.body
 
   if (orderItems && orderItems.length === 0) {
@@ -26,9 +27,10 @@ const addOrderItems = asyncHandler(async (req, res) => {
       shippingAddress,
       paymentMethod,
       itemsPrice,
-      taxPrice,
+      // taxPrice,
       shippingPrice,
       totalPrice,
+      customPrice,
     })
 
     const createdOrder = await order.save()
@@ -43,7 +45,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 const getOrderById = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
     'user',
-    'name email'
+    'name email number'
   )
 
   if (order) {
@@ -113,6 +115,18 @@ const getOrders = asyncHandler(async (req, res) => {
   res.json(orders)
 })
 
+const deleteOrder = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id)
+
+  if (order) {
+    const updatedOrder = await order.delete()
+
+    res.json(updatedOrder)
+  } else {
+    res.status(404)
+    throw new Error('Order not found')
+  }
+})
 export {
   addOrderItems,
   getOrderById,
@@ -120,4 +134,5 @@ export {
   updateOrderToDelivered,
   getMyOrders,
   getOrders,
+  deleteOrder,
 }
