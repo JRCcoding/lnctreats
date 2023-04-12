@@ -94,13 +94,11 @@ export default function App() {
               //   <LinkContainer to='/admin/productlist'>
               //     <MDBDropdownItem>Products</MDBDropdownItem>
               //   </LinkContainer>
-              <NavDropdown title='Admin' className='navlink'>
-                <LinkContainer to='/admin/orderlist'>
-                  <MDBNavbarItem className='navlink' style={{ width: '150px' }}>
-                    Orders
-                  </MDBNavbarItem>
-                </LinkContainer>
-              </NavDropdown>
+              <LinkContainer to='/admin/orderlist'>
+                <MDBNavbarItem className='navlink' style={{ width: '150px' }}>
+                  Orders
+                </MDBNavbarItem>
+              </LinkContainer>
 
               // </NavDropdown>
             )}

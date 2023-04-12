@@ -106,7 +106,7 @@ const CakeOrderScreen = ({ history }) => {
           </div>
           <Form.Group style={{ width: '100%' }}>
             <Card>
-              <Card.Body className='mx-60'>
+              <Card.Body className='lg:mx-40'>
                 <Card.Header>
                   <h3 className='text-center'>Cake Size: (starting price)</h3>
                 </Card.Header>
@@ -146,7 +146,7 @@ const CakeOrderScreen = ({ history }) => {
                   </Row>
                 </ListGroup>
               </Card.Body>
-              <Card.Body className='mx-60'>
+              <Card.Body className='lg:mx-40'>
                 <Card.Header>
                   <h3 className='text-center'>Flavor:</h3>
                 </Card.Header>
