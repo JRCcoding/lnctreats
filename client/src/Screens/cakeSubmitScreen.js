@@ -18,6 +18,7 @@ const CakeSubmitScreen = ({ location }) => {
   const name = new URLSearchParams(location.search).get('name')
   const email = new URLSearchParams(location.search).get('email')
   const number = new URLSearchParams(location.search).get('number')
+  const edibleImage = new URLSearchParams(location.search).get('edibleImage')
   const dispatch = useDispatch()
   const request = useSelector((state) => state.request)
   const { requestInfo } = request
@@ -31,6 +32,7 @@ const CakeSubmitScreen = ({ location }) => {
       <h5>
         Thank you for your request, <strong>{name}</strong>!{' '}
       </h5>
+      {edibleImage ? <p>{edibleImage}</p> : <></>}
       <p>{itemSize}I will get back to you as soon as possible!</p>
       {date !== '' && (
         <p>

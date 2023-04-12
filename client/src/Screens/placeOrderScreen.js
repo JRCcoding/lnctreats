@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Fade } from 'react-reveal'
 import { Link } from 'react-router-dom'
 import {
@@ -9,6 +9,7 @@ import {
   Image,
   Card,
   Container,
+  Form,
 } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../Components/Message'
@@ -60,17 +61,25 @@ const PlaceOrderScreen = ({ history }) => {
       dispatch({ type: ORDER_CREATE_RESET })
     }
   })
-  const [emailOrder, setEmailOrder] = useState(JSON.stringify(cart.cartItems))
 
+  // const emailjsParams = { parsedCartItems: partOfParsedEJS }
+  // const [emailOrder, setEmailOrder] = useState(partOfParsedEJS)
+  // // const form = useRef()
+  // var stringEJS = JSON.stringify(cart.cartItems)
+  // var parsedEJS = JSON.parse(stringEJS)
+  // var partOfParsedEJS = parsedEJS[0].date
   const emailjsSend = () => {
-    // const templateParams = { test: cart.cartItems }
+    // var stringEJS = JSON.stringify(cart.cartItems)
+    // var parsedEJS = JSON.parse(stringEJS)
+    // var partOfParsedEJS = parsedEJS[0].date
+    var emailjsParams = { item1: 'test' }
     emailjs
-      .sendForm(
+      .send(
         'service_mj24iav',
         'template_rg9j6oe',
-        '#form',
-        'Ts0xnPtn_iKfBC4r0',
-        emailOrder
+        // form.current,
+        emailjsParams,
+        'Ts0xnPtn_iKfBC4r0'
       )
       .then(
         (result) => {
@@ -99,11 +108,11 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <div className='background_pattern'>
-      <div style={{ display: 'none' }}>
-        <form id='form'>
-          <input name='emailOrder' value={emailOrder} />
-        </form>
-      </div>
+      {/* <div style={{ display: 'none' }}>
+        <Form id='form'>
+          <input name='emailOrder' value={partOfParsedEJS} readOnly />
+        </Form>
+      </div> */}
       <Meta title='LNC Place Order' />
       <Fade up>
         <Container>

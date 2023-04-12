@@ -35,6 +35,10 @@ const requestSchema = mongoose.Schema(
       type: String,
       required: false,
     },
+    edibleImage: {
+      type: Boolean,
+      required: false,
+    },
   },
   {
     timestamps: true,

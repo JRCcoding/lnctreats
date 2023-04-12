@@ -21,6 +21,8 @@ const CakeOrderScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
   const [size, setSize] = useState('Choose one...')
+  const [flavor, setFlavor] = useState('Choose one...')
+  const [edibleImage, setEdibleImage] = useState(false)
   const [qty, setQty] = useState(1)
   const [date, setDate] = useState('')
   const [additional, setAdditional] = useState('')
@@ -41,6 +43,7 @@ const CakeOrderScreen = ({ history }) => {
         '#form',
         'Ts0xnPtn_iKfBC4r0',
         size,
+        flavor,
         qty,
         date,
         additional,
@@ -57,26 +60,33 @@ const CakeOrderScreen = ({ history }) => {
         }
       )
   }
+
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
       createRequest({
         size,
+        flavor,
         qty,
         date,
         additional,
         name,
         email,
         number,
+        edibleImage,
         // inspiration
       })
     )
 
-    emailjsSend()
+    // emailjsSend()
 
     history.push(
-      `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}`
+      `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}&flavor=${flavor}&edibleImage=${edibleImage}`
     )
+  }
+
+  const handleCheckBox = () => {
+    setEdibleImage(!edibleImage)
   }
 
   return (
@@ -85,6 +95,7 @@ const CakeOrderScreen = ({ history }) => {
         <Form onSubmit={submitHandler} id='form' enctype='multipart/form-data'>
           <div style={{ display: 'none' }}>
             <input name='size' value={size} />
+            <input name='flavor' value={flavor} />
             <input name='qty' value={qty} />
             <input name='date' value={date} />
             <input name='additional' value={additional} />
@@ -95,152 +106,100 @@ const CakeOrderScreen = ({ history }) => {
           </div>
           <Form.Group style={{ width: '100%' }}>
             <Card>
-              <Card.Body className='mx-auto'>
+              <Card.Body className='mx-60'>
                 <Card.Header>
-                  <h1 className='text-center'>Cake Size:</h1>
+                  <h3 className='text-center'>Cake Size: (starting price)</h3>
                 </Card.Header>
-                <ButtonGroup vertical>
-                  <ListGroup variant='flush'>
-                    <Row lg={3} md={3} sm={2} xs={1}>
-                      <Form.Control
-                        as='select'
-                        onChange={(e) => setSize(e.target.value)}
-                        fluid
-                        style={{ width: '250px' }}
-                      >
-                        <option value='choose'>
-                          <>Choose one...</>
-                        </option>
-                        <option value='12'>
-                          {/* <img
-                            src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
-                            alt='test'
-                            style={{
-                              height: '200px',
-                              width: '200px',
-                            }}
-                            className='mx-auto'
-                          /> */}
-                          12 Inch Cake
-                        </option>
-                        <option value='10'>10 Inch Cake</option>
-                      </Form.Control>
-                      {/* <Col>
-                        <ListGroup.Item>
-                          <img
-                            src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
-                            alt='test'
-                            style={{
-                              height: '200px',
-                              width: '200px',
-                            }}
-                            className='mx-auto'
-                          />
-                          <Button
-                            onClick={(e) => setSize(12)}
-                            className='w-100'
-                          >
-                            12 inch
-                            <br />
-                            Starting @ $100
-                          </Button>
-                        </ListGroup.Item>
-                      </Col>
+                <ListGroup variant='flush'>
+                  <Row lg={3} md={3} sm={2} xs={1}>
+                    <Form.Control
+                      as='select'
+                      onChange={(e) => setSize(e.target.value)}
+                      fluid
+                      style={{ width: '100%' }}
+                    >
+                      <option value='choose'>Choose one...</option>
 
-                      <Col>
-                        <ListGroup.Item>
-                          <img
-                            src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
-                            alt='test'
-                            style={{ height: '200px', width: '200px' }}
-                            className='mx-auto'
-                          />
-                          <Button
-                            onClick={(e) => setSize('10')}
-                            className='w-100'
-                          >
-                            10 inch
-                          </Button>
-                        </ListGroup.Item>
-                      </Col>
+                      <option value='Circle/Square' disabled>
+                        ------Circle/Square------
+                      </option>
 
-                      <Col>
-                        <ListGroup.Item>
-                          <img
-                            src={kamrynDino}
-                            alt='test'
-                            style={{ height: '200px', width: '200px' }}
-                            className='mx-auto'
-                          />
-                          <Button
-                            onClick={(e) => setSize('9')}
-                            className='w-100'
-                          >
-                            9 inch
-                          </Button>
-                        </ListGroup.Item>
-                      </Col>
+                      <option value='9 / Circle'>9 Inch Cake ($50)</option>
+                      <option value='8 / Circle'>8 Inch Cake ($40)</option>
+                      <option value='6 / Circle'>6 Inch Cake ($30)</option>
+                      <option value='4 / Circle'>4 Inch Cake ($20)</option>
 
-                      <Col>
-                        <ListGroup.Item>
-                          <img
-                            src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
-                            alt='test'
-                            style={{ height: '200px', width: '200px' }}
-                            className='mx-auto'
-                          />
-                          <Button
-                            onClick={(e) => setSize('8')}
-                            className='w-100'
-                          >
-                            8 inch
-                          </Button>
-                        </ListGroup.Item>
-                      </Col>
+                      <option value='Heart' disabled>
+                        ------Heart------
+                      </option>
 
-                      <Col>
-                        <ListGroup.Item>
-                          <img
-                            src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
-                            alt='6" Alien Cake'
-                            style={{ height: '200px', width: '200px' }}
-                            className='mx-auto'
-                          />
-                          <Button
-                            onClick={(e) => setSize('6')}
-                            className='w-100'
-                          >
-                            6 inch
-                          </Button>
-                        </ListGroup.Item>
-                      </Col>
-                      <Col>
-                        <ListGroup.Item>
-                          <img
-                            src='https://raw.githubusercontent.com/JRCcoding/lnctreats/production/client/src/Images/webp/alien-cake.webp'
-                            alt='6" Alien Cake'
-                            style={{ height: '200px', width: '200px' }}
-                            className='mx-auto'
-                          />
-                          <Button
-                            onClick={(e) => setSize('Tiered')}
-                            className='w-100'
-                          >
-                            Tiered
-                          </Button>
-                        </ListGroup.Item>
-                      </Col> */}
-                    </Row>
-                  </ListGroup>
-                </ButtonGroup>
+                      <option value='9 / Heart'>9 Inch Cake ($55)</option>
+                      <option value='6 / Heart'>6 Inch Cake ($35)</option>
+
+                      <option value='Sheet' disabled>
+                        ------Sheet------
+                      </option>
+
+                      <option value='1/2 / Sheet'>1/2 Sheet Cake ($75)</option>
+                      <option value='1/4 / Sheet'>1/4 Sheet Cake ($45)</option>
+                    </Form.Control>
+                  </Row>
+                </ListGroup>
+              </Card.Body>
+              <Card.Body className='mx-60'>
+                <Card.Header>
+                  <h3 className='text-center'>Flavor:</h3>
+                </Card.Header>
+
+                <ListGroup variant='flush'>
+                  <Row lg={3} md={3} sm={2} xs={1}>
+                    <Form.Control
+                      as='select'
+                      onChange={(e) => setFlavor(e.target.value)}
+                      fluid
+                      style={{ width: '100%' }}
+                    >
+                      <option value='choose'>Choose one...</option>
+                      <option value='Chocolate'>Chocolate</option>
+                      <option value='Vanilla'>Vanilla</option>
+                      <option value='Ferrero Rocher'>
+                        Ferrero Rocher &trade;{' '}
+                      </option>
+                      <option value='Snickerdoodle'>Snickerdoodle</option>
+                      <option value='Coconut'>Coconut</option>
+                      <option value='Strawberry'>Strawberry</option>
+                      <option value='Carrot'>Carrot</option>
+                      <option value='Funfetti'>Funfetti</option>
+                      <option value='Pineapple'>Pineapple</option>
+                      <option value='Lemon'>Lemon</option>
+                      <option value='Red Velvet'>Red Velvet</option>
+                      <option value='other'>Other (describe below!)</option>
+                    </Form.Control>{' '}
+                  </Row>
+                </ListGroup>
               </Card.Body>
               <hr />
-              <Row md={2} sm={2} lg={2}>
-                <Col>
+              <Row>
+                <Col md={4}>
+                  <Card.Body>
+                    <Card.Header>
+                      <h3 className='text-center'>
+                        Edible Image:{edibleImage}
+                      </h3>
+                    </Card.Header>
+                    <input
+                      type='checkbox'
+                      value={edibleImage}
+                      onChange={handleCheckBox}
+                    ></input>
+                    &nbsp;&nbsp;Additional $10
+                  </Card.Body>
+                </Col>
+                <Col md={4}>
                   {' '}
                   <Card.Body>
                     <Card.Header>
-                      <h1 className='text-center'>Quantity:</h1>
+                      <h3 className='text-center'>Quantity:</h3>
                     </Card.Header>
                     <Form.Control
                       as='select'
@@ -255,10 +214,11 @@ const CakeOrderScreen = ({ history }) => {
                     </Form.Control>
                   </Card.Body>
                 </Col>
-                <Col>
+                <Col md={4}>
+                  {' '}
                   <Card.Body>
                     <Card.Header>
-                      <h1 className='text-center'>Date:</h1>
+                      <h3 className='text-center'>Date:</h3>
                     </Card.Header>
                     <Form.Control
                       type='date'
@@ -275,7 +235,7 @@ const CakeOrderScreen = ({ history }) => {
                   {' '}
                   <Card.Body>
                     <Card.Header>
-                      <h1 className='text-center'>Name:</h1>
+                      <h3 className='text-center'>Name:</h3>
                     </Card.Header>
                     <Form.Control
                       type='text'
@@ -289,7 +249,7 @@ const CakeOrderScreen = ({ history }) => {
                   {' '}
                   <Card.Body>
                     <Card.Header>
-                      <h1 className='text-center'>Email:</h1>
+                      <h3 className='text-center'>Email:</h3>
                     </Card.Header>
                     <Form.Control
                       type='text'
@@ -303,7 +263,7 @@ const CakeOrderScreen = ({ history }) => {
                   {' '}
                   <Card.Body>
                     <Card.Header>
-                      <h1 className='text-center'>Number:</h1>
+                      <h3 className='text-center'>Number:</h3>
                     </Card.Header>
                     <Form.Control
                       type='text'
@@ -319,7 +279,7 @@ const CakeOrderScreen = ({ history }) => {
                   {' '}
                   <Card.Body>
                     <Card.Header>
-                      <h1 className='text-center'>Information:</h1>
+                      <h3 className='text-center'>Information:</h3>
                       <p className='text-center'>
                         Themes, customization, cake toppers, anything that
                         defines the cake you want!
@@ -339,7 +299,7 @@ const CakeOrderScreen = ({ history }) => {
                   <Card.Body>
                     <Form.Group controlId='formFile'>
                       <Card.Header>
-                        <h1 className='text-center'>Inspiration:</h1>
+                        <h3 className='text-center'>Inspiration:</h3>
                       </Card.Header>
                       <Form.Control
                         value={inspiration}

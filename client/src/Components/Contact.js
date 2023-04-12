@@ -151,11 +151,11 @@ export const Contact = () => {
               </FloatingLabel>
 
               <br />
-              <FloatingLabel label='Customization, Theme, Additions: '>
+              <FloatingLabel label='Message:'>
                 <Form.Control
                   type='textarea'
                   name='message'
-                  placeholder='Customization, Theme, Additions:'
+                  placeholder='Message, inqueries, etc...:'
                 />
               </FloatingLabel>
               <br />

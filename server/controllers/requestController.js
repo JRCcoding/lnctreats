@@ -5,7 +5,8 @@ import Request from '../models/requestModel.js'
 // @route   POST /api/requests
 // @access  Private
 const addRequestInfo = asyncHandler(async (req, res) => {
-  const { size, qty, date, additional, name, email, number } = req.body
+  const { size, qty, date, additional, name, email, number, edibleImage } =
+    req.body
 
   if (req.body && req.body.length === 0) {
     // res.status(400)
@@ -19,6 +20,7 @@ const addRequestInfo = asyncHandler(async (req, res) => {
       name,
       email,
       number,
+      edibleImage,
     })
     const createdRequest = await request.save()
 
@@ -32,6 +34,7 @@ const addRequestInfo = asyncHandler(async (req, res) => {
       name,
       email,
       number,
+      edibleImage,
     })
 
     const createdRequest = await request.save()

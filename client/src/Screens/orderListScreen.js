@@ -133,6 +133,11 @@ const OrderListScreen = ({ history }) => {
                       <td>{request.email}</td>
                       <td>{request.number}</td>
                       <td>{request.additional}</td>
+                      <LinkContainer to={`/request/${request._id}`}>
+                        <Button variant='light' className='btn-sm'>
+                          Details
+                        </Button>
+                      </LinkContainer>
                     </tr>
                   ))}
               </tbody>

@@ -129,6 +129,9 @@ const OrderScreen = ({ match, history }) => {
     dispatch(deleteOrder(order))
     history.push('/admin/orderlist')
   }
+  const backButton = () => {
+    history.push('/admin/orderlist')
+  }
   return loading ? (
     <Loader />
   ) : error ? (
@@ -304,19 +307,28 @@ const OrderScreen = ({ match, history }) => {
                         </Button>
                       </ListGroup.Item>
                     )}
-                    {userInfo && userInfo.isAdmin && (
-                      <ListGroup.Item>
-                        <Button
-                          type='button'
-                          variant='danger'
-                          className='btn btn-block'
-                          onClick={handleDelete}
-                        >
-                          Delete
-                        </Button>
-                      </ListGroup.Item>
-                    )}
+                    <ListGroup.Item>
+                      <Button
+                        type='button'
+                        className='btn btn-block'
+                        onClick={backButton}
+                      >
+                        Back
+                      </Button>
+                    </ListGroup.Item>
                   </ListGroup>
+                  {userInfo && userInfo.isAdmin && (
+                    <ListGroup.Item>
+                      <Button
+                        type='button'
+                        variant='danger'
+                        className='btn btn-block'
+                        onClick={handleDelete}
+                      >
+                        Delete
+                      </Button>
+                    </ListGroup.Item>
+                  )}
                 </Card>
               </Col>
             </Row>
