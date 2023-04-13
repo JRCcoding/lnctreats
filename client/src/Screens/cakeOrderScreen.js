@@ -110,7 +110,9 @@ const CakeOrderScreen = ({ history }) => {
           <Form.Group className='lg:mx-40'>
             <Card>
               <Card.Header>
-                <Card.Title>Request Form</Card.Title>
+                <Card.Title>
+                  <h1 className='text-center'>Request Form</h1>
+                </Card.Title>
               </Card.Header>
               <Card.Body className='lg:mx-60'>
                 <ListGroup variant='flush'>

@@ -1,21 +1,3 @@
-// import React from 'react'
-// import { Fade } from 'react-bootstrap'
-// import Meta from '../Components/Meta'
-// import Request from '../Components/Request'
-
-// const RequestScreen = () => {
-//   return (
-//     <div className='background_pattern'>
-//       <Meta title='LNC Request' />
-//       <Fade up>
-//         <Request />
-//       </Fade>
-//     </div>
-//   )
-// }
-
-// export default RequestScreen
-
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
@@ -74,8 +56,14 @@ const RequestScreen = ({ match, history }) => {
   //   fetchRequests()
   // })
 
-  const handleDelete = () => {
-    dispatch(deleteRequest(request))
+  const handleDelete = async () => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+    await axios.delete(`/api/requests/${requestId}/delete`, config)
     history.push('/admin/orderlist')
   }
   const backButton = () => {
@@ -140,7 +128,7 @@ const RequestScreen = ({ match, history }) => {
                         </Row>
                       </ListGroup.Item>
 
-                      {/* {userInfo && userInfo.isAdmin && (
+                      {userInfo && userInfo.isAdmin && (
                         <ListGroup.Item>
                           <Button
                             type='button'
@@ -151,7 +139,7 @@ const RequestScreen = ({ match, history }) => {
                             Delete
                           </Button>
                         </ListGroup.Item>
-                      )} */}
+                      )}
                       <ListGroup.Item>
                         <Button
                           type='button'
