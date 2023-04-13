@@ -107,10 +107,12 @@ const CakeOrderScreen = ({ history }) => {
             <input name='email' value={email} />
             {/* <input name='inspiration' value={inspiration} /> */}
           </div>
-          <Form.Group style={{ width: '100%' }}>
+          <Form.Group className='lg:mx-40'>
             <Card>
               <Card.Header>
-                <Card.Title>Request Form</Card.Title>
+                <Card.Title>
+                  <h1 className='text-center'>Request Form</h1>
+                </Card.Title>
               </Card.Header>
               <Card.Body className='lg:mx-60'>
                 <ListGroup variant='flush'>
@@ -173,7 +175,7 @@ const CakeOrderScreen = ({ history }) => {
                   </Form.Control>
                 </ListGroup>
               </Card.Body>
-              <Card.Body>
+              <Card.Body className='lg:mx-60'>
                 <FloatingLabel label='Quantity:'>
                   <Form.Control
                     as='select'
@@ -188,7 +190,7 @@ const CakeOrderScreen = ({ history }) => {
                   </Form.Control>
                 </FloatingLabel>
               </Card.Body>{' '}
-              <Card.Body>
+              <Card.Body className='lg:mx-60'>
                 {/* <Card.Header>
                   <h3 className='text-center'>Date:</h3>
                 </Card.Header> */}
@@ -201,7 +203,7 @@ const CakeOrderScreen = ({ history }) => {
                   />
                 </FloatingLabel>
               </Card.Body>
-              <Card.Body>
+              <Card.Body className='lg:mx-60'>
                 <FloatingLabel label='Name:'>
                   <Form.Control
                     type='text'
@@ -211,7 +213,7 @@ const CakeOrderScreen = ({ history }) => {
                   />
                 </FloatingLabel>
               </Card.Body>{' '}
-              <Card.Body>
+              <Card.Body className='lg:mx-60'>
                 <FloatingLabel label='Email:'>
                   <Form.Control
                     type='text'
@@ -221,7 +223,7 @@ const CakeOrderScreen = ({ history }) => {
                   />
                 </FloatingLabel>
               </Card.Body>{' '}
-              <Card.Body>
+              <Card.Body className='lg:mx-60'>
                 <FloatingLabel label='Number:'>
                   <Form.Control
                     type='text'
@@ -231,7 +233,7 @@ const CakeOrderScreen = ({ history }) => {
                   />
                 </FloatingLabel>
               </Card.Body>{' '}
-              <Card.Body>
+              <Card.Body className='lg:mx-60'>
                 <FloatingLabel
                   label='Themes, customization, cake toppers, anything that defines
                     the cake you want!'
@@ -247,7 +249,7 @@ const CakeOrderScreen = ({ history }) => {
                   />
                 </FloatingLabel>
               </Card.Body>
-              <Card.Body>
+              <Card.Body className='lg:mx-60'>
                 <Card.Header>
                   <input
                     type='checkbox'
@@ -274,7 +276,7 @@ const CakeOrderScreen = ({ history }) => {
                     </Form.Group>
                   </Card.Body>
                 </Col> */}
-              <button size='submit' className='addcart_button'>
+              <button size='submit' className='addcart_button lg:mx-60'>
                 Submit
               </button>
             </Card>

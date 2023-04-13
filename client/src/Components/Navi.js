@@ -96,7 +96,7 @@ export default function App() {
               //   </LinkContainer>
               <LinkContainer to='/admin/orderlist'>
                 <MDBNavbarItem className='navlink' style={{ width: '150px' }}>
-                  Orders
+                  Orders/Requests
                 </MDBNavbarItem>
               </LinkContainer>
 
