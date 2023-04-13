@@ -79,7 +79,7 @@ const CakeOrderScreen = ({ history }) => {
       })
     )
 
-    emailjsSend()
+    // emailjsSend()
 
     history.push(
       `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}&flavor=${flavor}&edibleImage=${edibleImage}`
@@ -233,6 +233,19 @@ const CakeOrderScreen = ({ history }) => {
                   />
                 </FloatingLabel>
               </Card.Body>{' '}
+              <Card.Body className='md:mx-40'>
+                <Form.Check
+                  type='switch'
+                  value={edibleImage}
+                  onChange={handleCheckBox}
+                  className='inline'
+                ></Form.Check>
+                <strong>&nbsp;&nbsp;Edible Image</strong>
+                <br />
+                <span className='ml-12'>
+                  Additional $10, please describe below!
+                </span>
+              </Card.Body>{' '}
               <Card.Body className='lg:mx-60'>
                 <FloatingLabel
                   label='Themes, customization, cake toppers, anything that defines
@@ -249,18 +262,6 @@ const CakeOrderScreen = ({ history }) => {
                   />
                 </FloatingLabel>
               </Card.Body>
-              <Card.Body className='lg:mx-60'>
-                <Card.Header>
-                  <input
-                    type='checkbox'
-                    value={edibleImage}
-                    onChange={handleCheckBox}
-                  ></input>
-                  <strong>&nbsp;&nbsp;Edible Image</strong>
-                  <br />
-                  Additional $10, please describe below!
-                </Card.Header>
-              </Card.Body>{' '}
               {/* <Col>
                   <Card.Body>
                     <Form.Group controlId='formFile'>

@@ -24,8 +24,6 @@ const RequestScreen = ({ match, history }) => {
   const [requests, setRequests] = useState()
   const requestId = match.params.id
 
-  //   const requestDetails = useSelector((state) => state.requestDetails)
-  //   const { request, loading, error } = requestDetails
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
@@ -41,20 +39,7 @@ const RequestScreen = ({ match, history }) => {
       setRequest(data)
     }
     fetchRequest()
-    // if (userInfo) {
-    //   dispatch(listRequests())
-    // } else {
-    //   history.push('/test')
-    // }
   }, [])
-
-  // useEffect(() => {
-  //   const fetchRequests = async () => {
-  //     const { data } = await axios.get('/api/requests')
-  //     setRequests(data)
-  //   }
-  //   fetchRequests()
-  // })
 
   const handleDelete = async () => {
     const config = {
@@ -75,7 +60,7 @@ const RequestScreen = ({ match, history }) => {
       <Fade up>
         <Container>
           <Card>
-            {/* <h1>Request {requestId.substring(19, 24)}</h1> */}
+            <h1>Request {requestId.substring(19, 24)}</h1>
 
             <Row>
               <Col md={12}>
@@ -119,6 +104,12 @@ const RequestScreen = ({ match, history }) => {
                         <Row>
                           <Col>Quantity</Col>
                           <Col>{request.qty}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Edible Image</Col>
+                          <Col>{request.edibleImage ? 'Yes' : 'No'}</Col>
                         </Row>
                       </ListGroup.Item>
                       <ListGroup.Item>
