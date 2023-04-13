@@ -5,6 +5,7 @@ import {
   ButtonGroup,
   Card,
   Col,
+  FloatingLabel,
   Form,
   ListGroup,
   Row,
@@ -108,196 +109,157 @@ const CakeOrderScreen = ({ history }) => {
           </div>
           <Form.Group style={{ width: '100%' }}>
             <Card>
-              <Card.Body className='lg:mx-40'>
-                <Card.Header>
-                  <h3 className='text-center'>Cake Size: (starting price)</h3>
-                </Card.Header>
+              <Card.Header>
+                <Card.Title>Request Form</Card.Title>
+              </Card.Header>
+              <Card.Body className='lg:mx-60'>
                 <ListGroup variant='flush'>
-                  <Row lg={3} md={3} sm={2} xs={1}>
-                    <Form.Control
-                      as='select'
-                      onChange={(e) => setSize(e.target.value)}
-                      fluid
-                      style={{ width: '100%' }}
-                    >
-                      <option value='choose'>Choose one...</option>
+                  <Form.Control
+                    as='select'
+                    onChange={(e) => setSize(e.target.value)}
+                    fluid
+                    style={{ width: '100%' }}
+                  >
+                    <option value='Cake Size:'>Cake Size:</option>
 
-                      <option value='Circle/Square' disabled>
-                        ------Circle/Square------
-                      </option>
+                    <option value='Circle/Square' disabled>
+                      ------Circle/Square------
+                    </option>
 
-                      <option value='9 / Circle'>9 Inch Cake ($50)</option>
-                      <option value='8 / Circle'>8 Inch Cake ($40)</option>
-                      <option value='6 / Circle'>6 Inch Cake ($30)</option>
-                      <option value='4 / Circle'>4 Inch Cake ($20)</option>
+                    <option value='9 / Circle'>9 Inch Cake ($50)</option>
+                    <option value='8 / Circle'>8 Inch Cake ($40)</option>
+                    <option value='6 / Circle'>6 Inch Cake ($30)</option>
+                    <option value='4 / Circle'>4 Inch Cake ($20)</option>
 
-                      <option value='Heart' disabled>
-                        ------Heart------
-                      </option>
+                    <option value='Heart' disabled>
+                      ------Heart------
+                    </option>
 
-                      <option value='9 / Heart'>9 Inch Cake ($55)</option>
-                      <option value='6 / Heart'>6 Inch Cake ($35)</option>
+                    <option value='9 / Heart'>9 Inch Cake ($55)</option>
+                    <option value='6 / Heart'>6 Inch Cake ($35)</option>
 
-                      <option value='Sheet' disabled>
-                        ------Sheet------
-                      </option>
+                    <option value='Sheet' disabled>
+                      ------Sheet------
+                    </option>
 
-                      <option value='1/2 / Sheet'>1/2 Sheet Cake ($75)</option>
-                      <option value='1/4 / Sheet'>1/4 Sheet Cake ($45)</option>
-                    </Form.Control>
-                  </Row>
+                    <option value='1/2 / Sheet'>1/2 Sheet Cake ($75)</option>
+                    <option value='1/4 / Sheet'>1/4 Sheet Cake ($45)</option>
+                  </Form.Control>
                 </ListGroup>
               </Card.Body>
-              <Card.Body className='lg:mx-40'>
-                <Card.Header>
-                  <h3 className='text-center'>Flavor:</h3>
-                </Card.Header>
-
+              <Card.Body className='lg:mx-60'>
                 <ListGroup variant='flush'>
-                  <Row lg={3} md={3} sm={2} xs={1}>
-                    <Form.Control
-                      as='select'
-                      onChange={(e) => setFlavor(e.target.value)}
-                      fluid
-                      style={{ width: '100%' }}
-                    >
-                      <option value='choose'>Choose one...</option>
-                      <option value='Chocolate'>Chocolate</option>
-                      <option value='Vanilla'>Vanilla</option>
-                      <option value='Ferrero Rocher'>
-                        Ferrero Rocher &trade;{' '}
-                      </option>
-                      <option value='Snickerdoodle'>Snickerdoodle</option>
-                      <option value='Coconut'>Coconut</option>
-                      <option value='Strawberry'>Strawberry</option>
-                      <option value='Carrot'>Carrot</option>
-                      <option value='Funfetti'>Funfetti</option>
-                      <option value='Pineapple'>Pineapple</option>
-                      <option value='Lemon'>Lemon</option>
-                      <option value='Red Velvet'>Red Velvet</option>
-                      <option value='other'>Other (describe below!)</option>
-                    </Form.Control>{' '}
-                  </Row>
+                  <Form.Control
+                    as='select'
+                    onChange={(e) => setFlavor(e.target.value)}
+                    fluid
+                    style={{ width: '100%' }}
+                  >
+                    <option value='Flavor:'>Flavor:</option>
+                    <option value='Chocolate'>Chocolate</option>
+                    <option value='Vanilla'>Vanilla</option>
+                    <option value='Ferrero Rocher'>
+                      Ferrero Rocher &trade;{' '}
+                    </option>
+                    <option value='Snickerdoodle'>Snickerdoodle</option>
+                    <option value='Coconut'>Coconut</option>
+                    <option value='Strawberry'>Strawberry</option>
+                    <option value='Carrot'>Carrot</option>
+                    <option value='Funfetti'>Funfetti</option>
+                    <option value='Pineapple'>Pineapple</option>
+                    <option value='Lemon'>Lemon</option>
+                    <option value='Red Velvet'>Red Velvet</option>
+                    <option value='other'>Other (describe below!)</option>
+                  </Form.Control>
                 </ListGroup>
               </Card.Body>
-              <hr />
-              <Row>
-                <Col md={4}>
-                  <Card.Body>
-                    <Card.Header>
-                      <h3 className='text-center'>
-                        Edible Image:{edibleImage}
-                      </h3>
-                    </Card.Header>
-                    <input
-                      type='checkbox'
-                      value={edibleImage}
-                      onChange={handleCheckBox}
-                    ></input>
-                    &nbsp;&nbsp;Additional $10
-                  </Card.Body>
-                </Col>
-                <Col md={4}>
-                  {' '}
-                  <Card.Body>
-                    <Card.Header>
-                      <h3 className='text-center'>Quantity:</h3>
-                    </Card.Header>
-                    <Form.Control
-                      as='select'
-                      value={qty}
-                      onChange={(e) => setQty(e.target.value)}
-                    >
-                      {[...Array.from(Array(10)).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
-                    </Form.Control>
-                  </Card.Body>
-                </Col>
-                <Col md={4}>
-                  {' '}
-                  <Card.Body>
-                    <Card.Header>
-                      <h3 className='text-center'>Date:</h3>
-                    </Card.Header>
-                    <Form.Control
-                      type='date'
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      // required
-                    />
-                  </Card.Body>
-                </Col>
-              </Row>
-              <hr />
-              <Row>
-                <Col>
-                  {' '}
-                  <Card.Body>
-                    <Card.Header>
-                      <h3 className='text-center'>Name:</h3>
-                    </Card.Header>
-                    <Form.Control
-                      type='text'
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                    />
-                  </Card.Body>
-                </Col>
-                <Col>
-                  {' '}
-                  <Card.Body>
-                    <Card.Header>
-                      <h3 className='text-center'>Email:</h3>
-                    </Card.Header>
-                    <Form.Control
-                      type='text'
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      // required
-                    />
-                  </Card.Body>
-                </Col>
-                <Col>
-                  {' '}
-                  <Card.Body>
-                    <Card.Header>
-                      <h3 className='text-center'>Number:</h3>
-                    </Card.Header>
-                    <Form.Control
-                      type='text'
-                      value={number}
-                      onChange={(e) => setNumber(e.target.value)}
-                      required
-                    />
-                  </Card.Body>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  {' '}
-                  <Card.Body>
-                    <Card.Header>
-                      <h3 className='text-center'>Information:</h3>
-                      <p className='text-center'>
-                        Themes, customization, cake toppers, anything that
-                        defines the cake you want!
-                      </p>
-                    </Card.Header>
-                    <Form.Control
-                      as='textarea'
-                      height='150px'
-                      value={additional}
-                      onChange={(e) => setAdditional(e.target.value)}
-                      required
-                    />
-                  </Card.Body>
-                </Col>
-
-                {/* <Col>
+              <Card.Body>
+                <FloatingLabel label='Quantity:'>
+                  <Form.Control
+                    as='select'
+                    value={qty}
+                    onChange={(e) => setQty(e.target.value)}
+                  >
+                    {[...Array.from(Array(10)).keys()].map((x) => (
+                      <option key={x + 1} value={x + 1}>
+                        {x + 1}
+                      </option>
+                    ))}
+                  </Form.Control>
+                </FloatingLabel>
+              </Card.Body>{' '}
+              <Card.Body>
+                {/* <Card.Header>
+                  <h3 className='text-center'>Date:</h3>
+                </Card.Header> */}
+                <FloatingLabel label='Date:'>
+                  <Form.Control
+                    type='date'
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    // required
+                  />
+                </FloatingLabel>
+              </Card.Body>
+              <Card.Body>
+                <FloatingLabel label='Name:'>
+                  <Form.Control
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </FloatingLabel>
+              </Card.Body>{' '}
+              <Card.Body>
+                <FloatingLabel label='Email:'>
+                  <Form.Control
+                    type='text'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    // required
+                  />
+                </FloatingLabel>
+              </Card.Body>{' '}
+              <Card.Body>
+                <FloatingLabel label='Number:'>
+                  <Form.Control
+                    type='text'
+                    value={number}
+                    onChange={(e) => setNumber(e.target.value)}
+                    required
+                  />
+                </FloatingLabel>
+              </Card.Body>{' '}
+              <Card.Body>
+                <FloatingLabel
+                  label='Themes, customization, cake toppers, anything that defines
+                    the cake you want!'
+                >
+                  <Form.Control
+                    as='textarea'
+                    style={{ height: '100px' }}
+                    value={additional}
+                    onChange={(e) => setAdditional(e.target.value)}
+                    required
+                    placeholder='Themes, customization, cake toppers, anything that defines
+                    the cake you want!'
+                  />
+                </FloatingLabel>
+              </Card.Body>
+              <Card.Body>
+                <Card.Header>
+                  <input
+                    type='checkbox'
+                    value={edibleImage}
+                    onChange={handleCheckBox}
+                  ></input>
+                  <strong>&nbsp;&nbsp;Edible Image</strong>
+                  <br />
+                  Additional $10, please describe below!
+                </Card.Header>
+              </Card.Body>{' '}
+              {/* <Col>
                   <Card.Body>
                     <Form.Group controlId='formFile'>
                       <Card.Header>
@@ -312,7 +274,6 @@ const CakeOrderScreen = ({ history }) => {
                     </Form.Group>
                   </Card.Body>
                 </Col> */}
-              </Row>
               <button size='submit' className='addcart_button'>
                 Submit
               </button>

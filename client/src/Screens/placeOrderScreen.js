@@ -97,11 +97,6 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <div className='background_pattern'>
-      {/* <div style={{ display: 'none' }}>
-        <Form id='form'>
-          <input name='emailOrder' value={partOfParsedEJS} readOnly />
-        </Form>
-      </div> */}
       <Meta title='LNC Place Order' />
       <Fade up>
         <Container>
