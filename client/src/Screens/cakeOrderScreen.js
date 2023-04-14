@@ -79,7 +79,7 @@ const CakeOrderScreen = ({ history }) => {
       })
     )
 
-    // emailjsSend()
+    emailjsSend()
 
     history.push(
       `/cakesubmitted/${size}?qty=${qty}&date=${date}&additional=${additional}&name=${name}&email=${email}&flavor=${flavor}&edibleImage=${edibleImage}`
@@ -238,11 +238,11 @@ const CakeOrderScreen = ({ history }) => {
                   type='switch'
                   value={edibleImage}
                   onChange={handleCheckBox}
-                  className='inline'
+                  className='inline lg:ml-20'
                 ></Form.Check>
                 <strong>&nbsp;&nbsp;Edible Image</strong>
                 <br />
-                <span className='ml-12'>
+                <span className='ml-12 lg:ml-40'>
                   Additional $10, please describe below!
                 </span>
               </Card.Body>{' '}
