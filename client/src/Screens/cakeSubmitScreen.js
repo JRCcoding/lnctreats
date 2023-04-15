@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Container } from 'react-bootstrap'
+import { Card, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, withRouter } from 'react-router-dom'
 import { createRequest } from '../Actions/requestActions'
@@ -32,30 +32,42 @@ const CakeSubmitScreen = ({ location }) => {
       <h5>
         Thank you for your request, <strong>{name}</strong>!{' '}
       </h5>
-      {edibleImage ? <p>{edibleImage}</p> : <></>}
-      <p>{itemSize}I will get back to you as soon as possible!</p>
-      {date !== '' && (
-        <p>
-          {' '}
-          You placed your request for{' '}
-          <strong>
-            {date[5] === '0' ? date.substring(6) : date.substring(5)}
-          </strong>{' '}
-        </p>
-      )}
-      <p>
-        You will receive an email at <strong>{email}</strong>.
-      </p>
-      <p>
-        {additional !== '' ? (
-          <>
-            Here is your provided information: <br />{' '}
-            <i>&nbsp;&nbsp;&nbsp;"{additional}"</i>
-          </>
-        ) : (
-          <></>
-        )}
-      </p>
+      <p>I will get back to you as soon as possible!</p>
+
+      <Card>
+        <Card.Body>
+          <Card.Header>
+            <h3>Here is your provided information:</h3>
+          </Card.Header>
+          <ul>
+            <li>
+              <strong>Date: </strong>
+              {date}
+            </li>
+            <li>
+              <strong>Name: </strong>
+              {name}
+            </li>
+            <li>
+              <strong>Email: </strong>
+              {email}
+            </li>
+            <li>
+              <strong>Number: </strong>
+              {number}
+            </li>
+            <li>
+              <strong>Edible Image: </strong>
+              {edibleImage ? 'True' : 'False'}
+            </li>
+            <li>
+              <strong>Information: </strong>
+              {additional}
+            </li>
+          </ul>
+        </Card.Body>
+      </Card>
+
       <p>
         {' '}
         You can reply to the email with any further information or questions!

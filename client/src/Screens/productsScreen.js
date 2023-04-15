@@ -72,7 +72,7 @@ const ProductsScreen = () => {
                                     )}
                                     {product.category === 'custom' ? '+' : ''}
                                   </strong>
-                                  <LinkContainer to='/contact'>
+                                  {/* <LinkContainer to='/contact'>
                                     <MDBBadge
                                       color='info'
                                       pill
@@ -82,7 +82,7 @@ const ProductsScreen = () => {
                                         ? 'Order/Contact'
                                         : 'Contact Me!'}
                                     </MDBBadge>
-                                  </LinkContainer>
+                                  </LinkContainer> */}
                                 </Card.Text>
                               </Card.Body>
                             </Card>
@@ -119,7 +119,7 @@ const ProductsScreen = () => {
                                       : product.price}
                                     {product.category === 'custom' ? '+' : ''}
                                   </strong>
-                                  <LinkContainer to='/contact'>
+                                  {/* <LinkContainer to='/contact'>
                                     <MDBBadge
                                       color='info'
                                       pill
@@ -129,7 +129,7 @@ const ProductsScreen = () => {
                                         ? 'Order/Contact'
                                         : 'Contact Me!'}
                                     </MDBBadge>
-                                  </LinkContainer>
+                                  </LinkContainer> */}
                                 </Card.Text>
                               </Card.Body>
                             </Card>
@@ -160,7 +160,7 @@ const ProductsScreen = () => {
                                 </Card.Text>
                                 <Card.Text className='text-AccentText card_price'>
                                   <strong>Price: ${product.price}</strong>
-                                  <LinkContainer to={`/product/${product._id}`}>
+                                  {/* <LinkContainer to={`/product/${product._id}`}>
                                     <MDBBadge
                                       color='info'
                                       pill
@@ -168,7 +168,7 @@ const ProductsScreen = () => {
                                     >
                                       Order Now!
                                     </MDBBadge>
-                                  </LinkContainer>
+                                  </LinkContainer> */}
                                 </Card.Text>
                               </Card.Body>
                             </Card>
