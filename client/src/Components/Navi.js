@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <Navbar
-      className='bg-Navbar text-white font-Lato'
+      className='bg-Navbar text-white font-Lato fixed top'
       expand='xl'
       collapseOnSelect
     >
@@ -56,9 +56,9 @@ export default function App() {
           onClick={() => setShowBasic(!showBasic)}
           className='toggler ms-5'
         >
-          {/* <MDBIcon className='burger' fas icon='birthday-cake' />{' '} */}
+          <MDBIcon className='burger' fas icon='birthday-cake' />{' '}
           {/* Cool unicode icon instead of mdbicon birthday-cake */}
-          &#127874;
+          {/* &#127874; */}
         </Navbar.Toggle>
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
