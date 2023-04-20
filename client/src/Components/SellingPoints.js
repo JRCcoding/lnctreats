@@ -20,12 +20,12 @@ const SellingPoints = () => {
         </Card>
       </AnimationOnScroll>
       <AnimationOnScroll animateIn='animate__fadeInRight' animateOnce='true'>
-        <Card className='about_card_reverse'>
-          <Card.Body className='bg-Accent about_card_body_reverse'>
+        <Card className='about_card'>
+          <Card.Body className='bg-Accent about_card_body'>
             <Card.Title className='card_title'>
               <h1 className='titles'>Snacks</h1>
             </Card.Title>
-            <p className='card_text_reverse text-AccentText font-Multi'>
+            <p className='card_text text-AccentText font-Multi'>
               Huge variety of snacks from Gummies to Kickin' Munchy Mix.
             </p>
           </Card.Body>
