@@ -13,15 +13,15 @@ const AboutScreen = () => {
       <Fade up>
         <div>
           <Container>
-            <Card>
+            <Card className='w-75 mx-auto'>
               <Row xs={1} md={1} lg={2} className='text-AccentText'>
-                <Col>
+                {/* <Col>
                   <Image
                     position='top'
                     alt='Lauryn Claxton LNC Treats'
                     src={Profile}
                   />
-                </Col>
+                </Col> */}
                 <Col className='about_text'>
                   {' '}
                   <p className='about_p'>
@@ -30,7 +30,7 @@ const AboutScreen = () => {
                     filled home in Midland, TX. She is a mother, a wife, and a
                     boss. Not only does she manage her business here, but she
                     has an amazing family learning from her. &nbsp;
-                    <MDBIcon fas icon='quote-right' /> - Josh
+                    <MDBIcon fas icon='quote-right' /> - Josh ♥
                   </p>
                   <p className='about_p'>
                     From small personal treat boxes to meetings and large group
@@ -41,7 +41,7 @@ const AboutScreen = () => {
                     multiple tiers and anything else you might want on a cake!
                     Personalized toppers can easily be added as well.
                   </p>
-                  <p className='about_p'>Local delivery for $3.50</p>
+                  <p className='about_p'>Local delivery for $5.00</p>
                 </Col>
               </Row>
             </Card>
