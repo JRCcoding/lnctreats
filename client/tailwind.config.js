@@ -12,7 +12,7 @@ module.exports = {
     },
     colors: {
       Logo: '#B849D8',
-      Navbar: '#593C60',
+      Navbar: '#ff8cc5',
       Navtitle: '#F4F2F2',
       AccentText: '#1b161f',
       LightBG: '#ebeeef',
