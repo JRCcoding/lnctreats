@@ -44,7 +44,7 @@ const PlaceOrderScreen = ({ history }) => {
 
   cart.shippingAddress.pickup === 'true'
     ? (cart.shippingPrice = addDecimals(0))
-    : (cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 3.5))
+    : (cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 5))
 
   cart.taxPrice = addDecimals(Number((0.0825 * cart.itemsPrice).toFixed(2)))
   cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice))
