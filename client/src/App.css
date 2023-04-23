@@ -3,13 +3,8 @@ html, body {
 }
 
 .background_pattern {
-  background-image: url(./Images/todd_bg.jpg);
-}
-@media only screen and (max-width: 600px) {
-  .background_pattern {
-    background-image: url(./Images/todd_bg.jpg);
-
-  }
+  background-image: url(./Images/todd_bg_update.jpg);
+  background-size: 100%;
 }
 /* .background_pattern {
   background-image: url(./Images/webp/lncbgpattern.webp), linear-gradient(to bottom,rgb(153,115,170), rgb(250, 200, 234) 30%,rgb(250, 200, 234), rgb(255, 241, 252) 99.9%);
