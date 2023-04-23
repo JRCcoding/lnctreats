@@ -1,4 +1,5 @@
-import Logo from '../Images/webp/logo_transparent.webp'
+// import Logo from '../Images/webp/logo_transparent.webp'
+import Logo from '../Images/todd_logo.png'
 import '../index.css'
 import '../App.css'
 import React, { useState } from 'react'
@@ -30,9 +31,10 @@ export default function App() {
 
   return (
     <Navbar
-      className='bg-Navbar text-white font-Lato fixed top'
+      className='bg-Navbar text-white font-Lato'
       expand='xl'
       collapseOnSelect
+      fixed='top'
     >
       <Container>
         <LinkContainer to='/'>
@@ -43,6 +45,7 @@ export default function App() {
               width='60'
               height='60'
               className='logo align-top'
+              style={{ borderRadius: '50%', marginRight: '5%' }}
             />{' '}
             <h6 className='d-inline navtitle font-Pacifico text-Navtitle'>
               Lauryn's Next-door Cottage
@@ -54,11 +57,10 @@ export default function App() {
           aria-expanded='false'
           aria-label='Toggle navigation'
           onClick={() => setShowBasic(!showBasic)}
-          className='toggler ms-5'
+          className='ms-5'
         >
-          <MDBIcon className='burger' fas icon='birthday-cake' />{' '}
-          {/* Cool unicode icon instead of mdbicon birthday-cake */}
-          {/* &#127874; */}
+          {/* <MDBIcon className='burger' fas icon='birthday-cake' />{' '} */}
+          🧁
         </Navbar.Toggle>
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
