@@ -4,7 +4,7 @@ import Meta from '../Components/Meta'
 import { Row, Col, Container } from 'react-bootstrap'
 import { MDBIcon } from 'mdb-react-ui-kit'
 import { Card, Image } from 'react-bootstrap'
-import Profile from '../Images/webp/maybeprofile.webp'
+import Logo from '../Images/todd_logo.png'
 
 const AboutScreen = () => {
   return (
@@ -15,13 +15,14 @@ const AboutScreen = () => {
           <Container>
             <Card className='w-75 mx-auto'>
               <Row xs={1} md={1} lg={2} className='text-AccentText'>
-                {/* <Col>
+                <Col>
                   <Image
                     position='top'
                     alt='Lauryn Claxton LNC Treats'
-                    src={Profile}
+                    src={Logo}
+                    style={{ borderRadius: '50%' }}
                   />
-                </Col> */}
+                </Col>
                 <Col className='about_text'>
                   {' '}
                   <p className='about_p'>
