@@ -8,7 +8,7 @@
 
 
 .navtitle{ 
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin: 4%;
   text-shadow: 3px 3px 5px  rgba(10, 0, 10, .7);
   transition: all 1s;
@@ -48,9 +48,6 @@
   .navlink {
     font-size: 1.2rem;
   }
-  .navtitle{
-    font-size: 2.0rem;
-  }
 }
 
 @media only screen and (max-width: 780px) {
@@ -59,8 +56,7 @@
     margin-right: 0;
 }
 .navtitle {
-    font-size: 1.46rem;
-    margin: 7% -10% 7% 0%;
+  font-size: 1.4rem;
 }
 .toggler {
   margin: 0;
