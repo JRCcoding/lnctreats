@@ -2,7 +2,7 @@
 import Logo from '../Images/todd_logo.png'
 import '../index.css'
 import '../App.css'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import '../Styles/Navi.css'
@@ -43,7 +43,13 @@ export default function Navi() {
   const logoutHandler = () => {
     dispatch(logout())
   }
-
+  const navMenu = useRef()
+  const closeOpenMenus = (e) => {
+    if (navMenu.current && setExpanded && !navMenu.current.contains(e.target)) {
+      setExpanded(false)
+    }
+  }
+  document.addEventListener('mousedown', closeOpenMenus)
   return (
     <Navbar
       className='bg-Navbar text-white font-Lato'
@@ -51,6 +57,7 @@ export default function Navi() {
       expanded={expanded}
       collapseOnSelect
       fixed='top'
+      ref={navMenu}
     >
       <Container>
         <LinkContainer to='/'>
