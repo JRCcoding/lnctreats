@@ -35,6 +35,7 @@ const RegisterScreen = ({ location, history }) => {
       dispatch(register(name, email, password, number))
     }
   }
+  window.scrollTo(0, 0)
 
   return (
     <div className='background_pattern'>

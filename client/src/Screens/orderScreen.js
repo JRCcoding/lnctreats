@@ -111,6 +111,7 @@ const OrderScreen = ({ match, history }) => {
       }
     }
   }, [dispatch, orderId, successPay, order, userInfo, history])
+  window.scrollTo(0, 0)
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult)

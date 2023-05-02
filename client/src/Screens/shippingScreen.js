@@ -26,6 +26,7 @@ const ShippingScreen = ({ history }) => {
     )
     history.push('/payment')
   }
+  window.scrollTo(0, 0)
 
   return (
     <div className='background_pattern'>

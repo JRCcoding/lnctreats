@@ -40,6 +40,7 @@ const OrderListScreen = ({ history }) => {
   // useEffect(() => {
   //   dispatch(listRequests())
   // }, [dispatch])
+  window.scrollTo(0, 0)
 
   return (
     <div className='background_pattern'>

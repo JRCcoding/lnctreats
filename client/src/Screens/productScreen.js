@@ -47,6 +47,7 @@ const ProductScreen = ({ history }) => {
   const addToCartHandler = () => {
     history.push(`/cart/${id}?qty=${qty}&date=${date}&additional=${additional}`)
   }
+  window.scrollTo(0, 0)
 
   return (
     <div className='background_pattern'>
