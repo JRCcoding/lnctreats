@@ -19,6 +19,7 @@ import Navi from './Components/Navi'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Footer from './Components/Footer'
 import RequestScreen from './Screens/requestScreen'
+import SendScreen from './Screens/sendScreen'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path='/product/:id' component={ProductScreen} />
         <Route path='/about' component={AboutScreen} />
         <Route path='/contact' component={ContactScreen} />
+        <Route path='/send' component={SendScreen} />
         <Footer />
       </Router>
     </>

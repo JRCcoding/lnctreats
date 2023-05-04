@@ -1,135 +1,96 @@
-import React, { useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
-import { Form, Button, Card, FloatingLabel } from 'react-bootstrap'
-
+import React, { useState } from 'react'
+import axios from 'axios'
 export const Contact = () => {
-  const [isSubmitted, setIsSubmitted] = useState()
-  // const form = useRef()
-
-  // const sendEmail = (e) => {
-  //   e.preventDefault()
-
-  //   emailjs
-  //     .sendForm(
-  //       'service_mj24iav',
-  //       'template_sul9k9h',
-  //       form.current,
-  //       'Ts0xnPtn_iKfBC4r0'
-  //     )
-  //     .then(
-  //       (result) => {
-  //         console.log(result.text)
-  //       },
-  //       (error) => {
-  //         console.log(error.text)
-  //       }
-  //     )
-  //   setIsSubmitted(true)
-  // }
-
+  const [formState, setFormState] = useState({
+    name: '',
+    number: '',
+    email: '',
+    message: '',
+  })
+  function handleStateChange(e) {
+    setFormState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+  const submitEmail = async (e) => {
+    e.preventDefault()
+    console.log({ formState })
+    const response = await fetch('http://localhost:3000/send', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: formState,
+    })
+      .then((res) => res.json())
+      .then(async (res) => {
+        const resData = await res
+        console.log(resData)
+        if (resData.status === 'success') {
+          alert('Message Sent')
+        } else if (resData.status === 'fail') {
+          alert('Message failed to send')
+        }
+      })
+      .then(() => {
+        setFormState({
+          email: '',
+          name: '',
+          number: '',
+          message: '',
+        })
+      })
+  }
   return (
     <div className='contact_container'>
-      <Card className='contact_card'>
-        <Card.Header className='text-center'>
-          <h1>Contact Lauryn!</h1>
-        </Card.Header>
-        {!isSubmitted ? (
-          // <Card.Body className='contact_form'>
-          //   <Form ref={form} onSubmit={sendEmail}>
-          //     <FloatingLabel label='Name:'>
-          //       <Form.Control
-          //         type='text'
-          //         name='user_name'
-          //         placeholder='Name:'
-          //       />
-          //     </FloatingLabel>
-
-          //     <br />
-          //     <FloatingLabel label='Email:'>
-          //       <Form.Control
-          //         type='email'
-          //         name='user_email'
-          //         placeholder='Email:'
-          //       />
-          //     </FloatingLabel>
-
-          //     <br />
-          //     <FloatingLabel label='Message:'>
-          //       <Form.Control
-          //         type='textarea'
-          //         name='message'
-          //         placeholder='Message, inqueries, etc...:'
-          //       />
-          //     </FloatingLabel>
-          //     <br />
-          //     <div className='submit_div'>
-          //       <Button type='submit'>Send</Button>
-          //     </div>
-          //   </Form>
-          // </Card.Body>
-          <form
-            action='https://postmail.invotes.com/send'
-            method='post'
-            id='email_form'
+      <div className='App'>
+        <form
+          style={{
+            display: 'flex',
+            height: '100vh',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          onSubmit={submitEmail}
+        >
+          <fieldset
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              width: '50%',
+            }}
           >
-            <input type='text' name='subject' placeholder='Subject' />
-            <textarea name='text' placeholder='Message'></textarea>
             <input
-              type='hidden'
-              name='access_token'
-              value='w460zlqvpe0ejr7mx4jy5540'
-            />
-            {/* <!-- return urls can be fully qualified -OR-
-         start with / for root relative -OR-
-         start with . for url relative -->  */}
-            <input
-              type='hidden'
-              name='success_url'
-              value='.?message=Email+Successfully+Sent%21&isError=0'
+              placeholder='Name'
+              onChange={handleStateChange}
+              name='name'
+              value={formState.name}
             />
             <input
-              type='hidden'
-              name='error_url'
-              value='.?message=Email+could+not+be+sent.&isError=1'
+              placeholder='Number'
+              onChange={handleStateChange}
+              name='number'
+              value={formState.number}
             />
-
-            {/* <!-- set the reply-to address --> */}
-            {/* <!-- <input type="text" name="reply_to"
-                placeholder="Your Email" /> -->
-
-    <!-- to append extra fields, use the extra_ prefix.
-        Entries will be appended to your message body. -->
-    <!-- <input type="text" name="extra_phone_number"
-                placeholder="Phone Number" /> -->
-
-    <!-- to split your message into 160 chars
-         for an sms gateway -->
-    <!-- <input type="hidden"
-                name="sms_format" value="true" /> --> */}
-
-            <input id='submit_form' type='submit' value='Send' />
-            {/* <!-- not required, but we'd appreciate it if you'd link to us somewhere on your site --> */}
-            <p>
-              Powered by{' '}
-              <a
-                href='https://postmail.invotes.com'
-                target='_blank'
-                rel='noreferrer'
-              >
-                PostMail
-              </a>
-            </p>
-          </form>
-        ) : (
-          <>
-            <h3>Thank You!</h3>
-            <p>
-              I will get back to you as soon as possible, thank you so much for
-              contacting me!
-            </p>
-          </>
-        )}
-      </Card>
+            <input
+              placeholder='Email'
+              onChange={handleStateChange}
+              name='email'
+              value={formState.email}
+            />
+            <textarea
+              style={{ minHeight: '200px' }}
+              placeholder='Message'
+              onChange={handleStateChange}
+              name='message'
+              value={formState.message}
+            />
+            <button type='submit'>Send Message</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
   )
 }
