@@ -2,7 +2,7 @@
 import Logo from '../Images/todd_logo.png'
 import '../index.css'
 import '../App.css'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import '../Styles/Navi.css'
@@ -20,7 +20,40 @@ import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap'
 import { logout } from '../Actions/userActions'
 
 export default function Navi() {
-  const { user, isAuthenticated, loginWithRedirect } = useAuth0()
+  const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently } =
+    useAuth0()
+
+  const [userMetadata, setUserMetadata] = useState(null)
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = 'dev-dstps3q4l34f7d23.us.auth0.com'
+
+      try {
+        const accessToken = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: `https://${domain}/api/v2/`,
+            scope: 'read:current_user',
+          },
+        })
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+
+        const { user_metadata } = await metadataResponse.json()
+
+        setUserMetadata(user_metadata)
+      } catch (e) {
+        console.log(e.message)
+      }
+    }
+
+    getUserMetadata()
+  }, [getAccessTokenSilently, user?.sub])
 
   const logoutButton = ({ location }) => {
     logout({
@@ -35,14 +68,7 @@ export default function Navi() {
     setShowBasic(!showBasic)
     setExpanded(expanded ? false : 'expanded')
   }
-  const dispatch = useDispatch()
 
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
-
-  const logoutHandler = () => {
-    dispatch(logout())
-  }
   const navMenu = useRef()
   const closeOpenMenus = (e) => {
     if (navMenu.current && setExpanded && !navMenu.current.contains(e.target)) {
@@ -61,7 +87,7 @@ export default function Navi() {
     >
       <Container>
         <LinkContainer to='/'>
-          <Navbar.Brand>
+          <Navbar.Brand onClick={() => setExpanded(false)}>
             <img
               alt=''
               src={Logo}
@@ -75,17 +101,17 @@ export default function Navi() {
             </h6>
           </Navbar.Brand>
         </LinkContainer>
-        <Navbar.Toggle
+        <div
           aria-controls='navbarSupportedContent'
           aria-expanded='false'
           aria-label='Toggle navigation'
           onClick={toggleButton}
-          // onClick={() => setExpanded(expanded ? false : "expanded")}
-          className='ms-5'
+          className='ms-5 clickable'
+          style={{ scale: '2' }}
         >
           {/* <MDBIcon className='burger' fas icon='birthday-cake' />{' '} */}
           🧁
-        </Navbar.Toggle>
+        </div>
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
             {isAuthenticated ? (
@@ -103,22 +129,25 @@ export default function Navi() {
                 <MDBDropdownMenu>
                   {isAuthenticated && (
                     <>
-                      <LinkContainer
-                        to='/admin/orderlist'
-                        onClick={() =>
-                          setExpanded(expanded ? false : 'expanded')
-                        }
-                      >
-                        <MDBDropdownItem
-                          className='font-thin mx-3 clickable'
-                          style={{ width: '150px' }}
+                      {userMetadata && (
+                        <LinkContainer
+                          to='/admin/orderlist'
                           onClick={() =>
                             setExpanded(expanded ? false : 'expanded')
                           }
                         >
-                          Orders
-                        </MDBDropdownItem>
-                      </LinkContainer>
+                          <MDBDropdownItem
+                            className='font-thin mx-3 clickable'
+                            style={{ width: '150px' }}
+                            onClick={() =>
+                              setExpanded(expanded ? false : 'expanded')
+                            }
+                          >
+                            Orders
+                          </MDBDropdownItem>
+                        </LinkContainer>
+                      )}
+
                       <LinkContainer to='/profile'>
                         <MDBDropdownItem
                           className='font-thin mx-3 clickable'

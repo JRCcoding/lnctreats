@@ -7,23 +7,63 @@ import Loader from '../Components/Loader'
 import { listOrders } from '../Actions/orderActions'
 import { listRequests } from '../Actions/requestActions'
 import axios from 'axios'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const OrderListScreen = ({ history }) => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  const orderList = useSelector((state) => state.orderList)
-  const { loading, error, orders } = orderList
+  // const orderList = useSelector((state) => state.orderList)
+  // const { loading, error, orders } = orderList
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   const [requests, setRequests] = useState()
+  const [orders, setOrders] = useState()
+  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
+    useAuth0()
+  const [userMetadata, setUserMetadata] = useState(null)
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = 'dev-dstps3q4l34f7d23.us.auth0.com'
 
+      try {
+        const accessToken = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: `https://${domain}/api/v2/`,
+            scope: 'read:current_user',
+          },
+        })
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+
+        const { user_metadata } = await metadataResponse.json()
+
+        setUserMetadata(user_metadata)
+      } catch (e) {
+        console.log(e.message)
+      }
+    }
+
+    getUserMetadata()
+  }, [getAccessTokenSilently, user?.sub])
   // useEffect(() => {
 
   // })
 
   useEffect(() => {
+    const fetchOrders = async () => {
+      const { data } = await axios.get('/api/orders')
+
+      setOrders(data)
+    }
+    fetchOrders()
     const fetchRequests = async () => {
       const { data } = await axios.get('/api/requests')
 
@@ -31,26 +71,23 @@ const OrderListScreen = ({ history }) => {
     }
     fetchRequests()
 
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listOrders())
-    } else {
-      history.push('/login')
-    }
-  }, [dispatch, history, userInfo])
+    // if (userMetadata && userMetadata.admin === true) {
+    //   dispatch(listOrders())
+    // } else {
+    //   history.push('/login')
+    // }
+  }, [])
   // useEffect(() => {
   //   dispatch(listRequests())
   // }, [dispatch])
 
   return (
     <div className='background_pattern'>
-      <Container className='py-5'>
-        <Card className='mb-5'>
-          <h1>Orders</h1>
-          {loading ? (
-            <Loader />
-          ) : error ? (
-            <Message variant='danger'>{error}</Message>
-          ) : (
+      {userMetadata && userMetadata.admin === true && (
+        <Container className='py-5'>
+          <Card className='mb-5'>
+            <h1>Orders</h1>
+
             <Table striped bordered hover responsive className='table-sm'>
               <thead>
                 <tr>
@@ -101,15 +138,9 @@ const OrderListScreen = ({ history }) => {
                 ))}
               </tbody>
             </Table>
-          )}
-        </Card>
-        <Card>
-          <h1>Requests</h1>
-          {loading ? (
-            <Loader />
-          ) : error ? (
-            <Message variant='danger'>{error}</Message>
-          ) : (
+          </Card>
+          <Card>
+            <h1>Requests</h1>
             <Table striped bordered hover responsive className='table-sm'>
               <thead>
                 <tr>
@@ -140,9 +171,9 @@ const OrderListScreen = ({ history }) => {
                   ))}
               </tbody>
             </Table>
-          )}
-        </Card>
-      </Container>
+          </Card>
+        </Container>
+      )}
     </div>
   )
 }

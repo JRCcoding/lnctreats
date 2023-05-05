@@ -194,13 +194,44 @@
 // }
 
 // export default withRouter(ProfileScreen)
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Card, Container } from 'react-bootstrap'
 
 const ProfileScreen = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0()
+  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
+    useAuth0()
+  const [userMetadata, setUserMetadata] = useState(null)
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = 'dev-dstps3q4l34f7d23.us.auth0.com'
 
+      try {
+        const accessToken = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: `https://${domain}/api/v2/`,
+            scope: 'read:current_user',
+          },
+        })
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+
+        const { user_metadata } = await metadataResponse.json()
+
+        setUserMetadata(user_metadata)
+      } catch (e) {
+        console.log(e.message)
+      }
+    }
+
+    getUserMetadata()
+  }, [getAccessTokenSilently, user?.sub])
   if (isLoading) {
     return <div>Loading ...</div>
   }
@@ -210,10 +241,15 @@ const ProfileScreen = () => {
       <div className='background_pattern'>
         <Container>
           <Card>
-            <img src={user.picture} alt={user.name} />
+            <img
+              src={user.picture}
+              alt={user.name}
+              style={{ height: '50px', width: '50px' }}
+            />
             <h2>{user.name}</h2>
-            <p>{user.email}</p>
-          </Card>{' '}
+            <p>{user.email !== user.name && user.email}</p>
+            {userMetadata && <h4>🚨ADMIN🚨</h4>}
+          </Card>
         </Container>
       </div>
     )
