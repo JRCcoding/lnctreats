@@ -9,7 +9,6 @@ import '../Styles/Navi.css'
 
 import {
   MDBDropdown,
-  MDBIcon,
   MDBNavbarItem,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -81,15 +80,30 @@ export default function App() {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
             {userInfo ? (
-              <MDBDropdown
-                id='username'
-                className='navlink user_nav'
-                onClick={() => setExpanded(expanded ? false : 'expanded')}
-              >
+              <MDBDropdown id='username' className='navlink user_nav'>
                 <MDBDropdownToggle className='btn-light'>
                   {userInfo.name}
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
+                  {userInfo && userInfo.isAdmin && (
+                    // <NavDropdown title='Admin' id='adminmenu' className='navlink'>
+                    //   <LinkContainer to='/admin/userlist'>
+                    //     <MDBDropdownItem>Users</MDBDropdownItem>
+                    //   </LinkContainer>
+                    //   <LinkContainer to='/admin/productlist'>
+                    //     <MDBDropdownItem>Products</MDBDropdownItem>
+                    //   </LinkContainer>
+                    <LinkContainer
+                      to='/admin/orderlist'
+                      onClick={() => setExpanded(expanded ? false : 'expanded')}
+                    >
+                      <MDBDropdownItem className='font-thin mx-3'>
+                        Orders
+                      </MDBDropdownItem>
+                    </LinkContainer>
+
+                    // </NavDropdown>
+                  )}
                   <LinkContainer
                     to='/profile'
                     onClick={() => setExpanded(expanded ? false : 'expanded')}
@@ -116,25 +130,7 @@ export default function App() {
                 </MDBNavbarItem>
               </LinkContainer>
             )}
-            {userInfo && userInfo.isAdmin && (
-              // <NavDropdown title='Admin' id='adminmenu' className='navlink'>
-              //   <LinkContainer to='/admin/userlist'>
-              //     <MDBDropdownItem>Users</MDBDropdownItem>
-              //   </LinkContainer>
-              //   <LinkContainer to='/admin/productlist'>
-              //     <MDBDropdownItem>Products</MDBDropdownItem>
-              //   </LinkContainer>
-              <LinkContainer
-                to='/admin/orderlist'
-                onClick={() => setExpanded(expanded ? false : 'expanded')}
-              >
-                <MDBNavbarItem className='navlink' style={{ width: '150px' }}>
-                  Orders/Requests
-                </MDBNavbarItem>
-              </LinkContainer>
 
-              // </NavDropdown>
-            )}
             <LinkContainer
               to='/cart'
               onClick={() => setExpanded(expanded ? false : 'expanded')}
