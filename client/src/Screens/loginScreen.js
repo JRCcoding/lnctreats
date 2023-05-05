@@ -28,6 +28,7 @@ const LoginScreen = ({ location, history }) => {
     e.preventDefault()
     dispatch(login(email, password))
   }
+  window.scrollTo(0, 0)
 
   return (
     <div className='background_pattern'>

@@ -1,22 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-import {
-  Button,
-  ButtonGroup,
-  Card,
-  Col,
-  FloatingLabel,
-  Form,
-  ListGroup,
-  Row,
-} from 'react-bootstrap'
+import { Card, FloatingLabel, Form, ListGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { addRequestInfo, createRequest } from '../Actions/requestActions'
+import { createRequest } from '../Actions/requestActions'
 import { withRouter } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import emailjs from '@emailjs/browser'
-import axios from 'axios'
-import kamrynDino from '../Images/kamryndinocake.jpg'
 
 const CakeOrderScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin)
@@ -89,9 +78,7 @@ const CakeOrderScreen = ({ history }) => {
   const handleCheckBox = () => {
     setEdibleImage(!edibleImage)
   }
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  window.scrollTo(0, 0)
   return (
     <div className='background_pattern'>
       <Container>
@@ -128,7 +115,7 @@ const CakeOrderScreen = ({ history }) => {
                       ------Circle/Square------
                     </option>
 
-                    <option value='9 / Circle'>9 Inch Cake ($50)</option>
+                    <option value='10 / Circle'>10 Inch Cake ($50)</option>
                     <option value='8 / Circle'>8 Inch Cake ($40)</option>
                     <option value='6 / Circle'>6 Inch Cake ($30)</option>
                     <option value='4 / Circle'>4 Inch Cake ($20)</option>
@@ -171,6 +158,8 @@ const CakeOrderScreen = ({ history }) => {
                     <option value='Pineapple'>Pineapple</option>
                     <option value='Lemon'>Lemon</option>
                     <option value='Red Velvet'>Red Velvet</option>
+                    <option value='Spice Cake'>Spice Cake</option>
+                    <option value='Butterscotch'>Butterscotch</option>
                     <option value='other'>Other (describe below!)</option>
                   </Form.Control>
                 </ListGroup>

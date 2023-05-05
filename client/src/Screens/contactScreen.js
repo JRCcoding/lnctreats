@@ -13,6 +13,8 @@ import Meta from '../Components/Meta'
 // import GoogleMaps from '../Components/GoogleMaps'
 
 const contactScreen = () => {
+  window.scrollTo(0, 0)
+
   return (
     <div className='background_pattern'>
       <Meta title='Contact LNC Treats' />

@@ -27,6 +27,8 @@ const CakeSubmitScreen = ({ location }) => {
       dispatch(createRequest(requestInfo))
     }
   }, [dispatch, requestInfo, itemSize])
+  window.scrollTo(0, 0)
+
   return (
     <Container>
       <h5>
