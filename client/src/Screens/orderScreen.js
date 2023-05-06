@@ -46,8 +46,44 @@ import {
 import { withRouter } from 'react-router-dom'
 import { Fade } from 'react-reveal'
 import Meta from '../Components/Meta'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const OrderScreen = ({ match, history }) => {
+  const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently } =
+    useAuth0()
+
+  const [userMetadata, setUserMetadata] = useState(null)
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = 'dev-dstps3q4l34f7d23.us.auth0.com'
+
+      try {
+        const accessToken = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: `https://${domain}/api/v2/`,
+            scope: 'read:current_user',
+          },
+        })
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+
+        const { user_metadata } = await metadataResponse.json()
+
+        setUserMetadata(user_metadata)
+      } catch (e) {
+        console.log(e.message)
+      }
+    }
+
+    getUserMetadata()
+  }, [getAccessTokenSilently, user?.sub])
+
   const orderId = match.params.id
 
   const [sdkReady, setSdkReady] = useState(false)
@@ -83,10 +119,6 @@ const OrderScreen = ({ match, history }) => {
   }
 
   useEffect(() => {
-    if (!userInfo) {
-      history.push('/login')
-    }
-
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal')
       const script = document.createElement('script')
@@ -119,11 +151,11 @@ const OrderScreen = ({ match, history }) => {
 
   const deliverHandler = () => {
     dispatch(deliverOrder(order))
-    window.location.reload(false)
+    // window.location.reload(false)
   }
   const paymentHandler = () => {
     dispatch(payOrderAdmin(orderId))
-    window.location.reload(false)
+    // window.location.reload(false)
   }
   const handleDelete = () => {
     dispatch(deleteOrder(order))
@@ -146,7 +178,7 @@ const OrderScreen = ({ match, history }) => {
             <Row>
               <Col md={8}>
                 <ListGroup variant='flush'>
-                  <ListGroup.Item>
+                  {/* <ListGroup.Item>
                     <h2>Shipping</h2>
                     <p>
                       <strong>Name: </strong> {order.user.name}
@@ -170,7 +202,6 @@ const OrderScreen = ({ match, history }) => {
                       {order.shippingAddress.address}
                       <br /> {order.shippingAddress.city}{' '}
                       {order.shippingAddress.postalCode}{' '}
-                      {/* {order.shippingAddress.country} */}
                     </p>
                     {order.isDelivered ? (
                       <Message variant='success'>
@@ -179,7 +210,7 @@ const OrderScreen = ({ match, history }) => {
                     ) : (
                       <Message variant='danger'>Not Delivered</Message>
                     )}
-                  </ListGroup.Item>
+                  </ListGroup.Item> */}
 
                   <ListGroup.Item>
                     <h2>Payment Method</h2>
@@ -270,7 +301,7 @@ const OrderScreen = ({ match, history }) => {
                       </Row>
                     </ListGroup.Item>
                     {!order.isPaid &&
-                      !userInfo.isAdmin &&
+                      !userMetadata &&
                       order.paymentMethod === 'PayPal' && (
                         <ListGroup.Item>
                           {loadingPay && <Loader />}
@@ -285,7 +316,7 @@ const OrderScreen = ({ match, history }) => {
                         </ListGroup.Item>
                       )}
 
-                    {userInfo && userInfo.isAdmin && !order.isDelivered && (
+                    {userMetadata && order.isDelivered === 'false' && (
                       <ListGroup.Item>
                         <Button
                           type='button'
@@ -296,7 +327,7 @@ const OrderScreen = ({ match, history }) => {
                         </Button>
                       </ListGroup.Item>
                     )}
-                    {userInfo && userInfo.isAdmin && !order.isPaid && (
+                    {userMetadata && !order.isPaid && (
                       <ListGroup.Item>
                         <Button
                           type='button'
@@ -307,17 +338,19 @@ const OrderScreen = ({ match, history }) => {
                         </Button>
                       </ListGroup.Item>
                     )}
-                    <ListGroup.Item>
-                      <Button
-                        type='button'
-                        className='btn btn-block'
-                        onClick={backButton}
-                      >
-                        Back
-                      </Button>
-                    </ListGroup.Item>
+                    {userMetadata && (
+                      <ListGroup.Item>
+                        <Button
+                          type='button'
+                          className='btn btn-block'
+                          onClick={backButton}
+                        >
+                          Back
+                        </Button>
+                      </ListGroup.Item>
+                    )}
                   </ListGroup>
-                  {userInfo && userInfo.isAdmin && (
+                  {userMetadata && (
                     <ListGroup.Item>
                       <Button
                         type='button'

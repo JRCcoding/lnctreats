@@ -55,7 +55,7 @@ export default function Navi() {
     getUserMetadata()
   }, [getAccessTokenSilently, user?.sub])
 
-  const logoutButton = ({ location }) => {
+  const logoutButton = () => {
     logout({
       logoutParams: { returnTo: window.location.origin },
     })
