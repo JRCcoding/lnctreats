@@ -20,8 +20,43 @@ import { USER_DETAILS_RESET } from '../Constants/userConstants'
 import { withRouter } from 'react-router-dom'
 import Meta from '../Components/Meta'
 import emailjs from '@emailjs/browser'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const PlaceOrderScreen = ({ history }) => {
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
+
+  const [userMetadata, setUserMetadata] = useState(null)
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = 'dev-dstps3q4l34f7d23.us.auth0.com'
+
+      try {
+        const accessToken = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: `https://${domain}/api/v2/`,
+            scope: 'read:current_user',
+          },
+        })
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+
+        const { user_metadata } = await metadataResponse.json()
+
+        setUserMetadata(user_metadata)
+      } catch (e) {
+        console.log(e.message)
+      }
+    }
+
+    getUserMetadata()
+  }, [getAccessTokenSilently, user?.sub])
+
   const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
@@ -86,6 +121,7 @@ const PlaceOrderScreen = ({ history }) => {
     // emailjsSend()
     dispatch(
       createOrder({
+        userId: user.sub,
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
@@ -115,6 +151,9 @@ const PlaceOrderScreen = ({ history }) => {
                       </h2>
                       <h2>Address</h2>
                       <p>
+                        {cart.shippingAddress.name}
+                        <br /> {cart.shippingAddress.number}
+                        <br />
                         {cart.shippingAddress.address},{' '}
                         {cart.shippingAddress.city}{' '}
                         {cart.shippingAddress.postalCode},{' '}

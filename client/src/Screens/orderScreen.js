@@ -211,6 +211,11 @@ const OrderScreen = ({ match, history }) => {
                       <Message variant='danger'>Not Delivered</Message>
                     )}
                   </ListGroup.Item> */}
+                  <ListGroup.Item>
+                    <h2>Contact Information</h2>
+                    <p>{order.shippingAddress.name}</p>
+                    <p>{order.shippingAddress.number}</p>
+                  </ListGroup.Item>
 
                   <ListGroup.Item>
                     <h2>Payment Method</h2>
