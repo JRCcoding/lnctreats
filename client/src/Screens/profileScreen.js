@@ -196,9 +196,20 @@
 // export default withRouter(ProfileScreen)
 import React, { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Card, Container } from 'react-bootstrap'
+import { Button, Card, Container, Table } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import axios from 'axios'
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ history }) => {
+  const [orders, setOrders] = useState()
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const { data } = await axios.get('/api/orders')
+
+      setOrders(data)
+    }
+    fetchOrders()
+  }, [])
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
     useAuth0()
   const [userMetadata, setUserMetadata] = useState(null)
@@ -232,6 +243,10 @@ const ProfileScreen = () => {
 
     getUserMetadata()
   }, [getAccessTokenSilently, user?.sub])
+
+  useEffect(() => {
+    if (!isAuthenticated) history.push('/')
+  })
   if (isLoading) {
     return <div>Loading ...</div>
   }
@@ -246,9 +261,72 @@ const ProfileScreen = () => {
               alt={user.name}
               style={{ height: '50px', width: '50px' }}
             />
-            <h2>{user.name}</h2>
+            <h4>Username: </h4>
+            <span>{user.name}</span>
+            <br />
+            <hr />
+            <br />
+
             <p>{user.email !== user.name && user.email}</p>
             {userMetadata && <h4>🚨ADMIN🚨</h4>}
+            {!userMetadata && (
+              <>
+                <h2>My Orders</h2>
+                <Table striped bordered hover responsive className='table-sm'>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>DATE</th>
+                      <th>TOTAL</th>
+                      <th>PAID</th>
+                      <th>DELIVERED</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {orders &&
+                      orders.map((order) => (
+                        <tr key={order._id}>
+                          {order.userId === user.sub && (
+                            <>
+                              <td>{order._id}</td>
+                              <td>{order.createdAt.substring(0, 10)}</td>
+                              <td>${order.totalPrice}</td>
+                              <td>
+                                {order.isPaid ? (
+                                  order.paidAt.substring(0, 10)
+                                ) : (
+                                  <i
+                                    className='fas fa-times'
+                                    style={{ color: 'red' }}
+                                  ></i>
+                                )}
+                              </td>
+                              <td>
+                                {order.isDelivered ? (
+                                  order.deliveredAt.substring(0, 10)
+                                ) : (
+                                  <i
+                                    className='fas fa-times'
+                                    style={{ color: 'red' }}
+                                  ></i>
+                                )}
+                              </td>
+                              <td>
+                                <LinkContainer to={`/order/${order._id}`}>
+                                  <Button className='btn-sm' variant='light'>
+                                    Details
+                                  </Button>
+                                </LinkContainer>
+                              </td>
+                            </>
+                          )}
+                        </tr>
+                      ))}
+                  </tbody>
+                </Table>
+              </>
+            )}
           </Card>
         </Container>
       </div>

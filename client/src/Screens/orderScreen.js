@@ -164,6 +164,9 @@ const OrderScreen = ({ match, history }) => {
   const backButton = () => {
     history.push('/admin/orderlist')
   }
+  useEffect(() => {
+    if (!isAuthenticated) history.push('/')
+  })
   return loading ? (
     <Loader />
   ) : error ? (
@@ -172,13 +175,14 @@ const OrderScreen = ({ match, history }) => {
     <div className='background_pattern'>
       <Meta title='LNC Order' />
       <Fade up>
-        <Container>
-          <Card>
-            <h1>Order {order._id.substring(19, 24)}</h1>
-            <Row>
-              <Col md={8}>
-                <ListGroup variant='flush'>
-                  {/* <ListGroup.Item>
+        {user.sub === order.userId || userMetadata ? (
+          <Container>
+            <Card>
+              <h1>Order {order._id.substring(19, 24)}</h1>
+              <Row>
+                <Col md={8}>
+                  <ListGroup variant='flush'>
+                    {/* <ListGroup.Item>
                     <h2>Shipping</h2>
                     <p>
                       <strong>Name: </strong> {order.user.name}
@@ -211,167 +215,170 @@ const OrderScreen = ({ match, history }) => {
                       <Message variant='danger'>Not Delivered</Message>
                     )}
                   </ListGroup.Item> */}
-                  <ListGroup.Item>
-                    <h2>Contact Information</h2>
-                    <p>{order.shippingAddress.name}</p>
-                    <p>{order.shippingAddress.number}</p>
-                  </ListGroup.Item>
-
-                  <ListGroup.Item>
-                    <h2>Payment Method</h2>
-                    <p>
-                      <strong>Method: </strong>
-                      {order.paymentMethod}
-                    </p>
-                    {order.isPaid ? (
-                      <Message variant='success'>
-                        Paid on {order.paidAt}
-                      </Message>
-                    ) : (
-                      <Message variant='danger'>Not Paid</Message>
-                    )}
-                  </ListGroup.Item>
-
-                  <ListGroup.Item>
-                    <h2>Order Items</h2>
-                    {order.orderItems.length === 0 ? (
-                      <Message>Order is empty</Message>
-                    ) : (
-                      <ListGroup variant='flush'>
-                        {order.orderItems.map((item, index) => (
-                          <ListGroup.Item key={index}>
-                            <Row>
-                              <Col md={2}>
-                                <Image
-                                  src={item.image}
-                                  alt={item.name}
-                                  fluid
-                                  rounded
-                                />
-                              </Col>
-                              <Col>
-                                <Link to={`/product/${item.product}`}>
-                                  {item.name}
-                                </Link>
-                              </Col>
-
-                              <Col md={4} style={{ textAlign: 'right' }}>
-                                {item.qty} x ${item.price}= $
-                                {item.qty * item.price}
-                              </Col>
-                            </Row>
-                            <Row>
-                              <Col md={4}></Col>
-                              <Col>{item.date}</Col>
-                              <Col>
-                                {item.additional !== 'undefined' &&
-                                  item.additional}
-                              </Col>
-                            </Row>
-                          </ListGroup.Item>
-                        ))}
-                      </ListGroup>
-                    )}
-                  </ListGroup.Item>
-                </ListGroup>
-              </Col>
-              <Col md={4}>
-                <Card>
-                  <ListGroup variant='flush'>
                     <ListGroup.Item>
-                      <h2>Order Summary</h2>
+                      <h2>Contact Information</h2>
+                      <p>{order.shippingAddress.name}</p>
+                      <p>{order.shippingAddress.number}</p>
                     </ListGroup.Item>
+
                     <ListGroup.Item>
-                      <Row>
-                        <Col>Items</Col>
-                        <Col>${order.itemsPrice}</Col>
-                      </Row>
+                      <h2>Payment Method</h2>
+                      <p>
+                        <strong>Method: </strong>
+                        {order.paymentMethod}
+                      </p>
+                      {order.isPaid ? (
+                        <Message variant='success'>
+                          Paid on {order.paidAt}
+                        </Message>
+                      ) : (
+                        <Message variant='danger'>Not Paid</Message>
+                      )}
                     </ListGroup.Item>
+
                     <ListGroup.Item>
-                      <Row>
-                        <Col>Shipping</Col>
-                        <Col>${order.shippingPriceDecimals}</Col>
-                      </Row>
+                      <h2>Order Items</h2>
+                      {order.orderItems.length === 0 ? (
+                        <Message>Order is empty</Message>
+                      ) : (
+                        <ListGroup variant='flush'>
+                          {order.orderItems.map((item, index) => (
+                            <ListGroup.Item key={index}>
+                              <Row>
+                                <Col md={2}>
+                                  <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    fluid
+                                    rounded
+                                  />
+                                </Col>
+                                <Col>
+                                  <Link to={`/product/${item.product}`}>
+                                    {item.name}
+                                  </Link>
+                                </Col>
+
+                                <Col md={4} style={{ textAlign: 'right' }}>
+                                  {item.qty} x ${item.price}= $
+                                  {item.qty * item.price}
+                                </Col>
+                              </Row>
+                              <Row>
+                                <Col md={4}></Col>
+                                <Col>{item.date}</Col>
+                                <Col>
+                                  {item.additional !== 'undefined' &&
+                                    item.additional}
+                                </Col>
+                              </Row>
+                            </ListGroup.Item>
+                          ))}
+                        </ListGroup>
+                      )}
                     </ListGroup.Item>
-                    {/* <ListGroup.Item>
+                  </ListGroup>
+                </Col>
+                <Col md={4}>
+                  <Card>
+                    <ListGroup variant='flush'>
+                      <ListGroup.Item>
+                        <h2>Order Summary</h2>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Items</Col>
+                          <Col>${order.itemsPrice}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Shipping</Col>
+                          <Col>${order.shippingPriceDecimals}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      {/* <ListGroup.Item>
                     <Row>
                       <Col>Tax</Col>
                       <Col>${order.taxPrice}</Col>
                     </Row>
                   </ListGroup.Item> */}
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Total</Col>
-                        <Col>${order.totalPriceDecimals}</Col>
-                      </Row>
-                    </ListGroup.Item>
-                    {!order.isPaid &&
-                      !userMetadata &&
-                      order.paymentMethod === 'PayPal' && (
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Total</Col>
+                          <Col>${order.totalPriceDecimals}</Col>
+                        </Row>
+                      </ListGroup.Item>
+                      {!order.isPaid &&
+                        !userMetadata &&
+                        order.paymentMethod === 'PayPal' && (
+                          <ListGroup.Item>
+                            {loadingPay && <Loader />}
+                            {!sdkReady ? (
+                              <Loader />
+                            ) : (
+                              <PayPalButton
+                                amount={order.totalPrice}
+                                onSuccess={successPaymentHandler}
+                              />
+                            )}
+                          </ListGroup.Item>
+                        )}
+
+                      {userMetadata && order.isDelivered === 'false' && (
                         <ListGroup.Item>
-                          {loadingPay && <Loader />}
-                          {!sdkReady ? (
-                            <Loader />
-                          ) : (
-                            <PayPalButton
-                              amount={order.totalPrice}
-                              onSuccess={successPaymentHandler}
-                            />
-                          )}
+                          <Button
+                            type='button'
+                            className='btn btn-block'
+                            onClick={deliverHandler}
+                          >
+                            Mark As Delivered
+                          </Button>
                         </ListGroup.Item>
                       )}
-
-                    {userMetadata && order.isDelivered === 'false' && (
-                      <ListGroup.Item>
-                        <Button
-                          type='button'
-                          className='btn btn-block'
-                          onClick={deliverHandler}
-                        >
-                          Mark As Delivered
-                        </Button>
-                      </ListGroup.Item>
-                    )}
-                    {userMetadata && !order.isPaid && (
-                      <ListGroup.Item>
-                        <Button
-                          type='button'
-                          className='btn btn-block'
-                          onClick={paymentHandler}
-                        >
-                          Mark As Paid
-                        </Button>
-                      </ListGroup.Item>
-                    )}
+                      {userMetadata && !order.isPaid && (
+                        <ListGroup.Item>
+                          <Button
+                            type='button'
+                            className='btn btn-block'
+                            onClick={paymentHandler}
+                          >
+                            Mark As Paid
+                          </Button>
+                        </ListGroup.Item>
+                      )}
+                      {userMetadata && (
+                        <ListGroup.Item>
+                          <Button
+                            type='button'
+                            className='btn btn-block'
+                            onClick={backButton}
+                          >
+                            Back
+                          </Button>
+                        </ListGroup.Item>
+                      )}
+                    </ListGroup>
                     {userMetadata && (
                       <ListGroup.Item>
                         <Button
                           type='button'
+                          variant='danger'
                           className='btn btn-block'
-                          onClick={backButton}
+                          onClick={handleDelete}
                         >
-                          Back
+                          Delete
                         </Button>
                       </ListGroup.Item>
                     )}
-                  </ListGroup>
-                  {userMetadata && (
-                    <ListGroup.Item>
-                      <Button
-                        type='button'
-                        variant='danger'
-                        className='btn btn-block'
-                        onClick={handleDelete}
-                      >
-                        Delete
-                      </Button>
-                    </ListGroup.Item>
-                  )}
-                </Card>
-              </Col>
-            </Row>
-          </Card>
-        </Container>
+                  </Card>
+                </Col>
+              </Row>
+            </Card>
+          </Container>
+        ) : (
+          <></>
+        )}
       </Fade>
     </div>
   )

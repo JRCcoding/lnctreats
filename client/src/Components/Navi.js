@@ -1,22 +1,19 @@
-// import Logo from '../Images/webp/logo_transparent.webp'
 import Logo from '../Images/todd_logo.png'
 import '../index.css'
 import '../App.css'
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import '../Styles/Navi.css'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import {
   MDBDropdown,
-  MDBIcon,
   MDBNavbarItem,
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
 } from 'mdb-react-ui-kit'
-import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar, Container, NavbarBrand } from 'react-bootstrap'
 import { logout } from '../Actions/userActions'
 
 export default function Navi() {
@@ -101,17 +98,18 @@ export default function Navi() {
             </h6>
           </Navbar.Brand>
         </LinkContainer>
-        <div
+        <NavbarBrand
           aria-controls='navbarSupportedContent'
           aria-expanded='false'
           aria-label='Toggle navigation'
           onClick={toggleButton}
-          className='ms-5 clickable'
-          style={{ scale: '2' }}
+          className='ms-5 clickable toggler'
+          style={{ scale: '1.6', opacity: '100%' }}
         >
           {/* <MDBIcon className='burger' fas icon='birthday-cake' />{' '} */}
           🧁
-        </div>
+        </NavbarBrand>
+
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
             {isAuthenticated ? (
