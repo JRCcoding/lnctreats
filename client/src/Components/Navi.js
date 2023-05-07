@@ -114,21 +114,35 @@ export default function Navi() {
           <Nav className='ml-auto'>
             {isAuthenticated ? (
               <MDBDropdown>
-                <MDBDropdownToggle
-                  className='btn-light float-right'
-                  style={{
-                    height: '40px',
-                    width: '40px',
-                    borderRadius: '50%',
-                  }}
-                >
-                  {/* <img
-                    src={user.picture}
-                    alt={user.name}
-                    className='navlink ms-auto'
-                  /> */}
-                  <MDBIcon fas icon='user' />
-                </MDBDropdownToggle>
+                {user.sub.includes('facebook') ? (
+                  <MDBDropdownToggle
+                    className='btn-light float-right'
+                    style={{
+                      height: '60px',
+                      width: '60px',
+                      borderRadius: '50%',
+                    }}
+                  >
+                    <img
+                      src={user.picture}
+                      alt={user.name}
+                      className='navlink ms-auto'
+                      style={{ scale: '175%' }}
+                    />
+                  </MDBDropdownToggle>
+                ) : (
+                  <MDBDropdownToggle
+                    className='btn-light float-right'
+                    style={{
+                      height: '40px',
+                      width: '40px',
+                      borderRadius: '50%',
+                    }}
+                  >
+                    <MDBIcon fas icon='user' />
+                  </MDBDropdownToggle>
+                )}
+
                 <MDBDropdownMenu>
                   {isAuthenticated && (
                     <>
