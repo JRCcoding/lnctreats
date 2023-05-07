@@ -13,8 +13,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>
     <Auth0Provider
-      domain='dev-dstps3q4l34f7d23.us.auth0.com'
-      clientId='EQF56gG62TNgxBy9obK2mKqtKJknBDgd'
+      domain={process.env.AUTH0DOMAIN}
+      clientId={process.env.AUTH0CLIENTID}
       useRefreshTokens={true}
       authorizationParams={{
         redirect_uri: 'https://lnctreats.com',
