@@ -1,13 +1,10 @@
+import { ObjectID } from 'bson'
 import mongoose from 'mongoose'
 
 const orderSchema = mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'User',
-      number: { type: String, required: false },
-    },
+    userId: { type: String, required: false },
+
     orderItems: [
       {
         name: { type: String, required: true },
@@ -24,6 +21,8 @@ const orderSchema = mongoose.Schema(
       },
     ],
     shippingAddress: {
+      name: { type: String, required: true },
+      number: { type: String, required: true },
       address: { type: String, required: true },
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
