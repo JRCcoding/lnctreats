@@ -20,7 +20,7 @@ root.render(
         redirect_uri: 'https://dev-dstps3q4l34f7d23.us.auth0.com/authorize',
         audience: 'https://dev-dstps3q4l34f7d23.us.auth0.com/api/v2/',
         scope:
-          'openid profile email read:users read:current_user update:current_user_metadata',
+          'openid profile email read:users read:current_user update:current_user_metadata offline_access',
       }}
     >
       <App />
