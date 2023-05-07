@@ -1,56 +1,117 @@
-import React, { useEffect } from 'react'
-import { Container, Carousel, Image } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import Loader from './Loader'
-import Message from '../Components/Message'
-import { listProducts } from '../Actions/productActions'
-import '../Styles/Carousel.css'
-import { LinkContainer } from 'react-router-bootstrap'
+import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit'
+import React from 'react'
+import tiered from '../Images/cakes/16tiered.jpg'
+import thirty from '../Images/cakes/30.jpg'
+import cactus from '../Images/cakes/cactus.jpg'
+import cinco from '../Images/cakes/cinco.jpg'
+import ferrero from '../Images/cakes/ferrero.jpg'
+import floral from '../Images/cakes/floral.jpg'
+import floralpurple from '../Images/cakes/floralpurple.jpg'
+import hulk from '../Images/cakes/hulk.jpg'
+import micky from '../Images/cakes/micky.jpg'
+import numbertwo from '../Images/cakes/number2.jpg'
+import peppa from '../Images/cakes/peppa.jpg'
+import pineappleupsidedown from '../Images/cakes/pineappleupsidedown.jpg'
+import pinkhat from '../Images/cakes/pinkhat.jpg'
+import wednesday from '../Images/cakes/wednesday.jpg'
 
 const CakeCarousel = () => {
-  const dispatch = useDispatch()
-
-  const productList = useSelector((state) => state.productList)
-  const { loading, error, products } = productList
-
-  useEffect(() => {
-    dispatch(listProducts())
-  }, [dispatch])
-
   return (
-    <Container>
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Message variant='danger'>{error}</Message>
-      ) : (
-        <Carousel controls={false} className='product_carousel'>
-          {products &&
-            products.map((product) => (
-              <Carousel.Item key={product}>
-                {product && product.category !== 'valentine' && (
-                  <>
-                    <LinkContainer to={`/product/${product._id}`}>
-                      <Image
-                        src={product.img}
-                        alt={product.title}
-                        fluid
-                        className='product_carousel_image'
-                      />
-                    </LinkContainer>
+    <div>
+      <MDBCarousel
+        showIndicators
+        carousel-fade
+        className='ml-2 my-0'
+        // style={{ height: '40%', width: '40%' }}
+      >
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={1}
+          src={tiered}
+          alt='...'
+        ></MDBCarouselItem>
 
-                    <Carousel.Caption>
-                      <h2 className='product_carousel_caption font-Pacifico'>
-                        {product.title}
-                      </h2>
-                    </Carousel.Caption>
-                  </>
-                )}
-              </Carousel.Item>
-            ))}
-        </Carousel>
-      )}
-    </Container>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={2}
+          src={thirty}
+          alt='...'
+        ></MDBCarouselItem>
+
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={3}
+          src={cactus}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={4}
+          src={cinco}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={5}
+          src={ferrero}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={6}
+          src={floral}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={7}
+          src={floralpurple}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={8}
+          src={hulk}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={9}
+          src={micky}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={10}
+          src={numbertwo}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={11}
+          src={peppa}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={12}
+          src={pineappleupsidedown}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={13}
+          src={pinkhat}
+          alt='...'
+        ></MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={14}
+          src={wednesday}
+          alt='...'
+        ></MDBCarouselItem>
+      </MDBCarousel>
+    </div>
   )
 }
 

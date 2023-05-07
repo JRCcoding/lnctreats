@@ -117,7 +117,6 @@ const PlaceOrderScreen = ({ history }) => {
   }
 
   const placeOrderHandler = () => {
-    // UNCOMMENT TO ENABLE EMAILS BEING SENT FOR CONFIRMATION FOR LAURYN
     emailjsSend()
     dispatch(
       createOrder({
