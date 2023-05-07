@@ -19,7 +19,6 @@ root.render(
       authorizationParams={{
         redirect_uri: 'https://dev-dstps3q4l34f7d23.us.auth0.com/authorize',
         audience: 'https://dev-dstps3q4l34f7d23.us.auth0.com/api/v2/',
-        prompt: 'login',
         scope:
           'openid profile email read:users read:current_user update:current_user_metadata',
       }}
