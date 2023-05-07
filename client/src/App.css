@@ -13,8 +13,9 @@ html, body {
     padding-top: 13%;
   }
 } 
-
-
+.dropdown-toggle::after {
+  display: none !important;
+}
 .product_page_box {
   height: 100%;
 }

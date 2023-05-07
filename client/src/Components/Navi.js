@@ -12,6 +12,7 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
+  MDBIcon,
 } from 'mdb-react-ui-kit'
 import { Nav, Navbar, Container, NavbarBrand } from 'react-bootstrap'
 import { logout } from '../Actions/userActions'
@@ -106,7 +107,6 @@ export default function Navi() {
           className='ms-5 clickable toggler'
           style={{ scale: '1.6', opacity: '100%' }}
         >
-          {/* <MDBIcon className='burger' fas icon='birthday-cake' />{' '} */}
           🧁
         </NavbarBrand>
 
@@ -116,13 +116,18 @@ export default function Navi() {
               <MDBDropdown>
                 <MDBDropdownToggle
                   className='btn-light float-right'
-                  style={{ height: '70px', width: '70px', borderRadius: '50%' }}
+                  style={{
+                    height: '40px',
+                    width: '40px',
+                    borderRadius: '50%',
+                  }}
                 >
-                  <img
+                  {/* <img
                     src={user.picture}
                     alt={user.name}
                     className='navlink ms-auto'
-                  />
+                  /> */}
+                  <MDBIcon fas icon='user' />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
                   {isAuthenticated && (
@@ -170,49 +175,6 @@ export default function Navi() {
                 </MDBDropdownMenu>
               </MDBDropdown>
             ) : (
-              // <MDBDropdown id='username' className='navlink user_nav'>
-              //   <MDBDropdownToggle className='btn-light'>
-              //     {userInfo.name}
-              //   </MDBDropdownToggle>
-              //   <MDBDropdownMenu>
-              //     {userInfo.isAdmin && (
-              //       <LinkContainer
-              //         to='/admin/orderlist'
-              //         onClick={() => setExpanded(expanded ? false : 'expanded')}
-              //       >
-              //         <MDBDropdownItem
-              //           className='font-thin mx-3'
-              //           style={{ width: '150px' }}
-              //         >
-              //           Orders/Requests
-              //         </MDBDropdownItem>
-              //       </LinkContainer>
-              //     )}
-
-              //     <LinkContainer
-              //       to='/profile'
-              //       onClick={() => setExpanded(expanded ? false : 'expanded')}
-              //     >
-              //       <MDBDropdownItem className='font-thin mx-3'>
-              //         Profile
-              //       </MDBDropdownItem>
-              //     </LinkContainer>
-              //     <MDBDropdownItem
-              //       onClick={logoutHandler}
-              //       className='font-thin mx-3'
-              //     >
-              //       Logout
-              //     </MDBDropdownItem>
-              //   </MDBDropdownMenu>
-              // </MDBDropdown>
-              // <LinkContainer
-              //   to='/login'
-              //   onClick={() => setExpanded(expanded ? false : 'expanded')}
-              // >
-              //   <MDBNavbarItem className='navlink '>
-              //     <i className='fas fa-user'></i> Sign In
-              //   </MDBNavbarItem>
-              // </LinkContainer>
               <button onClick={() => loginWithRedirect()} className='navlink'>
                 <i className='fas fa-user'></i> Sign In
               </button>
