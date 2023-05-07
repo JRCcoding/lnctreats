@@ -32,7 +32,7 @@ const ProductCarousel = () => {
                   <>
                     <LinkContainer
                       to={
-                        product._id === '645826fed47619efc0e63f35'
+                        product.title === 'Cakes'
                           ? '/cakeorder'
                           : `/product/${product._id}`
                       }

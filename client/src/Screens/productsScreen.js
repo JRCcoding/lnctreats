@@ -88,7 +88,7 @@ const ProductsScreen = () => {
                               </Card.Body>
                             </Card>
                           )}{' '}
-                          {product._id === '645826fed47619efc0e63f35' && (
+                          {product.title === 'Cakes' && (
                             <Card className='product_card md:mb-5 mt-2'>
                               <LinkContainer to={`/cakeorder`}>
                                 <Image
