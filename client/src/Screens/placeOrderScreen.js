@@ -131,6 +131,7 @@ const PlaceOrderScreen = ({ history }) => {
       })
     )
   }
+  window.scrollTo(0, 0)
 
   return (
     <div className='background_pattern'>

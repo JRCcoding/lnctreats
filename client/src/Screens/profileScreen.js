@@ -250,6 +250,7 @@ const ProfileScreen = ({ history }) => {
   if (isLoading) {
     return <div>Loading ...</div>
   }
+  window.scrollTo(0, 0)
 
   return (
     isAuthenticated && (

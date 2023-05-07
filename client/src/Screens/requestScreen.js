@@ -40,6 +40,7 @@ const RequestScreen = ({ match, history }) => {
     }
     fetchRequest()
   }, [])
+  window.scrollTo(0, 0)
 
   const handleDelete = async () => {
     const config = {

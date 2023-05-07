@@ -7,6 +7,8 @@ import { Card, Image } from 'react-bootstrap'
 import Logo from '../Images/todd_logo.png'
 
 const AboutScreen = () => {
+  window.scrollTo(0, 0)
+
   return (
     <div className='background_pattern'>
       <Meta title='About LNC Treats' />

@@ -47,6 +47,7 @@ const CartScreen = ({ location, history }) => {
   const checkoutHandler = () => {
     history.push('/shipping')
   }
+  window.scrollTo(0, 0)
 
   return (
     <div className='background_pattern'>

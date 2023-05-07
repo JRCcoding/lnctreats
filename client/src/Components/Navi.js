@@ -1,7 +1,7 @@
 import Logo from '../Images/todd_logo.png'
 import '../index.css'
 import '../App.css'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'seSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import '../Styles/Navi.css'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -35,6 +35,7 @@ export default function Navi() {
         })
 
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`
+
 
         const metadataResponse = await fetch(userDetailsByIdUrl, {
           headers: {
