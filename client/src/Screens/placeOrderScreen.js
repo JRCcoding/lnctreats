@@ -118,7 +118,7 @@ const PlaceOrderScreen = ({ history }) => {
 
   const placeOrderHandler = () => {
     // UNCOMMENT TO ENABLE EMAILS BEING SENT FOR CONFIRMATION FOR LAURYN
-    // emailjsSend()
+    emailjsSend()
     dispatch(
       createOrder({
         userId: user.sub,
