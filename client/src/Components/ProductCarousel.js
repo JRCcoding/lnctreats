@@ -30,12 +30,18 @@ const ProductCarousel = () => {
               <Carousel.Item key={products}>
                 {product.category !== 'valentine' && (
                   <>
-                    <LinkContainer to={`/product/${product._id}`}>
+                    <LinkContainer
+                      to={
+                        product._id === '645826fed47619efc0e63f35'
+                          ? '/cakeorder'
+                          : `/product/${product._id}`
+                      }
+                    >
                       <Image
                         src={product.img}
                         alt={product.title}
                         fluid
-                        className='product_carousel_image rounded-full'
+                        className='product_carousel_image rounded'
                       />
                     </LinkContainer>
 

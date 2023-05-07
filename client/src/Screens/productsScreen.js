@@ -88,9 +88,9 @@ const ProductsScreen = () => {
                               </Card.Body>
                             </Card>
                           )}{' '}
-                          {product._id === '64123e1f130ffde436b154da' && (
+                          {product._id === '645826fed47619efc0e63f35' && (
                             <Card className='product_card md:mb-5 mt-2'>
-                              <LinkContainer to={`/product/${product._id}`}>
+                              <LinkContainer to={`/cakeorder`}>
                                 <Image
                                   position='top'
                                   alt='Lauryn Claxton LNC Treats'
@@ -100,7 +100,7 @@ const ProductsScreen = () => {
                               </LinkContainer>
                               <Card.Body>
                                 <Card.Header>
-                                  <LinkContainer to={`/product/${product._id}`}>
+                                  <LinkContainer to={`/cakeorder`}>
                                     <Card.Title className='clickable inline'>
                                       <h3 className='product_title font-Pacifico scale-125 my-auto'>
                                         {product.title}
