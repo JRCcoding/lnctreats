@@ -7,23 +7,63 @@ import Loader from '../Components/Loader'
 import { listOrders } from '../Actions/orderActions'
 import { listRequests } from '../Actions/requestActions'
 import axios from 'axios'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const OrderListScreen = ({ history }) => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  const orderList = useSelector((state) => state.orderList)
-  const { loading, error, orders } = orderList
+  // const orderList = useSelector((state) => state.orderList)
+  // const { loading, error, orders } = orderList
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   const [requests, setRequests] = useState()
+  const [orders, setOrders] = useState()
+  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
+    useAuth0()
+  const [userMetadata, setUserMetadata] = useState(null)
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = 'dev-dstps3q4l34f7d23.us.auth0.com'
 
+      try {
+        const accessToken = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: `https://${domain}/api/v2/`,
+            scope: 'read:current_user',
+          },
+        })
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+
+        const { user_metadata } = await metadataResponse.json()
+
+        setUserMetadata(user_metadata)
+      } catch (e) {
+        console.log(e.message)
+      }
+    }
+
+    getUserMetadata()
+  }, [getAccessTokenSilently, user?.sub])
   // useEffect(() => {
 
   // })
 
   useEffect(() => {
+    const fetchOrders = async () => {
+      const { data } = await axios.get('/api/orders')
+
+      setOrders(data)
+    }
+    fetchOrders()
     const fetchRequests = async () => {
       const { data } = await axios.get('/api/requests')
 
@@ -31,12 +71,12 @@ const OrderListScreen = ({ history }) => {
     }
     fetchRequests()
 
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listOrders())
-    } else {
-      history.push('/login')
-    }
-  }, [dispatch, history, userInfo])
+    // if (userMetadata && userMetadata.admin === true) {
+    //   dispatch(listOrders())
+    // } else {
+    //   history.push('/login')
+    // }
+  }, [])
   // useEffect(() => {
   //   dispatch(listRequests())
   // }, [dispatch])
@@ -44,14 +84,11 @@ const OrderListScreen = ({ history }) => {
 
   return (
     <div className='background_pattern'>
-      <Container className='py-5'>
-        <Card className='mb-5'>
-          <h1>Orders</h1>
-          {loading ? (
-            <Loader />
-          ) : error ? (
-            <Message variant='danger'>{error}</Message>
-          ) : (
+      {userMetadata && userMetadata.admin === true && (
+        <Container className='py-5'>
+          <Card className='mb-5'>
+            <h1>Orders</h1>
+
             <Table striped bordered hover responsive className='table-sm'>
               <thead>
                 <tr>
@@ -65,52 +102,47 @@ const OrderListScreen = ({ history }) => {
                 </tr>
               </thead>
               <tbody>
-                {orders.map((order) => (
-                  <tr key={order._id}>
-                    <td>{order._id.substring(19, 24)}</td>
-                    <td>{order.user && order.user.name}</td>
-                    <td>{order.createdAt.substring(0, 10)}</td>
-                    <td>${order.totalPrice}</td>
-                    <td>
-                      {order.isPaid ? (
-                        order.paidAt.substring(0, 10)
-                      ) : (
-                        <i
-                          className='fas fa-times'
-                          style={{ color: 'red' }}
-                        ></i>
-                      )}
-                    </td>
-                    <td>
-                      {order.isDelivered ? (
-                        order.deliveredAt.substring(0, 10)
-                      ) : (
-                        <i
-                          className='fas fa-times'
-                          style={{ color: 'red' }}
-                        ></i>
-                      )}
-                    </td>
-                    <td>
-                      <LinkContainer to={`/order/${order._id}`}>
-                        <Button variant='light' className='btn-sm'>
-                          Details
-                        </Button>
-                      </LinkContainer>
-                    </td>
-                  </tr>
-                ))}
+                {orders &&
+                  orders.map((order) => (
+                    <tr key={order._id}>
+                      <td>{order._id.substring(19, 24)}</td>
+                      <td>{order.user && order.user.name}</td>
+                      <td>{order.createdAt.substring(0, 10)}</td>
+                      <td>${order.totalPrice}</td>
+                      <td>
+                        {order.isPaid ? (
+                          order.paidAt.substring(0, 10)
+                        ) : (
+                          <i
+                            className='fas fa-times'
+                            style={{ color: 'red' }}
+                          ></i>
+                        )}
+                      </td>
+                      <td>
+                        {order.isDelivered ? (
+                          order.deliveredAt.substring(0, 10)
+                        ) : (
+                          <i
+                            className='fas fa-times'
+                            style={{ color: 'red' }}
+                          ></i>
+                        )}
+                      </td>
+                      <td>
+                        <LinkContainer to={`/order/${order._id}`}>
+                          <Button variant='light' className='btn-sm'>
+                            Details
+                          </Button>
+                        </LinkContainer>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </Table>
-          )}
-        </Card>
-        <Card>
-          <h1>Requests</h1>
-          {loading ? (
-            <Loader />
-          ) : error ? (
-            <Message variant='danger'>{error}</Message>
-          ) : (
+          </Card>
+          <Card>
+            <h1>Requests</h1>
             <Table striped bordered hover responsive className='table-sm'>
               <thead>
                 <tr>
@@ -141,9 +173,9 @@ const OrderListScreen = ({ history }) => {
                   ))}
               </tbody>
             </Table>
-          )}
-        </Card>
-      </Container>
+          </Card>
+        </Container>
+      )}
     </div>
   )
 }

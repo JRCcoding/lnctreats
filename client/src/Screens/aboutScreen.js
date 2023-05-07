@@ -44,7 +44,7 @@ const AboutScreen = () => {
                     multiple tiers and anything else you might want on a cake!
                     Personalized toppers can easily be added as well.
                   </p>
-                  <p className='about_p'>Local delivery for $5.00</p>
+                  <p className='about_p'>Local delivery starting at $5.00.</p>
                 </Col>
               </Row>
             </Card>

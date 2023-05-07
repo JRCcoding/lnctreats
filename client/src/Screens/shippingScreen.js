@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
-import { Form, Button, Card, Container } from 'react-bootstrap'
+import { Form, Button, Card, Container, FloatingLabel } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../Components/FormContainer'
 import CheckoutSteps from '../Components/CheckoutSteps'
 import { saveShippingAddress } from '../Actions/cartActions'
 import { withRouter } from 'react-router-dom'
 import Meta from '../Components/Meta'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
   const { shippingAddress } = cart
 
+  const { user } = useAuth0()
+
+  const [name, setName] = useState()
+  const [email, setEmail] = useState(user.email)
+  const [number, setNumber] = useState(user.number)
   const [address, setAddress] = useState(shippingAddress.address)
   const [city, setCity] = useState(shippingAddress.city)
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
-  const [country, setCountry] = useState(shippingAddress.country)
+  const [country, setCountry] = useState('United States')
   const [pickup, setPickup] = useState(shippingAddress.pickup)
 
   const dispatch = useDispatch()
@@ -22,7 +28,15 @@ const ShippingScreen = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
-      saveShippingAddress({ address, city, postalCode, country, pickup })
+      saveShippingAddress({
+        name,
+        number,
+        address,
+        city,
+        postalCode,
+        country,
+        pickup,
+      })
     )
     history.push('/payment')
   }
@@ -42,48 +56,83 @@ const ShippingScreen = ({ history }) => {
               <h7>
                 <strong>Payments due at delivery or pickup</strong>
               </h7>
+              <Form.Group controlId='name'>
+                <FloatingLabel label='Name'>
+                  <Form.Control
+                    type='text'
+                    placeholder='name'
+                    value={name}
+                    required
+                    onChange={(e) => setName(e.target.value)}
+                  ></Form.Control>
+                </FloatingLabel>
+              </Form.Group>
+              <Form.Group controlId='email'>
+                <FloatingLabel label='Email'>
+                  <Form.Control
+                    type='text'
+                    placeholder='email'
+                    value={email}
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                  ></Form.Control>
+                </FloatingLabel>
+              </Form.Group>
+              <Form.Group controlId='number'>
+                <FloatingLabel label='Number'>
+                  <Form.Control
+                    type='text'
+                    placeholder='number'
+                    value={number}
+                    required
+                    onChange={(e) => setNumber(e.target.value)}
+                  ></Form.Control>
+                </FloatingLabel>
+              </Form.Group>
               <Form.Group controlId='address'>
-                <Form.Label>Address</Form.Label>
-                <Form.Control
-                  type='text'
-                  placeholder='Enter address'
-                  value={address}
-                  required
-                  onChange={(e) => setAddress(e.target.value)}
-                ></Form.Control>
+                <FloatingLabel label='Address'>
+                  <Form.Control
+                    type='text'
+                    placeholder='address'
+                    value={address}
+                    required
+                    onChange={(e) => setAddress(e.target.value)}
+                  ></Form.Control>
+                </FloatingLabel>
               </Form.Group>
-
               <Form.Group controlId='city'>
-                <Form.Label>City</Form.Label>
-                <Form.Control
-                  type='text'
-                  placeholder='Enter city'
-                  value={city}
-                  required
-                  onChange={(e) => setCity(e.target.value)}
-                ></Form.Control>
+                <FloatingLabel label='City'>
+                  <Form.Control
+                    type='text'
+                    placeholder='city'
+                    value={city}
+                    required
+                    onChange={(e) => setCity(e.target.value)}
+                  ></Form.Control>
+                </FloatingLabel>
               </Form.Group>
-
               <Form.Group controlId='postalCode'>
-                <Form.Label>Postal Code</Form.Label>
-                <Form.Control
-                  type='text'
-                  placeholder='Enter postal code'
-                  value={postalCode}
-                  required
-                  onChange={(e) => setPostalCode(e.target.value)}
-                ></Form.Control>
+                <FloatingLabel label='Postal code'>
+                  <Form.Control
+                    type='text'
+                    placeholder='postal code'
+                    value={postalCode}
+                    required
+                    onChange={(e) => setPostalCode(e.target.value)}
+                  ></Form.Control>
+                </FloatingLabel>
               </Form.Group>
 
               <Form.Group controlId='country'>
-                <Form.Label>Country</Form.Label>
-                <Form.Control
-                  type='text'
-                  placeholder='Enter country'
-                  value={country}
-                  required
-                  onChange={(e) => setCountry(e.target.value)}
-                ></Form.Control>
+                <FloatingLabel label='Country'>
+                  <Form.Control
+                    type='text'
+                    placeholder='country'
+                    value={country}
+                    required
+                    onChange={(e) => setCountry(e.target.value)}
+                  ></Form.Control>
+                </FloatingLabel>
               </Form.Group>
               <h1>Pickup</h1>
               <Form.Group controlId='pickup'>

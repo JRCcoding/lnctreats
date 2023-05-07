@@ -10,16 +10,12 @@ import {
   deleteOrder,
 } from '../controllers/orderController.js'
 import { getRequests } from '../controllers/requestController.js'
-import { protect, admin } from '../middleware/authMiddleware.js'
 
-router
-  .route('/')
-  .post(protect, addOrderItems)
-  .get(protect, admin, getOrders, getRequests)
-router.route('/myorders').get(protect, getMyOrders)
-router.route('/:id').get(protect, getOrderById)
-router.route('/:id/pay').put(updateOrderToPaid, admin)
-router.route('/:id/deliver').put(protect, admin, updateOrderToDelivered)
-router.route('/:id/delete').delete(protect, admin, deleteOrder)
+router.route('/').post(addOrderItems).get(getOrders, getRequests)
+router.route('/myorders').get(getMyOrders)
+router.route('/:id').get(getOrderById)
+router.route('/:id/pay').put(updateOrderToPaid)
+router.route('/:id/deliver').put(updateOrderToDelivered)
+router.route('/:id/delete').delete(deleteOrder)
 
 export default router
