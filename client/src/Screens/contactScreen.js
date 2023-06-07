@@ -1,15 +1,15 @@
-import React from 'react'
-import { Contact } from '../Components/Contact'
-import { Fade } from 'react-reveal'
 import {
   MDBCard,
-  MDBCardTitle,
-  MDBCardText,
   MDBCardLink,
+  MDBCardText,
+  MDBCardTitle,
   MDBIcon,
 } from 'mdb-react-ui-kit'
-import '../Styles/Contact.css'
+import React from 'react'
+import { Fade } from 'react-reveal'
+import { Contact } from '../Components/Contact'
 import Meta from '../Components/Meta'
+import '../Styles/Contact.css'
 // import GoogleMaps from '../Components/GoogleMaps'
 
 const contactScreen = () => {
@@ -38,7 +38,7 @@ const contactScreen = () => {
                 </li>
               </MDBCardLink>
               <MDBCardLink
-                href='https://www.instagram.com/lnc_sweetandsavorytreats/'
+                href='https://www.instagram.com/laurynsndc/'
                 target='_blank'
                 className='contact_options_links'
               >

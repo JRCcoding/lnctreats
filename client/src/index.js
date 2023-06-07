@@ -17,7 +17,8 @@ root.render(
       clientId='EQF56gG62TNgxBy9obK2mKqtKJknBDgd'
       useRefreshTokens={true}
       authorizationParams={{
-        redirect_uri: 'https://lnctreats.com',
+        // redirect_uri: 'https://lnctreats.com',
+        redirect_uri: 'http://localhost:3000',
         audience: 'https://dev-dstps3q4l34f7d23.us.auth0.com/api/v2/',
         prompt: 'login',
         scope:
