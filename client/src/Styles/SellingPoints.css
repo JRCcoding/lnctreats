@@ -3,6 +3,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15%;
+    border-radius: 45px;
+    box-shadow: 3px 3px 10px rgb(120,120,120);
 }
 .card_title {
     font-family: Pacifico, cursive;
@@ -11,10 +13,17 @@
     background-color: #ff8cc5;
     margin: 0;
     padding: 0;
-    width: 75%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 3px 3px 10px rgb(120,120,120);
+    box-shadow: 3px 3px 10px rgb(120,120,120);
+
+    border-radius: 45px;
+
 }
 .card_text {
     font-family: pedestria-mvb, sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
 }

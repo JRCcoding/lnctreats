@@ -1,22 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
+import { useAuth0 } from '@auth0/auth0-react'
+import emailjs from '@emailjs/browser'
 import {
-  Button,
   Card,
   Col,
+  Container,
   FloatingLabel,
   Form,
   ListGroup,
   Row,
 } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { createRequest } from '../Actions/requestActions'
+import { useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
-import emailjs from '@emailjs/browser'
+import { createRequest } from '../Actions/requestActions'
 import CakeCarousel from '../Components/CakeCarousel'
-import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit'
-import { useAuth0 } from '@auth0/auth0-react'
 
 const CakeOrderScreen = ({ history }) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
@@ -141,7 +139,14 @@ const CakeOrderScreen = ({ history }) => {
                 <Col sm={4} md={6} lg={6} className='mt-5 mx-auto'>
                   <CakeCarousel />
                 </Col>
-                <Col sm={6} lg={12}>
+                <Col
+                  sm={6}
+                  lg={12}
+                  style={{
+                    borderLeft: '1px solid rgb(200,200,200)',
+                    paddingLeft: '0',
+                  }}
+                >
                   <Card.Header>
                     <Card.Title>
                       <h1 className='text-center'>Request Form</h1>
