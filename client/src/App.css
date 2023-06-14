@@ -26,3 +26,6 @@ html, body {
 .clickable:hover {
   cursor: pointer;
 }
+.button {
+  background-color: #765280!important;
+}
