@@ -16,37 +16,36 @@
 
 // export default OrderScreen
 
-import React, { useState, useEffect } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import axios from 'axios'
-import { PayPalButton } from 'react-paypal-button-v2'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
   Button,
+  Card,
+  Col,
   Container,
+  Image,
+  ListGroup,
+  Row,
 } from 'react-bootstrap'
+import { PayPalButton } from 'react-paypal-button-v2'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../Components/Message'
-import Loader from '../Components/Loader'
+import { Fade } from 'react-reveal'
+import { Link, withRouter } from 'react-router-dom'
 import {
+  deleteOrder,
+  deliverOrder,
   getOrderDetails,
   payOrder,
   payOrderAdmin,
-  deliverOrder,
-  deleteOrder,
 } from '../Actions/orderActions'
-import {
-  ORDER_PAY_RESET,
-  ORDER_DELIVER_RESET,
-} from '../Constants/orderConstants'
-import { withRouter } from 'react-router-dom'
-import { Fade } from 'react-reveal'
+import Loader from '../Components/Loader'
+import Message from '../Components/Message'
 import Meta from '../Components/Meta'
-import { useAuth0 } from '@auth0/auth0-react'
+import {
+  ORDER_DELIVER_RESET,
+  ORDER_PAY_RESET,
+} from '../Constants/orderConstants'
 
 const OrderScreen = ({ match, history }) => {
   const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently } =
@@ -177,7 +176,7 @@ const OrderScreen = ({ match, history }) => {
       <Meta title='LNC Order' />
       <Fade up>
         {user.sub === order.userId || userMetadata ? (
-          <Container>
+          <Container className='mt-5'>
             <Card>
               <h1>Order {order._id.substring(19, 24)}</h1>
               <Row>
@@ -330,7 +329,7 @@ const OrderScreen = ({ match, history }) => {
                         <ListGroup.Item>
                           <Button
                             type='button'
-                            className='btn btn-block'
+                            className='btn btn-block button'
                             onClick={deliverHandler}
                           >
                             Mark As Delivered
@@ -341,7 +340,7 @@ const OrderScreen = ({ match, history }) => {
                         <ListGroup.Item>
                           <Button
                             type='button'
-                            className='btn btn-block'
+                            className='btn btn-block button'
                             onClick={paymentHandler}
                           >
                             Mark As Paid
@@ -352,7 +351,7 @@ const OrderScreen = ({ match, history }) => {
                         <ListGroup.Item>
                           <Button
                             type='button'
-                            className='btn btn-block'
+                            className='btn btn-block button'
                             onClick={backButton}
                           >
                             Back
@@ -365,7 +364,7 @@ const OrderScreen = ({ match, history }) => {
                         <Button
                           type='button'
                           variant='danger'
-                          className='btn btn-block'
+                          className='btn btn-block button_dgr'
                           onClick={handleDelete}
                         >
                           Delete

@@ -1,20 +1,20 @@
-import Logo from '../Images/todd_logo.png'
-import '../index.css'
-import '../App.css'
+import { useAuth0 } from '@auth0/auth0-react'
 import React, { useEffect, useRef, useState } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
+import '../App.css'
+import Logo from '../Images/todd_logo.png'
+import '../index.css'
 import '../Styles/Navi.css'
-import { useAuth0 } from '@auth0/auth0-react'
 
 import {
   MDBDropdown,
-  MDBNavbarItem,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
   MDBDropdownItem,
+  MDBDropdownMenu,
+  MDBDropdownToggle,
   MDBIcon,
+  MDBNavbarItem,
 } from 'mdb-react-ui-kit'
-import { Nav, Navbar, Container, NavbarBrand } from 'react-bootstrap'
+import { Container, Nav, Navbar, NavbarBrand } from 'react-bootstrap'
 import { logout } from '../Actions/userActions'
 
 export default function Navi() {
@@ -114,7 +114,7 @@ export default function Navi() {
           <Nav className='ml-auto'>
             {isAuthenticated ? (
               <MDBDropdown>
-                {user.sub.includes('facebook') ? (
+                {user.sub.includes('google') ? (
                   <MDBDropdownToggle
                     className='btn-light float-right'
                     style={{
@@ -127,19 +127,22 @@ export default function Navi() {
                       src={user.picture}
                       alt={user.name}
                       className='navlink ms-auto'
-                      style={{ scale: '175%' }}
+                      style={{ scale: '5.5' }}
                     />
                   </MDBDropdownToggle>
                 ) : (
                   <MDBDropdownToggle
                     className='btn-light float-right'
                     style={{
-                      height: '40px',
-                      width: '40px',
+                      height: '45px',
+                      width: '45px',
                       borderRadius: '50%',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
                     }}
                   >
-                    <MDBIcon fas icon='user' />
+                    <MDBIcon fas icon='user' style={{ scale: '1.7' }} />
                   </MDBDropdownToggle>
                 )}
 

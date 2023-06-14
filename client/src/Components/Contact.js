@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { Form, Button, Card, FloatingLabel } from 'react-bootstrap'
+import React, { useRef, useState } from 'react'
+import { Button, Card, FloatingLabel, Form } from 'react-bootstrap'
 
 export const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState()
@@ -63,7 +63,9 @@ export const Contact = () => {
               </FloatingLabel>
               <br />
               <div className='submit_div'>
-                <Button type='submit'>Send</Button>
+                <Button type='submit' className='btn-block button'>
+                  Send
+                </Button>
               </div>
             </Form>
           </Card.Body>
