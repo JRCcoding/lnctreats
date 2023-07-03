@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import Meta from '../Components/Meta'
-import { Form, Button, Col, Card, Container } from 'react-bootstrap'
+import { Button, Card, Col, Container, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import FormContainer from '../Components/FormContainer'
-import CheckoutSteps from '../Components/CheckoutSteps'
-import { savePaymentMethod } from '../Actions/cartActions'
 import { withRouter } from 'react-router-dom'
+import { savePaymentMethod } from '../Actions/cartActions'
+import CheckoutSteps from '../Components/CheckoutSteps'
+import FormContainer from '../Components/FormContainer'
+import Meta from '../Components/Meta'
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
@@ -38,7 +38,7 @@ const PaymentScreen = ({ history }) => {
               <Form.Group>
                 <Form.Label as='legend'>Select Method</Form.Label>
                 <Col>
-                  <Form.Check
+                  {/* <Form.Check
                     type='radio'
                     label='PayPal or Credit Card'
                     id='PayPal'
@@ -46,15 +46,15 @@ const PaymentScreen = ({ history }) => {
                     value='PayPal'
                     checked
                     onChange={(e) => setPaymentMethod(e.target.value)}
+                  ></Form.Check> */}
+                  <Form.Check
+                    type='radio'
+                    label='Stripe'
+                    id='Stripe'
+                    name='paymentMethod'
+                    value='Stripe'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
                   ></Form.Check>
-                  {/* <Form.Check
-              type='radio'
-              label='Stripe'
-              id='Stripe'
-              name='paymentMethod'
-              value='Stripe'
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check> */}
                   <Form.Check
                     type='radio'
                     label='Cash'

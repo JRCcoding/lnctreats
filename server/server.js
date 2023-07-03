@@ -1,16 +1,19 @@
-import express from 'express'
-import connectDB from './config/db.js'
+// import { loadStripe } from '@stripe/stripe-js'
 import dotenv from 'dotenv'
-import productRoutes from './routes/productRoutes.js'
-import contactRoutes from './routes/contactRoutes.js'
-import userRoutes from './routes/userRoutes.js'
-import orderRoutes from './routes/orderRoutes.js'
-import requestRoutes from './routes/requestRoutes.js'
-import { notFound, errorHandler } from './middleware/errorMiddleware.js'
-import path from 'path'
-import colors from 'colors'
-import cors from 'cors'
+import express from 'express'
 import morgan from 'morgan'
+import path from 'path'
+import connectDB from './config/db.js'
+import { errorHandler, notFound } from './middleware/errorMiddleware.js'
+import contactRoutes from './routes/contactRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
+import productRoutes from './routes/productRoutes.js'
+import requestRoutes from './routes/requestRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+
+// const stripe = await loadStripe(
+//   'pk_test_51M1uU6DlGuSOO9hwVj3UDh5KeWmujkZJYZZSJILQXCtY0q7QJHPUq6RveQpduosvfVNTBEQCNY0mD3YFMcg6senn00xOaqDtWk'
+// )
 
 dotenv.config()
 
@@ -41,6 +44,14 @@ app.use('/api/requests', requestRoutes)
 app.get('/api/config/paypal', (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 )
+
+// app.get('/client-secret', async (req, res) => {
+//   const paymentIntent = await stripe.paymentIntents.create({
+//     amount: 1000,
+//     currency: 'usd',
+//   })
+//   res.json({ clientSecret: paymentIntent.client_secret })
+// })
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'))

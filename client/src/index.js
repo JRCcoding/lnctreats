@@ -1,13 +1,13 @@
+import { Auth0Provider } from '@auth0/auth0-react'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-import 'mdb-react-ui-kit/dist/css/mdb.min.css'
-import '@fortawesome/fontawesome-free/css/all.min.css'
-import App from './App'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { Provider } from 'react-redux'
+import App from './App'
+import './index.css'
 import store from './store'
-import { Auth0Provider } from '@auth0/auth0-react'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
