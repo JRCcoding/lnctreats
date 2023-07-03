@@ -16,39 +16,56 @@
 
 // export default OrderScreen
 
-import React, { useState, useEffect } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
+// import { loadStripe } from '@stripe/stripe-js'
 import axios from 'axios'
-import { PayPalButton } from 'react-paypal-button-v2'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
   Button,
+  Card,
+  Col,
   Container,
+  Image,
+  ListGroup,
+  Row,
 } from 'react-bootstrap'
+import { PayPalButton } from 'react-paypal-button-v2'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../Components/Message'
-import Loader from '../Components/Loader'
+import { Fade } from 'react-reveal'
+import { Link, withRouter } from 'react-router-dom'
 import {
+  deleteOrder,
+  deliverOrder,
   getOrderDetails,
   payOrder,
   payOrderAdmin,
-  deliverOrder,
-  deleteOrder,
 } from '../Actions/orderActions'
-import {
-  ORDER_PAY_RESET,
-  ORDER_DELIVER_RESET,
-} from '../Constants/orderConstants'
-import { withRouter } from 'react-router-dom'
-import { Fade } from 'react-reveal'
+import Loader from '../Components/Loader'
+import Message from '../Components/Message'
 import Meta from '../Components/Meta'
-import { useAuth0 } from '@auth0/auth0-react'
+import {
+  ORDER_DELIVER_RESET,
+  ORDER_PAY_RESET,
+} from '../Constants/orderConstants'
+import getStripe from '../stripe'
 
 const OrderScreen = ({ match, history }) => {
+  async function handleCheckout() {
+    const stripe = await getStripe()
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [
+        {
+          price: 'price_1NPYzbFma9SnWGyuAUnaJyZD',
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      successUrl: `http://localhost:3000/`,
+      cancelUrl: `http://localhost:3000/cancel`,
+      // customerEmail: 'customer@email.com',
+    })
+    console.warn(error.message)
+  }
   const { user, isAuthenticated, loginWithRedirect, getAccessTokenSilently } =
     useAuth0()
 
@@ -173,6 +190,7 @@ const OrderScreen = ({ match, history }) => {
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : (
+    // <Elements stripe={stripePromise} options={options}>
     <div className='background_pattern'>
       <Meta title='LNC Order' />
       <Fade up>
@@ -325,6 +343,17 @@ const OrderScreen = ({ match, history }) => {
                             )}
                           </ListGroup.Item>
                         )}
+                      {!order.isPaid &&
+                        !userMetadata &&
+                        order.paymentMethod === 'Stripe' && (
+                          <Button
+                            type='button'
+                            className='btn btn-block'
+                            onClick={handleCheckout}
+                          >
+                            Pay with Stripe
+                          </Button>
+                        )}
 
                       {userMetadata && order.isDelivered === 'false' && (
                         <ListGroup.Item>
@@ -382,6 +411,7 @@ const OrderScreen = ({ match, history }) => {
         )}
       </Fade>
     </div>
+    // </Elements>
   )
 }
 
