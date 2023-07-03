@@ -47,6 +47,7 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../Constants/orderConstants'
+import getStripe from '../stripe'
 
 const OrderScreen = ({ match, history }) => {
   async function handleCheckout() {
