@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { Form, Button, Card, Container, FloatingLabel } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import FormContainer from '../Components/FormContainer'
-import CheckoutSteps from '../Components/CheckoutSteps'
-import { saveShippingAddress } from '../Actions/cartActions'
-import { withRouter } from 'react-router-dom'
-import Meta from '../Components/Meta'
 import { useAuth0 } from '@auth0/auth0-react'
+import React, { useEffect, useState } from 'react'
+import { Button, Card, Container, FloatingLabel, Form } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { saveShippingAddress } from '../Actions/cartActions'
+import CheckoutSteps from '../Components/CheckoutSteps'
+import FormContainer from '../Components/FormContainer'
+import Meta from '../Components/Meta'
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
@@ -15,8 +15,8 @@ const ShippingScreen = ({ history }) => {
   const { user } = useAuth0()
 
   const [name, setName] = useState()
-  const [email, setEmail] = useState(user.email)
-  const [number, setNumber] = useState(user.number)
+  const [email, setEmail] = useState(user?.email)
+  const [number, setNumber] = useState(user?.number)
   const [address, setAddress] = useState(shippingAddress.address)
   const [city, setCity] = useState(shippingAddress.city)
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
@@ -42,6 +42,13 @@ const ShippingScreen = ({ history }) => {
   }
   window.scrollTo(0, 0)
 
+  useEffect(() => {
+    if (!user) {
+      window.location.href =
+        'https://dev-dstps3q4l34f7d23.us.auth0.com/u/login?state=hKFo2SBmSnJCbzIxeXhBQ2pMYUtrRmRVTUp5M0FrczZ4cHZFU6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGNsN2JzRU1kTG5kaGtWX0hGbWVuNGZlMTNUaG5jaWdUo2NpZNkgRVFGNTZnRzYyVE5neEJ5OW9iSzJtS3F0S0prbkJEZ2Q'
+    }
+  })
+
   return (
     <div className='background_pattern'>
       <Meta title='LNC Delivery' />
@@ -50,7 +57,10 @@ const ShippingScreen = ({ history }) => {
           <Container>
             <CheckoutSteps step1 step2 />
 
-            <Form onSubmit={submitHandler}>
+            <Form
+              onSubmit={submitHandler}
+              style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
+            >
               <h1>Delivery</h1>
               <h5>Local delivery only to Midland and Central/East Odessa</h5>
               <h7>
@@ -79,16 +89,17 @@ const ShippingScreen = ({ history }) => {
                 </FloatingLabel>
               </Form.Group>
               <Form.Group controlId='number'>
-                <FloatingLabel label='Number'>
+                <FloatingLabel label='Phone'>
                   <Form.Control
                     type='text'
-                    placeholder='number'
+                    placeholder='Phone'
                     value={number}
                     required
                     onChange={(e) => setNumber(e.target.value)}
                   ></Form.Control>
                 </FloatingLabel>
               </Form.Group>
+              <hr />
               <Form.Group controlId='address'>
                 <FloatingLabel label='Address'>
                   <Form.Control
@@ -134,23 +145,28 @@ const ShippingScreen = ({ history }) => {
                   ></Form.Control>
                 </FloatingLabel>
               </Form.Group>
-              <h1>Pickup</h1>
+              <hr />
               <Form.Group controlId='pickup'>
-                <Form.Label>Pickup</Form.Label>
-                <Form.Select
-                  type='text'
-                  placeholder='Will you be picking up?'
-                  value={pickup}
-                  onChange={(e) => setPickup(e.target.value)}
-                  required
-                >
-                  <option value='chooseone'>Choose one...</option>
-                  <option value='true'>Yes</option>
-                  <option value='false'>No</option>
-                </Form.Select>
+                <FloatingLabel label='Pickup'>
+                  <Form.Select
+                    type='text'
+                    placeholder='Will you be picking up?'
+                    value={pickup}
+                    onChange={(e) => setPickup(e.target.value)}
+                    required
+                  >
+                    <option value='chooseone'>Choose one...</option>
+                    <option value='true'>Yes</option>
+                    <option value='false'>No</option>
+                  </Form.Select>
+                </FloatingLabel>
               </Form.Group>
 
-              <Button type='submit' variant='primary'>
+              <Button
+                type='submit'
+                variant='primary'
+                className='btn-block button mb-4'
+              >
                 Continue
               </Button>
             </Form>

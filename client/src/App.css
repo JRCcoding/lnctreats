@@ -6,6 +6,7 @@ html, body {
   background-image: url(./Images/todd_bg_update.jpg);
   background-size: 200%;
   padding-top: 30%;
+  min-height: 100vh;
 }
 @media only screen and (min-width: 800px) {
   .background_pattern {
@@ -25,4 +26,10 @@ html, body {
 }
 .clickable:hover {
   cursor: pointer;
+}
+.button {
+  background-color: #765280!important;
+}
+.button_dgr {
+  background-color: #925b5b!important;
 }

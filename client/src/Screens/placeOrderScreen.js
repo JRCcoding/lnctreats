@@ -1,26 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Fade } from 'react-reveal'
-import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import emailjs from '@emailjs/browser'
+import React, { useEffect, useState } from 'react'
 import {
   Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
   Card,
+  Col,
   Container,
-  Form,
+  Image,
+  ListGroup,
+  Row,
 } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../Components/Message'
-import CheckoutSteps from '../Components/CheckoutSteps'
+import { Fade } from 'react-reveal'
+import { Link, withRouter } from 'react-router-dom'
 import { createOrder } from '../Actions/orderActions'
+import CheckoutSteps from '../Components/CheckoutSteps'
+import Message from '../Components/Message'
+import Meta from '../Components/Meta'
 import { ORDER_CREATE_RESET } from '../Constants/orderConstants'
 import { USER_DETAILS_RESET } from '../Constants/userConstants'
-import { withRouter } from 'react-router-dom'
-import Meta from '../Components/Meta'
-import emailjs from '@emailjs/browser'
-import { useAuth0 } from '@auth0/auth0-react'
 
 const PlaceOrderScreen = ({ history }) => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
@@ -251,7 +249,7 @@ const PlaceOrderScreen = ({ history }) => {
                       <ListGroup.Item>
                         <Button
                           type='button'
-                          className='btn-block'
+                          className='btn-block button'
                           disabled={cart.cartItems === 0}
                           onClick={placeOrderHandler}
                         >
