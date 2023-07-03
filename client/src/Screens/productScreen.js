@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import { MDBCard } from 'mdb-react-ui-kit'
+import React, { useEffect, useState } from 'react'
 import {
-  Row,
+  Button,
   Col,
+  Container,
+  FloatingLabel,
+  Form,
   Image,
   ListGroup,
-  Container,
-  Form,
-  FloatingLabel,
+  Row,
 } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { MDBCard } from 'mdb-react-ui-kit'
+import { useParams, withRouter } from 'react-router-dom'
+import { listProducts } from '../Actions/productActions'
 import Loader from '../Components/Loader'
 import Message from '../Components/Message'
-import { listProducts } from '../Actions/productActions'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import '../Styles/Product.css'
 import Meta from '../Components/Meta'
-import { withRouter } from 'react-router-dom'
+import '../Styles/Product.css'
 
 const ProductScreen = ({ history }) => {
   const [product, setProduct] = useState({})
@@ -215,12 +215,12 @@ const ProductScreen = ({ history }) => {
                                     <Form.Label>Date:</Form.Label>
                                     <Form.Control type='date' />
                                   </Form.Group>
-                                  <button
+                                  <Button
                                     className='addcart_button'
                                     type='submit'
                                   >
                                     ADD TO CART
-                                  </button>
+                                  </Button>
                                 </Form>
                               </Col>
                             </Row>

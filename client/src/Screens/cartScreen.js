@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
 import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Form,
   Button,
   Card,
+  Col,
   Container,
+  Form,
+  Image,
+  ListGroup,
+  Row,
 } from 'react-bootstrap'
-import { addToCart, removeFromCart } from '../Actions/cartActions'
-import { useParams, withRouter } from 'react-router-dom'
-import { LinkContainer } from 'react-router-bootstrap'
-import Message from '../Components/Message'
-import '../Styles/Cart.css'
-import Meta from '../Components/Meta'
+import { useDispatch, useSelector } from 'react-redux'
 import { Fade } from 'react-reveal'
+import { LinkContainer } from 'react-router-bootstrap'
+import { useParams, withRouter } from 'react-router-dom'
+import { addToCart, removeFromCart } from '../Actions/cartActions'
+import Message from '../Components/Message'
+import Meta from '../Components/Meta'
+import '../Styles/Cart.css'
 
 const CartScreen = ({ location, history }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -166,7 +166,7 @@ const CartScreen = ({ location, history }) => {
                 {cartItems.length !== 0 ? (
                   <LinkContainer to='/products'>
                     <span className='clickable'>
-                      <Button type='button' className='btn-block'>
+                      <Button type='button' className='btn-block button'>
                         {' '}
                         &nbsp;Continue Shopping
                       </Button>
@@ -227,7 +227,7 @@ const CartScreen = ({ location, history }) => {
                     <ListGroup.Item>
                       <Button
                         type='button'
-                        className='btn-block'
+                        className='btn-block button'
                         disabled={cartItems.length === 0}
                         onClick={checkoutHandler}
                       >

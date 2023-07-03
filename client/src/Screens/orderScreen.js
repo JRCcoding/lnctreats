@@ -47,7 +47,6 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../Constants/orderConstants'
-import getStripe from '../stripe'
 
 const OrderScreen = ({ match, history }) => {
   async function handleCheckout() {
@@ -195,7 +194,7 @@ const OrderScreen = ({ match, history }) => {
       <Meta title='LNC Order' />
       <Fade up>
         {user.sub === order.userId || userMetadata ? (
-          <Container>
+          <Container className='mt-5'>
             <Card>
               <h1>Order {order._id.substring(19, 24)}</h1>
               <Row>
@@ -359,7 +358,7 @@ const OrderScreen = ({ match, history }) => {
                         <ListGroup.Item>
                           <Button
                             type='button'
-                            className='btn btn-block'
+                            className='btn btn-block button'
                             onClick={deliverHandler}
                           >
                             Mark As Delivered
@@ -370,7 +369,7 @@ const OrderScreen = ({ match, history }) => {
                         <ListGroup.Item>
                           <Button
                             type='button'
-                            className='btn btn-block'
+                            className='btn btn-block button'
                             onClick={paymentHandler}
                           >
                             Mark As Paid
@@ -381,7 +380,7 @@ const OrderScreen = ({ match, history }) => {
                         <ListGroup.Item>
                           <Button
                             type='button'
-                            className='btn btn-block'
+                            className='btn btn-block button'
                             onClick={backButton}
                           >
                             Back
@@ -394,7 +393,7 @@ const OrderScreen = ({ match, history }) => {
                         <Button
                           type='button'
                           variant='danger'
-                          className='btn btn-block'
+                          className='btn btn-block button_dgr'
                           onClick={handleDelete}
                         >
                           Delete
